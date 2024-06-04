@@ -5,19 +5,12 @@
   "type": "module",
   "scripts": {
     "build": "next build",
-    "db:generate": "prisma migrate dev",
-    "db:migrate": "prisma migrate deploy",
-    "db:push": "prisma db push",
-    "db:studio": "prisma studio",
-    "dev": "next dev",
-    "lint": "next lint",
-    "start": "next start"
+    "dev": "next dev"
   },
   "dependencies": {
-    "@auth/prisma-adapter": "^1.6.0",
-    "@prisma/client": "^5.14.0",
+    "@supabase/ssr": "^0.3.0",
+    "@supabase/supabase-js": "^2.43.4",
     "next": "^14.2.1",
-    "next-auth": "^4.24.7",
     "react": "^18.3.0",
     "react-dom": "^18.3.0"
   },
@@ -35,7 +28,6 @@
     "prettier": "^3.2.5",
     "prettier-plugin-organize-imports": "^3.2.4",
     "prettier-plugin-tailwindcss": "^0.5.14",
-    "prisma": "^5.14.0",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.2"
   }
