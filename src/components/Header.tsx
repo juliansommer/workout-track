@@ -36,7 +36,9 @@ export default async function Header() {
           {data.session && (
             <form action={logoutAction} className="flex">
               <li>
-                <Link href="/profile" className="text-slate-900">
+                <Link
+                  href="/profile"
+                  className="text-slate-900 dark:text-slate-200">
                   Profile
                 </Link>
               </li>
