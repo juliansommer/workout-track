@@ -12,19 +12,16 @@ export default async function ProfilePage() {
   return (
     <>
       <Header />
-      <section className="bg-blue-600  min-h-screen pt-20">
-        <div className="max-w-4xl mx-auto bg-white rounded-md h-[20rem] flex justify-center items-center">
+      <section className="min-h-screen pt-20">
+        <div className="mx-auto flex h-[20rem] max-w-4xl items-center justify-center rounded-md">
           <div>
-            <p className="mb-3 text-5xl text-center font-semibold">
+            <p className="mb-3 text-center text-5xl font-semibold">
               Profile Page
             </p>
             <div className="mt-8">
               <p className="mb-3">Id: {data.user.id}</p>
               <p className="mb-3">Role: {data.user.role}</p>
               <p className="mb-3">Email: {data.user.email}</p>
-              <p className="mb-3">
-                Provider: {data.user.app_metadata.provider}
-              </p>
               <p className="mb-3">Created At: {data.user.created_at}</p>
             </div>
           </div>

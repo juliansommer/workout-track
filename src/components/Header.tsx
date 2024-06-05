@@ -12,12 +12,12 @@ export default async function Header() {
   }
 
   return (
-    <header className="bg-white dark:bg-black h-20 p-10">
-      <nav className="h-full flex justify-between items-center">
+    <header className="h-20 p-10">
+      <nav className="flex h-full items-center justify-between">
         <div>
           <Link
             href="/"
-            className="text-slate-900 dark:text-slate-200 text-2xl font-semibold">
+            className="text-2xl font-semibold text-slate-900 dark:text-slate-200">
             Workout Tracker
           </Link>
         </div>
