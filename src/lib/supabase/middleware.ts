@@ -17,6 +17,7 @@ export default async function updateSession(request: NextRequest) {
           return request.cookies.get(name)?.value
         },
         set(name: string, value: string, options: CookieOptions) {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
           request.cookies.set({
             name,
             value,
@@ -27,6 +28,7 @@ export default async function updateSession(request: NextRequest) {
               headers: request.headers,
             },
           })
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
           response.cookies.set({
             name,
             value,
@@ -34,6 +36,7 @@ export default async function updateSession(request: NextRequest) {
           })
         },
         remove(name: string, options: CookieOptions) {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
           request.cookies.set({
             name,
             value: '',
@@ -44,6 +47,7 @@ export default async function updateSession(request: NextRequest) {
               headers: request.headers,
             },
           })
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
           response.cookies.set({
             name,
             value: '',

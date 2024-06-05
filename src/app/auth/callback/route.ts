@@ -19,9 +19,11 @@ export async function GET(request: Request) {
             return cookieStore.get(name)?.value;
           },
           set(name: string, value: string, options: CookieOptions) {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
             cookieStore.set({ name, value, ...options });
           },
           remove(name: string, options: CookieOptions) {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
             cookieStore.delete({ name, ...options });
           },
         },

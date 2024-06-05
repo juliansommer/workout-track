@@ -12,10 +12,12 @@ export default async function Header() {
   }
 
   return (
-    <header className="bg-white h-20 p-10">
+    <header className="bg-white dark:bg-black h-20 p-10">
       <nav className="h-full flex justify-between items-center">
         <div>
-          <Link href="/" className="text-ct-dark-600 text-2xl font-semibold">
+          <Link
+            href="/"
+            className="text-slate-900 dark:text-slate-200 text-2xl font-semibold">
             Workout Tracker
           </Link>
         </div>
@@ -23,7 +25,9 @@ export default async function Header() {
           {!data.session && (
             <>
               <li>
-                <Link href="/login" className="text-ct-dark-600">
+                <Link
+                  href="/login"
+                  className="text-slate-900 dark:text-slate-200">
                   Login
                 </Link>
               </li>
@@ -32,7 +36,7 @@ export default async function Header() {
           {data.session && (
             <form action={logoutAction} className="flex">
               <li>
-                <Link href="/profile" className="text-ct-dark-600">
+                <Link href="/profile" className="text-slate-900">
                   Profile
                 </Link>
               </li>
