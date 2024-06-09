@@ -1,11 +1,15 @@
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/DropdownMenu"
 import getUserSession from "@/lib/getUserSession"
 import createSupabaseServerClient from "@/lib/supabase/server"
 import Link from "next/link"
-// import { useState } from "react"
 
 export default async function Nav() {
   const { data } = await getUserSession()
-  // const [toggleDropdown, setToggleDropdown] = useState(false)
 
   async function logoutAction() {
     "use server"
@@ -16,7 +20,7 @@ export default async function Nav() {
   return (
     <nav className="flex-between mb-16 flex h-full w-full items-center justify-between pt-3">
       <Link href="/" className="flex-center flex gap-2">
-        <p className="font-satoshi text-lg font-semibold tracking-wide text-black dark:text-white max-sm:hidden">
+        <p className="font-satoshi text-lg font-semibold tracking-wide text-black dark:text-white">
           Workout Track
         </p>
       </Link>
@@ -38,35 +42,21 @@ export default async function Nav() {
       </div>
 
       {/* Mobile Navigation */}
-      {/* <div className="relative flex sm:hidden">
-        {!data.session ? (
-          <div className="flex">
-            {toggleDropdown && (
-              <div className="absolute right-0 top-full mt-3 flex w-full min-w-[210px] flex-col items-end justify-end gap-2 rounded-lg bg-white p-5">
-                <Link
-                  href="/profile"
-                  className="dropdown_link"
-                  onClick={() => setToggleDropdown(false)}>
-                  My Profile
-                </Link>
-                <Link
-                  href="/create-prompt"
-                  className="dropdown_link"
-                  onClick={() => setToggleDropdown(false)}>
-                  Create Prompt
-                </Link>
-                <button
-                  type="button"
-                  className="dark:white_btn black_btn mt-5 w-full"
-                  onClick={() => {
-                    setToggleDropdown(false)
-                    void logoutAction()
-                  }}>
-                  Sign Out
-                </button>
-              </div>
-            )}
-          </div>
+      <div className="relative flex sm:hidden">
+        {data.session ? (
+          <DropdownMenu>
+            <DropdownMenuTrigger>Open</DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <form action={logoutAction}>
+                <DropdownMenuItem>
+                  <Link href="/plans">Plans</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <button>Logout</button>
+                </DropdownMenuItem>
+              </form>
+            </DropdownMenuContent>
+          </DropdownMenu>
         ) : (
           <>
             <Link type="button" href="/login" className="black_btn">
@@ -74,7 +64,7 @@ export default async function Nav() {
             </Link>
           </>
         )}
-      </div> */}
+      </div>
     </nav>
   )
 }

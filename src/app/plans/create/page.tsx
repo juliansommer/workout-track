@@ -1,4 +1,12 @@
+import { Button } from "@/components/ui/Button"
 import { Input } from "@/components/ui/Input"
+import { Label } from "@/components/ui/Label"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/Popover"
+import { Textarea } from "@/components/ui/Textarea"
 import getUserAuth from "@/lib/getUserAuth"
 import { redirect } from "next/navigation"
 
@@ -10,16 +18,37 @@ export default async function PlanCreatePage() {
   }
 
   return (
-    <div className="p-5">
+    <div className="w-80 p-5">
       <p>Create Plan</p>
       <div className="pt-5">
-        <Input type="text" placeholder="Name"></Input>
+        <Input type="text" placeholder="Name" />
       </div>
       <div className="pt-5">
-        <Input type="text" placeholder="Notes"></Input>
+        <Textarea placeholder="Notes" />
+      </div>
+      <div className="pt-5">
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button variant="outline" className="w-full">
+              Add Exercise
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent className="w-80">
+            <div className="grid gap-4">
+              <div className="grid gap-2">
+                <div className="grid grid-cols-3 items-center gap-4">
+                  <Label htmlFor="width">Exercise</Label>
+                  <Input id="muscle" className="col-span-2 h-8" />
+                </div>
+                <div className="grid grid-cols-3 items-center gap-4">
+                  <Label htmlFor="maxWidth">Sets</Label>
+                  <Input id="sets" className="col-span-2 h-8" />
+                </div>
+              </div>
+            </div>
+          </PopoverContent>
+        </Popover>
       </div>
     </div>
-
-    // shad cn popover thing for add exercise button
   )
 }

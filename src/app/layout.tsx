@@ -1,10 +1,14 @@
 import Nav from "@/components/Nav"
 import ThemeButton from "@/components/ThemeButton"
 import ThemeProvider from "@/components/ThemeProvider"
+import { cn } from "@/lib/utils"
 import { Inter } from "next/font/google"
 import "./globals.css"
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--inter",
+})
 
 export const metadata = {
   applicationName: "Workout Track",
@@ -37,7 +41,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <body className={inter.className}>
+        <body
+          className={cn(
+            "min-h-screen bg-background font-sans antialiased",
+            inter.variable,
+          )}>
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"

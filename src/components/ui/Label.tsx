@@ -11,18 +11,15 @@ const labelVariants = cva(
 
 const Label = React.forwardRef<
   React.ElementRef<typeof LabelPrimitive.Root>,
-  // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
   React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> &
     VariantProps<typeof labelVariants>
 >(({ className, ...props }, ref) => (
   <LabelPrimitive.Root
     ref={ref}
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     className={cn(labelVariants(), className)}
     {...props}
   />
 ))
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
 Label.displayName = LabelPrimitive.Root.displayName
 
 export { Label }
