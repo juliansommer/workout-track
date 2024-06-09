@@ -1,7 +1,8 @@
-import { createServerClient, type CookieOptions } from '@supabase/ssr'
-import { cookies } from 'next/headers'
+"use server"
+import { createServerClient, type CookieOptions } from "@supabase/ssr"
+import { cookies } from "next/headers"
 
-export default function createSupabaseServerClient() {
+export default async function createSupabaseServerClient() {
   const cookieStore = cookies()
 
   return createServerClient(
@@ -18,9 +19,9 @@ export default function createSupabaseServerClient() {
         },
         remove(name: string, options: CookieOptions) {
           // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-          cookieStore.set({ name, value: '', ...options })
+          cookieStore.set({ name, value: "", ...options })
         },
       },
-    }
+    },
   )
 }

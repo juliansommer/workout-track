@@ -1,3 +1,4 @@
+import Nav from "@/components/Nav"
 import ThemeButton from "@/components/ThemeButton"
 import ThemeProvider from "@/components/ThemeProvider"
 import { Inter } from "next/font/google"
@@ -41,7 +42,10 @@ export default function RootLayout({
             attribute="class"
             defaultTheme="dark"
             disableTransitionOnChange>
-            {children}
+            <main className="relative z-10 mx-auto flex max-w-7xl flex-col items-center justify-center px-6 sm:px-16">
+              <Nav />
+              {children}
+            </main>
             <ThemeButton />
           </ThemeProvider>
         </body>

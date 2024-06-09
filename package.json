@@ -8,13 +8,19 @@
     "dev": "next dev"
   },
   "dependencies": {
+    "@radix-ui/react-label": "^2.0.2",
+    "@radix-ui/react-popover": "^1.0.7",
+    "@radix-ui/react-slot": "^1.0.2",
     "@supabase/ssr": "^0.3.0",
     "@supabase/supabase-js": "^2.43.4",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
     "next": "^14.2.1",
     "next-themes": "^0.3.0",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
-    "react-icons": "^5.2.1"
+    "react-icons": "^5.2.1",
+    "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
     "@types/eslint": "^8.56.2",

@@ -1,6 +1,6 @@
-import createSupabaseServerClient from './supabase/server';
+import createSupabaseServerClient from "./supabase/server"
 
 export default async function getUserAuth() {
-  const supabase = createSupabaseServerClient();
+  const supabase = await createSupabaseServerClient()
   return supabase.auth.getUser()
 }
