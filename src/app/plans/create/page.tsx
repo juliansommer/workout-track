@@ -7,16 +7,8 @@ import {
   PopoverTrigger,
 } from "@/components/ui/Popover"
 import { Textarea } from "@/components/ui/Textarea"
-import getUserAuth from "@/lib/getUserAuth"
-import { redirect } from "next/navigation"
 
-export default async function PlanCreatePage() {
-  const { data, error } = await getUserAuth()
-
-  if (error ?? !data?.user) {
-    redirect("/login")
-  }
-
+export default function PlanCreatePage() {
   return (
     <div className="w-80 p-5">
       <p>Create Plan</p>

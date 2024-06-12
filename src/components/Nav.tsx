@@ -7,6 +7,7 @@ import {
 import getUserSession from "@/lib/getUserSession"
 import createSupabaseServerClient from "@/lib/supabase/server"
 import Link from "next/link"
+import { redirect } from "next/navigation"
 
 export default async function Nav() {
   const { data } = await getUserSession()
@@ -15,6 +16,7 @@ export default async function Nav() {
     "use server"
     const supabase = await createSupabaseServerClient()
     await supabase.auth.signOut()
+    redirect("/")
   }
 
   return (

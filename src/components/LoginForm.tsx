@@ -19,7 +19,7 @@ function getURL() {
 export default function LoginForm() {
   const supabase = createSupabaseBrowserClient()
 
-  const loginWithGoogle = async () => {
+  async function loginWithGoogle() {
     await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
