@@ -74,11 +74,3 @@
     @apply bg-background text-foreground;
   }
 }
-
-.black_btn {
-  @apply flex items-center justify-center rounded-full border border-black bg-black px-5 py-1.5 text-center text-sm text-white transition-all hover:bg-white hover:text-black dark:border-white dark:bg-white dark:text-black dark:hover:bg-black dark:hover:text-white;
-}
-
-.outline_btn {
-  @apply flex items-center justify-center rounded-full border border-black bg-transparent px-5 py-1.5 text-center text-sm text-black transition-all hover:bg-black hover:text-white dark:border-white dark:text-white dark:hover:bg-white dark:hover:text-black;
-}

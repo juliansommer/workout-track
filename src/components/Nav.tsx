@@ -1,3 +1,4 @@
+import { buttonVariants } from "@/components/ui/Button"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -31,13 +32,19 @@ export default async function Nav() {
       <div className="hidden sm:flex">
         {data.session ? (
           <form action={logoutAction} className="flex gap-3 md:gap-5">
-            <Link href="/plans" className="black_btn">
+            <Link
+              href="/plans"
+              className={buttonVariants({ variant: "default" })}>
               Plans
             </Link>
-            <button className="outline_btn">Logout</button>
+            <button className={buttonVariants({ variant: "outline" })}>
+              Logout
+            </button>
           </form>
         ) : (
-          <Link type="button" href="/login" className="black_btn">
+          <Link
+            href="/login"
+            className={buttonVariants({ variant: "default" })}>
             Sign In
           </Link>
         )}
@@ -61,7 +68,9 @@ export default async function Nav() {
           </DropdownMenu>
         ) : (
           <>
-            <Link type="button" href="/login" className="black_btn">
+            <Link
+              href="/login"
+              className={buttonVariants({ variant: "default" })}>
               Sign In
             </Link>
           </>
