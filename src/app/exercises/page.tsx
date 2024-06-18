@@ -12,7 +12,7 @@ export default async function Exercises() {
 
   const { data } = await supabase.from("exercise").select("*").limit(3)
   return (
-    <div>
+    <div className="w-full">
       {data?.map(
         (item: Database["public"]["Tables"]["exercise"]["Row"], index) => (
           <ExerciseCard key={index} exercise={item}></ExerciseCard>
