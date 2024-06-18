@@ -23,7 +23,10 @@ export const metadata = {
     index: true,
     follow: true,
   },
-  title: "Workout Track",
+  title: {
+    template: "%s | Workout Track",
+    default: "Workout Track",
+  },
   openGraph: {
     title: "Workout Track",
     description: "Workout Track",

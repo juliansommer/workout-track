@@ -7,8 +7,13 @@ import {
   PopoverTrigger,
 } from "@/components/ui/Popover"
 import { Textarea } from "@/components/ui/Textarea"
+import { type Metadata } from "next"
 
-export default function PlanCreatePage() {
+export const metadata: Metadata = {
+  title: "Create Plan",
+}
+
+export default function CreatePlan() {
   return (
     <div className="w-80 p-5">
       <p>Create Plan</p>

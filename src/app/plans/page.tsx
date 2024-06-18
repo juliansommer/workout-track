@@ -1,7 +1,12 @@
 import { buttonVariants } from "@/components/ui/Button"
+import { type Metadata } from "next"
 import Link from "next/link"
 
-export default async function PlanPage() {
+export const metadata: Metadata = {
+  title: "Plans",
+}
+
+export default async function Plans() {
   return (
     <section className="pt-20">
       <div className="mx-auto flex h-[20rem] max-w-4xl items-center justify-center rounded-md">

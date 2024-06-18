@@ -33,6 +33,11 @@ export default async function Nav() {
         {data.session ? (
           <form action={logoutAction} className="flex gap-3 md:gap-5">
             <Link
+              href="/exercises"
+              className={buttonVariants({ variant: "default" })}>
+              Exercises
+            </Link>
+            <Link
               href="/plans"
               className={buttonVariants({ variant: "default" })}>
               Plans
@@ -57,6 +62,9 @@ export default async function Nav() {
             <DropdownMenuTrigger>Open</DropdownMenuTrigger>
             <DropdownMenuContent>
               <form action={logoutAction}>
+                <DropdownMenuItem>
+                  <Link href="/exercises">Exercises</Link>
+                </DropdownMenuItem>
                 <DropdownMenuItem>
                   <Link href="/plans">Plans</Link>
                 </DropdownMenuItem>

@@ -1,8 +1,13 @@
 import LoginForm from "@/components/LoginForm"
 import getUserSession from "@/lib/getUserSession"
+import { type Metadata } from "next"
 import { redirect } from "next/navigation"
 
-export default async function LoginPage() {
+export const metadata: Metadata = {
+  title: "Login",
+}
+
+export default async function Login() {
   // check if user is already logged in and redirect to root
   const { data } = await getUserSession()
 
