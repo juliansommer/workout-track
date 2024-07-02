@@ -2,6 +2,7 @@ import Nav from "@/components/Nav"
 import ThemeButton from "@/components/ThemeButton"
 import ThemeProvider from "@/components/ThemeProvider"
 import { cn } from "@/lib/utils"
+import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
 
@@ -10,7 +11,7 @@ const inter = Inter({
   variable: "--inter",
 })
 
-export const metadata = {
+export const metadata: Metadata = {
   applicationName: "Workout Track",
   authors: {
     name: "Julian Sommer",
