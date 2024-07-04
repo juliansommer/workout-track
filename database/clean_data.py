@@ -2,7 +2,7 @@ import json
 import uuid
 
 
-def open_json(json_filename) -> dict:
+def open_json(json_filename: str) -> dict:
     try:
         with open(json_filename) as json_file:
             data = json.load(json_file)
@@ -12,7 +12,7 @@ def open_json(json_filename) -> dict:
         return None
 
 
-def save_json(data, json_filename) -> None:
+def save_json(data: dict, json_filename: str) -> None:
     try:
         with open(json_filename, "w") as json_file:
             json.dump(data, json_file, indent=4)
