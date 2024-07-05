@@ -7,7 +7,7 @@ export function cn(...inputs: ClassValue[]) {
 
 export function getURL() {
   let url =
-    process?.env?.VERCEL_URL ?? // this is auto set by Vercel
+    process?.env?.VERCEL_PROJECT_PRODUCTION_URL ?? // Automatically set by Vercel.
     process?.env?.NEXT_PUBLIC_VERCEL_URL ?? // Automatically set by Vercel.
     "http://localhost:3000/"
   // Make sure to include `https://` when not localhost.
