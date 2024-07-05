@@ -23,7 +23,7 @@ export default async function Nav() {
   return (
     <nav className="flex-between mb-16 flex h-full w-full items-center justify-between pt-3">
       <Link href="/" className="flex-center flex gap-2">
-        <p className="font-satoshi text-lg font-semibold tracking-wide text-black dark:text-white">
+        <p className="text-lg font-medium tracking-wide text-black dark:text-white">
           Workout Track
         </p>
       </Link>

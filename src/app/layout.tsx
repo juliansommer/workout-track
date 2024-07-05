@@ -3,16 +3,16 @@ import ThemeButton from "@/components/ThemeButton"
 import ThemeProvider from "@/components/ThemeProvider"
 import { cn, getURL } from "@/lib/utils"
 import type { Metadata, Viewport } from "next"
-import { Inter } from "next/font/google"
+import { Inter as FontSans } from "next/font/google"
 import "./globals.css"
 
-const inter = Inter({
+const fontSans = FontSans({
   subsets: ["latin"],
-  variable: "--inter",
+  variable: "--font-sans",
 })
 
 export const viewport: Viewport = {
-  themeColor: "black",
+  themeColor: "#171717", // neutral-900
 }
 
 // order of this doesnt matter as next puts the important stuff (viewport, themecolour, title description) first
@@ -60,8 +60,8 @@ export default function RootLayout({
       <head>
         <body
           className={cn(
-            "min-h-screen overflow-y-scroll bg-background font-sans antialiased",
-            inter.variable,
+            "min-h-screen overflow-y-scroll bg-neutral-50 font-sans antialiased selection:bg-neutral-200 dark:bg-neutral-900 dark:selection:bg-neutral-700",
+            fontSans.variable,
           )}>
           <ThemeProvider
             attribute="class"

@@ -17,7 +17,7 @@ export default function ExerciseCard({
           className="aspect-video overflow-hidden rounded-lg object-cover"
         />
         <div>
-          <h2 className="text-lg font-bold">{exercise.name}</h2>
+          <h2 className="text-lg font-medium">{exercise.name}</h2>
         </div>
       </div>
       <div className="flex items-center space-x-4">
