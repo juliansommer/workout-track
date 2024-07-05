@@ -4,6 +4,9 @@ import Link from "next/link"
 
 export const metadata: Metadata = {
   title: "Plans",
+  alternates: {
+    canonical: "/plans",
+  },
 }
 
 export default async function Plans() {

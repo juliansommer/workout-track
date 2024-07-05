@@ -5,6 +5,9 @@ import { type Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Exercises",
+  alternates: {
+    canonical: "/exercises",
+  },
 }
 
 export default async function Exercises() {

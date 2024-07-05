@@ -5,6 +5,9 @@ import { redirect } from "next/navigation"
 
 export const metadata: Metadata = {
   title: "Login",
+  alternates: {
+    canonical: "/login",
+  },
 }
 
 export default async function Login() {

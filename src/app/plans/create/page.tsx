@@ -11,6 +11,9 @@ import { type Metadata } from "next"
 
 export const metadata: Metadata = {
   title: "Create Plan",
+  alternates: {
+    canonical: "/plans/create",
+  },
 }
 
 export default function CreatePlan() {
