@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 "use server"
 import { createServerClient, type CookieOptions } from "@supabase/ssr"
 import { cookies } from "next/headers"
@@ -14,11 +15,9 @@ export default async function createSupabaseServerClient() {
           return cookieStore.get(name)?.value
         },
         set(name: string, value: string, options: CookieOptions) {
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
           cookieStore.set({ name, value, ...options })
         },
         remove(name: string, options: CookieOptions) {
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
           cookieStore.set({ name, value: "", ...options })
         },
       },
