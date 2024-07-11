@@ -1,7 +1,7 @@
-import ExerciseCard from "@/components/ExerciseCard"
 import createSupabaseServerClient from "@/lib/supabase/server"
 import { type Database } from "@/types/supabase"
 import { type Metadata } from "next"
+import ExerciseCard from "./_components/ExerciseCard"
 
 export const metadata: Metadata = {
   title: "Exercises",

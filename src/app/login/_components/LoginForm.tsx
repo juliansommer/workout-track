@@ -1,5 +1,4 @@
 "use client"
-
 import createSupabaseBrowserClient from "@/lib/supabase/client"
 import { getURL } from "@/lib/utils"
 import Image from "next/image"
