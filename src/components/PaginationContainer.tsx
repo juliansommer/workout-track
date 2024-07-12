@@ -19,11 +19,8 @@ export default function PaginationContainer({
       <Pagination
         total={totalPages}
         initialPage={1}
-        color="warning"
         page={currentPage}
-        onChange={(page) =>
-          router.replace(`${route}?page=${page}`, { scroll: false })
-        }
+        onChange={(page) => router.replace(`${route}?page=${page}`)}
       />
     </div>
   )
