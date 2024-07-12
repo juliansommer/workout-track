@@ -1,3 +1,5 @@
+// The pagination the app is using is from next-ui, but for whatever reason if i delete this file
+// which i created BEFORE EVEN USING NEXT-UI, the pagination has no styling on it and is clumped together
 import { type ButtonProps, buttonVariants } from "@/components/ui/Button"
 import { cn } from "@/lib/utils"
 import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react"

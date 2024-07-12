@@ -1,6 +1,7 @@
 import Heading from "@/components/Heading"
 import PaginationContainer from "@/components/PaginationContainer"
 import createSupabaseServerClient from "@/lib/supabase/server"
+import type { SupabaseClient } from "@supabase/supabase-js"
 import { type Metadata } from "next"
 import ExerciseTable from "./_components/ExerciseTable"
 
@@ -11,6 +12,25 @@ export const metadata: Metadata = {
   },
 }
 
+const per_page = 10
+let cachedTotalPages: number | null = null
+
+async function getTotalPages(supabase: SupabaseClient) {
+  if (cachedTotalPages !== null) {
+    console.log("cached the count", cachedTotalPages)
+    return cachedTotalPages
+  } else {
+    const { count } = await supabase
+      .from("exercise")
+      .select("*", { count: "exact", head: true })
+      .order("name", { ascending: true })
+    const totalPages = Math.ceil((count ?? 0) / per_page)
+    cachedTotalPages = totalPages // Cache the fetched total pages
+    console.log("ran count", count)
+    return totalPages
+  }
+}
+
 export default async function Exercises({
   searchParams,
 }: {
@@ -18,17 +38,10 @@ export default async function Exercises({
 }) {
   const supabase = await createSupabaseServerClient()
   const page = Number(searchParams?.page) || 1
-  const per_page = 10
-
   const start = (page - 1) * per_page
   const end = start + per_page - 1
 
-  // could add a use memo or something on this as its value is never changing and it doesnt need to be recalculated each render
-  // same with totalPages
-  const { count } = await supabase
-    .from("exercise")
-    .select("*", { count: "exact", head: true })
-    .order("name", { ascending: true })
+  const totalPages = await getTotalPages(supabase)
 
   const { data } = await supabase
     .from("exercise")
@@ -36,11 +49,9 @@ export default async function Exercises({
     .order("name", { ascending: true })
     .range(start, end)
 
-  if (count === null || data === null) {
+  if (data === null) {
     throw new Error("Failed to fetch exercises")
   }
-
-  const totalPages = Math.ceil(count / per_page)
 
   return (
     <>
