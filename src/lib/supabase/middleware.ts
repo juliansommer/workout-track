@@ -61,9 +61,7 @@ export default async function updateSession(request: NextRequest) {
   // middleware is only running on authed routes, however there is no way to stop the middleware from running on the root route
   // so need to check if they are on the root route to prevent it going in a loop
   // when next fixes middleware can remove this check and only check auth
-  const allowedRoutes = ["/"]
-
-  if (user.error && !allowedRoutes.includes(request.nextUrl.pathname)) {
+  if (user.error && request.nextUrl.pathname !== "/") {
     return NextResponse.redirect(new URL("/login", request.url))
   }
 
