@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 const per_page = 10
 let cachedTotalPages: number | null = null
 
+// caches the total pages so the request doesnt run every time
 async function getTotalPages(supabase: SupabaseClient) {
   if (cachedTotalPages !== null) {
-    console.log("cached the count", cachedTotalPages)
     return cachedTotalPages
   } else {
     const { count } = await supabase
@@ -26,7 +26,6 @@ async function getTotalPages(supabase: SupabaseClient) {
       .order("name", { ascending: true })
     const totalPages = Math.ceil((count ?? 0) / per_page)
     cachedTotalPages = totalPages // Cache the fetched total pages
-    console.log("ran count", count)
     return totalPages
   }
 }

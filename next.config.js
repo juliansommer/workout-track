@@ -1,5 +1,8 @@
 /** @type {import("next").NextConfig} */
 const config = {
+  experimental: {
+    reactCompiler: true,
+  },
   images: {
     remotePatterns: [
       {
