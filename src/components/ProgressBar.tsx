@@ -1,6 +1,5 @@
 "use client"
-import { Next13ProgressBar } from "next13-progressbar"
-import React from "react"
+import { AppProgressBar } from "next-nprogress-bar"
 
 export default function ProgressBar({
   children,
@@ -10,11 +9,11 @@ export default function ProgressBar({
   return (
     <>
       {children}
-      <Next13ProgressBar
-        height="4px"
+      <AppProgressBar
+        height="3px"
         color="#0A2FFF"
         options={{ showSpinner: false }}
-        showOnShallow
+        shallowRouting
       />
     </>
   )
