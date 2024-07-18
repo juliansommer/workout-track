@@ -1,4 +1,5 @@
 import Nav from "@/components/Nav"
+import ProgressBar from "@/components/ProgressBar"
 import ThemeButton from "@/components/ThemeButton"
 import ThemeProvider from "@/components/ThemeProvider"
 import { cn, getURL } from "@/lib/utils"
@@ -68,8 +69,10 @@ export default function RootLayout({
             defaultTheme="dark"
             disableTransitionOnChange>
             <main className="relative z-10 mx-auto flex max-w-7xl flex-col items-center justify-center px-6 sm:px-16">
-              <Nav />
-              {children}
+              <ProgressBar>
+                <Nav />
+                {children}
+              </ProgressBar>
             </main>
             <ThemeButton />
           </ThemeProvider>
