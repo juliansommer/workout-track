@@ -26,6 +26,7 @@ export const metadata: Metadata = {
   description: "Workout Track",
   applicationName: "Workout Track",
   keywords: ["Workout", "Track"],
+  creator: "Julian Sommer",
 
   // not defining title and description in og as next will use the metadata.title and metadata.description
   // so can update these on page and it will also update the open graph and twitter cards
