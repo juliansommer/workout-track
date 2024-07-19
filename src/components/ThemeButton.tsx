@@ -1,29 +1,24 @@
 "use client"
+import { Button } from "@/components/ui/Button"
+import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
-import { useEffect, useState } from "react"
-import { BsMoon, BsSun } from "react-icons/bs"
 
 export default function ThemeButton() {
   const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => setMounted(true), [])
-
-  if (!mounted) {
-    return null
-  }
 
   return (
-    mounted && (
-      <button
-        type="button"
-        className="fixed bottom-5 right-5 flex h-[3rem] w-[3rem] items-center justify-center rounded-full border border-black border-opacity-40 bg-opacity-80 shadow-2xl backdrop-blur-[0.5rem] transition-all hover:scale-[1.15] active:scale-105 dark:border-white"
-        aria-label={theme === "dark" ? "Toggle light mode" : "Toggle dark mode"}
-        onClick={() => {
-          setTheme(theme === "dark" ? "light" : "dark")
-        }}>
-        {theme === "light" ? <BsMoon /> : <BsSun />}
-      </button>
-    )
+    <Button
+      variant="outline"
+      size="icon"
+      aria-label={theme === "dark" ? "Toggle light mode" : "Toggle dark mode"}
+      onClick={() => {
+        setTheme(theme === "dark" ? "light" : "dark")
+      }}>
+      {theme === "light" ? (
+        <Moon className="scale-70 h-[1.2rem] w-[1.2rem]" />
+      ) : (
+        <Sun className="scale-70 h-[1.2rem] w-[1.2rem]" />
+      )}
+    </Button>
   )
 }

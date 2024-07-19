@@ -9,6 +9,7 @@ import getUserSession from "@/lib/getUserSession"
 import createSupabaseServerClient from "@/lib/supabase/server"
 import Link from "next/link"
 import { redirect } from "next/navigation"
+import ThemeButton from "./ThemeButton"
 
 export default async function Nav() {
   const { data } = await getUserSession()
@@ -29,23 +30,26 @@ export default async function Nav() {
       </Link>
 
       {/* Desktop Navigation */}
-      <div className="hidden sm:flex">
+      <div className="hidden gap-3 sm:flex">
+        <ThemeButton />
         {data.session ? (
-          <form action={logoutAction} className="flex gap-3 md:gap-5">
+          <>
             <Link
               href="/exercises"
-              className={buttonVariants({ variant: "default" })}>
+              className={buttonVariants({ variant: "outline" })}>
               Exercises
             </Link>
             <Link
               href="/plans"
-              className={buttonVariants({ variant: "default" })}>
+              className={buttonVariants({ variant: "outline" })}>
               Plans
             </Link>
-            <button className={buttonVariants({ variant: "outline" })}>
-              Logout
-            </button>
-          </form>
+            <form action={logoutAction}>
+              <button className={buttonVariants({ variant: "default" })}>
+                Logout
+              </button>
+            </form>
+          </>
         ) : (
           <Link
             href="/login"
@@ -56,32 +60,35 @@ export default async function Nav() {
       </div>
 
       {/* Mobile Navigation */}
-      <div className="relative flex sm:hidden">
+      <div className="relative flex gap-3 sm:hidden">
+        <ThemeButton />
         {data.session ? (
           <DropdownMenu>
-            <DropdownMenuTrigger>Open</DropdownMenuTrigger>
+            <DropdownMenuTrigger asChild>
+              <button className={buttonVariants({ variant: "default" })}>
+                Menu
+              </button>
+            </DropdownMenuTrigger>
             <DropdownMenuContent>
-              <form action={logoutAction}>
-                <DropdownMenuItem>
-                  <Link href="/exercises">Exercises</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link href="/plans">Plans</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href="/exercises">Exercises</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href="/plans">Plans</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <form action={logoutAction}>
                   <button>Logout</button>
-                </DropdownMenuItem>
-              </form>
+                </form>
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         ) : (
-          <>
-            <Link
-              href="/login"
-              className={buttonVariants({ variant: "default" })}>
-              Sign In
-            </Link>
-          </>
+          <Link
+            href="/login"
+            className={buttonVariants({ variant: "default" })}>
+            Sign In
+          </Link>
         )}
       </div>
     </nav>

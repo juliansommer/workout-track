@@ -1,6 +1,5 @@
 import Nav from "@/components/Nav"
 import ProgressBar from "@/components/ProgressBar"
-import ThemeButton from "@/components/ThemeButton"
 import ThemeProvider from "@/components/ThemeProvider"
 import { cn, getURL } from "@/lib/utils"
 import type { Metadata, Viewport } from "next"
@@ -74,7 +73,6 @@ export default function RootLayout({
                 {children}
               </ProgressBar>
             </main>
-            <ThemeButton />
           </ThemeProvider>
         </body>
       </head>

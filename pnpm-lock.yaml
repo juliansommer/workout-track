@@ -38,9 +38,6 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
-      eslint-plugin-react-compiler:
-        specifier: 0.0.0-experimental-0998c1e-20240625
-        version: 0.0.0-experimental-0998c1e-20240625(eslint@8.57.0)
       lucide-react:
         specifier: ^0.390.0
         version: 0.390.0(react@19.0.0-rc-163365a0-20240717)
@@ -59,9 +56,6 @@ importers:
       react-dom:
         specifier: 19.0.0-rc-163365a0-20240717
         version: 19.0.0-rc-163365a0-20240717(react@19.0.0-rc-163365a0-20240717)
-      react-icons:
-        specifier: ^5.2.1
-        version: 5.2.1(react@19.0.0-rc-163365a0-20240717)
       tailwind-merge:
         specifier: ^2.3.0
         version: 2.4.0
@@ -93,6 +87,9 @@ importers:
       eslint-config-next:
         specifier: ^14.2.4
         version: 14.2.4(eslint@8.57.0)(typescript@5.5.3)
+      eslint-plugin-react-compiler:
+        specifier: 0.0.0-experimental-0998c1e-20240625
+        version: 0.0.0-experimental-0998c1e-20240625(eslint@8.57.0)
       postcss:
         specifier: ^8.4.34
         version: 8.4.39
@@ -2368,11 +2365,6 @@ packages:
     resolution: {integrity: sha512-eW9DM2ug7i2s2RCKR8jSfACiGEVdn+JSIeISLB3wT/bXWSZp5FoKmmk2WD82zOYTEjIrfL6RIvEnKem1R7MBkQ==}
     peerDependencies:
       react: 19.0.0-rc-163365a0-20240717
-
-  react-icons@5.2.1:
-    resolution: {integrity: sha512-zdbW5GstTzXaVKvGSyTaBalt7HSfuK5ovrzlpyiWHAFXndXTdd/1hdDHI4xBM1Mn7YriT6aqESucFl9kEXzrdw==}
-    peerDependencies:
-      react: '*'
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -5317,10 +5309,6 @@ snapshots:
     dependencies:
       react: 19.0.0-rc-163365a0-20240717
       scheduler: 0.25.0-rc-163365a0-20240717
-
-  react-icons@5.2.1(react@19.0.0-rc-163365a0-20240717):
-    dependencies:
-      react: 19.0.0-rc-163365a0-20240717
 
   react-is@16.13.1: {}
 
