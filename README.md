@@ -4,3 +4,5 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 # TODO
 - make exercise table have search option, filter option (by muscle)
+- add create routine page
+- add log workout page
