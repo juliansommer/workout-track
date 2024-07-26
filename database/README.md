@@ -10,8 +10,8 @@
 6. run `\i sql.sql`
 7. run `INSERT INTO exercise (id, name, image, instructions, primary_muscles, secondary_muscles)SELECT id, name, image, ARRAY(SELECT json_array_elements_text(instructions)) AS instructions, ARRAY(SELECT json_array_elements_text(primary_muscles))::muscle[] AS primary_muscles, ARRAY(SELECT json_array_elements_text(secondary_muscles))::muscle[] AS secondary_muscles FROM test2;`
 
-
 # Images
+
 1. get the images from the exercise db
 2. run images.py
 3. upload them to supabase bucket
