@@ -1,15 +1,9 @@
 # dependencies
 /node_modules
 
-# testing
-/coverage
-
 # next.js
 /.next/
 next-env.d.ts
-
-# production
-/build
 
 # misc
 .DS_Store
