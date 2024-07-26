@@ -14,7 +14,7 @@ export default function NotFound() {
         <p>Sorry, the page you&apos;re looking for doesn&apos;t exist.</p>
         <Link
           type="button"
-          href="/plans/create"
+          href="/"
           className={buttonVariants({ variant: "default" })}>
           Return Home
         </Link>
