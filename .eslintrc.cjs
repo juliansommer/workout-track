@@ -25,6 +25,13 @@ const config = {
     ],
     "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
     "@typescript-eslint/require-await": "off",
+    "react/function-component-definition": [
+      2,
+      {
+        namedComponents: "function-declaration",
+        unnamedComponents: "arrow-function",
+      },
+    ],
     "react-compiler/react-compiler": "error",
   },
 }
