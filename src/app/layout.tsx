@@ -1,7 +1,7 @@
 import Nav from "@/components/Nav"
 import ProgressBar from "@/components/ProgressBar"
 import ThemeProvider from "@/components/ThemeProvider"
-import { cn, getURL } from "@/lib/utils"
+import { getURL } from "@/lib/utils"
 import type { Metadata, Viewport } from "next"
 import { Inter as FontSans } from "next/font/google"
 import "./globals.css"
@@ -57,13 +57,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={fontSans.variable} suppressHydrationWarning>
       <head>
-        <body
-          className={cn(
-            "min-h-screen overflow-y-scroll bg-neutral-50 font-sans antialiased selection:bg-neutral-200 dark:bg-neutral-900 dark:selection:bg-neutral-700",
-            fontSans.variable,
-          )}>
+        <body className="min-h-screen overflow-y-scroll bg-neutral-50 font-sans antialiased selection:bg-neutral-200 dark:bg-neutral-900 dark:selection:bg-neutral-700">
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
