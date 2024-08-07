@@ -1,15 +1,18 @@
+/**
+ * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially useful
+ * for Docker builds.
+ */
+await import("./src/env.js")
+
 /** @type {import("next").NextConfig} */
 const config = {
-  experimental: {
-    reactCompiler: true,
-  },
   images: {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "nsfllbqyozduniyhtfpa.supabase.co", // Supabase S3 URL
+        hostname: process.env.S3_HOSTNAME ?? "",
         port: "",
-        pathname: "/storage/v1/object/public/**", // Path to images
+        pathname: process.env.S3_PATH,
       },
     ],
   },

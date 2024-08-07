@@ -4,7 +4,7 @@ const config = {
   parserOptions: {
     project: true,
   },
-  plugins: ["@typescript-eslint", "eslint-plugin-react-compiler"],
+  plugins: ["@typescript-eslint"],
   extends: [
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended-type-checked",
@@ -32,7 +32,6 @@ const config = {
         unnamedComponents: "arrow-function",
       },
     ],
-    "react-compiler/react-compiler": "error",
   },
 }
 module.exports = config

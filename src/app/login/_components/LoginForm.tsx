@@ -1,6 +1,5 @@
 "use client"
 import createSupabaseBrowserClient from "@/lib/supabase/client"
-import { getURL } from "@/lib/utils"
 import Image from "next/image"
 
 export default function LoginForm() {
@@ -11,7 +10,7 @@ export default function LoginForm() {
     await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: `${getURL()}/auth/callback`,
+        redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}auth/callback`,
       },
     })
   }

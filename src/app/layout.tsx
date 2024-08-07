@@ -1,7 +1,6 @@
 import Nav from "@/components/Nav"
 import ProgressBar from "@/components/ProgressBar"
 import ThemeProvider from "@/components/ThemeProvider"
-import { getURL } from "@/lib/utils"
 import type { Metadata, Viewport } from "next"
 import { Inter as FontSans } from "next/font/google"
 import "./globals.css"
@@ -15,10 +14,10 @@ export const viewport: Viewport = {
   themeColor: "#171717", // neutral-900
 }
 
-// order of this doesnt matter as next puts the important stuff (viewport, themecolour, title description) first
-// then puts the others alphabeticised
+// order of this doesn't matter as next puts the important stuff (viewport, themecolour, title description) first
+// then puts the others alphabetised
 export const metadata: Metadata = {
-  metadataBase: new URL(getURL()),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL!),
   title: {
     template: "%s | Workout Track",
     default: "Workout Track",
