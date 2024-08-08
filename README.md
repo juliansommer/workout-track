@@ -8,6 +8,9 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 # TODO
 
+- make landing page
+- stylise the create plan page
+- use react-select-async so instead of getting all exercises and filtering locally by what they type, it will make a request to the server to get the exercises that match the search term
 - make exercise table have search option, filter option (by muscle)
 - add create routine page
   - 1 need a search bar for exercises (ultimately have ability to search by muscle)
