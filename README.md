@@ -8,6 +8,8 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 # TODO
 
+- validate user inputs with zod and react hook form (theres nothing to really validate, just ensuring name, notes and sets are of the right type)
+- need to handle submit for create plan page, no idea how to do this
 - make landing page
 - stylise the create plan page
 - make exercise table have search option, filter option (by muscle)
