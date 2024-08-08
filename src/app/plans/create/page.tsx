@@ -12,9 +12,9 @@ export const metadata: Metadata = {
 
 export default function CreatePlan() {
   return (
-    <div className="w-80 p-5">
+    <div className="w-full max-w-3xl p-5">
       <p>Create Plan</p>
-      <div className="pt-5">
+      <div className="w-full pt-5">
         <Input type="text" placeholder="Name" />
       </div>
       <div className="pt-5">

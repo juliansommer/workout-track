@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 const per_page = 10
 let cachedTotalPages: number | null = null
 
-// caches the total pages so the request doesnt run every time
+// caches the total pages so the request doesn't run every time
 async function getTotalPages(supabase: SupabaseClient) {
   if (cachedTotalPages !== null) {
     return cachedTotalPages
@@ -35,7 +35,7 @@ export default async function Exercises({
 }: {
   searchParams: Record<string, string | string[] | undefined>
 }) {
-  const supabase = await createSupabaseServerClient()
+  const supabase = createSupabaseServerClient()
   const page = Number(searchParams?.page) || 1
   const start = (page - 1) * per_page
   const end = start + per_page - 1

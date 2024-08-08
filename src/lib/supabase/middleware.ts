@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
-import { createServerClient, type CookieOptions } from "@supabase/ssr"
+import { createServerClient } from "@supabase/ssr"
 import { NextResponse, type NextRequest } from "next/server"
 
 export default async function updateSession(request: NextRequest) {
@@ -14,10 +14,10 @@ export default async function updateSession(request: NextRequest) {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
     {
       cookies: {
-        get(name: string) {
+        get(name) {
           return request.cookies.get(name)?.value
         },
-        set(name: string, value: string, options: CookieOptions) {
+        set(name, value, options) {
           request.cookies.set({
             name,
             value,
@@ -34,7 +34,7 @@ export default async function updateSession(request: NextRequest) {
             ...options,
           })
         },
-        remove(name: string, options: CookieOptions) {
+        remove(name, options) {
           request.cookies.set({
             name,
             value: "",

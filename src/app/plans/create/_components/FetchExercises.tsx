@@ -2,7 +2,7 @@ import createSupabaseServerClient from "@/lib/supabase/server"
 import AddExercise from "./AddExercise"
 
 export default async function FetchExercises() {
-  const supabase = await createSupabaseServerClient()
+  const supabase = createSupabaseServerClient()
   const { data, error } = await supabase
     .from("exercise")
     .select("name")

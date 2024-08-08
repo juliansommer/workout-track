@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default async function Plans() {
+export default function Plans() {
   return (
     <>
       <Heading title="Plans" />

@@ -16,7 +16,7 @@ export default async function Nav() {
 
   async function logoutAction() {
     "use server"
-    const supabase = await createSupabaseServerClient()
+    const supabase = createSupabaseServerClient()
     await supabase.auth.signOut()
     redirect("/")
   }

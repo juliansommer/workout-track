@@ -1,6 +1,6 @@
 import createSupabaseServerClient from "./supabase/server"
 
 export default async function getUserSession() {
-  const supabase = await createSupabaseServerClient()
+  const supabase = createSupabaseServerClient()
   return supabase.auth.getSession()
 }
