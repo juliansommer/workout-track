@@ -12,9 +12,9 @@ export const metadata: Metadata = {
 
 export default async function Login() {
   // check if user is already logged in and redirect to root
+  // don't need to use getUser as its just checking if logged in aka session exists
   const { data } = await getUserSession()
 
-  // dont need to use getUser as its just checking if logged in aka session exists
   if (data.session) {
     redirect("/")
   }
