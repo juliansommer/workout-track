@@ -2,7 +2,21 @@
 
 This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to create a fully featured workout tracking app. Getting this running locally would be a lot of effort due to having to set up all the Supabase stuff and process the data so I do not recommend it.
 
-# NOTE
+# Features
+
+- View 800+ exercises
+- (WIP) Create and edit a workout plan
+- (WIP) Log a workout
+- (WIP) Delete plan or workout
+- Full auth using Supabase with Google SSO and protected routes with Next.js middleware
+- Full Row Level Security implemented using Supabase to prevent unauthorised changes to the database
+- Scalable relational database architecture
+- Environment variables validated with Zod on build
+- Full dark and light mode theming using next-themes
+- Progress bar for page transitions using next-nprogress-bar
+- Styling using shadcn/ui
+
+# Note
 
 - the reason process.env is still being used for environment variables, is that if i import { env } and use that for the environment variables, it will ship the env code to the client, which increases bundle size. I still get the benefits of using zod and checking the environment variables, but without shipping zod to the client. (increase is minor, about 15kB but there is no point of using env apart from consistency as I get all the benefits of checking env variables on build, I do not need strong typing for them in general)
 
