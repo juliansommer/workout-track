@@ -1,3 +1,4 @@
+import Heading from "@/components/Heading"
 import {
   Collapsible,
   CollapsibleContent,
@@ -27,38 +28,43 @@ export default async function Exercise({
   }
 
   return (
-    <div className="flex min-h-screen w-full flex-col items-center">
-      <main className="container grid grid-cols-1 gap-8 px-4 py-8 md:grid-cols-[1fr_300px] md:gap-12 md:px-6 lg:py-12">
+    <div className="flex min-h-screen w-full flex-col items-center justify-center">
+      <main className="w-full max-w-4xl">
         <div className="grid gap-6">
-          <div className="grid gap-4">
-            <Image
-              src={`${process.env.S3_BUCKET}/exercise/${data[0]?.image}`}
-              width={800}
-              height={600}
-              alt={`${exercise} Image`}
-              className="aspect-video w-full rounded-lg object-cover"
-            />
-            <div className="grid gap-2">
-              <h1 className="text-3xl font-bold">{exercise}</h1>
-              <div className="flex flex-wrap items-center gap-2">
-                {data[0]?.primary_muscles.map((muscle) => (
-                  <div
-                    className="text-accent-foreground rounded-md bg-gray-100 px-3 py-1 text-xs font-medium dark:bg-gray-700"
-                    key={muscle}>
-                    {titleCase(muscle)}
-                  </div>
-                ))}
-              </div>
+          <Heading title={exercise} />
+          <Image
+            src={`${process.env.S3_BUCKET}/exercise/${data[0]?.image}`}
+            width={800}
+            height={600}
+            alt={`${exercise} Image`}
+            className="aspect-video w-full rounded-lg object-cover"
+          />
+          <div className="grid gap-2">
+            <div className="flex flex-wrap items-center gap-2">
+              {data[0]?.primary_muscles.map((muscle) => (
+                <div
+                  className="text-accent-foreground rounded-md bg-neutral-200 px-3 py-1 text-xs font-medium dark:bg-neutral-500"
+                  key={muscle}>
+                  {titleCase(muscle)}
+                </div>
+              ))}
+              {data[0]?.secondary_muscles?.map((muscle) => (
+                <div
+                  className="text-accent-foreground rounded-md bg-neutral-200 px-3 py-1 text-xs font-medium dark:bg-neutral-500"
+                  key={muscle}>
+                  {titleCase(muscle)}
+                </div>
+              ))}
             </div>
           </div>
-          <Collapsible className="space-y-4">
-            <CollapsibleTrigger className="flex w-full items-center justify-between rounded-md bg-gray-100 px-4 py-3 text-lg font-medium transition-colors hover:bg-gray-100/50 dark:bg-gray-700 [&[data-state=open]>svg]:rotate-90">
+          <Collapsible className="space-y-4 pb-10">
+            <CollapsibleTrigger className="flex w-full items-center justify-between rounded-md bg-neutral-200 px-4 py-3 text-lg font-medium transition-colors hover:bg-neutral-300 dark:bg-neutral-500 dark:hover:bg-neutral-600 [&[data-state=open]>svg]:rotate-90">
               Instructions
               <ChevronRightIcon className="h-5 w-5 transition-all" />
             </CollapsibleTrigger>
             <CollapsibleContent className="space-y-4 px-4 pb-4">
               {data[0]?.instructions.map((instruction, index) => (
-                <p className="text-sm/relaxed" key={index}>
+                <p className="text-sm leading-relaxed" key={index}>
                   {`${index + 1}. ${instruction}`}
                 </p>
               ))}

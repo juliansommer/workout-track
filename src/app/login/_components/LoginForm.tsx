@@ -5,7 +5,6 @@ import Image from "next/image"
 export default function LoginForm() {
   const supabase = createSupabaseBrowserClient()
 
-  // using getURL instead of location.origin for the redirect url so it can work on vercel and localhost
   async function loginWithGoogle() {
     await supabase.auth.signInWithOAuth({
       provider: "google",
