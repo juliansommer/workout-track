@@ -1,6 +1,7 @@
 import Heading from "@/components/Heading"
 import PaginationContainer from "@/components/PaginationContainer"
 import createSupabaseServerClient from "@/lib/supabase/server"
+import { type Database } from "@/types/supabase"
 import type { SupabaseClient } from "@supabase/supabase-js"
 import { type Metadata } from "next"
 import ExerciseTable from "./_components/ExerciseTable"
@@ -42,13 +43,14 @@ export default async function Exercises({
 
   const totalPages = await getTotalPages(supabase)
 
-  const { data } = await supabase
+  const { data, error } = await supabase
     .from("exercise")
     .select("*")
     .order("name", { ascending: true })
     .range(start, end)
+    .returns<Database["public"]["Tables"]["exercise"]["Row"][]>()
 
-  if (data === null) {
+  if (error) {
     throw new Error("Failed to fetch exercises")
   }
 

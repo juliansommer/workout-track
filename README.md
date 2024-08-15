@@ -16,6 +16,7 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 - Styling using shadcn/ui
 
 # Schema Diagram
+
 ![schema](https://github.com/user-attachments/assets/32ffc229-7a2e-4e29-9b97-43c70ef59587)
 
 # Note
@@ -24,7 +25,9 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 # TODO
 
-- add exercises/[exercise] page
+- minify supabase queries to only get required fields
+- fix callback/auth to use the new supabase auth method
+- add exercises/[exercise] page - on exercises/ have link to their individual pages (go by name not uuid preferably)
 - validate user inputs with zod and react hook form (theres nothing to really validate, just ensuring name, notes and sets are of the right type)
 - need to handle submit for create plan page, no idea how to do this
 - make landing page

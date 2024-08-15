@@ -1,6 +1,7 @@
 import { Input } from "@/components/ui/Input"
 import { Textarea } from "@/components/ui/Textarea"
 import createSupabaseServerClient from "@/lib/supabase/server"
+import { type Database } from "@/types/supabase"
 import { type Metadata } from "next"
 import AddExercise from "./_components/AddExercise"
 
@@ -17,6 +18,7 @@ export default async function CreatePlan() {
     .from("exercise")
     .select("name")
     .order("name", { ascending: true })
+    .returns<Database["public"]["Tables"]["exercise"]["Row"][]>()
 
   if (error) {
     throw new Error("Failed to fetch exercises")
@@ -31,7 +33,7 @@ export default async function CreatePlan() {
       <div className="pt-5">
         <Textarea placeholder="Notes" />
       </div>
-      <AddExercise data={data ?? {}} />
+      <AddExercise data={data} />
     </div>
   )
 }
