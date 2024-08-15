@@ -4,7 +4,7 @@ import createSupabaseServerClient from "@/lib/supabase/server"
 import { type Database } from "@/types/supabase"
 import type { SupabaseClient } from "@supabase/supabase-js"
 import { type Metadata } from "next"
-import ExerciseTable from "./_components/ExerciseTable"
+import ExerciseCard from "./_components/ExerciseCard"
 
 export const metadata: Metadata = {
   title: "Exercises",
@@ -57,7 +57,13 @@ export default async function Exercises({
   return (
     <>
       <Heading title="Exercises" />
-      <ExerciseTable data={data ?? []} />
+      <div className="w-full">
+        {data.map(
+          (item: Database["public"]["Tables"]["exercise"]["Row"], index) => (
+            <ExerciseCard key={index} exercise={item}></ExerciseCard>
+          ),
+        )}
+      </div>
       <PaginationContainer
         totalPages={totalPages}
         currentPage={page}

@@ -26,7 +26,6 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 # TODO
 
 - minify supabase queries to only get required fields
-- fix callback/auth to use the new supabase auth method - might need to make issue on supabase/ssr as the example for doing auth callback the new way isn't working and theres no real examples for doing it with sso
 - add exercises/[exercise] page - on exercises/ have link to their individual pages (go by name not uuid preferably)
 - validate user inputs with zod and react hook form (theres nothing to really validate, just ensuring name, notes and sets are of the right type)
 - need to handle submit for create plan page, no idea how to do this

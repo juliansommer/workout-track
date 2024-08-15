@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { createServerClient } from "@supabase/ssr"
 import { NextResponse, type NextRequest } from "next/server"
 
@@ -23,6 +22,7 @@ export default async function updateSession(request: NextRequest) {
             request,
           })
           cookiesToSet.forEach(({ name, value, options }) =>
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
             supabaseResponse.cookies.set(name, value, options),
           )
         },
