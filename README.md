@@ -5,23 +5,26 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 # Features
 
 - View 800+ exercises
-- (WIP) Create and edit a workout plan
-- (WIP) Log a workout
-- (WIP) Delete plan or workout
+- (WIP) Create, edit and delete plan and workout
 - Full auth using Supabase with Google SSO and protected routes with Next.js middleware
 - Full Row Level Security implemented using Supabase to prevent unauthorised changes to the database
+- Images hosted in Supabase Bucket
 - Scalable relational database architecture
 - Environment variables validated with Zod on build
 - Full dark and light mode theming using next-themes
 - Progress bar for page transitions using next-nprogress-bar
 - Styling using shadcn/ui
 
+# Schema Diagram
+![schema](https://github.com/user-attachments/assets/32ffc229-7a2e-4e29-9b97-43c70ef59587)
+
 # Note
 
-- the reason process.env is still being used for environment variables, is that if i import { env } and use that for the environment variables, it will ship the env code to the client, which increases bundle size. I still get the benefits of using zod and checking the environment variables, but without shipping zod to the client. (increase is minor, about 15kB but there is no point of using env apart from consistency as I get all the benefits of checking env variables on build, I do not need strong typing for them in general)
+- The reason process.env is still being used for environment variables, is that if I import { env } and use that for the environment variables, it will ship the env code to the client, which increases bundle size. I still get the benefits of using zod and checking the environment variables at build time, but without shipping zod to the client. The bundle size increase is minor, about 15kB but there is no point of using env apart from consistency as I get all the benefits of checking env variables on build, I do not need strong typing for them in general.
 
 # TODO
 
+- add exercises/[exercise] page
 - validate user inputs with zod and react hook form (theres nothing to really validate, just ensuring name, notes and sets are of the right type)
 - need to handle submit for create plan page, no idea how to do this
 - make landing page
