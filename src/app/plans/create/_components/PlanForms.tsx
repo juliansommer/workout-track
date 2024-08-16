@@ -1,15 +1,12 @@
 "use client"
+import { Button } from "@/components/ui/Button"
 import { Input } from "@/components/ui/Input"
 import { Textarea } from "@/components/ui/Textarea"
+import type { ExerciseDropdown, PlanFormsProps } from "@/types"
 import { useRouter } from "next-nprogress-bar"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import AddExercise from "./AddExercise"
-
-interface Form {
-  name: string
-  notes: string
-}
 
 export default function PlanForms({
   data,
@@ -17,14 +14,15 @@ export default function PlanForms({
   OnSubmit,
 }: {
   data: { name: string; id: string }[]
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  OnSubmit: (formData: Form, exercises: any[]) => void
+  OnSubmit: (formData: PlanFormsProps, exercises: ExerciseDropdown[]) => void
 }) {
-  const { register, handleSubmit } = useForm<Form>()
-  const [selectedExercises, setSelectedExercises] = useState([])
+  const { register, handleSubmit } = useForm<PlanFormsProps>()
+  const [selectedExercises, setSelectedExercises] = useState<
+    ExerciseDropdown[]
+  >([])
   const router = useRouter()
 
-  const CustomSubmit = (formData: Form) => {
+  const CustomSubmit = (formData: PlanFormsProps) => {
     OnSubmit(formData, selectedExercises)
     router.push("/plans")
   }
@@ -42,7 +40,9 @@ export default function PlanForms({
         selectedExercises={selectedExercises}
         setSelectedExercises={setSelectedExercises}
       />
-      <button type="submit">Submit</button>
+      <div className="pt-5">
+        <Button type="submit">Submit</Button>
+      </div>
     </form>
   )
 }

@@ -1,6 +1,6 @@
 "use client"
-/* eslint-disable */
 import { Button } from "@/components/ui/Button"
+import type { ExerciseDropdown } from "@/types"
 // import { Input } from "@/components/ui/Input"
 import { useState } from "react"
 import Select from "react-select"
@@ -11,8 +11,8 @@ export default function AddExercise({
   setSelectedExercises,
 }: {
   data: { name: string; id: string }[]
-  selectedExercises: any[]
-  setSelectedExercises: any
+  selectedExercises: ExerciseDropdown[]
+  setSelectedExercises: React.Dispatch<React.SetStateAction<ExerciseDropdown[]>>
 }) {
   const [components, setComponents] = useState<number[]>([])
   const addComponent = (e: { preventDefault: () => void }) => {
@@ -25,9 +25,12 @@ export default function AddExercise({
     value: exercise.id,
   }))
 
-  const handleSelectChange = (selectedOption: any, index: number) => {
+  const handleSelectChange = (
+    selectedOption: ExerciseDropdown | null,
+    index: number,
+  ) => {
     const newSelectedExercises = [...selectedExercises]
-    newSelectedExercises[index] = selectedOption
+    newSelectedExercises[index] = selectedOption ?? { label: "", value: "" }
     setSelectedExercises(newSelectedExercises)
   }
 

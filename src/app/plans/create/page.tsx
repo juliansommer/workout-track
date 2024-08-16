@@ -1,4 +1,5 @@
 import createSupabaseServerClient from "@/lib/supabase/server"
+import type { ExerciseDropdown, PlanFormsProps } from "@/types"
 import { type Database } from "@/types/supabase"
 import { type Metadata } from "next"
 import { v4 as uuidv4 } from "uuid"
@@ -11,13 +12,10 @@ export const metadata: Metadata = {
   },
 }
 
-interface Form {
-  name: string
-  notes: string
-}
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-async function OnSubmit(formData: Form, selectedExercises: any[]) {
+async function OnSubmit(
+  formData: PlanFormsProps,
+  selectedExercises: ExerciseDropdown[],
+) {
   "use server"
   const supabase = createSupabaseServerClient()
   const {
@@ -43,7 +41,6 @@ async function OnSubmit(formData: Form, selectedExercises: any[]) {
   for (const exercise of selectedExercises) {
     const { error } = await supabase.from("plan_exercise").insert({
       plan_id: plan_id,
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
       exercise_id: exercise.value,
     })
 
