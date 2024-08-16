@@ -25,6 +25,8 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 # TODO
 
+- validate forms using zod?
+- add sonner for toasts maybe
 - add option to add sets and notes for each exercise in a workout plan
 - edit plan page
 - delete plan option

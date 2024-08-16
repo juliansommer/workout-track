@@ -1,6 +1,6 @@
 import Nav from "@/components/Nav"
-import ProgressBar from "@/components/ProgressBar"
-import ThemeProvider from "@/components/ThemeProvider"
+import ProgressBar from "@/components/providers/ProgressBar"
+import ThemeProvider from "@/components/providers/ThemeProvider"
 import type { Metadata, Viewport } from "next"
 import { Inter as FontSans } from "next/font/google"
 import "./globals.css"
@@ -38,11 +38,9 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    nocache: true,
     googleBot: {
       index: true,
       follow: true,
-      noimageindex: true,
       "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
