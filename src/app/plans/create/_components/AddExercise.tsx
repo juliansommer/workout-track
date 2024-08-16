@@ -61,7 +61,7 @@ export default function AddExercise({
               }}
             />
           </div>
-          {/* Input value isn't being shared to the parent and I've had enough of statemanagement for one day */}
+          {/* Input value isn't being shared to the parent and I've had enough of state management for one day */}
           {/* <div className="flex-3">
             <Input type="text" placeholder="Sets" />
           </div> */}

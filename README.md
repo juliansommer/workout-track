@@ -25,19 +25,11 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 # TODO
 
-- minify supabase queries to only get required fields
-- add exercises/[exercise] page - on exercises/ have link to their individual pages (go by name not uuid preferably)
-- validate user inputs with zod and react hook form (theres nothing to really validate, just ensuring name, notes and sets are of the right type)
-- need to handle submit for create plan page, no idea how to do this
+- add option to add sets and notes for each exercise in a workout plan
+- edit plan page
+- delete plan option
+- create workout page
+- edit workout page
+- delete workout page
 - make landing page
-- stylise the create plan page
 - make exercise table have search option, filter option (by muscle)
-- add create routine page
-  - 1 need a search bar for exercises (ultimately have ability to search by muscle)
-  - need to create the plan table before user can add exercises, so have the plan id, how would i know the id of the table i just created though? would i pass the uuid myself instead of having supabase auto gen it? or could get the id of the last plan the user created, get user id though auth call
-  - 2 user selects an exercise and adds to the plan
-  - 3 user can add sets to the exercise
-  - 4 for each exercise, add to plan_exercise table with the plan id, exercise id, notes, sets
-  - 5 user can hit a button to add another exercise to select, process repeats
-  - 6 button to save at end, save to plan table with
-- add log workout page
