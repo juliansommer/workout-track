@@ -1,7 +1,7 @@
 "use client"
 /* eslint-disable */
 import { Button } from "@/components/ui/Button"
-import { Input } from "@/components/ui/Input"
+// import { Input } from "@/components/ui/Input"
 import { useState } from "react"
 import Select from "react-select"
 
@@ -10,18 +10,19 @@ export default function AddExercise({
   selectedExercises,
   setSelectedExercises,
 }: {
-  data: { name: string }[]
+  data: { name: string; id: string }[]
   selectedExercises: any[]
   setSelectedExercises: any
 }) {
   const [components, setComponents] = useState<number[]>([])
-  const addComponent = () => {
+  const addComponent = (e: { preventDefault: () => void }) => {
+    e.preventDefault()
     setComponents([...components, components.length])
   }
 
   const options = data.map((exercise) => ({
     label: exercise.name,
-    value: exercise.name,
+    value: exercise.id,
   }))
 
   const handleSelectChange = (selectedOption: any, index: number) => {
@@ -57,9 +58,10 @@ export default function AddExercise({
               }}
             />
           </div>
-          <div className="flex-3">
+          {/* Input value isn't being shared to the parent and I've had enough of statemanagement for one day */}
+          {/* <div className="flex-3">
             <Input type="text" placeholder="Sets" />
-          </div>
+          </div> */}
         </div>
       ))}
     </div>
