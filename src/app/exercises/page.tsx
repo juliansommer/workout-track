@@ -24,7 +24,6 @@ async function getTotalPages(supabase: SupabaseClient) {
     const { count } = await supabase
       .from("exercise")
       .select("*", { count: "exact", head: true })
-      .order("name", { ascending: true })
     const totalPages = Math.ceil((count ?? 0) / per_page)
     cachedTotalPages = totalPages // Cache the fetched total pages
     return totalPages
@@ -45,7 +44,7 @@ export default async function Exercises({
 
   const { data, error } = await supabase
     .from("exercise")
-    .select("*")
+    .select("name, image, primary_muscles")
     .order("name", { ascending: true })
     .range(start, end)
     .returns<Database["public"]["Tables"]["exercise"]["Row"][]>()

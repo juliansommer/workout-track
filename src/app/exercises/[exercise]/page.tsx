@@ -19,7 +19,7 @@ export default async function Exercise({
   const supabase = createSupabaseServerClient()
   const { data, error } = await supabase
     .from("exercise")
-    .select()
+    .select("name, image, primary_muscles, secondary_muscles, instructions")
     .eq("name", exercise)
     .returns<Database["public"]["Tables"]["exercise"]["Row"][]>()
 

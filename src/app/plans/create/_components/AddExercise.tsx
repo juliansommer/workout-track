@@ -1,10 +1,19 @@
 "use client"
+/* eslint-disable */
 import { Button } from "@/components/ui/Button"
 import { Input } from "@/components/ui/Input"
 import { useState } from "react"
 import Select from "react-select"
 
-export default function AddExercise({ data }: { data: { name: string }[] }) {
+export default function AddExercise({
+  data,
+  selectedExercises,
+  setSelectedExercises,
+}: {
+  data: { name: string }[]
+  selectedExercises: any[]
+  setSelectedExercises: any
+}) {
   const [components, setComponents] = useState<number[]>([])
   const addComponent = () => {
     setComponents([...components, components.length])
@@ -15,6 +24,12 @@ export default function AddExercise({ data }: { data: { name: string }[] }) {
     value: exercise.name,
   }))
 
+  const handleSelectChange = (selectedOption: any, index: number) => {
+    const newSelectedExercises = [...selectedExercises]
+    newSelectedExercises[index] = selectedOption
+    setSelectedExercises(newSelectedExercises)
+  }
+
   return (
     <div className="space-y-5 pt-5">
       <Button onClick={addComponent}>Add Exercise</Button>
@@ -23,6 +38,9 @@ export default function AddExercise({ data }: { data: { name: string }[] }) {
           <div className="flex-1">
             <Select
               options={options}
+              onChange={(selectedOption) =>
+                handleSelectChange(selectedOption, index)
+              }
               styles={{
                 control: (provided) => ({
                   ...provided,

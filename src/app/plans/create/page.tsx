@@ -1,9 +1,7 @@
-import { Input } from "@/components/ui/Input"
-import { Textarea } from "@/components/ui/Textarea"
 import createSupabaseServerClient from "@/lib/supabase/server"
 import { type Database } from "@/types/supabase"
 import { type Metadata } from "next"
-import AddExercise from "./_components/AddExercise"
+import PlanForms from "./_components/PlanForms"
 
 export const metadata: Metadata = {
   title: "Create Plan",
@@ -14,6 +12,7 @@ export const metadata: Metadata = {
 
 export default async function CreatePlan() {
   const supabase = createSupabaseServerClient()
+  // might need the id of exercise as well
   const { data, error } = await supabase
     .from("exercise")
     .select("name")
@@ -27,13 +26,7 @@ export default async function CreatePlan() {
   return (
     <div className="w-full max-w-3xl p-5">
       <p>Create Plan</p>
-      <div className="w-full pt-5">
-        <Input type="text" placeholder="Name" />
-      </div>
-      <div className="pt-5">
-        <Textarea placeholder="Notes" />
-      </div>
-      <AddExercise data={data} />
+      <PlanForms data={data} />
     </div>
   )
 }
