@@ -35,3 +35,5 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 - delete workout page
 - make landing page
 - make exercise table have search option, filter option (by muscle)
+- favourite exercises
+- personal bests per exercise per user
