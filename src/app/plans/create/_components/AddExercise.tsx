@@ -8,6 +8,7 @@ import Select from "react-select"
 export default function AddExercise({
   data,
   selectedExercises,
+  // not a real error, ts only has that warning in functions if this was an arrow function it would be fine
   setSelectedExercises,
 }: {
   data: { name: string; id: string }[]

@@ -13,11 +13,10 @@ export const metadata: Metadata = {
   },
 }
 
-const per_page = 10
 let cachedTotalPages: number | null = null
 
 // caches the total pages so the request doesn't run every time
-async function getTotalPages(supabase: SupabaseClient) {
+async function getTotalPages(supabase: SupabaseClient, per_page: number) {
   if (cachedTotalPages !== null) {
     return cachedTotalPages
   } else {
@@ -30,17 +29,13 @@ async function getTotalPages(supabase: SupabaseClient) {
   }
 }
 
-export default async function Exercises({
-  searchParams,
-}: {
-  searchParams: Record<string, string | string[] | undefined>
-}) {
-  const supabase = createSupabaseServerClient()
-  const page = Number(searchParams?.page) || 1
+async function fetchExercises(
+  page: number,
+  supabase: SupabaseClient,
+  per_page: number,
+) {
   const start = (page - 1) * per_page
   const end = start + per_page - 1
-
-  const totalPages = await getTotalPages(supabase)
 
   const { data, error } = await supabase
     .from("exercise")
@@ -52,6 +47,20 @@ export default async function Exercises({
   if (error) {
     throw new Error("Failed to fetch exercises")
   }
+
+  return data
+}
+
+export default async function Exercises({
+  searchParams,
+}: {
+  searchParams: Record<string, string | string[] | undefined>
+}) {
+  const supabase = createSupabaseServerClient()
+  const page = Number(searchParams?.page) || 1
+  const per_page = 10
+  const totalPages = await getTotalPages(supabase, per_page)
+  const data = await fetchExercises(page, supabase, per_page)
 
   return (
     <>

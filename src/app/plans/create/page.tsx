@@ -1,8 +1,6 @@
-import createSupabaseServerClient from "@/lib/supabase/server"
-import type { ExerciseDropdown, PlanFormsProps } from "@/types"
-import { type Database } from "@/types/supabase"
+import createPlans from "@/server/actions/createPlans"
+import getAllExercises from "@/server/actions/getAllExercises"
 import { type Metadata } from "next"
-import { v4 as uuidv4 } from "uuid"
 import PlanForms from "./_components/PlanForms"
 
 export const metadata: Metadata = {
@@ -12,60 +10,13 @@ export const metadata: Metadata = {
   },
 }
 
-async function OnSubmit(
-  formData: PlanFormsProps,
-  selectedExercises: ExerciseDropdown[],
-) {
-  "use server"
-  const supabase = createSupabaseServerClient()
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-
-  if (!user) {
-    throw new Error("User not found")
-  }
-
-  const plan_id = uuidv4()
-  const { error } = await supabase.from("plan").insert({
-    id: plan_id,
-    user_id: user.id,
-    name: formData.name,
-    notes: formData.notes,
-  })
-
-  if (error) {
-    throw new Error("Failed to create plan")
-  }
-
-  for (const exercise of selectedExercises) {
-    const { error } = await supabase.from("plan_exercise").insert({
-      plan_id: plan_id,
-      exercise_id: exercise.value,
-    })
-
-    if (error) {
-      throw new Error("Failed to create plan_exercise")
-    }
-  }
-}
-
 export default async function CreatePlan() {
-  const supabase = createSupabaseServerClient()
-  const { data, error } = await supabase
-    .from("exercise")
-    .select("id, name")
-    .order("name", { ascending: true })
-    .returns<Database["public"]["Tables"]["exercise"]["Row"][]>()
-
-  if (error) {
-    throw new Error("Failed to fetch exercises")
-  }
+  const data = await getAllExercises()
 
   return (
     <div className="w-full max-w-3xl p-5">
       <p>Create Plan</p>
-      <PlanForms data={data} OnSubmit={OnSubmit} />
+      <PlanForms data={data} OnSubmit={createPlans} />
     </div>
   )
 }

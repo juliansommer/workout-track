@@ -1,4 +1,4 @@
-import getUserSession from "@/lib/getUserSession"
+import getUserSession from "@/server/actions/getUserSession"
 import { type Metadata } from "next"
 import { redirect } from "next/navigation"
 import LoginForm from "./_components/LoginForm"

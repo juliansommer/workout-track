@@ -5,21 +5,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/DropdownMenu"
-import getUserSession from "@/lib/getUserSession"
-import createSupabaseServerClient from "@/lib/supabase/server"
+import getUserSession from "@/server/actions/getUserSession"
+import logoutAction from "@/server/actions/logoutAction"
 import Link from "next/link"
-import { redirect } from "next/navigation"
 import ThemeButton from "./ThemeButton"
 
 export default async function Nav() {
   const { data } = await getUserSession()
-
-  async function logoutAction() {
-    "use server"
-    const supabase = createSupabaseServerClient()
-    await supabase.auth.signOut()
-    redirect("/")
-  }
 
   return (
     <nav className="flex-between mb-16 flex h-full w-full items-center justify-between pt-3">
