@@ -35,11 +35,11 @@
   "devDependencies": {
     "@types/eslint": "^8.56.2",
     "@types/node": "^22.4.1",
-    "@types/react": "^18.3.3",
+    "@types/react": "^18.3.4",
     "@types/react-dom": "^18.3.0",
     "@types/uuid": "^10.0.0",
-    "@typescript-eslint/eslint-plugin": "^7.13.0",
-    "@typescript-eslint/parser": "^7.13.0",
+    "@typescript-eslint/eslint-plugin": "^8.2.0",
+    "@typescript-eslint/parser": "^8.2.0",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.5",
     "postcss": "^8.4.41",
@@ -49,5 +49,5 @@
     "tailwindcss": "^3.4.10",
     "typescript": "^5.5.4"
   },
-  "packageManager": "pnpm@9.7.0"
+  "packageManager": "pnpm@9.7.1"
 }
