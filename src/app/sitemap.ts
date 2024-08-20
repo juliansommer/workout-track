@@ -9,14 +9,16 @@ interface Route {
 export const dynamic = "force-dynamic"
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const routesMap = [""].map((route) => ({
+  const staticRoutes = ["", "/exercises", "/login"]
+
+  const routesMap = staticRoutes.map((route) => ({
     url: `${process.env.NEXT_PUBLIC_SITE_URL}${route}`,
     lastModified: new Date().toISOString(),
   }))
 
   const exercisesPromise = getAllExercises().then((exercises) =>
     exercises.map((exercise) => ({
-      url: `${process.env.NEXT_PUBLIC_SITE_URL}/exercises/${exercise.name}`,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL}/exercises/${encodeURIComponent(exercise.name)}`,
       lastModified: new Date().toISOString(),
     })),
   )
@@ -29,5 +31,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     throw JSON.stringify(error, null, 2)
   }
 
-  return [...routesMap, ...fetchedRoutes]
+  return [...routesMap, ...fetchedRoutes].sort((a, b) =>
+    a.url.localeCompare(b.url),
+  )
 }
