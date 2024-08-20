@@ -25,8 +25,6 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 # TODO
 
-- generate sitemap for exercises/[exercise]
-- potentially make exercises/[exercise] page static as all info is available at build time
 - validate forms using zod?
 - add sonner for toasts maybe
 - add option to add sets and notes for each exercise in a workout plan
