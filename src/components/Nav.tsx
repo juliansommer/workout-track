@@ -24,13 +24,13 @@ export default async function Nav() {
       {/* Desktop Navigation */}
       <div className="hidden gap-3 sm:flex">
         <ThemeButton />
+        <Link
+          href="/exercises"
+          className={buttonVariants({ variant: "outline" })}>
+          Exercises
+        </Link>
         {data.session ? (
           <>
-            <Link
-              href="/exercises"
-              className={buttonVariants({ variant: "outline" })}>
-              Exercises
-            </Link>
             <Link
               href="/plans"
               className={buttonVariants({ variant: "outline" })}>
