@@ -1,6 +1,0 @@
-{
-  "bracketSameLine": true,
-  "semi": false,
-  "organizeImportsSkipDestructiveCodeActions": true,
-  "plugins": ["prettier-plugin-organize-imports", "prettier-plugin-tailwindcss"]
-}

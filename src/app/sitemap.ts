@@ -28,6 +28,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     fetchedRoutes = (await Promise.all([exercisesPromise])).flat()
   } catch (error) {
+    // eslint-disable-next-line @typescript-eslint/only-throw-error
     throw JSON.stringify(error, null, 2)
   }
 
