@@ -1,7 +1,8 @@
+/* eslint-disable */
 import type { Config } from "tailwindcss"
 import { fontFamily } from "tailwindcss/defaultTheme"
 
-export default {
+const config: Config = {
   content: ["./src/**/*.{ts,tsx}"],
   darkMode: ["class"],
   theme: {
@@ -19,4 +20,6 @@ export default {
     },
   },
   plugins: [require("tailwindcss-animate")],
-} satisfies Config
+}
+
+export default config
