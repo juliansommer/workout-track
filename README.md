@@ -37,3 +37,6 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 - make exercise table have search option, filter option (by muscle)
 - favourite exercises
 - personal bests per exercise per user
+- have user page where they can see their data
+- on the user page, can edit their details (being height, weight and age)
+- then need a seperate user table in supabase that is linked to the auth table

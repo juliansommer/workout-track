@@ -1,7 +1,7 @@
 import Nav from "@/components/Nav"
 import ProgressBar from "@/components/providers/ProgressBar"
 import ThemeProvider from "@/components/providers/ThemeProvider"
-import type { Metadata, Viewport } from "next"
+import type { Metadata } from "next"
 import { Inter as FontSans } from "next/font/google"
 import "./globals.css"
 
@@ -10,12 +10,6 @@ const fontSans = FontSans({
   variable: "--font-sans",
 })
 
-export const viewport: Viewport = {
-  themeColor: "#171717", // neutral-900
-}
-
-// order of this doesn't matter as next puts the important stuff (viewport, themecolour, title description) first
-// then puts the others alphabetised
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL!),
   title: {
@@ -23,18 +17,6 @@ export const metadata: Metadata = {
     default: "Workout Track",
   },
   description: "Workout Track",
-  applicationName: "Workout Track",
-  keywords: ["Workout", "Track"],
-  creator: "Julian Sommer",
-
-  // not defining title and description in og as next will use the metadata.title and metadata.description
-  // so can update these on page and it will also update the open graph and twitter cards
-  // twitter is not defined as next does it automatically with the title and description so can keep all 3 consistent easily
-  openGraph: {
-    siteName: "Workout Track",
-    locale: "en_US",
-    type: "website",
-  },
   robots: {
     index: true,
     follow: true,
@@ -45,6 +27,14 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
+  },
+  openGraph: {
+    siteName: "Workout Track",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    site: process.env.NEXT_PUBLIC_SITE_URL,
   },
 }
 
