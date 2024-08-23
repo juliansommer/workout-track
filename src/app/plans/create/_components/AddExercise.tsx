@@ -16,7 +16,7 @@ export default function AddExercise({
   setSelectedExercises: React.Dispatch<React.SetStateAction<ExerciseDropdown[]>>
 }) {
   const [components, setComponents] = useState<number[]>([])
-  const addComponent = (e: { preventDefault: () => void }) => {
+  function addComponent(e: { preventDefault: () => void }) {
     e.preventDefault()
     setComponents([...components, components.length])
   }
@@ -26,10 +26,10 @@ export default function AddExercise({
     value: exercise.id,
   }))
 
-  const handleSelectChange = (
+  function handleSelectChange(
     selectedOption: ExerciseDropdown | null,
     index: number,
-  ) => {
+  ) {
     const newSelectedExercises = [...selectedExercises]
     newSelectedExercises[index] = selectedOption ?? { label: "", value: "" }
     setSelectedExercises(newSelectedExercises)

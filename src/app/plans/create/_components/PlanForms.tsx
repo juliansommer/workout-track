@@ -22,7 +22,7 @@ export default function PlanForms({
   >([])
   const router = useRouter()
 
-  const CustomSubmit = (formData: PlanFormsProps) => {
+  function CustomSubmit(formData: PlanFormsProps) {
     OnSubmit(formData, selectedExercises)
     router.push("/plans")
   }
