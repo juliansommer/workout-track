@@ -5,5 +5,5 @@ export interface ExerciseDropdown {
 
 export interface PlanFormsProps {
   name: string
-  notes: string
+  notes?: string
 }
