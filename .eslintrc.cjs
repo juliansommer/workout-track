@@ -12,7 +12,7 @@ const config = {
   ],
   rules: {
     "@typescript-eslint/consistent-type-imports": [
-      "warn",
+      "error",
       { prefer: "type-imports", fixStyle: "inline-type-imports" },
     ],
     "@typescript-eslint/no-misused-promises": [
@@ -26,7 +26,7 @@ const config = {
     "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
     "@typescript-eslint/require-await": "off",
     "react/function-component-definition": [
-      2,
+      "error",
       {
         namedComponents: "function-declaration",
         unnamedComponents: "arrow-function",
