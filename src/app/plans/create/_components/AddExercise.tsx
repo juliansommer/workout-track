@@ -12,7 +12,7 @@ interface AddExerciseProps {
 export default function AddExercise({ options, field }: AddExerciseProps) {
   return (
     <div className="flex items-center space-x-4">
-      <div className="flex-1">
+      <div className="w-60 md:w-96">
         <Select
           options={options}
           value={options.find((option) => option.value === field.value?.value)}
@@ -35,7 +35,7 @@ export default function AddExercise({ options, field }: AddExerciseProps) {
           }}
         />
       </div>
-      <div className="flex-1">
+      <div className="flex-2">
         <Input
           type="number"
           value={field.value?.sets || ""}

@@ -58,6 +58,10 @@ export default function PlanForms({
     })
   }
 
+  function deleteComponent(index: number) {
+    setComponents(components.filter((_, i) => i !== index))
+  }
+
   const onSubmit: SubmitHandler<PlanFormSchema> = async (
     formData: PlanFormSchema,
   ) => {
@@ -84,34 +88,45 @@ export default function PlanForms({
           Add Exercise
         </Button>
         {components.map((_, index) => (
-          <div key={index}>
+          <div key={index} className="flex items-center justify-between">
             <Controller
               key={index}
               name={`exercises.${index}`}
               control={control}
               render={({ field }) => (
-                <AddExercise
-                  options={data.map((exercise) => ({
-                    label: exercise.name,
-                    value: exercise.id,
-                  }))}
-                  field={field}
-                />
+                <div>
+                  <div className="flex items-center justify-between">
+                    <AddExercise
+                      options={data.map((exercise) => ({
+                        label: exercise.name,
+                        value: exercise.id,
+                      }))}
+                      field={field}
+                    />
+                    <Button
+                      type="button"
+                      variant="destructive"
+                      className="ml-2"
+                      onClick={() => deleteComponent(index)}>
+                      X
+                    </Button>
+                  </div>
+                  {errors.exercises?.[index] && (
+                    <div className="pt-2">
+                      {errors.exercises[index].label && (
+                        <p>{errors.exercises[index].label.message}</p>
+                      )}
+                      {errors.exercises[index].value && (
+                        <p>{errors.exercises[index].value.message}</p>
+                      )}
+                      {errors.exercises[index].sets && (
+                        <p>{errors.exercises[index].sets.message}</p>
+                      )}
+                    </div>
+                  )}
+                </div>
               )}
             />
-            {errors.exercises?.[index] && (
-              <div className="pt-2">
-                {errors.exercises[index].label && (
-                  <p>{errors.exercises[index].label.message}</p>
-                )}
-                {errors.exercises[index].value && (
-                  <p>{errors.exercises[index].value.message}</p>
-                )}
-                {errors.exercises[index].sets && (
-                  <p>{errors.exercises[index].sets.message}</p>
-                )}
-              </div>
-            )}
           </div>
         ))}
       </div>
