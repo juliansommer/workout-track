@@ -18,7 +18,10 @@ const planFormSchema = z.object({
       z.object({
         label: z.string().min(1, "Exercise label is required"),
         value: z.string().min(1, "Exercise value is required"),
-        sets: z.number().min(1, "Sets must be at least 1"),
+        sets: z
+          .number()
+          .min(1, "Sets must be at least 1")
+          .max(10, "Sets must be 10 max"),
       }),
     )
     .nonempty("At least one exercise is required"),
@@ -89,7 +92,7 @@ export default function PlanForms({
               )}
             />
             {errors.exercises?.[index] && (
-              <div>
+              <div className="pt-2">
                 {errors.exercises[index].label && (
                   <p>{errors.exercises[index].label.message}</p>
                 )}

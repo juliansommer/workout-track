@@ -22,7 +22,22 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 # TODO
 
+- MAKE SURE TO SET A MAX AND MIN INT VALUE FOR ANY FIELD THAT NEEDS IT IN THE ZOD SCHEMA
+  - pb
+    - weight (float)
+    - reps (int)
+    - sets (int)
+  - set
+    - weight (float)
+    - reps (int)
+    - order (int), this wouldn't be a field that the user can edit, it would be auto generated
+  - workout
+    - duration (int)
+  - workout exercise
+    - order (int), this wouldn't be a field that the user can edit, it would be auto generated
 - add sonner for toasts maybe
+  - would then need to change all error handling to use this
+- add images to readme
 - edit plan page
 - delete plan option
 - create workout page
