@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from "uuid"
 export default async function createPlans(
   formData: PlanFormsProps,
   selectedExercises: ExerciseDropdown[],
+  sets: number[],
 ) {
   const supabase = createSupabaseServerClient()
   const {
@@ -28,10 +29,11 @@ export default async function createPlans(
     throw new Error("Failed to create plan")
   }
 
-  for (const exercise of selectedExercises) {
+  for (let i = 0; i < selectedExercises.length; i++) {
     const { error } = await supabase.from("plan_exercise").insert({
       plan_id: plan_id,
-      exercise_id: exercise.value,
+      exercise_id: selectedExercises[i]?.value,
+      sets: sets[i],
     })
 
     if (error) {

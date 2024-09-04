@@ -1,4 +1,3 @@
-import createPlans from "@/server/actions/createPlans"
 import getAllExercises from "@/server/actions/getAllExercises"
 import { type Metadata } from "next"
 import PlanForms from "./_components/PlanForms"
@@ -16,7 +15,7 @@ export default async function CreatePlan() {
   return (
     <div className="w-full max-w-3xl p-5">
       <p>Create Plan</p>
-      <PlanForms data={data} OnSubmit={createPlans} />
+      <PlanForms data={data} />
     </div>
   )
 }
