@@ -11,8 +11,11 @@ import { z } from "zod"
 import AddExercise from "./AddExercise"
 
 const planFormSchema = z.object({
-  name: z.string().min(1, "Name is required"),
-  notes: z.string().optional(),
+  name: z
+    .string()
+    .min(1, "Name is required")
+    .max(50, "Name must be 500 characters max"),
+  notes: z.string().max(100, "Notes must be 100 characters max").optional(),
   exercises: z
     .array(
       z.object({
@@ -47,7 +50,12 @@ export default function PlanForms({
   const router = useRouter()
 
   function addComponent() {
-    setComponents([...components, components.length])
+    setComponents((prevComponents) => {
+      if (prevComponents.length >= 10) {
+        return prevComponents // Prevent adding more than 10 exercises
+      }
+      return [...prevComponents, prevComponents.length]
+    })
   }
 
   const onSubmit: SubmitHandler<PlanFormSchema> = async (
@@ -107,6 +115,9 @@ export default function PlanForms({
           </div>
         ))}
       </div>
+      {components.length >= 10 && (
+        <p className="pt-5">You can only add up to 10 exercises</p>
+      )}
       {errors.exercises && <p>{errors.exercises.message}</p>}
       <div className="pt-5">
         <Button type="submit">Submit</Button>
