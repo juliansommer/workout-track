@@ -1,31 +1,23 @@
 "use client"
 import { Input } from "@/components/ui/Input"
-import type { ExerciseDropdown } from "@/types"
+import { type ControllerRenderProps } from "react-hook-form"
 import Select from "react-select"
+import type { PlanFormSchema } from "./PlanForms"
 
 interface AddExerciseProps {
-  index: number
-  options: ExerciseDropdown[]
-  handleSelectChange: (
-    selectedOption: ExerciseDropdown | null,
-    index: number,
-  ) => void
-  handleSetsChange: (value: number, index: number) => void
+  options: { label: string; value: string }[]
+  field: ControllerRenderProps<PlanFormSchema, `exercises.${number}`>
 }
 
-export default function AddExercise({
-  index,
-  options,
-  handleSelectChange,
-  handleSetsChange,
-}: AddExerciseProps) {
+export default function AddExercise({ options, field }: AddExerciseProps) {
   return (
     <div className="flex items-center space-x-4">
       <div className="flex-1">
         <Select
           options={options}
+          value={options.find((option) => option.value === field.value?.value)}
           onChange={(selectedOption) =>
-            handleSelectChange(selectedOption, index)
+            field.onChange({ ...field.value, ...selectedOption })
           }
           styles={{
             control: (provided) => ({
@@ -45,8 +37,11 @@ export default function AddExercise({
       </div>
       <div className="flex-1">
         <Input
-          type="text"
-          onChange={(e) => handleSetsChange(Number(e.target.value), index)}
+          type="number"
+          value={field.value?.sets || ""}
+          onChange={(e) =>
+            field.onChange({ ...field.value, sets: Number(e.target.value) })
+          }
           placeholder="Sets"
         />
       </div>

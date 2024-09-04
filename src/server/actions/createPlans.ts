@@ -1,13 +1,9 @@
 "use server"
+import type { PlanFormSchema } from "@/app/plans/create/_components/PlanForms"
 import createSupabaseServerClient from "@/lib/supabase/server"
-import type { ExerciseDropdown, PlanFormsProps } from "@/types"
 import { v4 as uuidv4 } from "uuid"
 
-export default async function createPlans(
-  formData: PlanFormsProps,
-  selectedExercises: ExerciseDropdown[],
-  sets: number[],
-) {
+export default async function createPlans(formData: PlanFormSchema) {
   const supabase = createSupabaseServerClient()
   const {
     data: { user },
@@ -29,11 +25,11 @@ export default async function createPlans(
     throw new Error("Failed to create plan")
   }
 
-  for (let i = 0; i < selectedExercises.length; i++) {
+  for (const exercise of formData.exercises) {
     const { error } = await supabase.from("plan_exercise").insert({
       plan_id: plan_id,
-      exercise_id: selectedExercises[i]?.value,
-      sets: sets[i],
+      exercise_id: exercise.value,
+      sets: exercise.sets,
     })
 
     if (error) {

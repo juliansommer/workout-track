@@ -4,16 +4,17 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 # Features
 
-- View 800+ exercises
-- (WIP) Create, edit and delete plan and workout
-- Full auth using Supabase with Google SSO and protected routes with Next.js middleware
-- Full Row Level Security implemented using Supabase to prevent unauthorised changes to the database
-- Images hosted in Supabase Bucket
-- Scalable relational database architecture
-- Environment variables validated with Zod on build
-- Full dark and light mode theming using next-themes
-- Progress bar for page transitions using next-nprogress-bar
-- Styling using shadcn/ui
+- 🖥️ View 800+ exercises
+- 📝 (WIP) Create, edit and delete plan and workout
+- 🔑 Full auth using Supabase with Google SSO and protected routes with Next.js middleware
+- 🔐 Full Row Level Security implemented using Supabase to prevent unauthorised changes to the database
+- ✅ Forms using react-hook-form with validation using zod
+- 🖼️ Images hosted in Supabase Bucket
+- 📈 Scalable relational database architecture
+- 📣 Environment variables validated on build using zod
+- 🌙 Full dark and light mode theming using next-themes
+- 🌌 Progress bar for page transitions using next-nprogress-bar
+- 👾 Styling using shadcn/ui
 
 # Schema Diagram
 
@@ -21,9 +22,7 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 # TODO
 
-- validate forms using zod?
 - add sonner for toasts maybe
-- add option to add sets and notes for each exercise in a workout plan
 - edit plan page
 - delete plan option
 - create workout page
@@ -35,4 +34,4 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 - personal bests per exercise per user
 - have user page where they can see their data
 - on the user page, can edit their details (being height, weight and age)
-- then need a seperate user table in supabase that is linked to the auth table
+- then need a separate user table in supabase that is linked to the auth table
