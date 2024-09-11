@@ -5,8 +5,9 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/Collapsible"
+import createSupabaseServerClient from "@/lib/supabase/server"
 import { titleCase } from "@/lib/utils"
-import getSpecificExercise from "@/server/actions/getSpecificExercise"
+import type { Database } from "@/types/supabase"
 import type { Metadata } from "next"
 import Image from "next/image"
 
@@ -80,4 +81,19 @@ export default async function Exercise({
       </main>
     </div>
   )
+}
+
+async function getSpecificExercise(exercise: string) {
+  const supabase = createSupabaseServerClient()
+  const { data, error } = await supabase
+    .from("exercise")
+    .select("name, image, primary_muscles, secondary_muscles, instructions")
+    .eq("name", exercise)
+    .returns<Database["public"]["Tables"]["exercise"]["Row"][]>()
+
+  if (error) {
+    throw new Error("Failed to fetch exercises")
+  }
+
+  return data
 }
