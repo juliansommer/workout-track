@@ -32,11 +32,11 @@ const planFormSchema = z.object({
 
 export type PlanFormSchema = z.infer<typeof planFormSchema>
 
-export default function PlanForms({
-  data,
-}: {
+interface PlanFormsProps {
   data: { name: string; id: string }[]
-}) {
+}
+
+export default function PlanForms({ data }: PlanFormsProps) {
   const {
     register,
     handleSubmit,

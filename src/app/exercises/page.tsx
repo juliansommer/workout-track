@@ -15,6 +15,36 @@ export const metadata: Metadata = {
 
 let cachedTotalPages: number | null = null
 
+interface ExercisesProps {
+  searchParams: Record<string, string | string[] | undefined>
+}
+
+export default async function Exercises({ searchParams }: ExercisesProps) {
+  const supabase = createSupabaseServerClient()
+  const page = Number(searchParams?.page) || 1
+  const per_page = 10
+  const totalPages = await getTotalPages(supabase, per_page)
+  const data = await fetchExercises(page, supabase, per_page)
+
+  return (
+    <>
+      <Heading title="Exercises" />
+      <div className="w-full">
+        {data.map(
+          (item: Database["public"]["Tables"]["exercise"]["Row"], index) => (
+            <ExerciseCard key={index} exercise={item}></ExerciseCard>
+          ),
+        )}
+      </div>
+      <PaginationContainer
+        totalPages={totalPages}
+        currentPage={page}
+        route="/exercises"
+      />
+    </>
+  )
+}
+
 // caches the total pages so the request doesn't run every time
 async function getTotalPages(supabase: SupabaseClient, per_page: number) {
   if (cachedTotalPages !== null) {
@@ -49,34 +79,4 @@ async function fetchExercises(
   }
 
   return data
-}
-
-export default async function Exercises({
-  searchParams,
-}: {
-  searchParams: Record<string, string | string[] | undefined>
-}) {
-  const supabase = createSupabaseServerClient()
-  const page = Number(searchParams?.page) || 1
-  const per_page = 10
-  const totalPages = await getTotalPages(supabase, per_page)
-  const data = await fetchExercises(page, supabase, per_page)
-
-  return (
-    <>
-      <Heading title="Exercises" />
-      <div className="w-full">
-        {data.map(
-          (item: Database["public"]["Tables"]["exercise"]["Row"], index) => (
-            <ExerciseCard key={index} exercise={item}></ExerciseCard>
-          ),
-        )}
-      </div>
-      <PaginationContainer
-        totalPages={totalPages}
-        currentPage={page}
-        route="/exercises"
-      />
-    </>
-  )
 }

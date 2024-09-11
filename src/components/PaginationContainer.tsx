@@ -2,15 +2,17 @@
 import { Pagination } from "@nextui-org/pagination"
 import { useRouter } from "next-nprogress-bar"
 
+interface PaginationContainerProps {
+  totalPages: number
+  currentPage: number
+  route: string
+}
+
 export default function PaginationContainer({
   totalPages,
   currentPage,
   route,
-}: {
-  totalPages: number
-  currentPage: number
-  route: string
-}) {
+}: PaginationContainerProps) {
   const router = useRouter()
   if (totalPages === 1) return null
 
