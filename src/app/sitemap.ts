@@ -1,4 +1,4 @@
-import getAllExercises from "@/server/actions/getAllExercises"
+import getAllExercises from "@/server/fetching/getAllExercises"
 import type { MetadataRoute } from "next"
 
 interface Route {

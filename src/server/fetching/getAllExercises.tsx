@@ -1,13 +1,12 @@
-"use server"
 import createSupabaseServerClient from "@/lib/supabase/server"
 import { type Database } from "@/types/supabase"
 
-export default async function getSpecificExercise(exercise: string) {
+export default async function getAllExercises() {
   const supabase = createSupabaseServerClient()
   const { data, error } = await supabase
     .from("exercise")
-    .select("name, image, primary_muscles, secondary_muscles, instructions")
-    .eq("name", exercise)
+    .select("id, name")
+    .order("name", { ascending: true })
     .returns<Database["public"]["Tables"]["exercise"]["Row"][]>()
 
   if (error) {

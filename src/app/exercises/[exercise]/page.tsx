@@ -6,7 +6,7 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/Collapsible"
 import { titleCase } from "@/lib/utils"
-import getSpecificExercise from "@/server/actions/getSpecificExercise"
+import getSpecificExercise from "@/server/fetching/getSpecificExercise"
 import type { Metadata } from "next"
 import Image from "next/image"
 

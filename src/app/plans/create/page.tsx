@@ -1,4 +1,4 @@
-import getAllExercises from "@/server/actions/getAllExercises"
+import getAllExercises from "@/server/fetching/getAllExercises"
 import { type Metadata } from "next"
 import PlanForms from "./_components/PlanForms"
 
