@@ -9,7 +9,6 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 - 🔑 Full auth using Supabase with Google SSO and protected routes with Next.js middleware
 - 🔐 Full Row Level Security implemented using Supabase to prevent unauthorised database changes
 - ✅ Forms using react-hook-form with validation using zod
-- 🖼️ Images hosted in Supabase Bucket
 - 📈 Scalable relational database architecture
 - 📣 Environment variables validated on build using zod
 - 🌙 Full dark and light mode theming using next-themes

@@ -71,7 +71,7 @@ export default async function Exercise({
         <div className="grid gap-6">
           <Heading title={exercise} />
           <Image
-            src={`${process.env.S3_BUCKET}/exercise/${data[0]?.image}`}
+            src={`/exercises/${data[0]?.image}`}
             width={800}
             height={600}
             alt={`${exercise} Image`}

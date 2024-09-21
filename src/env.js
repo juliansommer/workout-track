@@ -6,11 +6,7 @@ export const env = createEnv({
    * Specify your server-side environment variables schema here. This way you can ensure the app
    * isn't built with invalid env vars.
    */
-  server: {
-    S3_BUCKET: z.string().url(),
-    S3_HOSTNAME: z.string(),
-    S3_PATH: z.string(),
-  },
+  server: {},
 
   /**
    * Specify your client-side environment variables schema here. This way you can ensure the app
@@ -28,9 +24,6 @@ export const env = createEnv({
    * middlewares) or client-side so we need to destruct manually.
    */
   runtimeEnv: {
-    S3_BUCKET: process.env.S3_BUCKET,
-    S3_HOSTNAME: process.env.S3_HOSTNAME,
-    S3_PATH: process.env.S3_PATH,
     NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
     NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL,
     NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,

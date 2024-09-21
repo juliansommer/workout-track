@@ -13,7 +13,7 @@ export default function ExerciseCard({
       <div className="flex items-center justify-between rounded-md p-4">
         <div className="flex items-center space-x-4">
           <Image
-            src={`${process.env.S3_BUCKET}/exercise/${exercise.image}`}
+            src={`/exercises/${exercise.image}`}
             alt={`${exercise.name} Image`}
             width={100}
             height={100}
