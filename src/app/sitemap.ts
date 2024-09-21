@@ -6,6 +6,9 @@ interface Route {
   lastModified: string
 }
 
+export const dynamic = "force-dynamic"
+
+// this dynamically generates the sitemap ON REQUEST, not build time
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes = ["", "/exercises", "/login"]
 
