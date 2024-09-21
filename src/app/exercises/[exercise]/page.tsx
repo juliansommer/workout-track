@@ -32,7 +32,7 @@ export async function generateStaticParams() {
 
   return (
     data?.map((exercise) => ({
-      exercises: exercise.name,
+      exercises: encodeURIComponent(exercise.name),
     })) ?? []
   )
 }
