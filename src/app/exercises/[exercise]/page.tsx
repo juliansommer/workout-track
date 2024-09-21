@@ -7,8 +7,35 @@ import {
 } from "@/components/ui/Collapsible"
 import { titleCase } from "@/lib/utils"
 import getSpecificExercise from "@/server/fetching/getSpecificExercise"
+import type { Database } from "@/types/supabase"
+import { createClient } from "@supabase/supabase-js"
 import type { Metadata } from "next"
 import Image from "next/image"
+
+// We'll prerender only the params from `generateStaticParams` at build time.
+// If a request comes in for a path that hasn't been generated,
+// Next.js will server-render the page on-demand.
+export const dynamicParams = true // or false, to 404 on unknown paths
+
+// have to use supabase-js instead of @supabase/ssr
+// as @supabase/ssr opts into ssr rendering ON DEMAND
+// and we want this page to be statically generated
+export async function generateStaticParams() {
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+  )
+  const { data } = await supabase
+    .from("exercises")
+    .select("name")
+    .returns<Database["public"]["Tables"]["exercise"]["Row"][]>()
+
+  return (
+    data?.map((exercise) => ({
+      exercises: exercise.name,
+    })) ?? []
+  )
+}
 
 export function generateMetadata({
   params,

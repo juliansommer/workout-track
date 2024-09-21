@@ -22,7 +22,6 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 # TODO
 
-- ISR for exercises/[exercise] [see](https://nextjs.org/docs/app/building-your-application/data-fetching/incremental-static-regeneration)
 - MAKE SURE TO SET A MAX AND MIN INT VALUE FOR ANY FIELD THAT NEEDS IT IN THE ZOD SCHEMA
   - pb
     - weight (float)

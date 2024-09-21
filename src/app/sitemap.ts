@@ -8,6 +8,7 @@ interface Route {
 
 export const dynamic = "force-dynamic"
 
+// this dynamically generates the sitemap ON REQUEST, not build time
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes = ["", "/exercises", "/login"]
 
@@ -28,8 +29,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     fetchedRoutes = (await Promise.all([exercisesPromise])).flat()
   } catch (error) {
-    // eslint-disable-next-line @typescript-eslint/only-throw-error
-    throw JSON.stringify(error, null, 2)
+    throw error
   }
 
   return [...routesMap, ...fetchedRoutes].sort((a, b) =>
