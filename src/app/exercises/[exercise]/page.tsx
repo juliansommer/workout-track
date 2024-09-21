@@ -76,6 +76,7 @@ export default async function Exercise({
             height={600}
             alt={`${exercise} Image`}
             className="aspect-video w-full rounded-lg object-cover"
+            priority
           />
           <div className="grid gap-2">
             <div className="flex flex-wrap items-center gap-2">
