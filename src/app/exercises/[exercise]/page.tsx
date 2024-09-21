@@ -25,16 +25,21 @@ export async function generateStaticParams() {
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
   )
-  const { data } = await supabase
-    .from("exercises")
+  const { data, error } = await supabase
+    .from("exercise")
     .select("name")
     .returns<Database["public"]["Tables"]["exercise"]["Row"][]>()
 
-  return (
-    data?.map((exercise) => ({
-      exercise: encodeURIComponent(exercise.name),
-    })) ?? []
-  )
+  if (error) {
+    throw new Error(
+      error.message ??
+        "Failed to fetch exercises when building /exercises/[exercise]",
+    )
+  }
+
+  return data.map((exercise) => ({
+    exercise: encodeURIComponent(exercise.name),
+  }))
 }
 
 export function generateMetadata({
