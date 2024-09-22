@@ -26,7 +26,17 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 # TODO
 
+- pages
+
+  - create, edit and delete workout
+    - should be able to reuse most of the plan page
+  - landing page
+  - have user page where they can see their data
+    - on the user page, can edit their details (being height, weight and age)
+    - then need a separate user table in supabase that is linked to the auth table
+
 - MAKE SURE TO SET A MAX AND MIN INT VALUE FOR ANY FIELD THAT NEEDS IT IN THE ZOD SCHEMA
+
   - pb
     - weight (float)
     - reps (int)
@@ -39,18 +49,10 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
     - duration (int)
   - workout exercise
     - order (int), this wouldn't be a field that the user can edit, it would be auto generated
-- add sonner for toasts maybe
-  - would then need to change all error handling to use this
-- add ordering to exercises in plan and workout
+
+- add ordering to exercises in workout
+  - should not need to if its similar to how I did plan as that is ordered by default
 - add notes option for exercises in plan and workout
-- create workout page
-  - should be able to reuse most of the plan page
-- edit workout page
-- delete workout page
-- make landing page
 - make exercise table have search option, filter option (by muscle)
 - favourite exercises
 - personal bests per exercise per user
-- have user page where they can see their data
-- on the user page, can edit their details (being height, weight and age)
-- then need a separate user table in supabase that is linked to the auth table
