@@ -43,6 +43,7 @@ export default async function getSpecificPlans(planId: string) {
 
   // combine all the data into one object
   const combinedData: PlanData = {
+    id: planId,
     name: planData.name,
     notes: planData.notes,
     exercises: exercisesData.map((exercise) => {
@@ -50,6 +51,7 @@ export default async function getSpecificPlans(planId: string) {
         (detail) => detail.id === exercise.exercise_id,
       )
       return {
+        id: exercise.exercise_id,
         sets: exercise.sets,
         name: exerciseDetails?.name,
         image: exerciseDetails?.image,

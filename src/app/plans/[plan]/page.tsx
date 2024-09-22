@@ -39,9 +39,9 @@ export default async function Plan({ params }: { params: { plan: string } }) {
                   size: "icon",
                 })}>
                 <Edit className="h-4 w-4" />
-                <span className="sr-only">Edit plan</span>
+                <span className="sr-only">Edit Plan</span>
               </Link>
-              {/* this should probably have a pop up to ask if sure, then server action, route doesnt make sense */}
+              {/* this should probably have a pop up to ask if sure, then server action, route doesn't make sense */}
               {/* might have to convert to client component then */}
               <Link
                 href={`${params.plan}/delete`}
@@ -50,16 +50,20 @@ export default async function Plan({ params }: { params: { plan: string } }) {
                   size: "icon",
                 })}>
                 <Trash2 className="h-4 w-4" />
-                <span className="sr-only">Delete plan</span>
+                <span className="sr-only">Delete Plan</span>
               </Link>
             </div>
           </div>
         </CardHeader>
         <CardContent>
-          <div className="mb-6">
-            <h2 className="mb-2 text-xl font-semibold">Notes</h2>
-            <p className="text-gray-600">{data.notes}</p>
-          </div>
+          {data.notes && (
+            <div className="mb-6">
+              <h2 className="mb-2 text-xl font-semibold">Notes</h2>
+              <p className="text-neutral-700 dark:text-neutral-300">
+                {data.notes}
+              </p>
+            </div>
+          )}
           <h2 className="mb-4 text-xl font-semibold">Exercises</h2>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {data.exercises.map((exercise, index) => (
@@ -77,7 +81,7 @@ export default async function Plan({ params }: { params: { plan: string } }) {
                   <h3 className="mb-2 text-lg font-semibold">
                     {exercise.name}
                   </h3>
-                  <div className="flex items-center text-sm text-gray-600">
+                  <div className="flex items-center text-sm text-neutral-600 dark:text-neutral-500">
                     <Dumbbell className="mr-2 h-4 w-4" />
                     <span>{exercise.sets} sets</span>
                   </div>

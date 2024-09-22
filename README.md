@@ -41,8 +41,6 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
     - order (int), this wouldn't be a field that the user can edit, it would be auto generated
 - add sonner for toasts maybe
   - would then need to change all error handling to use this
-- edit plan page
-  - essentially reuse the create plan page but with the plan data pre filled
 - add ordering to exercises in plan and workout
 - add notes option for exercises in plan and workout
 - delete plan option

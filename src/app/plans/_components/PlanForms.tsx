@@ -2,10 +2,12 @@
 import { Button } from "@/components/ui/Button"
 import { Input } from "@/components/ui/Input"
 import { Textarea } from "@/components/ui/Textarea"
-import createPlans from "@/server/actions/createPlans"
+import createPlan from "@/server/actions/createPlan"
+import editPlan from "@/server/actions/editPlan"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { Trash2 } from "lucide-react"
 import { useRouter } from "next-nprogress-bar"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Controller, useForm, type SubmitHandler } from "react-hook-form"
 import { z } from "zod"
 import AddExercise from "./AddExercise"
@@ -32,14 +34,27 @@ const planFormSchema = z.object({
 
 export type PlanFormSchema = z.infer<typeof planFormSchema>
 
-interface PlanFormsProps {
-  data: { name: string; id: string }[]
+interface predefinedData {
+  id: string
+  name: string
+  notes: string | null
+  exercises: {
+    label: string
+    value: string
+    sets: number
+  }[]
 }
 
-export default function PlanForms({ data }: PlanFormsProps) {
+interface PlanFormsProps {
+  data: { name: string; id: string }[]
+  planData?: predefinedData
+}
+
+export default function PlanForms({ data, planData }: PlanFormsProps) {
   const {
     register,
     handleSubmit,
+    setValue,
     control,
     formState: { errors },
   } = useForm<PlanFormSchema>({
@@ -49,6 +64,20 @@ export default function PlanForms({ data }: PlanFormsProps) {
 
   const router = useRouter()
 
+  // Initialize form with plan data
+  useEffect(() => {
+    if (planData) {
+      setValue("name", planData.name)
+      setValue("notes", planData.notes ?? "")
+      planData.exercises.forEach((exercise, index) => {
+        setValue(`exercises.${index}`, exercise)
+      })
+      // Initialize components state with indices of exercises
+      setComponents(planData.exercises.map((_, index) => index))
+    }
+  }, [planData, setValue])
+
+  // function to add a new exercise component
   function addComponent() {
     setComponents((prevComponents) => {
       if (prevComponents.length >= 10) {
@@ -58,6 +87,7 @@ export default function PlanForms({ data }: PlanFormsProps) {
     })
   }
 
+  // function to delete a new exercise component
   function deleteComponent(index: number) {
     setComponents(components.filter((_, i) => i !== index))
   }
@@ -65,11 +95,20 @@ export default function PlanForms({ data }: PlanFormsProps) {
   const onSubmit: SubmitHandler<PlanFormSchema> = async (
     formData: PlanFormSchema,
   ) => {
-    try {
-      await createPlans(formData)
-      router.push("/plans")
-    } catch (error) {
-      console.error("Failed to create plan:", error)
+    if (planData) {
+      try {
+        await editPlan(planData.id, formData)
+        router.push("/plans")
+      } catch (error) {
+        console.error("Failed to edit plan:", error)
+      }
+    } else {
+      try {
+        await createPlan(formData)
+        router.push("/plans")
+      } catch (error) {
+        console.error("Failed to create plan:", error)
+      }
     }
   }
 
@@ -105,10 +144,11 @@ export default function PlanForms({ data }: PlanFormsProps) {
                     />
                     <Button
                       type="button"
-                      variant="destructive"
+                      variant="outline"
                       className="ml-2"
                       onClick={() => deleteComponent(index)}>
-                      X
+                      <Trash2 className="h-4 w-4" />
+                      <span className="sr-only">Delete Exercise</span>
                     </Button>
                   </div>
                   {errors.exercises?.[index] && (
