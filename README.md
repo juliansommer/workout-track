@@ -20,9 +20,9 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 ![schema](https://github.com/user-attachments/assets/32ffc229-7a2e-4e29-9b97-43c70ef59587)
 
 # Pages
+
 ![exercise](https://github.com/user-attachments/assets/972d639b-24d5-4e54-b580-b4833b9b558d)
 ![exercises](https://github.com/user-attachments/assets/c91b8e2d-da2c-45de-adc4-1540babfa29d)
-
 
 # TODO
 
@@ -41,7 +41,6 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
     - order (int), this wouldn't be a field that the user can edit, it would be auto generated
 - add sonner for toasts maybe
   - would then need to change all error handling to use this
-- add images to readme
 - edit plan page
 - delete plan option
 - create workout page
