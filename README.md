@@ -42,6 +42,9 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 - add sonner for toasts maybe
   - would then need to change all error handling to use this
 - edit plan page
+  - essentially reuse the create plan page but with the plan data pre filled
+- add ordering to exercises in plan and workout
+- add notes option for exercises in plan and workout
 - delete plan option
 - create workout page
 - edit workout page

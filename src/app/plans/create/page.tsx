@@ -1,3 +1,4 @@
+import Heading from "@/components/Heading"
 import getAllExercises from "@/server/fetching/getAllExercises"
 import { type Metadata } from "next"
 import PlanForms from "./_components/PlanForms"
@@ -14,7 +15,7 @@ export default async function CreatePlan() {
 
   return (
     <div className="w-full max-w-3xl p-5">
-      <p>Create Plan</p>
+      <Heading title="Create Plans" />
       <PlanForms data={data} />
     </div>
   )

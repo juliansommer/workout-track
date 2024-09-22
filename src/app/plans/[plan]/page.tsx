@@ -1,13 +1,21 @@
+import { buttonVariants } from "@/components/ui/Button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
+import getPlanName from "@/server/fetching/getPlanName"
+import getSpecificPlan from "@/server/fetching/getSpecificPlan"
+import { type PlanData } from "@/types"
+import { Dumbbell, Edit, Trash2 } from "lucide-react"
 import type { Metadata } from "next"
+import Image from "next/image"
+import Link from "next/link"
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
   params: { plan: string }
-}): Metadata {
-  // need to make query to supabase to get the plan name based on the id from params
+}): Promise<Metadata> {
+  const name = await getPlanName(params.plan)
   return {
-    title: params.plan,
+    title: `Plan ${name}`,
     alternates: {
       canonical: `/plans/${params.plan}`,
     },
@@ -15,9 +23,70 @@ export function generateMetadata({
 }
 
 export default async function Plan({ params }: { params: { plan: string } }) {
-  // needs to make request to supabase to get plan data based on plan param
-  // then just display the data in a read only format with button to edit
+  const data: PlanData = await getSpecificPlan(params.plan)
 
-  const planId = params.plan
-  return <p>{planId}</p>
+  return (
+    <div className="container mx-auto max-w-4xl p-4">
+      <Card>
+        <CardHeader className="flex flex-col space-y-1.5 p-6">
+          <div className="flex items-center justify-between">
+            <CardTitle className="text-2xl font-bold">{data.name}</CardTitle>
+            <div className="flex space-x-2">
+              <Link
+                href={`${params.plan}/edit`}
+                className={buttonVariants({
+                  variant: "outline",
+                  size: "icon",
+                })}>
+                <Edit className="h-4 w-4" />
+                <span className="sr-only">Edit plan</span>
+              </Link>
+              {/* this should probably have a pop up to ask if sure, then server action, route doesnt make sense */}
+              {/* might have to convert to client component then */}
+              <Link
+                href={`${params.plan}/delete`}
+                className={buttonVariants({
+                  variant: "outline",
+                  size: "icon",
+                })}>
+                <Trash2 className="h-4 w-4" />
+                <span className="sr-only">Delete plan</span>
+              </Link>
+            </div>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <div className="mb-6">
+            <h2 className="mb-2 text-xl font-semibold">Notes</h2>
+            <p className="text-gray-600">{data.notes}</p>
+          </div>
+          <h2 className="mb-4 text-xl font-semibold">Exercises</h2>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+            {data.exercises.map((exercise, index) => (
+              <Card key={index} className="overflow-hidden">
+                <div className="relative aspect-video">
+                  <Image
+                    src={`/exercises/${exercise.image}`}
+                    alt={exercise.name!}
+                    className="h-full w-full"
+                    width={500}
+                    height={300}
+                  />
+                </div>
+                <CardContent className="p-4">
+                  <h3 className="mb-2 text-lg font-semibold">
+                    {exercise.name}
+                  </h3>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <Dumbbell className="mr-2 h-4 w-4" />
+                    <span>{exercise.sets} sets</span>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  )
 }
