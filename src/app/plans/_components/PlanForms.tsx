@@ -45,6 +45,7 @@ interface predefinedData {
   }[]
 }
 
+// data is the list of exercises
 interface PlanFormsProps {
   data: { name: string; id: string }[]
   planData?: predefinedData
@@ -53,6 +54,8 @@ interface PlanFormsProps {
 export default function PlanForms({ data, planData }: PlanFormsProps) {
   const {
     register,
+    unregister,
+    watch,
     handleSubmit,
     setValue,
     control,
@@ -89,7 +92,17 @@ export default function PlanForms({ data, planData }: PlanFormsProps) {
 
   // function to delete a new exercise component
   function deleteComponent(index: number) {
+    unregister(`exercises.${index}`)
     setComponents(components.filter((_, i) => i !== index))
+
+    // Get the current form data
+    const currentFormData = watch()
+    // Clean up the exercises array to remove any undefined values
+    const cleanedExercises = currentFormData.exercises.filter(
+      (exercise) => exercise !== undefined,
+    )
+    // Update the form data using setValue
+    setValue("exercises", cleanedExercises as PlanFormSchema["exercises"])
   }
 
   const onSubmit: SubmitHandler<PlanFormSchema> = async (
