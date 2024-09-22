@@ -23,6 +23,7 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 ![exercise](https://github.com/user-attachments/assets/972d639b-24d5-4e54-b580-b4833b9b558d)
 ![exercises](https://github.com/user-attachments/assets/c91b8e2d-da2c-45de-adc4-1540babfa29d)
+![plan](https://github.com/user-attachments/assets/78e94d14-d75b-425f-9c8b-b2b26428079a)
 
 # TODO
 
