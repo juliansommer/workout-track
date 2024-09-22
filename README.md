@@ -43,8 +43,8 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
   - would then need to change all error handling to use this
 - add ordering to exercises in plan and workout
 - add notes option for exercises in plan and workout
-- delete plan option
 - create workout page
+  - should be able to reuse most of the plan page
 - edit workout page
 - delete workout page
 - make landing page

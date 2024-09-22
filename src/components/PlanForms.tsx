@@ -183,6 +183,7 @@ export default function PlanForms({ data, planData }: PlanFormsProps) {
           </div>
         ))}
       </div>
+
       {components.length >= 10 && (
         <p className="pt-5">You can only add up to 10 exercises</p>
       )}

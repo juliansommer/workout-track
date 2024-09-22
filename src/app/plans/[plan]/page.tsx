@@ -3,10 +3,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
 import getPlanName from "@/server/fetching/getPlanName"
 import getSpecificPlan from "@/server/fetching/getSpecificPlan"
 import { type PlanData } from "@/types"
-import { Dumbbell, Edit, Trash2 } from "lucide-react"
+import { Dumbbell, Edit } from "lucide-react"
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
+import DeletePlan from "./_components/DeletePlan"
 
 export async function generateMetadata({
   params,
@@ -41,17 +42,7 @@ export default async function Plan({ params }: { params: { plan: string } }) {
                 <Edit className="h-4 w-4" />
                 <span className="sr-only">Edit Plan</span>
               </Link>
-              {/* this should probably have a pop up to ask if sure, then server action, route doesn't make sense */}
-              {/* might have to convert to client component then */}
-              <Link
-                href={`${params.plan}/delete`}
-                className={buttonVariants({
-                  variant: "outline",
-                  size: "icon",
-                })}>
-                <Trash2 className="h-4 w-4" />
-                <span className="sr-only">Delete Plan</span>
-              </Link>
+              <DeletePlan planId={params.plan} />
             </div>
           </div>
         </CardHeader>

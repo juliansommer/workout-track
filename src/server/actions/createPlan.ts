@@ -1,5 +1,5 @@
 "use server"
-import type { PlanFormSchema } from "@/app/plans/_components/PlanForms"
+import type { PlanFormSchema } from "@/components/PlanForms"
 import createSupabaseServerClient from "@/lib/supabase/server"
 import { v4 as uuidv4 } from "uuid"
 

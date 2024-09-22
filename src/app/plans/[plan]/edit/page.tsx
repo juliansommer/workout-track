@@ -1,10 +1,10 @@
 import Heading from "@/components/Heading"
+import PlanForms from "@/components/PlanForms"
 import getAllExercises from "@/server/fetching/getAllExercises"
 import getPlanName from "@/server/fetching/getPlanName"
 import getSpecificPlan from "@/server/fetching/getSpecificPlan"
 import type { PlanData } from "@/types"
 import type { Metadata } from "next"
-import PlanForms from "../../_components/PlanForms"
 
 export async function generateMetadata({
   params,
