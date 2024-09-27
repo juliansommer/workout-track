@@ -59,3 +59,5 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 - personal bests per exercise per user
 - graph of weight increase over time for exercise
 - graph of weight increase over time for muscle group
+- need way to activate the plan_updated_at trigger if a row in plan_exercise with the same plan_id is updated
+- need way to activate the workout_updated_at trigger if a row in workout_exercise with the same workout_id is updated
