@@ -22,7 +22,7 @@ export default async function Nav() {
       </Link>
 
       {/* Desktop Navigation */}
-      <div className="hidden gap-3 sm:flex">
+      <div className="hidden gap-3 md:flex">
         <ThemeButton />
         <Link
           href="/exercises"
@@ -57,7 +57,7 @@ export default async function Nav() {
       </div>
 
       {/* Mobile Navigation */}
-      <div className="relative flex gap-3 sm:hidden">
+      <div className="relative flex gap-3 md:hidden">
         <ThemeButton />
         {data.session ? (
           <DropdownMenu>
