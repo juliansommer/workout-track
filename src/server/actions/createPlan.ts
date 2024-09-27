@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid"
 export default async function createPlan(formData: PlanFormSchema) {
   const supabase = createSupabaseServerClient()
 
-  // get the user
+  // get the user and check auth
   const {
     data: { user },
   } = await supabase.auth.getUser()

@@ -8,6 +8,15 @@ export default async function editPlan(
 ) {
   const supabase = createSupabaseServerClient()
 
+  // check auth
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+
+  if (!user) {
+    throw new Error("User not found")
+  }
+
   // update the plan with name and notes
   const { error } = await supabase
     .from("plan")
