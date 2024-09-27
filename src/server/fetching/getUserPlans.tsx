@@ -15,7 +15,7 @@ export default async function getUserPlans() {
     .returns<Database["public"]["Tables"]["plan"]["Row"][]>()
 
   if (error) {
-    throw new Error("Failed to fetch exercises")
+    throw new Error("Failed to fetch plans")
   }
 
   return data

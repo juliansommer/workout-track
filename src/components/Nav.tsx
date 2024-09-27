@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/DropdownMenu"
 import getUserSession from "@/server/actions/getUserSession"
 import logoutAction from "@/server/actions/logoutAction"
+import { Dumbbell } from "lucide-react"
 import Link from "next/link"
 import ThemeButton from "./ThemeButton"
 
@@ -15,10 +16,9 @@ export default async function Nav() {
 
   return (
     <nav className="flex-between mb-16 flex h-full w-full items-center justify-between pt-3">
-      <Link href="/" className="flex-center flex gap-2">
-        <p className="text-lg font-medium tracking-wide text-black dark:text-white">
-          Workout Track
-        </p>
+      <Link className="flex items-center justify-center" href="/">
+        <Dumbbell className="mr-2 h-6 w-6" />
+        <span className="font-bold">Workout Track</span>
       </Link>
 
       {/* Desktop Navigation */}
@@ -35,6 +35,11 @@ export default async function Nav() {
               href="/plans"
               className={buttonVariants({ variant: "outline" })}>
               Plans
+            </Link>
+            <Link
+              href="/workouts"
+              className={buttonVariants({ variant: "outline" })}>
+              Workouts
             </Link>
             <form action={logoutAction}>
               <button className={buttonVariants({ variant: "default" })}>
@@ -67,6 +72,9 @@ export default async function Nav() {
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <Link href="/plans">Plans</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link href="/workouts">Workouts</Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <form action={logoutAction}>

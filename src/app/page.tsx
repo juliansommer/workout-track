@@ -1,3 +1,4 @@
+import { LinkIcon } from "lucide-react"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -6,14 +7,58 @@ export const metadata: Metadata = {
   },
 }
 
-export default function Home() {
+import { GithubLogo } from "@/components/Logos"
+import { buttonVariants } from "@/components/ui/Button"
+import Link from "next/link"
+
+export default function Page() {
   return (
-    <div className="pt-20">
-      <div className="mx-auto flex h-[20rem] max-w-4xl items-center justify-center rounded-md">
-        <p className="text-3xl font-semibold text-black dark:text-white">
-          Workout Track
-        </p>
-      </div>
+    <div className="flex max-h-screen flex-col">
+      <main className="flex-1">
+        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
+          <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center space-y-4 text-center">
+              <div className="space-y-2">
+                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
+                  Track Your Fitness Journey
+                </h1>
+                <p className="mx-auto max-w-[700px] pt-2">
+                  Workout Track is an open source app that helps you monitor
+                  your workouts, set goals, and achieve your fitness dreams.
+                  Start your journey to a healthier you today.
+                </p>
+              </div>
+              <div className="animate-in fade-in-30 mt-8 items-center justify-center gap-x-3 space-y-3 duration-700 sm:flex sm:space-y-0">
+                <Link
+                  href="/login"
+                  className={buttonVariants({
+                    variant: "other",
+                    className: "group",
+                    size: "lg",
+                  })}>
+                  <LinkIcon
+                    size={18}
+                    className="mr-1 duration-300 group-hover:rotate-[10deg]"
+                  />
+                  <span>Get Started</span>
+                </Link>
+                <a
+                  href="https://github.com/juliansommer/workout-track"
+                  className={buttonVariants({
+                    variant: "expandIcon",
+                    size: "lg",
+                  })}>
+                  <GithubLogo
+                    height={18}
+                    className="mr-1 duration-300 group-hover:-rotate-[10deg]"
+                  />
+                  <span>Star on GitHub</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
   )
 }

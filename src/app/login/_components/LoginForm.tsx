@@ -1,6 +1,6 @@
 "use client"
+import { GoogleLogo } from "@/components/Logos"
 import createSupabaseBrowserClient from "@/lib/supabase/client"
-import Image from "next/image"
 
 export default function LoginForm() {
   const supabase = createSupabaseBrowserClient()
@@ -21,13 +21,11 @@ export default function LoginForm() {
         style={{ backgroundColor: "#3b5998" }}
         onClick={loginWithGoogle}
         role="button">
-        <Image
+        <GoogleLogo
           className="pr-2"
-          src="/images/google.svg"
-          alt=""
-          style={{ height: "2rem" }}
-          width={35}
           height={35}
+          width={35}
+          style={{ height: "2rem" }}
         />
         Continue with Google
       </a>
