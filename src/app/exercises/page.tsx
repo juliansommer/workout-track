@@ -99,6 +99,7 @@ function ExerciseCard({
             width={100}
             height={100}
             className="aspect-video overflow-hidden rounded-lg object-cover"
+            priority
           />
           <div>
             <h2 className="text-lg font-medium">{exercise.name}</h2>

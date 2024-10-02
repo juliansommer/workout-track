@@ -66,6 +66,7 @@ export default async function Plan({ params }: { params: { plan: string } }) {
                     className="h-full w-full"
                     width={500}
                     height={300}
+                    priority
                   />
                 </div>
                 <CardContent className="p-4">
