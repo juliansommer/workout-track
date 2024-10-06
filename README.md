@@ -30,8 +30,10 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 - pages
 
   - create, edit and delete workout
-    - should be able to reuse most of the plan page
-  - landing page
+    - load workout data from plan, then can add specific data for each set
+    - prefilling previous set data - search for previous workout_exercise with same exercise_id and order by created_at desc
+  - need to store data for each exercise and each set to then prefill it when creating a workout
+  -
   - have user page where they can see their data
     - on the user page, can edit their details (being height, weight and age)
     - then need a separate user table in supabase that is linked to the auth table
