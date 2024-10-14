@@ -31,34 +31,45 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
   - create, edit and delete workout
     - load workout data from plan, then can add specific data for each set
-    - prefilling previous set data - search for previous workout_exercise with same exercise_id and order by created_at desc
+    - user presses button to create a workout based off plan (on workouts page have display of the plans and button to create workout)
+    - then prefill a page similar to the plan page, but cannot change exercises so it wont be a form, just a display of the data
+    - then under each exercise, need a form for each set. will create the number of forms based off the set in each exercise.
+    - on submit, create main workout, create workout_exercise for each exercise, then create set for each set. just pass the whole form json to the api and handle it there
+    - THIS SHOULD COME LATER NEED BASIC FIRST prefilling previous set data - search for previous workout_exercise with same exercise_id and order by created_at desc
   - need to store data for each exercise and each set to then prefill it when creating a workout
   - have user page where they can see their data
     - on the user page, can edit their details (being height, weight and age)
     - then need a separate user table in supabase that is linked to the auth table
+    - see pbs
+    - see favourite exercises
+    - for pbs, can see a graph of weight increase over time for each exercise
 
 - MAKE SURE TO SET A MAX AND MIN INT VALUE FOR ANY FIELD THAT NEEDS IT IN THE ZOD SCHEMA
 
-  - pb
-    - weight (float)
-    - reps (int)
-    - sets (int)
   - set
     - weight (float)
     - reps (int)
-    - order (int), this wouldn't be a field that the user can edit, it would be auto generated
-  - workout
-    - duration (int)
-  - workout exercise
-    - order (int), this wouldn't be a field that the user can edit, it would be auto generated
+  - on user page
+    - age
+    - weight
+    - height
 
 - add ordering to exercises in workout
-  - should not need to if its similar to how I did plan as that is ordered by default
+  - when looping over the array on submit just add the order
 - add notes option for exercises in plan and workout
-- make exercise table have search option, filter option (by muscle)
-- favourite exercises
-- personal bests per exercise per user
-- graph of weight increase over time for exercise
-- graph of weight increase over time for muscle group
+- add e2e tests using playwright
+  - check if you can access pages that require auth without being logged in
+  - how to login with google?
+    - look at this for logging in first then sharing it between all tests so they still run parallel [link](https://playwright.dev/docs/auth)
+    - create a test account with google
+    - use env variables to store the test account details
+  - check creating plan flow
+  - edit plan
+  - then delete the plan
+  - check creating workout flow
+  - edit workout
+  - then delete the workout
+  - view exercises page
+  - user page
 - need way to activate the plan_updated_at trigger if a row in plan_exercise with the same plan_id is updated
 - need way to activate the workout_updated_at trigger if a row in workout_exercise with the same workout_id is updated
