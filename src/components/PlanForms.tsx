@@ -108,6 +108,7 @@ export default function PlanForms({ data, planData }: PlanFormsProps) {
   const onSubmit: SubmitHandler<PlanFormSchema> = async (
     formData: PlanFormSchema,
   ) => {
+    // if planData exists we are on edit page, otherwise we are on create page
     if (planData) {
       try {
         await editPlan(planData.id, formData)
