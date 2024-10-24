@@ -6,11 +6,12 @@ import getSpecificPlan from "@/server/fetching/getSpecificPlan"
 import type { PlanData } from "@/types"
 import type { Metadata } from "next"
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { plan: string }
-}): Promise<Metadata> {
+export async function generateMetadata(
+  props: {
+    params: Promise<{ plan: string }>
+  }
+): Promise<Metadata> {
+  const params = await props.params;
   const name = await getPlanName(params.plan)
   return {
     title: `Edit Plan ${name}`,
@@ -20,11 +21,12 @@ export async function generateMetadata({
   }
 }
 
-export default async function EditPlan({
-  params,
-}: {
-  params: { plan: string }
-}) {
+export default async function EditPlan(
+  props: {
+    params: Promise<{ plan: string }>
+  }
+) {
+  const params = await props.params;
   const exercisedata = await getAllExercises()
   const plandata: PlanData = await getSpecificPlan(params.plan)
 

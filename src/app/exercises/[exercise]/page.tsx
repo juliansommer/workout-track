@@ -42,11 +42,12 @@ export async function generateStaticParams() {
   }))
 }
 
-export function generateMetadata({
-  params,
-}: {
-  params: { exercise: string }
-}): Metadata {
+export async function generateMetadata(
+  props: {
+    params: Promise<{ exercise: string }>
+  }
+): Promise<Metadata> {
+  const params = await props.params;
   const exercise = decodeURIComponent(params.exercise)
 
   return {
@@ -57,11 +58,12 @@ export function generateMetadata({
   }
 }
 
-export default async function Exercise({
-  params,
-}: {
-  params: { exercise: string }
-}) {
+export default async function Exercise(
+  props: {
+    params: Promise<{ exercise: string }>
+  }
+) {
+  const params = await props.params;
   const exercise = decodeURIComponent(params.exercise)
   const data = await getSpecificExercise(exercise)
 

@@ -6,7 +6,7 @@ export default async function editPlan(
   planId: string,
   formData: PlanFormSchema,
 ) {
-  const supabase = createSupabaseServerClient()
+  const supabase = await createSupabaseServerClient()
 
   // check auth
   const {

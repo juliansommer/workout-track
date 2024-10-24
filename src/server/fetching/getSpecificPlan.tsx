@@ -3,7 +3,7 @@ import type { PlanData } from "@/types"
 import { type Database } from "@/types/supabase"
 
 export default async function getSpecificPlans(planId: string) {
-  const supabase = createSupabaseServerClient()
+  const supabase = await createSupabaseServerClient()
 
   // get the initial plan name and notes
   const { data: planData, error: planError } = await supabase

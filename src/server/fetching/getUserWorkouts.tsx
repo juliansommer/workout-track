@@ -2,7 +2,7 @@ import createSupabaseServerClient from "@/lib/supabase/server"
 import { type Database } from "@/types/supabase"
 
 export default async function getUserWorkouts() {
-  const supabase = createSupabaseServerClient()
+  const supabase = await createSupabaseServerClient()
   const {
     data: { user },
   } = await supabase.auth.getUser()

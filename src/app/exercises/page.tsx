@@ -18,11 +18,12 @@ export const metadata: Metadata = {
 let cachedTotalPages: number | null = null
 
 interface ExercisesProps {
-  searchParams: Record<string, string | string[] | undefined>
+  searchParams: Promise<Record<string, string | string[] | undefined>>
 }
 
-export default async function Exercises({ searchParams }: ExercisesProps) {
-  const supabase = createSupabaseServerClient()
+export default async function Exercises(props: ExercisesProps) {
+  const searchParams = await props.searchParams
+  const supabase = await createSupabaseServerClient()
   const page = Number(searchParams?.page) || 1
   const per_page = 10
   const totalPages = await getTotalPages(supabase, per_page)

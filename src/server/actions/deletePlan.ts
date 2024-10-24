@@ -3,7 +3,7 @@ import createSupabaseServerClient from "@/lib/supabase/server"
 import { redirect } from "next/navigation"
 
 export default async function deletePlan(planId: string) {
-  const supabase = createSupabaseServerClient()
+  const supabase = await createSupabaseServerClient()
 
   // check auth
   const {

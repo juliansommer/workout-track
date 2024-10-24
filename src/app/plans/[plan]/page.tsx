@@ -9,11 +9,12 @@ import Image from "next/image"
 import Link from "next/link"
 import DeletePlan from "./_components/DeletePlan"
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { plan: string }
-}): Promise<Metadata> {
+export async function generateMetadata(
+  props: {
+    params: Promise<{ plan: string }>
+  }
+): Promise<Metadata> {
+  const params = await props.params;
   const name = await getPlanName(params.plan)
   return {
     title: `Plan ${name}`,
@@ -23,7 +24,8 @@ export async function generateMetadata({
   }
 }
 
-export default async function Plan({ params }: { params: { plan: string } }) {
+export default async function Plan(props: { params: Promise<{ plan: string }> }) {
+  const params = await props.params;
   const data: PlanData = await getSpecificPlan(params.plan)
 
   return (

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 import { Input } from "@/components/ui/Input"
 import { type ControllerRenderProps } from "react-hook-form"
@@ -16,17 +18,17 @@ export default function AddExercise({ options, field }: AddExerciseProps) {
         <Select
           options={options}
           value={options.find((option) => option.value === field.value?.value)}
-          onChange={(selectedOption) =>
+          onChange={(selectedOption: any) =>
             field.onChange({ ...field.value, ...selectedOption })
           }
           styles={{
-            control: (provided) => ({
+            control: (provided: any) => ({
               ...provided,
               padding: "5px 10px",
               border: "1px solid black",
               boxShadow: "0 2px 4px rgba(0,0,0,.2)",
             }),
-            option: (provided, state) => ({
+            option: (provided: any, state: { isSelected: any }) => ({
               ...provided,
               borderBottom: "1px dotted black",
               color: state.isSelected ? "white" : "black",
