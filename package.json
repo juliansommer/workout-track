@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -27,9 +27,9 @@
     "react": "19.0.0-rc-69d4b800-20241021",
     "react-dom": "19.0.0-rc-69d4b800-20241021",
     "react-hook-form": "^7.53.1",
-    "react-select": "^5.8.1",
+    "react-select": "^5.8.2",
     "tailwind-merge": "^2.5.4",
-    "uuid": "^10.0.0",
+    "uuid": "^11.0.1",
     "zod": "^3.23.8"
   },
   "devDependencies": {
