@@ -1,3 +1,4 @@
+/* eslint-disable */
 export type Json =
   | string
   | number
@@ -6,7 +7,32 @@ export type Json =
   | { [key: string]: Json | undefined }
   | Json[]
 
-export interface Database {
+export type Database = {
+  graphql_public: {
+    Tables: {
+      [_ in never]: never
+    }
+    Views: {
+      [_ in never]: never
+    }
+    Functions: {
+      graphql: {
+        Args: {
+          operationName?: string
+          query?: string
+          variables?: Json
+          extensions?: Json
+        }
+        Returns: Json
+      }
+    }
+    Enums: {
+      [_ in never]: never
+    }
+    CompositeTypes: {
+      [_ in never]: never
+    }
+  }
   public: {
     Tables: {
       exercise: {
@@ -60,13 +86,6 @@ export interface Database {
             referencedRelation: "exercise"
             referencedColumns: ["id"]
           },
-          {
-            foreignKeyName: "fav_exercise_user_id_fkey"
-            columns: ["user_id"]
-            isOneToOne: false
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          },
         ]
       }
       pb: {
@@ -106,13 +125,6 @@ export interface Database {
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "pb_user_id_fkey"
-            columns: ["user_id"]
-            isOneToOne: false
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          },
-          {
             foreignKeyName: "pb_workout_id_fkey"
             columns: ["workout_id"]
             isOneToOne: false
@@ -146,15 +158,7 @@ export interface Database {
           updated_at?: string
           user_id?: string
         }
-        Relationships: [
-          {
-            foreignKeyName: "plan_user_id_fkey"
-            columns: ["user_id"]
-            isOneToOne: false
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
       plan_exercise: {
         Row: {
@@ -260,29 +264,25 @@ export interface Database {
             referencedRelation: "plan"
             referencedColumns: ["id"]
           },
-          {
-            foreignKeyName: "workout_user_id_fkey"
-            columns: ["user_id"]
-            isOneToOne: false
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          },
         ]
       }
       workout_exercise: {
         Row: {
+          created_at: string
           exercise_id: string
           id: string
           order: number
           workout_id: string
         }
         Insert: {
+          created_at?: string
           exercise_id: string
           id?: string
           order: number
           workout_id: string
         }
         Update: {
+          created_at?: string
           exercise_id?: string
           id?: string
           order?: number
@@ -418,4 +418,19 @@ export type Enums<
   ? Database[PublicEnumNameOrOptions["schema"]]["Enums"][EnumName]
   : PublicEnumNameOrOptions extends keyof PublicSchema["Enums"]
     ? PublicSchema["Enums"][PublicEnumNameOrOptions]
+    : never
+
+export type CompositeTypes<
+  PublicCompositeTypeNameOrOptions extends
+    | keyof PublicSchema["CompositeTypes"]
+    | { schema: keyof Database },
+  CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
+    schema: keyof Database
+  }
+    ? keyof Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
+    : never = never,
+> = PublicCompositeTypeNameOrOptions extends { schema: keyof Database }
+  ? Database[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"][CompositeTypeName]
+  : PublicCompositeTypeNameOrOptions extends keyof PublicSchema["CompositeTypes"]
+    ? PublicSchema["CompositeTypes"][PublicCompositeTypeNameOrOptions]
     : never
