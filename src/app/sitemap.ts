@@ -24,13 +24,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
   )
 
-  let fetchedRoutes: Route[] = []
-
-  try {
-    fetchedRoutes = (await Promise.all([exercisesPromise])).flat()
-  } catch (error) {
-    throw error
-  }
+  const fetchedRoutes: Route[] = (await Promise.all([exercisesPromise])).flat()
 
   return [...routesMap, ...fetchedRoutes].sort((a, b) =>
     a.url.localeCompare(b.url),

@@ -1,4 +1,3 @@
-/* eslint-disable react/function-component-definition */
 interface SharedLogoProps extends React.SVGProps<SVGSVGElement> {
   className?: string
 }
