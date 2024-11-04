@@ -14,7 +14,7 @@
 
 ## Note
 
-The images are no longer stored in supabase S3 bucket so that the images can be properly pre-rendered. The Images are now stored in public folder and do not need any transformation.
+The images are no longer stored in supabase S3 bucket so that the images can be properly pre-rendered. The Images are now stored in public folder and do not need any transformation. If was to actually have the images in the bucket, the following steps would be needed:
 
 1. get the images from the exercise db
 2. run images.py
