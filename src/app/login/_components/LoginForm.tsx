@@ -17,7 +17,7 @@ export default function LoginForm() {
   return (
     <form>
       <a
-        className="mb-3 flex w-full items-center justify-center rounded px-7 py-2 text-sm font-medium uppercase leading-snug text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg"
+        className="mb-3 flex w-full items-center justify-center rounded-sm px-7 py-2 text-sm font-medium uppercase leading-snug text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-hidden focus:ring-0 active:shadow-lg"
         style={{ backgroundColor: "#3b5998" }}
         onClick={loginWithGoogle}
         role="button">
