@@ -33,7 +33,7 @@ export default async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser()
 
-  // middleware only running on non authenticated routes so don't check route
+  // middleware only running on authenticated routes so don't check route
   if (!user) {
     const url = request.nextUrl.clone()
     url.pathname = "/login"
