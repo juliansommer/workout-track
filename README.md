@@ -5,7 +5,7 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 # Features
 
 - 🖥️ View 800+ exercises
-- 📝 (WIP) Create, edit and delete plan and workout
+- 📝 Create, edit and delete plan and workout
 - 🔑 Full auth using Supabase with Google SSO and protected routes with Next.js middleware
 - 🔐 Full Row Level Security implemented using Supabase to prevent unauthorised database changes
 - ✅ Forms using react-hook-form with validation using zod
@@ -27,15 +27,14 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 # TODO
 
+- add more screenshots, video walkthrough too
 - pages
+  make create workout page use react-hook-form and zod, needs error handling but works for now
+  view all workouts (just make prettier)
+  edit workout
+  delete workout
 
-  - create, edit and delete workout
-    - load workout data from plan, then can add specific data for each set
-    - user presses button to create a workout based off plan (on workouts page have display of the plans and button to create workout)
-    - then prefill a page similar to the plan page, but cannot change exercises so it wont be a form, just a display of the data
-    - then under each exercise, need a form for each set. will create the number of forms based off the set in each exercise.
-    - on submit, create main workout, create workout_exercise for each exercise, then create set for each set. just pass the whole form json to the api and handle it there
-    - THIS SHOULD COME LATER NEED BASIC FIRST prefilling previous set data - search for previous workout_exercise with same exercise_id and order by created_at desc
+  - prefilling previous set data - search for previous workout_exercise with same exercise_id and order by created_at desc
   - need to store data for each exercise and each set to then prefill it when creating a workout
   - have user page where they can see their data
     - on the user page, can edit their details (being height, weight and age)
@@ -54,9 +53,8 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
     - weight
     - height
 
-- add ordering to exercises in workout
-  - when looping over the array on submit just add the order
 - add notes option for exercises in plan and workout
+  - generally need to add options for missing fields
 - add e2e tests using playwright
   - check if you can access pages that require auth without being logged in
   - how to login with google?
