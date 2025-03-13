@@ -45,21 +45,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={fontSans.variable} suppressHydrationWarning>
-      <head>
-        <body className="min-h-screen overflow-y-scroll bg-neutral-50 font-sans antialiased selection:bg-neutral-200 dark:bg-neutral-900 dark:selection:bg-neutral-700">
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            disableTransitionOnChange>
-            <main className="relative z-10 mx-auto flex max-w-7xl flex-col items-center justify-center px-6 sm:px-16">
-              <ProgressBar>
-                <Nav />
-                {children}
-              </ProgressBar>
-            </main>
-          </ThemeProvider>
-        </body>
-      </head>
+      <body className="min-h-screen overflow-y-scroll bg-neutral-50 font-sans antialiased selection:bg-neutral-200 dark:bg-neutral-900 dark:selection:bg-neutral-700">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          disableTransitionOnChange>
+          <main className="relative z-10 mx-auto flex max-w-7xl flex-col items-center justify-center px-6 sm:px-16">
+            <ProgressBar>
+              <Nav />
+              {children}
+            </ProgressBar>
+          </main>
+        </ThemeProvider>
+      </body>
     </html>
   )
 }
