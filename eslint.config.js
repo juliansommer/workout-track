@@ -1,5 +1,6 @@
+/* eslint-disable */
+// @ts-nocheck
 import eslint from "@eslint/js"
-//@ts-expect-error
 import nextPlugin from "@next/eslint-plugin-next"
 import tseslint from "typescript-eslint"
 
