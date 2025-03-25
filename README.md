@@ -1,6 +1,6 @@
 # Next.js Workout Track App
 
-This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to create a fully featured workout tracking app. Getting this running locally would be a lot of effort due to having to set up all the Supabase stuff and process the data so I do not recommend it.
+This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to create a fully featured workout tracking app. I will publish a guide to running at some point in the future, it would require creating a Supabase project, importing the schema, adding the required env variables and then running the Next.js app.
 
 # Features
 
@@ -27,6 +27,7 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 # TODO
 
+- add instructions for self hosting - need to export the supabase schema and the required env variables
 - add more screenshots, video walkthrough too
 - pages
   make create workout page use react-hook-form and zod, needs error handling but works for now

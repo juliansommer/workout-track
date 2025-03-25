@@ -7,7 +7,7 @@
 3. manually remove all `\"` in the json
 4. manually remove `\n"` in the json
 5. connect to psql supabase db MAKE SURE YOU ARE USING A UNIX SHELL (GIT BASH IS ENOUGH), FOR WHATEVER REASON YOU CANNOT CONNECT TO PSQL ON POWERSHELL, ALWAYS SAYS WRONG PASSWORD
-6. run `\i sql.sql`
+6. run `\i images.sql`
 7. run `INSERT INTO exercise (id, name, image, instructions, primary_muscles, secondary_muscles)SELECT id, name, image, ARRAY(SELECT json_array_elements_text(instructions)) AS instructions, ARRAY(SELECT json_array_elements_text(primary_muscles))::muscle[] AS primary_muscles, ARRAY(SELECT json_array_elements_text(secondary_muscles))::muscle[] AS secondary_muscles FROM test2;`
 
 # Images
