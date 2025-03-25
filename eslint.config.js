@@ -1,8 +1,6 @@
-/* eslint-disable */
-// @ts-nocheck
 import eslint from "@eslint/js"
+//@ts-expect-error
 import nextPlugin from "@next/eslint-plugin-next"
-import reactCompiler from "eslint-plugin-react-compiler"
 import tseslint from "typescript-eslint"
 
 export default tseslint.config(
@@ -10,15 +8,8 @@ export default tseslint.config(
   ...tseslint.configs.recommendedTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
   {
-    languageOptions: {
-      parserOptions: {
-        projectService: true,
-        tsconfigRootDir: import.meta.dirname,
-      },
-    },
     plugins: {
       "@next/next": nextPlugin,
-      "react-compiler": reactCompiler,
     },
     rules: {
       ...nextPlugin.configs["core-web-vitals"].rules,
@@ -44,7 +35,12 @@ export default tseslint.config(
         },
       ],
       "@typescript-eslint/require-await": "off",
-      "react-compiler/react-compiler": "error",
+    },
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
     },
   },
 )
