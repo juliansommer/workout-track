@@ -25,9 +25,20 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 ![exercise](https://github.com/user-attachments/assets/972d639b-24d5-4e54-b580-b4833b9b558d)
 ![plan](https://github.com/user-attachments/assets/78e94d14-d75b-425f-9c8b-b2b26428079a)
 
+# Self Hosting
+
+- While it is possible to self host, it is not recommended as it does require quite a few steps as you will need to set up Supabase. I will provide a general guide here but its not exhaustive and you may need to do some additional steps.
+- First clone the repo and install dependencies
+- Create a supabase project and upload the schema contained in database/schema.sql. Also upload the enum types contained in database/types.sql
+- You will also need to manually write the Row Level Security policies on Supabase (or just disable them) as they are not included in the schema
+- Then create a google client id and connect it to supabase for authentication
+- Add the required env variables (as shown in env.example) to a .env file
+- The app then should be able to be run with `pnpm dev`
+- To easily deploy you can use Vercel and add the env variables to the project settings
+- You can deploy independently of Vercel but you will need to set up the env variables in the hosting service you use
+
 # TODO
 
-- add instructions for self hosting - need to export the supabase schema and the required env variables
 - add more screenshots, video walkthrough too
 - pages
   make create workout page use react-hook-form and zod, needs error handling but works for now
