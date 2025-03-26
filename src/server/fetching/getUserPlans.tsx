@@ -3,6 +3,7 @@ import { type Database } from "@/types/supabase"
 
 export default async function getUserPlans() {
   const supabase = await createSupabaseServerClient()
+
   const {
     data: { user },
   } = await supabase.auth.getUser()

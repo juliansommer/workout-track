@@ -28,7 +28,7 @@ export default function Page() {
                   Start your journey to a healthier you today.
                 </p>
               </div>
-              <div className="animate-in fade-in-30 mt-8 items-center justify-center gap-x-3 space-y-3 duration-700 sm:flex sm:space-y-0">
+              <div className="animate-in fade-in-30 mt-8 items-center justify-center space-y-3 gap-x-3 duration-700 sm:flex sm:space-y-0">
                 <Link
                   href="/login"
                   className={buttonVariants({

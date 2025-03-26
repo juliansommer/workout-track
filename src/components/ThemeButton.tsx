@@ -25,9 +25,9 @@ export default function ThemeButton() {
           setTheme(theme === "dark" ? "light" : "dark")
         }}>
         {theme === "light" ? (
-          <Moon className="scale-70 h-[1.2rem] w-[1.2rem]" />
+          <Moon className="h-[1.2rem] w-[1.2rem] scale-70" />
         ) : (
-          <Sun className="scale-70 h-[1.2rem] w-[1.2rem]" />
+          <Sun className="h-[1.2rem] w-[1.2rem] scale-70" />
         )}
       </Button>
     )

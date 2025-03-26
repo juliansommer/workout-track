@@ -3,6 +3,7 @@ import { type Database } from "@/types/supabase"
 
 export default async function getSpecificExercise(exercise: string) {
   const supabase = await createSupabaseServerClient()
+
   const { data, error } = await supabase
     .from("exercise")
     .select("name, image, primary_muscles, secondary_muscles, instructions")
