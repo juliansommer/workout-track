@@ -33,12 +33,19 @@ export default async function Workouts() {
             <Link key={workout.id} href={`/workout/${workout.id}`}>
               <Card className="transition-shadow duration-300 hover:shadow-lg">
                 <CardHeader>
-                  <CardTitle>{workout.created_at}</CardTitle>
+                  <CardTitle>{workout.plan.name}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground text-sm">
-                    {workout.updated_at}
+                    {new Date(workout.updated_at).toISOString().split("T")[0]}
                   </p>
+                  <ul className="text-muted-foreground list-disc pt-2 pl-5 text-sm">
+                    {workout.workout_exercise.map((exercise) => (
+                      <li key={exercise.exercise_id}>
+                        {exercise.exercise.name}
+                      </li>
+                    ))}
+                  </ul>
                 </CardContent>
               </Card>
             </Link>
