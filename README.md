@@ -24,6 +24,7 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 ![exercises](https://github.com/user-attachments/assets/c91b8e2d-da2c-45de-adc4-1540babfa29d)
 ![exercise](https://github.com/user-attachments/assets/972d639b-24d5-4e54-b580-b4833b9b558d)
 ![plan](https://github.com/user-attachments/assets/78e94d14-d75b-425f-9c8b-b2b26428079a)
+![workout](https://github.com/user-attachments/assets/9b8c2ddb-0ef9-4498-9b11-5ef191d82dc1)
 
 # Self Hosting
 
@@ -40,7 +41,6 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 # TODO
 
-- add screenshots (need individual workout page to be done first)
 - pages
   view individual workout page
   make create workout page use react-hook-form and zod, needs error handling but works for now
@@ -48,7 +48,7 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
   delete workout
 
   - prefilling previous set data - search for previous workout_exercise with same exercise_id and order by created_at desc
-  - need to store data for each exercise and each set to then prefill it when creating a workout
+  - need to store data for each exercise and each set to then prefill it when creating a workout - no need for this, can get latest exercise target from searching through set table for specific exercise_id ordered by date created, need to add date created field to set specifically so rather than looking at previous workout for targets, just look at specific targer for each exercise and set
   - have user page where they can see their data
     - on the user page, can edit their details (being height, weight and age)
     - then need a separate user table in supabase that is linked to the auth table
