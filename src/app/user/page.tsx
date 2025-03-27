@@ -15,6 +15,10 @@ export default async function User() {
     data: { user },
   } = await supabase.auth.getUser()
 
+  if (!user) {
+    throw new Error("User not found")
+  }
+
   return (
     <>
       <Heading title="User" />
