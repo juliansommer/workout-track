@@ -25,11 +25,9 @@ export const metadata: Metadata = {
   },
 }
 
-interface ExercisesProps {
+export default async function Exercises(props: {
   searchParams: Promise<Record<string, string | string[] | undefined>>
-}
-
-export default async function Exercises(props: ExercisesProps) {
+}) {
   const searchParams = await props.searchParams
   const page = Number(searchParams?.page) || 1
   const per_page = 10

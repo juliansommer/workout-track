@@ -8,7 +8,6 @@ import {
 import createSupabaseBrowserClient from "@/lib/supabase/client"
 import { titleCase } from "@/lib/utils"
 import getSpecificExercise from "@/server/fetching/getSpecificExercise"
-import type { Database } from "@/types/supabase"
 import type { Metadata } from "next"
 import Image from "next/image"
 
@@ -21,7 +20,7 @@ export async function generateStaticParams() {
   const { data, error } = await supabase
     .from("exercise")
     .select("name")
-    .returns<Database["public"]["Tables"]["exercise"]["Row"][]>()
+    .overrideTypes<{ name: string }[]>()
 
   if (error) {
     throw new Error(

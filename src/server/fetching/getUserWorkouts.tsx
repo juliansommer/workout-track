@@ -1,13 +1,14 @@
 import createSupabaseServerClient from "@/lib/supabase/server"
-import { type Database } from "@/types/supabase"
-import type { UUID } from "node:crypto"
 
-type ExtendedWorkout = Database["public"]["Tables"]["workout"]["Row"] & {
+interface ExtendedWorkout {
+  id: string
+  created_at: string
+  updated_at: string
   plan: {
     name: string
   }
   workout_exercise: {
-    exercise_id: UUID
+    exercise_id: string
     exercise: {
       name: string
     }
@@ -44,7 +45,7 @@ export default async function getUserWorkouts() {
     )
     .order("updated_at", { ascending: true })
     .eq("user_id", user?.id)
-    .returns<ExtendedWorkout[]>()
+    .overrideTypes<ExtendedWorkout[]>()
 
   if (error) {
     throw new Error("Failed to fetch workouts")

@@ -1,5 +1,4 @@
 import createSupabaseServerClient from "@/lib/supabase/server"
-import { type Database } from "@/types/supabase"
 
 export default async function getUserPlans() {
   const supabase = await createSupabaseServerClient()
@@ -18,7 +17,7 @@ export default async function getUserPlans() {
     .select("id, name, notes")
     .order("name", { ascending: true })
     .eq("user_id", user?.id)
-    .returns<Database["public"]["Tables"]["plan"]["Row"][]>()
+    .overrideTypes<{ id: string; name: string; notes: string }[]>()
 
   if (error) {
     throw new Error("Failed to fetch plans")

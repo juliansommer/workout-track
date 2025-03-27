@@ -5,7 +5,7 @@ import { planFormSchema, type PlanForm } from "@/types/planForms"
 export default async function editPlan(planId: string, formData: PlanForm) {
   const supabase = await createSupabaseServerClient()
 
-  // check auth
+  // get the user and check auth
   const {
     data: { user },
   } = await supabase.auth.getUser()

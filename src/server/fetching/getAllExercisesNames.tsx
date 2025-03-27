@@ -1,5 +1,4 @@
 import createSupabaseServerClient from "@/lib/supabase/server"
-import { type Database } from "@/types/supabase"
 
 export default async function getAllExercisesNames() {
   const supabase = await createSupabaseServerClient()
@@ -10,7 +9,7 @@ export default async function getAllExercisesNames() {
     .from("exercise")
     .select("id, name")
     .order("name", { ascending: true })
-    .returns<Database["public"]["Tables"]["exercise"]["Row"][]>()
+    .overrideTypes<{ id: string; name: string }[]>()
 
   if (error) {
     throw new Error("Failed to fetch exercises")

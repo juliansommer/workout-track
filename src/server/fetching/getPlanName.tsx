@@ -1,5 +1,4 @@
 import createSupabaseServerClient from "@/lib/supabase/server"
-import { type Database } from "@/types/supabase"
 
 export default async function getPlanName(planId: string) {
   const supabase = await createSupabaseServerClient()
@@ -17,8 +16,7 @@ export default async function getPlanName(planId: string) {
     .from("plan")
     .select("name")
     .eq("id", planId)
-    .returns<Database["public"]["Tables"]["plan"]["Row"][]>()
-    .single()
+    .single<{ name: string }>()
 
   if (error) {
     throw new Error("Failed to fetch plan details")

@@ -11,6 +11,8 @@ export const metadata: Metadata = {
 
 export default async function User() {
   const supabase = await createSupabaseServerClient()
+
+  // get the user and check auth
   const {
     data: { user },
   } = await supabase.auth.getUser()

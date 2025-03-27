@@ -5,7 +5,7 @@ import { redirect } from "next/navigation"
 export default async function deletePlan(planId: string) {
   const supabase = await createSupabaseServerClient()
 
-  // check auth
+  // get the user and check auth
   const {
     data: { user },
   } = await supabase.auth.getUser()

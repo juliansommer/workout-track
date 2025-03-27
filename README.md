@@ -43,7 +43,6 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 - make it a pwa
 - continue putting all fetching in server folder, split out functions into seperate files
-- stop using Database type as for the most part the types dont align as im only getting specific fields
 - pages
 
   - view individual workout page

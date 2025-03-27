@@ -2,7 +2,6 @@ import { buttonVariants } from "@/components/ui/Button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
 import getPlanName from "@/server/fetching/getPlanName"
 import getSpecificPlan from "@/server/fetching/getSpecificPlan"
-import { type PlanData } from "@/types"
 import { Dumbbell, Edit } from "lucide-react"
 import type { Metadata } from "next"
 import Image from "next/image"
@@ -26,7 +25,7 @@ export default async function Plan(props: {
   params: Promise<{ plan: string }>
 }) {
   const params = await props.params
-  const data: PlanData = await getSpecificPlan(params.plan)
+  const data = await getSpecificPlan(params.plan)
 
   return (
     <div className="container mx-auto max-w-4xl p-4">

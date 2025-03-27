@@ -1,5 +1,4 @@
 import createSupabaseServerClient from "@/lib/supabase/server"
-import { type Database } from "@/types/supabase"
 
 export default async function getWorkoutTime(workoutId: string) {
   const supabase = await createSupabaseServerClient()
@@ -17,8 +16,7 @@ export default async function getWorkoutTime(workoutId: string) {
     .from("workout")
     .select("created_at")
     .eq("id", workoutId)
-    .returns<Database["public"]["Tables"]["workout"]["Row"][]>()
-    .single()
+    .single<{ created_at: string }>()
 
   if (error) {
     throw new Error("Failed to fetch plan details")
