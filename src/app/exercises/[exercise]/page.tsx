@@ -5,10 +5,10 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/Collapsible"
+import createSupabaseBrowserClient from "@/lib/supabase/client"
 import { titleCase } from "@/lib/utils"
 import getSpecificExercise from "@/server/fetching/getSpecificExercise"
 import type { Database } from "@/types/supabase"
-import { createClient } from "@supabase/supabase-js"
 import type { Metadata } from "next"
 import Image from "next/image"
 
@@ -17,14 +17,12 @@ import Image from "next/image"
 // Next.js will server-render the page on-demand.
 export const dynamicParams = true // or false, to 404 on unknown paths
 
-// have to use supabase-js instead of @supabase/ssr
-// as @supabase/ssr opts into ssr rendering ON DEMAND
-// and we want this page to be statically generated
+// when generating params, the server doesn't have access to cookies
+// so cant use SupabaseServerClient
+// using browser client works because it doesn't access cookies
 export async function generateStaticParams() {
-  const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-  )
+  const supabase = createSupabaseBrowserClient()
+
   const { data, error } = await supabase
     .from("exercise")
     .select("name")

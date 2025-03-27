@@ -45,6 +45,7 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 - change robots.txt and layout.tsx to make it so the default metadata is no index, then change the pages that should be indexed to index (root, login, exercises, exercise)
 - continue putting all fetching in server folder, split out functions into seperate files
 - stop using Database type as for the most part the types dont align as im only getting specific fields
+- see if exercises/[exercise] can work without supabase-js? seems that useBrowserClient in ssr is just a wrapper of useClient in supabase-js?
 - pages
 
   - view individual workout page
