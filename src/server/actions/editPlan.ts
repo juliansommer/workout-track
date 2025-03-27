@@ -1,12 +1,8 @@
 "use server"
-import type { PlanFormSchema } from "@/components/PlanForms"
-import { planFormSchema } from "@/components/PlanForms"
 import createSupabaseServerClient from "@/lib/supabase/server"
+import { planFormSchema, type PlanForm } from "@/types/planForms"
 
-export default async function editPlan(
-  planId: string,
-  formData: PlanFormSchema,
-) {
+export default async function editPlan(planId: string, formData: PlanForm) {
   const supabase = await createSupabaseServerClient()
 
   // check auth

@@ -4,35 +4,13 @@ import { Input } from "@/components/ui/Input"
 import { Textarea } from "@/components/ui/Textarea"
 import createPlan from "@/server/actions/createPlan"
 import editPlan from "@/server/actions/editPlan"
+import { planFormSchema, type PlanForm } from "@/types/planForms"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Trash2 } from "lucide-react"
 import { useRouter } from "next-nprogress-bar"
 import { useEffect, useState } from "react"
 import { Controller, useForm, type SubmitHandler } from "react-hook-form"
-import { z } from "zod"
 import AddExercise from "./AddExercise"
-
-export const planFormSchema = z.object({
-  name: z
-    .string()
-    .min(1, "Name is required")
-    .max(50, "Name must be 500 characters max"),
-  notes: z.string().max(100, "Notes must be 100 characters max").optional(),
-  exercises: z
-    .array(
-      z.object({
-        label: z.string().min(1, "Exercise label is required"),
-        value: z.string().min(1, "Exercise value is required"),
-        sets: z
-          .number()
-          .min(1, "Sets must be at least 1")
-          .max(10, "Sets must be 10 max"),
-      }),
-    )
-    .nonempty("At least one exercise is required"),
-})
-
-export type PlanFormSchema = z.infer<typeof planFormSchema>
 
 interface predefinedData {
   id: string
@@ -60,7 +38,7 @@ export function PlanForms({ data, planData }: PlanFormsProps) {
     setValue,
     control,
     formState: { errors },
-  } = useForm<PlanFormSchema>({
+  } = useForm<PlanForm>({
     resolver: zodResolver(planFormSchema),
   })
   const [components, setComponents] = useState<number[]>([])
@@ -102,12 +80,10 @@ export function PlanForms({ data, planData }: PlanFormsProps) {
       (exercise) => exercise !== undefined,
     )
     // Update the form data using setValue
-    setValue("exercises", cleanedExercises as PlanFormSchema["exercises"])
+    setValue("exercises", cleanedExercises as PlanForm["exercises"])
   }
 
-  const onSubmit: SubmitHandler<PlanFormSchema> = async (
-    formData: PlanFormSchema,
-  ) => {
+  const onSubmit: SubmitHandler<PlanForm> = async (formData: PlanForm) => {
     // if planData exists we are on edit page, otherwise we are on create page
     if (planData) {
       try {

@@ -2,13 +2,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 import { Input } from "@/components/ui/Input"
+import type { PlanForm } from "@/types/planForms"
 import { type ControllerRenderProps } from "react-hook-form"
 import Select from "react-select"
-import type { PlanFormSchema } from "./PlanForms"
 
 interface AddExerciseProps {
   options: { label: string; value: string }[]
-  field: ControllerRenderProps<PlanFormSchema, `exercises.${number}`>
+  field: ControllerRenderProps<PlanForm, `exercises.${number}`>
 }
 
 export default function AddExercise({ options, field }: AddExerciseProps) {

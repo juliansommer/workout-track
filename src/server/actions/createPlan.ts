@@ -1,10 +1,9 @@
 "use server"
-import type { PlanFormSchema } from "@/components/PlanForms"
-import { planFormSchema } from "@/components/PlanForms"
 import createSupabaseServerClient from "@/lib/supabase/server"
+import { planFormSchema, type PlanForm } from "@/types/planForms"
 import { v4 as uuidv4 } from "uuid"
 
-export default async function createPlan(formData: PlanFormSchema) {
+export default async function createPlan(formData: PlanForm) {
   const supabase = await createSupabaseServerClient()
 
   // get the user and check auth
