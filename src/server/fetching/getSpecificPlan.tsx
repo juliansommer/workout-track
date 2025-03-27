@@ -19,6 +19,7 @@ interface TempPlanData {
 export default async function getSpecificPlan(planId: string) {
   const supabase = await createSupabaseServerClient()
 
+  // get the user and check auth
   const {
     data: { user },
   } = await supabase.auth.getUser()

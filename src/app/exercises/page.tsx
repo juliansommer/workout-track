@@ -27,7 +27,7 @@ export default async function Exercises(props: ExercisesProps) {
   const page = Number(searchParams?.page) || 1
   const per_page = 10
   const totalPages = await getTotalPages(supabase, per_page)
-  const data = await fetchExercises(page, supabase, per_page)
+  const data = await getExercises(page, supabase, per_page)
 
   return (
     <>
@@ -63,7 +63,7 @@ async function getTotalPages(supabase: SupabaseClient, per_page: number) {
 }
 
 // this isn't split into its own file as it relies upon the per_page variable
-async function fetchExercises(
+async function getExercises(
   page: number,
   supabase: SupabaseClient,
   per_page: number,

@@ -1,6 +1,6 @@
 import Heading from "@/components/Heading"
 import { PlanForms } from "@/components/PlanForms"
-import getAllExercises from "@/server/fetching/getAllExercises"
+import getAllExercisesNames from "@/server/fetching/getAllExercisesNames"
 import { type Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 }
 
 export default async function CreatePlan() {
-  const data = await getAllExercises()
+  const data = await getAllExercisesNames()
 
   return (
     <div className="w-full max-w-3xl p-5">

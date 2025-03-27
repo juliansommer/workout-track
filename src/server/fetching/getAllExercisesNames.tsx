@@ -1,8 +1,10 @@
 import createSupabaseServerClient from "@/lib/supabase/server"
 import { type Database } from "@/types/supabase"
 
-export default async function getAllExercises() {
+export default async function getAllExercisesNames() {
   const supabase = await createSupabaseServerClient()
+
+  // exercises are public so no need to check for user
 
   const { data, error } = await supabase
     .from("exercise")

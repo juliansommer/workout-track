@@ -1,4 +1,4 @@
-import getAllExercises from "@/server/fetching/getAllExercises"
+import getAllExercisesNames from "@/server/fetching/getAllExercisesNames"
 import type { MetadataRoute } from "next"
 
 interface Route {
@@ -17,7 +17,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date().toISOString(),
   }))
 
-  const exercisesPromise = getAllExercises().then((exercises) =>
+  const exercisesPromise = getAllExercisesNames().then((exercises) =>
     exercises.map((exercise) => ({
       url: `${process.env.NEXT_PUBLIC_SITE_URL}/exercises/${encodeURIComponent(exercise.name)}`,
       lastModified: new Date().toISOString(),

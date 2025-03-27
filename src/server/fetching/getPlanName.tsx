@@ -4,6 +4,15 @@ import { type Database } from "@/types/supabase"
 export default async function getPlanName(planId: string) {
   const supabase = await createSupabaseServerClient()
 
+  // get the user and check auth
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+
+  if (!user) {
+    throw new Error("User not found")
+  }
+
   const { data, error } = await supabase
     .from("plan")
     .select("name")

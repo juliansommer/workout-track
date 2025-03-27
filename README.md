@@ -41,11 +41,13 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 # TODO
 
+- make it a pwa
+- change robots.txt and layout.tsx to make it so the default metadata is no index, then change the pages that should be indexed to index (root, login, exercises, exercise)
 - pages
-  view individual workout page
-  make create workout page use react-hook-form and zod, needs error handling but works for now
-  edit workout
-  delete workout
+
+  - view individual workout page
+  - make create workout page use react-hook-form and zod, needs error handling but works for now
+  - delete workout
 
   - prefilling previous set data - search for previous workout_exercise with same exercise_id and order by created_at desc
   - need to store data for each exercise and each set to then prefill it when creating a workout - no need for this, can get latest exercise target from searching through set table for specific exercise_id ordered by date created, need to add date created field to set specifically so rather than looking at previous workout for targets, just look at specific targer for each exercise and set

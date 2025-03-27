@@ -1,7 +1,7 @@
 import createSupabaseServerClient from "@/lib/supabase/server"
 import { type Database } from "@/types/supabase"
 
-export default async function getUserPlans() {
+export default async function getWorkoutTime(workoutId: string) {
   const supabase = await createSupabaseServerClient()
 
   // get the user and check auth
@@ -14,15 +14,15 @@ export default async function getUserPlans() {
   }
 
   const { data, error } = await supabase
-    .from("plan")
-    .select("id, name, notes")
-    .order("name", { ascending: true })
-    .eq("user_id", user?.id)
-    .returns<Database["public"]["Tables"]["plan"]["Row"][]>()
+    .from("workout")
+    .select("created_at")
+    .eq("id", workoutId)
+    .returns<Database["public"]["Tables"]["workout"]["Row"][]>()
+    .single()
 
   if (error) {
-    throw new Error("Failed to fetch plans")
+    throw new Error("Failed to fetch plan details")
   }
 
-  return data
+  return data.created_at
 }

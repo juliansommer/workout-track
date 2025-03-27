@@ -17,6 +17,7 @@ type ExtendedWorkout = Database["public"]["Tables"]["workout"]["Row"] & {
 export default async function getUserWorkouts() {
   const supabase = await createSupabaseServerClient()
 
+  // get the user and check auth
   const {
     data: { user },
   } = await supabase.auth.getUser()

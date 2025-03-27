@@ -1,6 +1,6 @@
 import Heading from "@/components/Heading"
 import { PlanForms } from "@/components/PlanForms"
-import getAllExercises from "@/server/fetching/getAllExercises"
+import getAllExercisesNames from "@/server/fetching/getAllExercisesNames"
 import getPlanName from "@/server/fetching/getPlanName"
 import getSpecificPlan from "@/server/fetching/getSpecificPlan"
 import type { PlanData } from "@/types"
@@ -23,7 +23,7 @@ export default async function EditPlan(props: {
   params: Promise<{ plan: string }>
 }) {
   const params = await props.params
-  const exercisedata = await getAllExercises()
+  const exercisedata = await getAllExercisesNames()
   const plandata: PlanData = await getSpecificPlan(params.plan)
 
   const newplandata = {
