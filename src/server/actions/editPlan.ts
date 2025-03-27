@@ -1,5 +1,6 @@
 "use server"
 import type { PlanFormSchema } from "@/components/PlanForms"
+import { planFormSchema } from "@/components/PlanForms"
 import createSupabaseServerClient from "@/lib/supabase/server"
 
 export default async function editPlan(
@@ -15,6 +16,13 @@ export default async function editPlan(
 
   if (!user) {
     throw new Error("User not found")
+  }
+
+  // zod parse
+  try {
+    planFormSchema.parse(formData)
+  } catch {
+    throw new Error("Invalid form data")
   }
 
   // update the plan with name and notes

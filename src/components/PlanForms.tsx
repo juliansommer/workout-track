@@ -12,7 +12,7 @@ import { Controller, useForm, type SubmitHandler } from "react-hook-form"
 import { z } from "zod"
 import AddExercise from "./AddExercise"
 
-const planFormSchema = z.object({
+export const planFormSchema = z.object({
   name: z
     .string()
     .min(1, "Name is required")
@@ -51,7 +51,7 @@ interface PlanFormsProps {
   planData?: predefinedData
 }
 
-export default function PlanForms({ data, planData }: PlanFormsProps) {
+export function PlanForms({ data, planData }: PlanFormsProps) {
   const {
     register,
     unregister,

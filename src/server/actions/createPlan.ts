@@ -1,5 +1,6 @@
 "use server"
 import type { PlanFormSchema } from "@/components/PlanForms"
+import { planFormSchema } from "@/components/PlanForms"
 import createSupabaseServerClient from "@/lib/supabase/server"
 import { v4 as uuidv4 } from "uuid"
 
@@ -13,6 +14,13 @@ export default async function createPlan(formData: PlanFormSchema) {
 
   if (!user) {
     throw new Error("User not found")
+  }
+
+  // zod parse
+  try {
+    planFormSchema.parse(formData)
+  } catch {
+    throw new Error("Invalid form data")
   }
 
   // insert the plan

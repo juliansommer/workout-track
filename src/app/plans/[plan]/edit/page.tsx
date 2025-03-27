@@ -1,5 +1,5 @@
 import Heading from "@/components/Heading"
-import PlanForms from "@/components/PlanForms"
+import { PlanForms } from "@/components/PlanForms"
 import getAllExercises from "@/server/fetching/getAllExercises"
 import getPlanName from "@/server/fetching/getPlanName"
 import getSpecificPlan from "@/server/fetching/getSpecificPlan"
