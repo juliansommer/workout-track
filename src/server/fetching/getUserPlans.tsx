@@ -8,6 +8,10 @@ export default async function getUserPlans() {
     data: { user },
   } = await supabase.auth.getUser()
 
+  if (!user) {
+    throw new Error("User not found")
+  }
+
   const { data, error } = await supabase
     .from("plan")
     .select("id, name, notes")
