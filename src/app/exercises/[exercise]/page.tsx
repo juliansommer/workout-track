@@ -12,11 +12,6 @@ import type { Database } from "@/types/supabase"
 import type { Metadata } from "next"
 import Image from "next/image"
 
-// We'll prerender only the params from `generateStaticParams` at build time.
-// If a request comes in for a path that hasn't been generated,
-// Next.js will server-render the page on-demand.
-export const dynamicParams = true // or false, to 404 on unknown paths
-
 // when generating params, the server doesn't have access to cookies
 // so cant use SupabaseServerClient
 // using browser client works because it doesn't access cookies
@@ -50,6 +45,19 @@ export async function generateMetadata(props: {
     title: exercise,
     alternates: {
       canonical: `/exercises/${params.exercise}`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      nocache: false,
+      googleBot: {
+        index: true,
+        follow: true,
+        noimageindex: false,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
   }
 }

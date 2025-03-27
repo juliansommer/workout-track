@@ -1,14 +1,10 @@
 import getAllExercisesNames from "@/server/fetching/getAllExercisesNames"
 import type { MetadataRoute } from "next"
 
-interface Route {
-  url: string
-  lastModified: string
-}
+// generate at build time not request time
+// exercises never change so its fine to prebuild
+export const dynamic = "force-static"
 
-export const dynamic = "force-dynamic"
-
-// this dynamically generates the sitemap ON REQUEST, not build time
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes = ["", "/exercises", "/login"]
 
@@ -24,7 +20,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
   )
 
-  const fetchedRoutes: Route[] = (await Promise.all([exercisesPromise])).flat()
+  const fetchedRoutes = (await Promise.all([exercisesPromise])).flat()
 
   return [...routesMap, ...fetchedRoutes].sort((a, b) =>
     a.url.localeCompare(b.url),
