@@ -43,6 +43,8 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 - make it a pwa
 - change robots.txt and layout.tsx to make it so the default metadata is no index, then change the pages that should be indexed to index (root, login, exercises, exercise)
+- continue putting all fetching in server folder, split out functions into seperate files
+- stop using Database type as for the most part the types dont align as im only getting specific fields
 - pages
 
   - view individual workout page
