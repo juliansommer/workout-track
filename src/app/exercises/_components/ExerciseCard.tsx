@@ -1,13 +1,9 @@
 import { titleCase } from "@/lib/utils"
-import { type Database } from "@/types/supabase"
+import { type ExerciseData } from "@/types"
 import Image from "next/image"
 import Link from "next/link"
 
-export default function ExerciseCard({
-  exercise,
-}: {
-  exercise: Database["public"]["Tables"]["exercise"]["Row"]
-}) {
+export default function ExerciseCard({ exercise }: { exercise: ExerciseData }) {
   return (
     <Link href={`/exercises/${encodeURIComponent(exercise.name)}`}>
       <div className="flex items-center justify-between rounded-md p-4">

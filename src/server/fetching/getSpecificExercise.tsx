@@ -1,5 +1,5 @@
 import createSupabaseServerClient from "@/lib/supabase/server"
-import { type Database } from "@/types/supabase"
+import { type SpecificExerciseData } from "@/types"
 
 export default async function getSpecificExercise(exercise: string) {
   const supabase = await createSupabaseServerClient()
@@ -10,7 +10,7 @@ export default async function getSpecificExercise(exercise: string) {
     .from("exercise")
     .select("name, image, primary_muscles, secondary_muscles, instructions")
     .eq("name", exercise)
-    .returns<Database["public"]["Tables"]["exercise"]["Row"][]>()
+    .returns<SpecificExerciseData[]>()
 
   if (error) {
     throw new Error("Failed to fetch exercises")

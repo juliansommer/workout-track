@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 import { Input } from "@/components/ui/Input"
-import type { PlanForm } from "@/types/planForms"
+import type { PlanForm } from "@/types/planForm"
 import { type ControllerRenderProps } from "react-hook-form"
 import Select from "react-select"
 

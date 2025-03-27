@@ -1,6 +1,6 @@
 "use server"
 import createSupabaseServerClient from "@/lib/supabase/server"
-import { planFormSchema, type PlanForm } from "@/types/planForms"
+import { planFormSchema, type PlanForm } from "@/types/planForm"
 import { v4 as uuidv4 } from "uuid"
 
 export default async function createPlan(formData: PlanForm) {

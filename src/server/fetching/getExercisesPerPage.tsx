@@ -1,5 +1,5 @@
 import createSupabaseServerClient from "@/lib/supabase/server"
-import { type Database } from "@/types/supabase"
+import { type ExerciseData } from "@/types"
 
 export default async function getExercisesPerPage(
   page: number,
@@ -17,7 +17,7 @@ export default async function getExercisesPerPage(
     .select("name, image, primary_muscles")
     .order("name", { ascending: true })
     .range(start, end)
-    .returns<Database["public"]["Tables"]["exercise"]["Row"][]>()
+    .returns<ExerciseData[]>()
 
   if (error) {
     throw new Error("Failed to fetch exercises")
