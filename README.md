@@ -38,8 +38,3 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 - The app then should be able to be run with `pnpm dev`
 - To easily deploy, you can use Vercel and add the env variables to the project settings
 - You can deploy independently of Vercel but you will need to set up the env variables in the hosting service you use
-
-# TODO
-
-- add pwa support
-- delete workout button
