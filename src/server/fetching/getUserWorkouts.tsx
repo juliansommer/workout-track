@@ -43,7 +43,7 @@ export default async function getUserWorkouts() {
         )
       `,
     )
-    .order("updated_at", { ascending: true })
+    .order("updated_at", { ascending: false })
     .eq("user_id", user?.id)
     .overrideTypes<ExtendedWorkout[]>()
 
