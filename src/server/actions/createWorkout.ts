@@ -1,13 +1,14 @@
 "use server"
 import createSupabaseServerClient from "@/lib/supabase/server"
+import { setsSchema, type SetsSchema } from "@/types/workoutForm"
 import { v4 as uuidv4 } from "uuid"
 
 interface WorkoutData {
   id: string
-  sets: Record<string, { weight: string; reps: string }[]>
+  sets: SetsSchema
 }
 
-export default async function saveWorkout(workoutData: WorkoutData) {
+export default async function createWorkout(workoutData: WorkoutData) {
   const supabase = await createSupabaseServerClient()
 
   // get the user and check auth
@@ -17,6 +18,13 @@ export default async function saveWorkout(workoutData: WorkoutData) {
 
   if (!user) {
     throw new Error("User not found")
+  }
+
+  // zod parse
+  try {
+    setsSchema.parse(workoutData.sets)
+  } catch {
+    throw new Error("Invalid form data")
   }
 
   // create main workout record
