@@ -3,7 +3,7 @@ import { Skeleton } from "@/components/ui/Skeleton"
 
 export default function Loading() {
   return (
-    <div className="flex min-h-screen w-full flex-col items-center justify-center">
+    <div className="flex w-full flex-col items-center justify-center">
       <main className="w-full max-w-4xl">
         <div className="grid gap-6">
           <HeadingSkeleton />
@@ -27,11 +27,6 @@ export default function Loading() {
           {/* Instructions collapsible skeleton */}
           <div className="space-y-4 pb-10">
             <Skeleton className="h-12 w-full rounded-md" />
-            <div className="space-y-4 px-4 pb-4">
-              {Array.from({ length: 4 }).map((_, index) => (
-                <Skeleton key={`instruction-${index}`} className="h-5 w-full" />
-              ))}
-            </div>
           </div>
         </div>
       </main>

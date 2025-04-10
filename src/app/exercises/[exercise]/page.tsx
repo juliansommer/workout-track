@@ -69,7 +69,7 @@ export default async function Exercise(props: {
   const data = await getSpecificExercise(exercise)
 
   return (
-    <div className="flex min-h-screen w-full flex-col items-center justify-center">
+    <div className="flex w-full flex-col items-center justify-center">
       <main className="w-full max-w-4xl">
         <div className="grid gap-6">
           <Heading title={exercise} />
