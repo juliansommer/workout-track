@@ -1,5 +1,5 @@
 import ChevronRightIcon from "@/components/ChevronRightIcon"
-import Heading from "@/components/Heading"
+import { Heading } from "@/components/Heading"
 import {
   Collapsible,
   CollapsibleContent,

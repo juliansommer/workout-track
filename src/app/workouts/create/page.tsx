@@ -1,4 +1,4 @@
-import Heading from "@/components/Heading"
+import { Heading } from "@/components/Heading"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
 import getUserPlans from "@/server/fetching/getUserPlans"
 import type { Metadata } from "next"

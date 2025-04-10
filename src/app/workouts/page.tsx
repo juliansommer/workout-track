@@ -1,4 +1,4 @@
-import Heading from "@/components/Heading"
+import { Heading } from "@/components/Heading"
 import { buttonVariants } from "@/components/ui/Button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
 import { cn } from "@/lib/utils"

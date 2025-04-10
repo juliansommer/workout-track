@@ -1,4 +1,4 @@
-import Heading from "@/components/Heading"
+import { Heading } from "@/components/Heading"
 import { PlanForms } from "@/components/PlanForms"
 import getAllExercisesNames from "@/server/fetching/getAllExercisesNames"
 import { type Metadata } from "next"

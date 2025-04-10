@@ -1,7 +1,40 @@
+import { HeadingSkeleton } from "@/components/Heading"
+import { Skeleton } from "@/components/ui/Skeleton"
+
 export default function Loading() {
   return (
-    <div>
-      <p>Loading...</p>
+    <div className="flex min-h-screen w-full flex-col items-center justify-center">
+      <main className="w-full max-w-4xl">
+        <div className="grid gap-6">
+          <HeadingSkeleton />
+
+          {/* Image skeleton */}
+          <Skeleton className="aspect-video w-full rounded-lg" />
+
+          {/* Muscle tags skeleton */}
+          <div className="grid gap-2">
+            <div className="flex flex-wrap items-center gap-2">
+              {/* Primary muscles */}
+              {Array.from({ length: 3 }).map((_, index) => (
+                <Skeleton
+                  key={`primary-${index}`}
+                  className="h-6 w-16 rounded-md"
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Instructions collapsible skeleton */}
+          <div className="space-y-4 pb-10">
+            <Skeleton className="h-12 w-full rounded-md" />
+            <div className="space-y-4 px-4 pb-4">
+              {Array.from({ length: 4 }).map((_, index) => (
+                <Skeleton key={`instruction-${index}`} className="h-5 w-full" />
+              ))}
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
   )
 }
