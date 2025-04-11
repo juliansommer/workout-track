@@ -1,5 +1,5 @@
 import { Heading } from "@/components/Heading"
-import { PlanForms } from "@/components/PlanForms"
+import PlanForm from "@/components/PlanForm"
 import getAllExercisesNames from "@/server/fetching/getAllExercisesNames"
 import getPlanName from "@/server/fetching/getPlanName"
 import getSpecificPlan from "@/server/fetching/getSpecificPlan"
@@ -22,7 +22,7 @@ export default async function EditPlan(props: {
   params: Promise<{ plan: string }>
 }) {
   const params = await props.params
-  const exercisedata = await getAllExercisesNames()
+  const exerciseData = await getAllExercisesNames()
   const planData = await getSpecificPlan(params.plan)
 
   const newPlanData = {
@@ -40,7 +40,7 @@ export default async function EditPlan(props: {
   return (
     <div className="w-full max-w-3xl p-5">
       <Heading title="Edit Plan" />
-      <PlanForms data={exercisedata} planData={newPlanData} />
+      <PlanForm data={exerciseData} planData={newPlanData} />
     </div>
   )
 }

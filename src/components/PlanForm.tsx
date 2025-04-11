@@ -24,12 +24,12 @@ interface predefinedData {
 }
 
 // data is the list of exercises
-interface PlanFormsProps {
+interface PlanFormProps {
   data: { name: string; id: string }[]
   planData?: predefinedData
 }
 
-export function PlanForms({ data, planData }: PlanFormsProps) {
+export default function PlanForm({ data, planData }: PlanFormProps) {
   const {
     register,
     unregister,

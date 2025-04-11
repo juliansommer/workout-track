@@ -1,5 +1,5 @@
 import { Heading } from "@/components/Heading"
-import { PlanForms } from "@/components/PlanForms"
+import PlanForm from "@/components/PlanForm"
 import getAllExercisesNames from "@/server/fetching/getAllExercisesNames"
 import { type Metadata } from "next"
 
@@ -16,7 +16,7 @@ export default async function CreatePlan() {
   return (
     <div className="w-full max-w-3xl p-5">
       <Heading title="Create Plan" />
-      <PlanForms data={data} />
+      <PlanForm data={data} />
     </div>
   )
 }
