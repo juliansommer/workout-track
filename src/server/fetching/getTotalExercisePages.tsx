@@ -13,6 +13,7 @@ export default async function getTotalExercisePages(per_page: number) {
     const { count } = await supabase
       .from("exercise")
       .select("*", { count: "exact", head: true })
+      .overrideTypes<{ count: number }>()
 
     const totalPages = Math.ceil((count ?? 0) / per_page)
     cachedTotalPages = totalPages

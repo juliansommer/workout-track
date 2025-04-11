@@ -10,7 +10,8 @@ export default async function getSpecificExercise(exercise: string) {
     .from("exercise")
     .select("name, image, primary_muscles, secondary_muscles, instructions")
     .eq("name", exercise)
-    .returns<SpecificExerciseData[]>()
+    .single()
+    .overrideTypes<SpecificExerciseData, { merge: false }>()
 
   if (error) {
     throw new Error("Failed to fetch exercises")

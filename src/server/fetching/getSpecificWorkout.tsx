@@ -44,7 +44,8 @@ export default async function getSpecificWorkout(workoutId: string) {
       `,
     )
     .eq("id", workoutId)
-    .single<SpecificWorkoutData>()
+    .single()
+    .overrideTypes<SpecificWorkoutData>()
 
   if (error) {
     throw new Error("Failed to fetch workout details")

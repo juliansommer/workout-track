@@ -38,3 +38,71 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 - The app then should be able to be run with `pnpm dev`
 - To easily deploy, you can use Vercel and add the env variables to the project settings
 - You can deploy independently of Vercel but you will need to set up the env variables in the hosting service you use
+
+## TODO
+
+pages that need custom skeletons:
+
+/plans/[plan]
+/workouts/[workout]
+just add heading skeleton to most pages
+
+- need to prefill set data when creating a workout. can get latest exercise target from searching through set table for specific exercise_id ordered by date created, need to add date created field to set specifically so rather than looking at previous workout for targets, just look at specific target for each exercise and set
+
+- have user page where they can see their data
+
+  - on the user page, can edit their details (being height, weight and age)
+
+  - then need a separate user table in supabase that is linked to the auth table
+
+  - see pbs per exercise
+
+  - for pbs, can see a graph of weight increase over time for each exercise
+
+- MAKE SURE TO SET A MAX AND MIN INT VALUE FOR ANY FIELD THAT NEEDS IT IN THE ZOD SCHEMA
+
+  - set
+
+    - weight (float)
+
+    - reps (int)
+
+  - on user page
+
+    - age
+
+    - weight
+
+    - height
+
+- add notes option for exercises in plan and workout
+
+  - generally need to add options for missing fields
+
+- add e2e tests using playwright
+
+  - check if you can access pages that require auth without being logged in
+
+  - how to login with google?
+
+    - look at this for logging in first then sharing it between all tests so they still run parallel [link](https://playwright.dev/docs/auth)
+
+    - create a test account with google
+
+    - use env variables to store the test account details
+
+  - check creating plan flow
+
+  - edit plan
+
+  - then delete the plan
+
+  - check creating workout flow
+
+  - edit workout
+
+  - then delete the workout
+
+  - view exercises page
+
+  - user page

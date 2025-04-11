@@ -17,7 +17,7 @@ export default async function getExercisesPerPage(
     .select("name, image, primary_muscles")
     .order("name", { ascending: true })
     .range(start, end)
-    .returns<ExerciseData[]>()
+    .overrideTypes<ExerciseData[], { merge: false }>()
 
   if (error) {
     throw new Error("Failed to fetch exercises")

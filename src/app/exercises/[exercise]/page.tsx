@@ -74,7 +74,7 @@ export default async function Exercise(props: {
         <div className="grid gap-6">
           <Heading title={exercise} />
           <Image
-            src={`/exercises/${data[0]?.image}`}
+            src={`/exercises/${data.image}`}
             width={800}
             height={600}
             alt={`${exercise} Image`}
@@ -83,14 +83,14 @@ export default async function Exercise(props: {
           />
           <div className="grid gap-2">
             <div className="flex flex-wrap items-center gap-2">
-              {data[0]?.primary_muscles.map((muscle) => (
+              {data.primary_muscles.map((muscle) => (
                 <div
                   className="text-accent-foreground rounded-md bg-neutral-200 px-3 py-1 text-xs font-medium dark:bg-neutral-500"
                   key={muscle}>
                   {titleCase(muscle)}
                 </div>
               ))}
-              {data[0]?.secondary_muscles?.map((muscle) => (
+              {data.secondary_muscles?.map((muscle) => (
                 <div
                   className="text-accent-foreground rounded-md bg-neutral-200 px-3 py-1 text-xs font-medium dark:bg-neutral-500"
                   key={muscle}>
@@ -105,7 +105,7 @@ export default async function Exercise(props: {
               <ChevronRightIcon className="h-5 w-5 transition-all" />
             </CollapsibleTrigger>
             <CollapsibleContent className="space-y-4 px-4 pb-4">
-              {data[0]?.instructions.map((instruction, index) => (
+              {data.instructions.map((instruction, index) => (
                 <p className="text-sm leading-relaxed" key={index}>
                   {`${index + 1}. ${instruction}`}
                 </p>

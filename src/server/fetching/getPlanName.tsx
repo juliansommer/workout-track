@@ -16,7 +16,8 @@ export default async function getPlanName(planId: string) {
     .from("plan")
     .select("name")
     .eq("id", planId)
-    .single<{ name: string }>()
+    .single()
+    .overrideTypes<{ name: string }>()
 
   if (error) {
     throw new Error("Failed to fetch plan details")

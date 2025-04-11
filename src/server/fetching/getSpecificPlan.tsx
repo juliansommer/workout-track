@@ -47,7 +47,8 @@ export default async function getSpecificPlan(planId: string) {
       `,
     )
     .eq("id", planId)
-    .single<TempPlanData>()
+    .single()
+    .overrideTypes<TempPlanData>()
 
   if (error) {
     throw new Error("Failed to fetch plan details")
