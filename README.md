@@ -41,7 +41,7 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 ## TODO
 
-- consistent type imports, some are type { x } some are { type x }, makes annoying when searching for types. typescript eslint should be doing this.
+- consistent type imports, some are type { x } some are { type x }, makes annoying when searching for types. typescript eslint only auto fixes imports that are only types to be the inline style, not enforces that all type imports need to be in line.
 
 - need to make workoutform have sets and reps as numbers, not strings so can use zod to validate them
 
