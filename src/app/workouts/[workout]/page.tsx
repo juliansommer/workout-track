@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
 import { Input } from "@/components/ui/Input"
 import { Label } from "@/components/ui/Label"
+import { cleanTimestamp } from "@/lib/utils"
 import getSpecificWorkout from "@/server/fetching/getSpecificWorkout"
 import getWorkoutTime from "@/server/fetching/getWorkoutTime"
 import type { Metadata } from "next"
@@ -11,9 +12,9 @@ export async function generateMetadata(props: {
 }): Promise<Metadata> {
   const params = await props.params
   const timestamp = await getWorkoutTime(params.workout)
-  const time = new Date(timestamp).toISOString().split("T")[0]
+
   return {
-    title: `${time} Workout`,
+    title: `${cleanTimestamp(timestamp)} Workout`,
     alternates: {
       canonical: `/workouts/${params.workout}`,
     },
@@ -25,13 +26,14 @@ export default async function Workout(props: {
 }) {
   const params = await props.params
   const data = await getSpecificWorkout(params.workout)
-  const time = new Date(data.created_at).toISOString().split("T")[0]
 
   return (
     <div className="container mx-auto px-4 py-6 md:px-6">
       <div className="flex flex-col space-y-6">
         <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
-          <h1 className="text-3xl font-bold">{time} Workout</h1>
+          <h1 className="text-3xl font-bold">
+            {cleanTimestamp(data.created_at)} Workout
+          </h1>
         </div>
         <div className="grid gap-6">
           {data.workout_exercise.map((exercise) => (

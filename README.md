@@ -41,11 +41,13 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 ## TODO
 
+- need to make workoutform have sets and reps as numbers, not strings so can use zod to validate them
+
 pages that need custom skeletons:
 
-/plans/[plan]
-/workouts/[workout]
-just add heading skeleton to most pages
+- /plans/[plan]
+- /workouts/[workout]
+- just add heading skeleton to most pages
 
 - need to prefill set data when creating a workout. can get latest exercise target from searching through set table for specific exercise_id ordered by date created, need to add date created field to set specifically so rather than looking at previous workout for targets, just look at specific target for each exercise and set
 

@@ -14,3 +14,7 @@ export function titleCase(str: string) {
     })
     .join(" ")
 }
+
+export function cleanTimestamp(timestamp: string) {
+  return new Date(timestamp).toISOString().split("T")[0]
+}

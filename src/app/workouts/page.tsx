@@ -1,7 +1,7 @@
 import { Heading } from "@/components/Heading"
 import { buttonVariants } from "@/components/ui/Button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
-import { cn } from "@/lib/utils"
+import { cleanTimestamp, cn } from "@/lib/utils"
 import getUserWorkouts from "@/server/fetching/getUserWorkouts"
 import { type Metadata } from "next"
 import Link from "next/link"
@@ -37,7 +37,7 @@ export default async function Workouts() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground text-sm">
-                    {new Date(workout.updated_at).toISOString().split("T")[0]}
+                    {cleanTimestamp(workout.updated_at)}
                   </p>
                   <ul className="text-muted-foreground list-disc pt-2 pl-5 text-sm">
                     {workout.workout_exercise.map((exercise) => (
