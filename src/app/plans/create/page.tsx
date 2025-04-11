@@ -1,7 +1,7 @@
 import { Heading } from "@/components/Heading"
-import PlanForm from "@/components/PlanForm"
 import getAllExercisesNames from "@/server/fetching/getAllExercisesNames"
 import { type Metadata } from "next"
+import PlanForm from "../_components/PlanForm"
 
 export const metadata: Metadata = {
   title: "Create Plan",

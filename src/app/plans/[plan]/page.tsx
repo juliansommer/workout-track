@@ -6,7 +6,7 @@ import { Dumbbell, Edit } from "lucide-react"
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
-import DeletePlan from "./_components/DeletePlan"
+import DeletePlan from "../_components/DeletePlan"
 
 export async function generateMetadata(props: {
   params: Promise<{ plan: string }>

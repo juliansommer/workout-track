@@ -41,6 +41,8 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 ## TODO
 
+- consistent type imports, some are type { x } some are { type x }, makes annoying when searching for types. typescript eslint should be doing this.
+
 - need to make workoutform have sets and reps as numbers, not strings so can use zod to validate them
 
 pages that need custom skeletons:
