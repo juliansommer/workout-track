@@ -45,6 +45,8 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 - need to make workoutform have sets and reps as numbers, not strings so can use zod to validate them
 
+- add state to check if offline
+
 pages that need custom skeletons:
 
 - /plans/[plan]
