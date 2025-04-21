@@ -1,38 +1,35 @@
-/* eslint-disable */
-// @ts-nocheck
+import { FlatCompat } from "@eslint/eslintrc"
 import eslint from "@eslint/js"
-import nextPlugin from "@next/eslint-plugin-next"
 import tseslint from "typescript-eslint"
 
+const compat = new FlatCompat({
+  baseDirectory: import.meta.dirname,
+})
+
 export default tseslint.config(
-  eslint.configs.recommended,
-  ...tseslint.configs.recommendedTypeChecked,
-  ...tseslint.configs.stylisticTypeChecked,
   {
-    plugins: {
-      "@next/next": nextPlugin,
-    },
+    ignores: [".next"],
+  },
+  ...compat.extends("next/core-web-vitals"),
+  {
+    files: ["**/*.ts", "**/*.tsx"],
+    extends: [
+      eslint.configs.recommended,
+      tseslint.configs.recommendedTypeChecked,
+      tseslint.configs.stylisticTypeChecked,
+    ],
     rules: {
-      ...nextPlugin.configs["core-web-vitals"].rules,
       "@typescript-eslint/consistent-type-imports": [
         "error",
-        {
-          fixStyle: "inline-type-imports",
-        },
+        { fixStyle: "inline-type-imports" },
       ],
       "@typescript-eslint/no-misused-promises": [
         "error",
-        {
-          checksVoidReturn: {
-            attributes: false,
-          },
-        },
+        { checksVoidReturn: { attributes: false } },
       ],
       "@typescript-eslint/no-unused-vars": [
         "warn",
-        {
-          argsIgnorePattern: "^_",
-        },
+        { argsIgnorePattern: "^_" },
       ],
       "@typescript-eslint/require-await": "off",
     },
