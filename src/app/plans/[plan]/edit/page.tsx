@@ -37,10 +37,11 @@ export default async function EditPlan(props: {
       }
     }),
   }
+
   return (
-    <div className="w-full max-w-3xl p-5">
+    <>
       <Heading title="Edit Plan" />
       <PlanForm data={exerciseData} planData={newPlanData} />
-    </div>
+    </>
   )
 }

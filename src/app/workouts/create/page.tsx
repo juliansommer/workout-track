@@ -16,9 +16,7 @@ export default async function CreateWorkout() {
 
   return (
     <>
-      <div className="w-full max-w-3xl p-5">
-        <Heading title="Create Workout" />
-      </div>
+      <Heading title="Create Workout" />
       <h2 className="mb-6 text-center text-xl font-semibold md:text-2xl">
         Select Plan
       </h2>

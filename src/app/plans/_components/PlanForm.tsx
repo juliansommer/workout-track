@@ -103,71 +103,73 @@ export default function PlanForm({ data, planData }: PlanFormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="w-full space-y-2 pt-5">
-        <Input type="text" placeholder="Name" {...register("name")} />
-        {errors.name && <p>{errors.name.message}</p>}
-      </div>
-      <div className="pt-5">
-        <Textarea placeholder="Notes" {...register("notes")} />
-        {errors.notes && <p>{errors.notes.message}</p>}
-      </div>
-      <div className="space-y-5 pt-5">
-        <Button type="button" onClick={addComponent}>
-          Add Exercise
-        </Button>
-        {components.map((_, index) => (
-          <div key={index} className="flex items-center justify-between">
-            <Controller
-              key={index}
-              name={`exercises.${index}`}
-              control={control}
-              render={({ field }) => (
-                <div>
-                  <div className="flex items-center justify-between">
-                    <AddExercise
-                      options={data.map((exercise) => ({
-                        label: exercise.name,
-                        value: exercise.id,
-                      }))}
-                      field={field}
-                    />
-                    <Button
-                      type="button"
-                      variant="outline"
-                      className="ml-2"
-                      onClick={() => deleteComponent(index)}>
-                      <Trash2 className="h-4 w-4" />
-                      <span className="sr-only">Delete Exercise</span>
-                    </Button>
-                  </div>
-                  {errors.exercises?.[index] && (
-                    <div className="pt-2">
-                      {errors.exercises[index].label && (
-                        <p>{errors.exercises[index].label.message}</p>
-                      )}
-                      {errors.exercises[index].value && (
-                        <p>{errors.exercises[index].value.message}</p>
-                      )}
-                      {errors.exercises[index].sets && (
-                        <p>{errors.exercises[index].sets.message}</p>
-                      )}
+    <div className="w-full max-w-3xl">
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="w-full space-y-2 pt-5">
+          <Input type="text" placeholder="Name" {...register("name")} />
+          {errors.name && <p>{errors.name.message}</p>}
+        </div>
+        <div className="pt-5">
+          <Textarea placeholder="Notes" {...register("notes")} />
+          {errors.notes && <p>{errors.notes.message}</p>}
+        </div>
+        <div className="space-y-5 pt-5">
+          <Button type="button" onClick={addComponent}>
+            Add Exercise
+          </Button>
+          {components.map((_, index) => (
+            <div key={index} className="flex items-center justify-between">
+              <Controller
+                key={index}
+                name={`exercises.${index}`}
+                control={control}
+                render={({ field }) => (
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <AddExercise
+                        options={data.map((exercise) => ({
+                          label: exercise.name,
+                          value: exercise.id,
+                        }))}
+                        field={field}
+                      />
+                      <Button
+                        type="button"
+                        variant="outline"
+                        className="ml-2"
+                        onClick={() => deleteComponent(index)}>
+                        <Trash2 className="h-4 w-4" />
+                        <span className="sr-only">Delete Exercise</span>
+                      </Button>
                     </div>
-                  )}
-                </div>
-              )}
-            />
-          </div>
-        ))}
-      </div>
+                    {errors.exercises?.[index] && (
+                      <div className="pt-2">
+                        {errors.exercises[index].label && (
+                          <p>{errors.exercises[index].label.message}</p>
+                        )}
+                        {errors.exercises[index].value && (
+                          <p>{errors.exercises[index].value.message}</p>
+                        )}
+                        {errors.exercises[index].sets && (
+                          <p>{errors.exercises[index].sets.message}</p>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                )}
+              />
+            </div>
+          ))}
+        </div>
 
-      {components.length >= 10 && (
-        <p className="pt-5">You can only add up to 10 exercises</p>
-      )}
-      {errors.exercises && <p>{errors.exercises.message}</p>}
-      <div className="pt-5">
-        <Button type="submit">Submit</Button>
-      </div>
-    </form>
+        {components.length >= 10 && (
+          <p className="pt-5">You can only add up to 10 exercises</p>
+        )}
+        {errors.exercises && <p>{errors.exercises.message}</p>}
+        <div className="pt-5">
+          <Button type="submit">Submit</Button>
+        </div>
+      </form>
+    </div>
   )
 }

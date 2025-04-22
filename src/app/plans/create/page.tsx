@@ -14,9 +14,9 @@ export default async function CreatePlan() {
   const data = await getAllExercisesNames()
 
   return (
-    <div className="w-full max-w-3xl p-5">
+    <>
       <Heading title="Create Plan" />
       <PlanForm data={data} />
-    </div>
+    </>
   )
 }

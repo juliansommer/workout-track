@@ -11,7 +11,7 @@ export function Heading({ title }: { title: string }) {
 export function HeadingSkeleton() {
   return (
     <div className="flex items-center justify-center space-x-2">
-      <Skeleton className="h-8 w-64" />
+      <Skeleton className="h-8 w-48" />
     </div>
   )
 }

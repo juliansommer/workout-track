@@ -41,17 +41,9 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 ## TODO
 
-- consistent type imports, some are type { x } some are { type x }, makes annoying when searching for types. typescript eslint only auto fixes imports that are only types to be the inline style, not enforces that all type imports need to be in line.
-
-- need to make workoutform have sets and reps as numbers, not strings so can use zod to validate them
+- need to make workoutForm have sets and reps as numbers, not strings so can use zod to validate them
 
 - add state to check if offline
-
-pages that need custom skeletons:
-
-- /plans/[plan]
-- /workouts/[workout]
-- just add heading skeleton to most pages
 
 - need to prefill set data when creating a workout. can get latest exercise target from searching through set table for specific exercise_id ordered by date created, need to add date created field to set specifically so rather than looking at previous workout for targets, just look at specific target for each exercise and set
 

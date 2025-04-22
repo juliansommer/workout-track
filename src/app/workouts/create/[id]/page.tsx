@@ -1,3 +1,4 @@
+import { Heading } from "@/components/Heading"
 import getPlanName from "@/server/fetching/getPlanName"
 import getSpecificPlan from "@/server/fetching/getSpecificPlan"
 import type { Metadata } from "next"
@@ -23,8 +24,9 @@ export default async function CreateWorkoutId(props: {
   const data = await getSpecificPlan(params.id)
 
   return (
-    <div>
+    <>
+      <Heading title={`${data.name} Workout`} />
       <WorkoutForm workoutData={data} />
-    </div>
+    </>
   )
 }
