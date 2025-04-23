@@ -69,6 +69,9 @@ export default function WorkoutForm({
                       alt={exercise.name!}
                       fill
                       className="object-cover"
+                      priority
+                      placeholder="blur"
+                      blurDataURL="/1x1.png"
                     />
                   </div>
                   <div className="p-4">

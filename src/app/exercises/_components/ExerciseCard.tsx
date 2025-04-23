@@ -16,6 +16,8 @@ export function ExerciseCard({ exercise }: { exercise: ExerciseData }) {
             height={100}
             className="aspect-video overflow-hidden rounded-lg object-cover"
             priority
+            placeholder="blur"
+            blurDataURL="/1x1.png"
           />
           <div>
             <h2 className="text-lg font-medium">{exercise.name}</h2>

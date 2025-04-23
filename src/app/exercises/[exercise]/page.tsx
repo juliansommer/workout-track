@@ -81,6 +81,8 @@ export default async function Exercise(props: {
               alt={`${exercise} Image`}
               className="aspect-video w-full rounded-lg object-cover"
               priority
+              placeholder="blur"
+              blurDataURL="/1x1.png"
             />
             <div className="grid gap-2">
               <div className="flex flex-wrap items-center gap-2">

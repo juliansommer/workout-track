@@ -43,6 +43,9 @@ export default async function Workout(props: {
                       alt={exercise.exercise.name}
                       fill
                       className="object-cover"
+                      priority
+                      placeholder="blur"
+                      blurDataURL="/1x1.png"
                     />
                   </div>
                   <div className="p-4">
