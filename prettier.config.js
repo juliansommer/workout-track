@@ -1,6 +1,6 @@
 /** @type {import('prettier').Config & import('prettier-plugin-tailwindcss').PluginOptions} */
 const config = {
-  bracketSameLine: true,
+  bracketSameLine: false,
   semi: false,
   plugins: ["prettier-plugin-tailwindcss"],
 }

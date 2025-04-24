@@ -137,7 +137,8 @@ export default function PlanForm({ data, planData }: PlanFormProps) {
                         type="button"
                         variant="outline"
                         className="ml-2"
-                        onClick={() => deleteComponent(index)}>
+                        onClick={() => deleteComponent(index)}
+                      >
                         <Trash2 className="h-4 w-4" />
                         <span className="sr-only">Delete Exercise</span>
                       </Button>

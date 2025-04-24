@@ -89,14 +89,16 @@ export default async function Exercise(props: {
                 {data.primary_muscles.map((muscle) => (
                   <div
                     className="text-accent-foreground rounded-md bg-neutral-200 px-3 py-1 text-xs font-medium dark:bg-neutral-500"
-                    key={muscle}>
+                    key={muscle}
+                  >
                     {titleCase(muscle)}
                   </div>
                 ))}
                 {data.secondary_muscles?.map((muscle) => (
                   <div
                     className="text-accent-foreground rounded-md bg-neutral-200 px-3 py-1 text-xs font-medium dark:bg-neutral-500"
-                    key={muscle}>
+                    key={muscle}
+                  >
                     {titleCase(muscle)}
                   </div>
                 ))}

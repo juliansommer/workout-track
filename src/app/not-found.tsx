@@ -15,7 +15,8 @@ export default function NotFound() {
         <Link
           type="button"
           href="/"
-          className={buttonVariants({ variant: "default" })}>
+          className={buttonVariants({ variant: "default" })}
+        >
           Return Home
         </Link>
       </div>

@@ -41,7 +41,8 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          disableTransitionOnChange>
+          disableTransitionOnChange
+        >
           <main className="relative z-10 mx-auto flex max-w-7xl flex-col items-center justify-center px-6 sm:px-16">
             <ProgressBar>
               <Nav />

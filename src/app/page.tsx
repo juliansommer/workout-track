@@ -47,7 +47,8 @@ export default function Page() {
                     variant: "other",
                     className: "group",
                     size: "lg",
-                  })}>
+                  })}
+                >
                   <LinkIcon
                     size={18}
                     className="mr-1 duration-300 group-hover:rotate-[10deg]"
@@ -59,7 +60,8 @@ export default function Page() {
                   className={buttonVariants({
                     variant: "expandIcon",
                     size: "lg",
-                  })}>
+                  })}
+                >
                   <GithubLogo
                     height={18}
                     className="mr-1 duration-300 group-hover:-rotate-[10deg]"

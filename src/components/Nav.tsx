@@ -26,19 +26,22 @@ export default async function Nav() {
         <ThemeButton />
         <Link
           href="/exercises"
-          className={buttonVariants({ variant: "outline" })}>
+          className={buttonVariants({ variant: "outline" })}
+        >
           Exercises
         </Link>
         {data.session ? (
           <>
             <Link
               href="/plans"
-              className={buttonVariants({ variant: "outline" })}>
+              className={buttonVariants({ variant: "outline" })}
+            >
               Plans
             </Link>
             <Link
               href="/workouts"
-              className={buttonVariants({ variant: "outline" })}>
+              className={buttonVariants({ variant: "outline" })}
+            >
               Workouts
             </Link>
             <form action={logoutAction}>
@@ -50,7 +53,8 @@ export default async function Nav() {
         ) : (
           <Link
             href="/login"
-            className={buttonVariants({ variant: "default" })}>
+            className={buttonVariants({ variant: "default" })}
+          >
             Sign In
           </Link>
         )}
@@ -86,7 +90,8 @@ export default async function Nav() {
         ) : (
           <Link
             href="/login"
-            className={buttonVariants({ variant: "default" })}>
+            className={buttonVariants({ variant: "default" })}
+          >
             Sign In
           </Link>
         )}

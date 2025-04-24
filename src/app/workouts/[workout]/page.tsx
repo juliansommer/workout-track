@@ -57,13 +57,15 @@ export default async function Workout(props: {
                         {exercise.set.map((set, setIndex) => (
                           <div
                             key={setIndex}
-                            className="grid grid-cols-[auto_1fr_1fr] items-center gap-4">
+                            className="grid grid-cols-[auto_1fr_1fr] items-center gap-4"
+                          >
                             <div className="font-medium">
                               Set {setIndex + 1}
                             </div>
                             <div className="space-y-1">
                               <Label
-                                htmlFor={`${exercise.exercise.name}-set-${setIndex}-weight`}>
+                                htmlFor={`${exercise.exercise.name}-set-${setIndex}-weight`}
+                              >
                                 Weight
                               </Label>
                               <Input
@@ -75,7 +77,8 @@ export default async function Workout(props: {
                             </div>
                             <div className="space-y-1">
                               <Label
-                                htmlFor={`${exercise.exercise.name}-set-${setIndex}-reps`}>
+                                htmlFor={`${exercise.exercise.name}-set-${setIndex}-reps`}
+                              >
                                 Reps
                               </Label>
                               <Input

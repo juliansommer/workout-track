@@ -75,13 +75,15 @@ export default function WorkoutForm({
                           (_, setIndex) => (
                             <div
                               key={setIndex}
-                              className="grid grid-cols-[auto_1fr_1fr] items-center gap-4">
+                              className="grid grid-cols-[auto_1fr_1fr] items-center gap-4"
+                            >
                               <div className="font-medium">
                                 Set {setIndex + 1}
                               </div>
                               <div className="space-y-1">
                                 <Label
-                                  htmlFor={`${exercise.id}-set-${setIndex}-weight`}>
+                                  htmlFor={`${exercise.id}-set-${setIndex}-weight`}
+                                >
                                   Weight
                                 </Label>
                                 <Input
@@ -112,7 +114,8 @@ export default function WorkoutForm({
                               </div>
                               <div className="space-y-1">
                                 <Label
-                                  htmlFor={`${exercise.id}-set-${setIndex}-reps`}>
+                                  htmlFor={`${exercise.id}-set-${setIndex}-reps`}
+                                >
                                   Reps
                                 </Label>
                                 <Input

@@ -23,7 +23,8 @@ export default async function Plans() {
         <Link
           type="button"
           href="/plans/create"
-          className={cn(buttonVariants({ variant: "default" }), "w-full")}>
+          className={cn(buttonVariants({ variant: "default" }), "w-full")}
+        >
           Create Plan
         </Link>
       </div>

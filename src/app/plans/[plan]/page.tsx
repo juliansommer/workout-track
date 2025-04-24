@@ -39,7 +39,8 @@ export default async function Plan(props: {
                 className={buttonVariants({
                   variant: "outline",
                   size: "icon",
-                })}>
+                })}
+              >
                 <Edit className="h-4 w-4" />
                 <span className="sr-only">Edit Plan</span>
               </Link>

@@ -23,7 +23,8 @@ export default async function Workouts() {
         <Link
           type="button"
           href="/workouts/create"
-          className={cn(buttonVariants({ variant: "default" }), "w-full")}>
+          className={cn(buttonVariants({ variant: "default" }), "w-full")}
+        >
           Create Workout
         </Link>
       </div>
