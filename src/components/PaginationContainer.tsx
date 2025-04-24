@@ -1,6 +1,6 @@
 "use client"
+import { useRouter } from "@bprogress/next"
 import { Pagination } from "@heroui/pagination"
-import { useRouter } from "next-nprogress-bar"
 
 interface PaginationContainerProps {
   totalPages: number

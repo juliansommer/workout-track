@@ -1,5 +1,5 @@
 "use client"
-import { AppProgressBar } from "next-nprogress-bar"
+import { ProgressProvider } from "@bprogress/next/app"
 
 export default function ProgressBar({
   children,
@@ -8,13 +8,13 @@ export default function ProgressBar({
 }) {
   return (
     <>
-      {children}
-      <AppProgressBar
+      <ProgressProvider
         height="3px"
         color="#0A2FFF"
         options={{ showSpinner: false }}
-        shallowRouting
-      />
+        shallowRouting>
+        {children}
+      </ProgressProvider>
     </>
   )
 }

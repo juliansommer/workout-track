@@ -10,8 +10,8 @@ import {
   type WorkoutForm,
   type WorkoutTargets,
 } from "@/types/workoutForm"
+import { useRouter } from "@bprogress/next"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useRouter } from "next-nprogress-bar"
 import Image from "next/image"
 import { useForm, type SubmitHandler } from "react-hook-form"
 
