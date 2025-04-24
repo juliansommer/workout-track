@@ -41,11 +41,12 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 ## TODO
 
-- need to make workoutForm have sets and reps as numbers, not strings so can use zod to validate them
+- need to prefill set data when creating a workout. search in workout table for most recent occurance of the specified plan_id. then prefill the set data in the form (ideally have as the placeholder). in the input we have the values exercise_id and set_no. so need to store the previous plan data
 
-- add state to check if offline
-
-- need to prefill set data when creating a workout. can get latest exercise target from searching through set table for specific exercise_id ordered by date created, need to add date created field to set specifically so rather than looking at previous workout for targets, just look at specific target for each exercise and set
+1. find most recent workout for the plan_id
+2. get the workout_exercise id for that workout_id
+3. get set data (weight, reps, order) for each workout_exercise id
+4. set out data in way where exercise weight and reps can be accessed solely through the exercise_id and set_no. have it so data["exercise_id"]["set_no"] = {weight, reps}. so data is object with exercise_id as key, and array of weight and reps where we can use set_no as the index.
 
 - have user page where they can see their data
 
@@ -56,26 +57,6 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
   - see pbs per exercise
 
   - for pbs, can see a graph of weight increase over time for each exercise
-
-- MAKE SURE TO SET A MAX AND MIN INT VALUE FOR ANY FIELD THAT NEEDS IT IN THE ZOD SCHEMA
-
-  - set
-
-    - weight (float)
-
-    - reps (int)
-
-  - on user page
-
-    - age
-
-    - weight
-
-    - height
-
-- add notes option for exercises in plan and workout
-
-  - generally need to add options for missing fields
 
 - add e2e tests using playwright
 

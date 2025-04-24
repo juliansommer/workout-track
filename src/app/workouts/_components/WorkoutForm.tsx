@@ -9,7 +9,7 @@ import { workoutFormSchema, type WorkoutForm } from "@/types/workoutForm"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useRouter } from "next-nprogress-bar"
 import Image from "next/image"
-import { useEffect } from "react"
+// import { useEffect } from "react"
 import { useForm, type SubmitHandler } from "react-hook-form"
 
 export default function WorkoutForm({
@@ -23,7 +23,7 @@ export default function WorkoutForm({
   const {
     register,
     handleSubmit,
-    setValue,
+    // setValue,
     formState: { errors },
   } = useForm<WorkoutForm>({
     resolver: zodResolver(workoutFormSchema),
@@ -33,18 +33,20 @@ export default function WorkoutForm({
   })
 
   // Initialize form data from workout
-  useEffect(() => {
-    workout.exercises.forEach((exercise) => {
-      if (exercise.sets) {
-        Array.from({ length: exercise.sets }).forEach((_, setIndex) => {
-          setValue(`exercises.${exercise.id}.${setIndex}`, {
-            weight: "",
-            reps: "",
-          })
-        })
-      }
-    })
-  }, [workout.exercises, setValue])
+  // need to modify this so that we are fetching the previous targets
+  // based on the most recent occurance of plan_id in workouts table
+  // useEffect(() => {
+  //   workout.exercises.forEach((exercise) => {
+  //     if (exercise.sets) {
+  //       Array.from({ length: exercise.sets }).forEach((_, setIndex) => {
+  //         // setValue(`exercises.${exercise.id}.${setIndex}`, {
+  //         //   weight: 0,
+  //         //   reps: 0,
+  //         // })
+  //       })
+  //     }
+  //   })
+  // }, [workout.exercises, setValue])
 
   const onSubmit: SubmitHandler<WorkoutForm> = async (data: WorkoutForm) => {
     try {
@@ -99,6 +101,7 @@ export default function WorkoutForm({
                                   placeholder="0"
                                   {...register(
                                     `exercises.${exercise.id}.${setIndex}.weight`,
+                                    { valueAsNumber: true },
                                   )}
                                 />
                                 <div className="h-5">
@@ -126,6 +129,7 @@ export default function WorkoutForm({
                                   placeholder="0"
                                   {...register(
                                     `exercises.${exercise.id}.${setIndex}.reps`,
+                                    { valueAsNumber: true },
                                   )}
                                 />
                                 <div className="h-5">
