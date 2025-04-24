@@ -5,25 +5,30 @@ import { Input } from "@/components/ui/Input"
 import { Label } from "@/components/ui/Label"
 import createWorkout from "@/server/actions/createWorkout"
 import { type PlanData } from "@/types"
-import { workoutFormSchema, type WorkoutForm } from "@/types/workoutForm"
+import {
+  workoutFormSchema,
+  type WorkoutForm,
+  type WorkoutTargets,
+} from "@/types/workoutForm"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useRouter } from "next-nprogress-bar"
 import Image from "next/image"
-// import { useEffect } from "react"
 import { useForm, type SubmitHandler } from "react-hook-form"
 
 export default function WorkoutForm({
   workoutData,
+  workoutTargets,
 }: {
   workoutData: PlanData
+  workoutTargets: WorkoutTargets
 }) {
   const router = useRouter()
   const workout = workoutData
+  const targets = workoutTargets
 
   const {
     register,
     handleSubmit,
-    // setValue,
     formState: { errors },
   } = useForm<WorkoutForm>({
     resolver: zodResolver(workoutFormSchema),
@@ -31,22 +36,6 @@ export default function WorkoutForm({
       exercises: {},
     },
   })
-
-  // Initialize form data from workout
-  // need to modify this so that we are fetching the previous targets
-  // based on the most recent occurance of plan_id in workouts table
-  // useEffect(() => {
-  //   workout.exercises.forEach((exercise) => {
-  //     if (exercise.sets) {
-  //       Array.from({ length: exercise.sets }).forEach((_, setIndex) => {
-  //         // setValue(`exercises.${exercise.id}.${setIndex}`, {
-  //         //   weight: 0,
-  //         //   reps: 0,
-  //         // })
-  //       })
-  //     }
-  //   })
-  // }, [workout.exercises, setValue])
 
   const onSubmit: SubmitHandler<WorkoutForm> = async (data: WorkoutForm) => {
     try {
@@ -98,7 +87,10 @@ export default function WorkoutForm({
                                 <Input
                                   id={`${exercise.id}-set-${setIndex}-weight`}
                                   type="number"
-                                  placeholder="0"
+                                  placeholder={String(
+                                    targets[exercise.id]?.[setIndex]?.weight ??
+                                      "0",
+                                  )}
                                   {...register(
                                     `exercises.${exercise.id}.${setIndex}.weight`,
                                     { valueAsNumber: true },
@@ -126,7 +118,10 @@ export default function WorkoutForm({
                                 <Input
                                   id={`${exercise.id}-set-${setIndex}-reps`}
                                   type="number"
-                                  placeholder="0"
+                                  placeholder={String(
+                                    targets[exercise.id]?.[setIndex]?.reps ??
+                                      "0",
+                                  )}
                                   {...register(
                                     `exercises.${exercise.id}.${setIndex}.reps`,
                                     { valueAsNumber: true },

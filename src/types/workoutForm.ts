@@ -30,3 +30,14 @@ export const workoutFormSchema = z.object({
 })
 
 export type WorkoutForm = z.infer<typeof workoutFormSchema>
+
+export type WorkoutTargets = Record<
+  string,
+  Record<
+    number,
+    {
+      weight: number
+      reps: number
+    }
+  >
+>
