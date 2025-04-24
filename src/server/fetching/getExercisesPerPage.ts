@@ -1,5 +1,5 @@
 import createSupabaseServerClient from "@/lib/supabase/server"
-import { type ExerciseData } from "@/types"
+import type { ExerciseData } from "@/types"
 
 export default async function getExercisesPerPage(
   page: number,

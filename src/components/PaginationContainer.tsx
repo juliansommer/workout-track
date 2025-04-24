@@ -1,4 +1,5 @@
 "use client"
+
 import { useRouter } from "@bprogress/next"
 import { Pagination } from "@heroui/pagination"
 

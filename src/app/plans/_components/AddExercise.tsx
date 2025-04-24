@@ -1,8 +1,10 @@
 "use client"
+
+import type { ControllerRenderProps } from "react-hook-form"
+import Select from "react-select"
+
 import { Input } from "@/components/ui/Input"
 import type { PlanForm } from "@/types/planForm"
-import { type ControllerRenderProps } from "react-hook-form"
-import Select from "react-select"
 
 interface AddExerciseProps {
   options: { label: string; value: string }[]

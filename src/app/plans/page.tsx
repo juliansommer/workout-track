@@ -1,10 +1,11 @@
+import type { Metadata } from "next"
+import Link from "next/link"
+
 import { Heading } from "@/components/Heading"
 import { buttonVariants } from "@/components/ui/Button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
 import { cn } from "@/lib/utils"
 import getUserPlans from "@/server/fetching/getUserPlans"
-import { type Metadata } from "next"
-import Link from "next/link"
 
 export const metadata: Metadata = {
   title: "Plans",

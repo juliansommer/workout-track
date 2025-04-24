@@ -1,19 +1,21 @@
 "use client"
+
+import { useRouter } from "@bprogress/next"
+import { zodResolver } from "@hookform/resolvers/zod"
+import Image from "next/image"
+import { useForm, type SubmitHandler } from "react-hook-form"
+
 import { Button } from "@/components/ui/Button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
 import { Input } from "@/components/ui/Input"
 import { Label } from "@/components/ui/Label"
 import createWorkout from "@/server/actions/createWorkout"
-import { type PlanData } from "@/types"
+import type { PlanData } from "@/types"
 import {
   workoutFormSchema,
   type WorkoutForm,
   type WorkoutTargets,
 } from "@/types/workoutForm"
-import { useRouter } from "@bprogress/next"
-import { zodResolver } from "@hookform/resolvers/zod"
-import Image from "next/image"
-import { useForm, type SubmitHandler } from "react-hook-form"
 
 export default function WorkoutForm({
   workoutData,

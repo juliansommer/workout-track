@@ -1,5 +1,6 @@
-import getAllExercisesNames from "@/server/fetching/getAllExercisesNames"
 import type { MetadataRoute } from "next"
+
+import getAllExercisesNames from "@/server/fetching/getAllExercisesNames"
 
 // generate at build time not request time
 // exercises never change so its fine to prebuild

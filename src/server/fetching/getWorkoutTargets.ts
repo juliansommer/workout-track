@@ -1,5 +1,5 @@
 import createSupabaseServerClient from "@/lib/supabase/server"
-import { type WorkoutTargets } from "@/types/workoutForm"
+import type { WorkoutTargets } from "@/types/workoutForm"
 
 interface TempWorkoutData {
   workout_exercise: {

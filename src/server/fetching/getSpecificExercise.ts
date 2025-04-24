@@ -1,5 +1,5 @@
 import createSupabaseServerClient from "@/lib/supabase/server"
-import { type SpecificExerciseData } from "@/types"
+import type { SpecificExerciseData } from "@/types"
 
 export default async function getSpecificExercise(exercise: string) {
   const supabase = await createSupabaseServerClient()

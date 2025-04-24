@@ -1,8 +1,9 @@
-import { GithubLogo } from "@/components/Logos"
-import { buttonVariants } from "@/components/ui/Button"
 import { LinkIcon } from "lucide-react"
 import type { Metadata } from "next"
 import Link from "next/link"
+
+import { GithubLogo } from "@/components/Logos"
+import { buttonVariants } from "@/components/ui/Button"
 
 export const metadata: Metadata = {
   alternates: {

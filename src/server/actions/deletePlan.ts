@@ -1,6 +1,8 @@
 "use server"
-import createSupabaseServerClient from "@/lib/supabase/server"
+
 import { redirect } from "next/navigation"
+
+import createSupabaseServerClient from "@/lib/supabase/server"
 
 export default async function deletePlan(planId: string) {
   const supabase = await createSupabaseServerClient()

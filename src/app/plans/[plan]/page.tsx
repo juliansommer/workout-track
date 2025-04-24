@@ -1,11 +1,12 @@
-import { buttonVariants } from "@/components/ui/Button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
-import getPlanName from "@/server/fetching/getPlanName"
-import getSpecificPlan from "@/server/fetching/getSpecificPlan"
 import { Dumbbell, Edit } from "lucide-react"
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
+
+import { buttonVariants } from "@/components/ui/Button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
+import getPlanName from "@/server/fetching/getPlanName"
+import getSpecificPlan from "@/server/fetching/getSpecificPlan"
 import DeletePlan from "../_components/DeletePlan"
 
 export async function generateMetadata(props: {

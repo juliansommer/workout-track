@@ -1,8 +1,9 @@
-import { Skeleton } from "@/components/ui/Skeleton"
-import { titleCase } from "@/lib/utils"
-import { type ExerciseData } from "@/types"
 import Image from "next/image"
 import Link from "next/link"
+
+import { Skeleton } from "@/components/ui/Skeleton"
+import { titleCase } from "@/lib/utils"
+import type { ExerciseData } from "@/types"
 
 export function ExerciseCard({ exercise }: { exercise: ExerciseData }) {
   return (

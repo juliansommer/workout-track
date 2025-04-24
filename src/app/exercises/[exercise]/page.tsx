@@ -1,3 +1,6 @@
+import type { Metadata } from "next"
+import Image from "next/image"
+
 import ChevronRightIcon from "@/components/ChevronRightIcon"
 import { Heading } from "@/components/Heading"
 import {
@@ -8,8 +11,6 @@ import {
 import createSupabaseBrowserClient from "@/lib/supabase/client"
 import { titleCase } from "@/lib/utils"
 import getSpecificExercise from "@/server/fetching/getSpecificExercise"
-import type { Metadata } from "next"
-import Image from "next/image"
 
 // when generating params, the server doesn't have access to cookies
 // so cant use SupabaseServerClient

@@ -1,4 +1,5 @@
 "use client"
+
 import { GoogleLogo } from "@/components/Logos"
 import createSupabaseBrowserClient from "@/lib/supabase/client"
 

@@ -1,10 +1,11 @@
 // The pagination the app is using is from next-ui, but for whatever reason if I delete this file
 // which I created before using next-ui, the pagination has no styling on it and is clumped together
-import { type ButtonProps, buttonVariants } from "@/components/ui/Button"
-import { cn } from "@/lib/utils"
 import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react"
 import Link from "next/link"
 import * as React from "react"
+
+import { type ButtonProps, buttonVariants } from "@/components/ui/Button"
+import { cn } from "@/lib/utils"
 
 function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
   return (

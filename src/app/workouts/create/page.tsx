@@ -1,8 +1,9 @@
+import type { Metadata } from "next"
+import Link from "next/link"
+
 import { Heading } from "@/components/Heading"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
 import getUserPlans from "@/server/fetching/getUserPlans"
-import type { Metadata } from "next"
-import Link from "next/link"
 
 export const metadata: Metadata = {
   title: "Create Workout",

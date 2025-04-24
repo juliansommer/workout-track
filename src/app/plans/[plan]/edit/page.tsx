@@ -1,8 +1,9 @@
+import type { Metadata } from "next"
+
 import { Heading } from "@/components/Heading"
 import getAllExercisesNames from "@/server/fetching/getAllExercisesNames"
 import getPlanName from "@/server/fetching/getPlanName"
 import getSpecificPlan from "@/server/fetching/getSpecificPlan"
-import type { Metadata } from "next"
 import PlanForm from "../../_components/PlanForm"
 
 export async function generateMetadata(props: {

@@ -1,7 +1,9 @@
 "use client"
+
+import { Trash2 } from "lucide-react"
+
 import { Button } from "@/components/ui/Button"
 import deletePlan from "@/server/actions/deletePlan"
-import { Trash2 } from "lucide-react"
 
 export default function DeletePlan({ planId }: { planId: string }) {
   return (

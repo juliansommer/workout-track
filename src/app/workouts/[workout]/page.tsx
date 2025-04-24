@@ -1,3 +1,6 @@
+import type { Metadata } from "next"
+import Image from "next/image"
+
 import { Heading } from "@/components/Heading"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
 import { Input } from "@/components/ui/Input"
@@ -5,8 +8,6 @@ import { Label } from "@/components/ui/Label"
 import { cleanTimestamp } from "@/lib/utils"
 import getSpecificWorkout from "@/server/fetching/getSpecificWorkout"
 import getWorkoutTime from "@/server/fetching/getWorkoutTime"
-import type { Metadata } from "next"
-import Image from "next/image"
 
 export async function generateMetadata(props: {
   params: Promise<{ workout: string }>

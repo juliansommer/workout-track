@@ -1,6 +1,7 @@
-import { buttonVariants } from "@/components/ui/Button"
-import { type Metadata } from "next"
+import type { Metadata } from "next"
 import Link from "next/link"
+
+import { buttonVariants } from "@/components/ui/Button"
 
 export const metadata: Metadata = {
   title: "404",

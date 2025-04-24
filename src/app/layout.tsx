@@ -1,8 +1,9 @@
-import Nav from "@/components/Nav"
-import ProgressBar from "@/components/ProgressBar"
 import type { Metadata } from "next"
 import { ThemeProvider } from "next-themes"
 import { Inter as FontSans } from "next/font/google"
+
+import Nav from "@/components/Nav"
+import ProgressBar from "@/components/ProgressBar"
 import "./globals.css"
 
 const fontSans = FontSans({
