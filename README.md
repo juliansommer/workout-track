@@ -12,7 +12,6 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 - 📈 Scalable relational database architecture
 - 📣 Environment variables validated on build using zod
 - 🌙 Full dark and light mode theming using next-themes
-- 🌌 Progress bar for page transitions using next-nprogress-bar
 - 👾 Styling using shadcn/ui
 
 # Schema Diagram
