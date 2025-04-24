@@ -1,5 +1,6 @@
 import { FlatCompat } from "@eslint/eslintrc"
 import eslint from "@eslint/js"
+import perfectionist from "eslint-plugin-perfectionist"
 import tseslint from "typescript-eslint"
 
 const compat = new FlatCompat({
@@ -18,11 +19,11 @@ export default tseslint.config(
       tseslint.configs.recommendedTypeChecked,
       tseslint.configs.stylisticTypeChecked,
     ],
+    plugins: {
+      perfectionist,
+    },
     rules: {
-      "@typescript-eslint/consistent-type-imports": [
-        "error",
-        { fixStyle: "inline-type-imports" },
-      ],
+      "@typescript-eslint/consistent-type-imports": "error",
       "@typescript-eslint/no-misused-promises": [
         "error",
         { checksVoidReturn: { attributes: false } },
@@ -32,6 +33,27 @@ export default tseslint.config(
         { argsIgnorePattern: "^_" },
       ],
       "@typescript-eslint/require-await": "off",
+      "perfectionist/sort-imports": [
+        "error",
+        {
+          groups: [
+            ["type-import", "value-builtin", "value-external"],
+            [
+              "type-internal",
+              "value-internal",
+              "type-parent",
+              "type-sibling",
+              "type-index",
+              "value-parent",
+              "value-sibling",
+              "value-index",
+            ],
+            "ts-equals-import",
+            "unknown",
+          ],
+          internalPattern: ["^@/"],
+        },
+      ],
     },
     languageOptions: {
       parserOptions: {

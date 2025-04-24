@@ -1,8 +1,8 @@
 import type { Metadata } from "next"
 import { redirect } from "next/navigation"
 
-import getUserSession from "@/server/actions/getUserSession"
 import LoginForm from "./_components/LoginForm"
+import getUserSession from "@/server/actions/getUserSession"
 
 export const metadata: Metadata = {
   title: "Login",

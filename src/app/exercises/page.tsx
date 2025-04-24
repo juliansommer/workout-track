@@ -1,10 +1,10 @@
 import type { Metadata } from "next"
 
+import { ExerciseCard } from "./_components/ExerciseCard"
 import { Heading } from "@/components/Heading"
 import PaginationContainer from "@/components/PaginationContainer"
 import getExercisesPerPage from "@/server/fetching/getExercisesPerPage"
 import getTotalExercisePages from "@/server/fetching/getTotalExercisePages"
-import { ExerciseCard } from "./_components/ExerciseCard"
 
 export const metadata: Metadata = {
   title: "Exercises",
