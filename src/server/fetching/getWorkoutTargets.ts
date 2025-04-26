@@ -48,8 +48,6 @@ export default async function getWorkoutTargets(planId: string) {
     throw new Error("Failed to fetch workout details")
   }
 
-  console.log("Workout data:", data)
-
   // Transform data into the required format
   // this format is required as we need to be able to use exercise_id and set_number as keys
   const formattedData: WorkoutTargets = {}

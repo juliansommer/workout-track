@@ -63,8 +63,6 @@ export default function WorkoutForm({
                       fill
                       className="object-cover"
                       priority
-                      placeholder="blur"
-                      blurDataURL="/1x1.png"
                     />
                   </div>
                   <div className="p-4">

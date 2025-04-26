@@ -70,8 +70,6 @@ export default async function Plan(props: {
                     width={500}
                     height={300}
                     priority
-                    placeholder="blur"
-                    blurDataURL="/1x1.png"
                   />
                 </div>
                 <CardContent className="p-4">
