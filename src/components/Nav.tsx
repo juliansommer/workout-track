@@ -1,7 +1,6 @@
 import { Dumbbell } from "lucide-react"
 import Link from "next/link"
 
-import ThemeButton from "./ThemeButton"
 import { buttonVariants } from "@/components/ui/Button"
 import {
   DropdownMenu,
@@ -11,6 +10,8 @@ import {
 } from "@/components/ui/DropdownMenu"
 import getUserSession from "@/server/actions/getUserSession"
 import logoutAction from "@/server/actions/logoutAction"
+
+import ThemeButton from "./ThemeButton"
 
 export default async function Nav() {
   const { data } = await getUserSession()

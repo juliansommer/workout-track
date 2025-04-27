@@ -4,6 +4,7 @@ import { Inter as FontSans } from "next/font/google"
 
 import Nav from "@/components/Nav"
 import ProgressBar from "@/components/ProgressBar"
+
 import "./globals.css"
 
 const fontSans = FontSans({

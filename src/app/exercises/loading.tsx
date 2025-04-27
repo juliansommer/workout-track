@@ -1,5 +1,6 @@
-import { ExerciseCardSkeleton } from "./_components/ExerciseCard"
 import { HeadingSkeleton } from "@/components/Heading"
+
+import { ExerciseCardSkeleton } from "./_components/ExerciseCard"
 
 export default function Loading() {
   return (

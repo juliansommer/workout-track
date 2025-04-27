@@ -6,13 +6,14 @@ import { Trash2 } from "lucide-react"
 import { useEffect, useState } from "react"
 import { Controller, useForm, type SubmitHandler } from "react-hook-form"
 
-import AddExercise from "./AddExercise"
 import { Button } from "@/components/ui/Button"
 import { Input } from "@/components/ui/Input"
 import { Textarea } from "@/components/ui/Textarea"
 import createPlan from "@/server/actions/createPlan"
 import editPlan from "@/server/actions/editPlan"
 import { planFormSchema, type PlanForm } from "@/types/planForm"
+
+import AddExercise from "./AddExercise"
 
 interface predefinedData {
   id: string
