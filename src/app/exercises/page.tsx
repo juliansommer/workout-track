@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 
 import { Heading } from "@/components/Heading"
 import PaginationContainer from "@/components/PaginationContainer"
+import { robotsMetadata } from "@/lib/robotsMetadata"
 import getExercisesPerPage from "@/server/fetching/getExercisesPerPage"
 import getTotalExercisePages from "@/server/fetching/getTotalExercisePages"
 
@@ -12,19 +13,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/exercises",
   },
-  robots: {
-    index: true,
-    follow: true,
-    nocache: false,
-    googleBot: {
-      index: true,
-      follow: true,
-      noimageindex: false,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  robots: robotsMetadata,
 }
 
 export default async function Exercises(props: {

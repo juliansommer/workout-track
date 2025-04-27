@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { redirect } from "next/navigation"
 
+import { robotsMetadata } from "@/lib/robotsMetadata"
 import getUserSession from "@/server/actions/getUserSession"
 
 import LoginForm from "./_components/LoginForm"
@@ -10,19 +11,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/login",
   },
-  robots: {
-    index: true,
-    follow: true,
-    nocache: false,
-    googleBot: {
-      index: true,
-      follow: true,
-      noimageindex: false,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  robots: robotsMetadata,
 }
 
 export default async function Login() {

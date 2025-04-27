@@ -4,24 +4,13 @@ import Link from "next/link"
 
 import { GithubLogo } from "@/components/Logos"
 import { buttonVariants } from "@/components/ui/Button"
+import { robotsMetadata } from "@/lib/robotsMetadata"
 
 export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
-  robots: {
-    index: true,
-    follow: true,
-    nocache: false,
-    googleBot: {
-      index: true,
-      follow: true,
-      noimageindex: false,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  robots: robotsMetadata,
 }
 
 export default function Page() {

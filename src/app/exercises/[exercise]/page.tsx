@@ -8,6 +8,7 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/Collapsible"
+import { robotsMetadata } from "@/lib/robotsMetadata"
 import createSupabaseBrowserClient from "@/lib/supabase/client"
 import { titleCase } from "@/lib/utils"
 import getSpecificExercise from "@/server/fetching/getSpecificExercise"
@@ -46,19 +47,7 @@ export async function generateMetadata(props: {
     alternates: {
       canonical: `/exercises/${params.exercise}`,
     },
-    robots: {
-      index: true,
-      follow: true,
-      nocache: false,
-      googleBot: {
-        index: true,
-        follow: true,
-        noimageindex: false,
-        "max-video-preview": -1,
-        "max-image-preview": "large",
-        "max-snippet": -1,
-      },
-    },
+    robots: robotsMetadata,
   }
 }
 
