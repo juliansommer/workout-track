@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    /* Base Options: */
+    /* Base Options */
     "esModuleInterop": true,
     "skipLibCheck": true,
     "target": "ES2022",
@@ -15,7 +15,7 @@
     "noUncheckedIndexedAccess": true,
     "checkJs": true,
 
-    /* Bundled projects */
+    /* Bundled Projects */
     "lib": ["dom", "dom.iterable", "ESNext"],
     "noEmit": true,
     "module": "ESNext",
