@@ -66,8 +66,8 @@ export default function WorkoutForm({
                     />
                   </div>
                   <div className="p-4">
-                    <CardHeader className="p-0 pb-4">
-                      <CardTitle>{exercise.name}</CardTitle>
+                    <CardHeader className="p-0">
+                      <CardTitle className="pb-6">{exercise.name}</CardTitle>
                     </CardHeader>
                     <CardContent className="p-0">
                       <div className="grid gap-4">
@@ -83,6 +83,7 @@ export default function WorkoutForm({
                               <div className="space-y-1">
                                 <Label
                                   htmlFor={`${exercise.id}-set-${setIndex}-weight`}
+                                  className="pb-2"
                                 >
                                   Weight
                                 </Label>
@@ -115,6 +116,7 @@ export default function WorkoutForm({
                               <div className="space-y-1">
                                 <Label
                                   htmlFor={`${exercise.id}-set-${setIndex}-reps`}
+                                  className="pb-2"
                                 >
                                   Reps
                                 </Label>
