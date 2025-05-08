@@ -1,7 +1,5 @@
 "use server"
 
-import { v4 as uuidv4 } from "uuid"
-
 import createSupabaseServerClient from "@/lib/supabase/server"
 import { planFormSchema, type PlanForm } from "@/types/planForm"
 
@@ -25,7 +23,7 @@ export default async function createPlan(formData: PlanForm) {
   }
 
   // insert the plan
-  const plan_id = uuidv4()
+  const plan_id = crypto.randomUUID()
   const { error } = await supabase.from("plan").insert({
     id: plan_id,
     user_id: user.id,

@@ -45,6 +45,12 @@ export default async function getWorkoutTargets(planId: string) {
     .overrideTypes<TempWorkoutData>()
 
   if (error) {
+    if (error.code === "PGRST116") {
+      // No workout found for the given planId
+      // meaning its first time tracking for this plan
+      // so we can return an empty object
+      return {}
+    }
     throw new Error("Failed to fetch workout details")
   }
 

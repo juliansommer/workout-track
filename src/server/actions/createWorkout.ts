@@ -1,7 +1,5 @@
 "use server"
 
-import { v4 as uuidv4 } from "uuid"
-
 import createSupabaseServerClient from "@/lib/supabase/server"
 import { setsSchema, type SetsSchema } from "@/types/workoutForm"
 
@@ -30,7 +28,7 @@ export default async function createWorkout(workoutData: WorkoutData) {
   }
 
   // create main workout record
-  const workout_id = uuidv4()
+  const workout_id = crypto.randomUUID()
   const { error } = await supabase.from("workout").insert({
     id: workout_id,
     user_id: user.id,
@@ -48,7 +46,7 @@ export default async function createWorkout(workoutData: WorkoutData) {
 
   const setKeys = Object.keys(workoutData.sets)
   for (let i = 0; i < setKeys.length; i++) {
-    const workout_exercise_id = uuidv4()
+    const workout_exercise_id = crypto.randomUUID()
 
     const key = setKeys[i]
     if (key === undefined) {
@@ -73,7 +71,7 @@ export default async function createWorkout(workoutData: WorkoutData) {
 
     // loop through sets and insert them
     for (let j = 0; j < exerciseSet.length; j++) {
-      const set_id = uuidv4()
+      const set_id = crypto.randomUUID()
       const set = exerciseSet[j]
       if (!set) {
         throw new Error("Set not found")
