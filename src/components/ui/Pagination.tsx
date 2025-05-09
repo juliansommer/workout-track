@@ -1,5 +1,5 @@
-// The pagination the app is using is from next-ui, but for whatever reason if I delete this file
-// which I created before using next-ui, the pagination has no styling on it and is clumped together
+// The pagination the app is using is from hero-ui, but I didn't install their css
+// and other dependencies, so this is being used as the styling, whilst using their pagination logic
 import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react"
 import Link from "next/link"
 import * as React from "react"
