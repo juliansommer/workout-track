@@ -2,7 +2,7 @@
 /node_modules
 
 # next.js
-/.next/
+/.next
 next-env.d.ts
 
 # misc
@@ -12,12 +12,8 @@ next-env.d.ts
 # debug
 .pnpm-debug.log*
 
-# local env files
+# env
 .env
-.env*.local
-
-# vercel
-.vercel
 
 # typescript
 *.tsbuildinfo
