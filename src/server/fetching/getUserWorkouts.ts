@@ -34,7 +34,9 @@ export default async function getUserWorkouts() {
         id,
         created_at,
         updated_at,
-        plan(name),
+        plan (
+          name
+        ),
         workout_exercise (
           exercise_id,
           exercise (
