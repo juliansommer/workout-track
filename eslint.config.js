@@ -29,10 +29,7 @@ export default tseslint.config(
       ],
       "@typescript-eslint/naming-convention": [
         "error",
-        {
-          format: ["camelCase", "PascalCase"],
-          selector: "variable",
-        },
+        { format: ["camelCase", "PascalCase"], selector: "variable" },
         { format: ["camelCase", "PascalCase"], selector: "function" },
         { format: ["PascalCase"], selector: "interface" },
         { format: ["PascalCase"], selector: "typeAlias" },
