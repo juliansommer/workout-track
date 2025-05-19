@@ -23,9 +23,9 @@ export default async function createPlan(formData: PlanForm) {
   }
 
   // insert the plan
-  const plan_id = crypto.randomUUID()
+  const planId = crypto.randomUUID()
   const { error } = await supabase.from("plan").insert({
-    id: plan_id,
+    id: planId,
     user_id: user.id,
     name: formData.name,
     notes: formData.notes,
@@ -38,7 +38,7 @@ export default async function createPlan(formData: PlanForm) {
   // loop through exercises and insert them
   for (const exercise of formData.exercises) {
     const { error } = await supabase.from("plan_exercise").insert({
-      plan_id: plan_id,
+      plan_id: planId,
       exercise_id: exercise.value,
       sets: exercise.sets,
     })

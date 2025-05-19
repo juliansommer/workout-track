@@ -21,9 +21,9 @@ export default async function Exercises(props: {
 }) {
   const searchParams = await props.searchParams
   const page = Number(searchParams?.page) || 1
-  const per_page = 10
-  const totalPages = await getTotalExercisePages(per_page)
-  const data = await getExercisesPerPage(page, per_page)
+  const perPage = 10
+  const totalPages = await getTotalExercisePages(perPage)
+  const data = await getExercisesPerPage(page, perPage)
 
   return (
     <>

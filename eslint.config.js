@@ -23,7 +23,20 @@ export default tseslint.config(
       perfectionist,
     },
     rules: {
-      "@typescript-eslint/consistent-type-imports": "error",
+      "@typescript-eslint/consistent-type-imports": [
+        "error",
+        { fixStyle: "inline-type-imports" },
+      ],
+      "@typescript-eslint/naming-convention": [
+        "error",
+        {
+          format: ["camelCase", "PascalCase"],
+          selector: "variable",
+        },
+        { format: ["camelCase", "PascalCase"], selector: "function" },
+        { format: ["PascalCase"], selector: "interface" },
+        { format: ["PascalCase"], selector: "typeAlias" },
+      ],
       "@typescript-eslint/no-misused-promises": [
         "error",
         { checksVoidReturn: { attributes: false } },
@@ -51,6 +64,13 @@ export default tseslint.config(
             ],
           ],
           internalPattern: ["^@/"],
+        },
+      ],
+      "no-restricted-syntax": [
+        "warn",
+        {
+          selector: 'CallExpression[callee.object.name="console"]',
+          message: "console.log() is not allowed in source code.",
         },
       ],
     },

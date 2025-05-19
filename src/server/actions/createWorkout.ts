@@ -28,9 +28,9 @@ export default async function createWorkout(workoutData: WorkoutData) {
   }
 
   // create main workout record
-  const workout_id = crypto.randomUUID()
+  const workoutId = crypto.randomUUID()
   const { error } = await supabase.from("workout").insert({
-    id: workout_id,
+    id: workoutId,
     user_id: user.id,
     plan_id: workoutData.id,
   })
@@ -46,7 +46,7 @@ export default async function createWorkout(workoutData: WorkoutData) {
 
   const setKeys = Object.keys(workoutData.sets)
   for (let i = 0; i < setKeys.length; i++) {
-    const workout_exercise_id = crypto.randomUUID()
+    const workoutExerciseId = crypto.randomUUID()
 
     const key = setKeys[i]
     if (key === undefined) {
@@ -59,8 +59,8 @@ export default async function createWorkout(workoutData: WorkoutData) {
     }
 
     const { error } = await supabase.from("workout_exercise").insert({
-      id: workout_exercise_id,
-      workout_id: workout_id,
+      id: workoutExerciseId,
+      workout_id: workoutId,
       exercise_id: setKeys[i],
       order: i,
     })
@@ -71,15 +71,15 @@ export default async function createWorkout(workoutData: WorkoutData) {
 
     // loop through sets and insert them
     for (let j = 0; j < exerciseSet.length; j++) {
-      const set_id = crypto.randomUUID()
+      const setId = crypto.randomUUID()
       const set = exerciseSet[j]
       if (!set) {
         throw new Error("Set not found")
       }
 
       const { error } = await supabase.from("set").insert({
-        id: set_id,
-        workout_exercise_id: workout_exercise_id,
+        id: setId,
+        workout_exercise_id: workoutExerciseId,
         weight: set.weight,
         reps: set.reps,
         order: j,

@@ -43,8 +43,8 @@ export default function WorkoutForm({
     try {
       await createWorkout({ id: workout.id, sets: data.exercises })
       router.push("/workouts")
-    } catch (error) {
-      console.error("Failed to save workout:", error)
+    } catch {
+      throw new Error("Failed to create workout")
     }
   }
 

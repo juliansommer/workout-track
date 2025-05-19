@@ -15,7 +15,7 @@ import { planFormSchema, type PlanForm } from "@/types/planForm"
 
 import AddExercise from "./AddExercise"
 
-interface predefinedData {
+interface PredefinedData {
   id: string
   name: string
   notes: string | null
@@ -29,7 +29,7 @@ interface predefinedData {
 // data is the list of exercises
 interface PlanFormProps {
   data: { name: string; id: string }[]
-  planData?: predefinedData
+  planData?: PredefinedData
 }
 
 export default function PlanForm({ data, planData }: PlanFormProps) {
@@ -92,15 +92,15 @@ export default function PlanForm({ data, planData }: PlanFormProps) {
       try {
         await editPlan(planData.id, formData)
         router.push("/plans")
-      } catch (error) {
-        console.error("Failed to edit plan:", error)
+      } catch {
+        throw new Error("Failed to edit plan")
       }
     } else {
       try {
         await createPlan(formData)
         router.push("/plans")
-      } catch (error) {
-        console.error("Failed to create plan:", error)
+      } catch {
+        throw new Error("Failed to create plan")
       }
     }
   }
