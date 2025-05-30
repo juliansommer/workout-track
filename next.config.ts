@@ -26,6 +26,19 @@ const nextConfig: NextConfig = {
             key: "Content-Security-Policy",
             value: cspHeader.replace(/\n/g, ""),
           },
+          {
+            key: "Permissions-Policy",
+            value:
+              "camera=(), microphone=(), geolocation=(), browsing-topics=()",
+          },
+          {
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
+          },
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
         ],
       },
     ]
