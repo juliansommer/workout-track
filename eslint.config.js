@@ -43,6 +43,7 @@ export default tseslint.config(
         { argsIgnorePattern: "^_" },
       ],
       "@typescript-eslint/require-await": "off",
+      "no-console": "warn",
       "perfectionist/sort-imports": [
         "error",
         {
@@ -61,13 +62,6 @@ export default tseslint.config(
             ],
           ],
           internalPattern: ["^@/"],
-        },
-      ],
-      "no-restricted-syntax": [
-        "warn",
-        {
-          selector: 'CallExpression[callee.object.name="console"]',
-          message: "console.log() is not allowed in source code.",
         },
       ],
     },
