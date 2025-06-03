@@ -17,13 +17,15 @@ import {
   type WorkoutTargets,
 } from "@/types/workoutForm"
 
+interface WorkoutFormProps {
+  workoutData: PlanData
+  workoutTargets: WorkoutTargets
+}
+
 export default function WorkoutForm({
   workoutData,
   workoutTargets,
-}: {
-  workoutData: PlanData
-  workoutTargets: WorkoutTargets
-}) {
+}: WorkoutFormProps) {
   const router = useRouter()
   const workout = workoutData
   const targets = workoutTargets
