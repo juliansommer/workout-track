@@ -65,7 +65,6 @@ export default function Page() {
                     alt="App Screenshot"
                     className="object-cover"
                     priority
-                    quality={100}
                   />
                 </div>
               </div>
