@@ -83,7 +83,7 @@ export default function PlanForm({ data, planData }: PlanFormProps) {
       (exercise) => exercise !== undefined,
     )
     // Update the form data using setValue
-    setValue("exercises", cleanedExercises as PlanForm["exercises"])
+    setValue("exercises", cleanedExercises)
   }
 
   const onSubmit: SubmitHandler<PlanForm> = async (formData: PlanForm) => {
@@ -148,6 +148,10 @@ export default function PlanForm({ data, planData }: PlanFormProps) {
                     </div>
                     {errors.exercises?.[index] && (
                       <div className="pt-2">
+                        {typeof errors.exercises[index] === "object" &&
+                          "message" in errors.exercises[index] && (
+                            <p>{errors.exercises[index].message}</p>
+                          )}
                         {errors.exercises[index].label && (
                           <p>{errors.exercises[index].label.message}</p>
                         )}
