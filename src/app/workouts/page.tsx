@@ -71,7 +71,10 @@ function WorkoutsGridSkeleton() {
     <div className="container mx-auto py-8">
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {Array.from({ length: 8 }).map((_, i) => (
-          <Card key={i}>
+          <Card
+            key={i}
+            className="animate-pulse bg-neutral-100 dark:bg-neutral-800"
+          >
             <CardHeader>
               <Skeleton className="h-6 w-3/4" />
             </CardHeader>
