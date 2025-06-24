@@ -18,6 +18,9 @@ const cspHeader = `
 `
 
 const nextConfig: NextConfig = {
+  experimental: {
+    reactCompiler: true,
+  },
   poweredByHeader: false,
   async headers() {
     return [
