@@ -37,3 +37,10 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 - The app then should be able to be run with `pnpm dev`
 - To easily deploy, you can use Vercel and add the env variables to the project settings
 - You can deploy independently of Vercel but you will need to set up the env variables in the hosting service you use
+
+# TODO
+
+- when "use cache" in next.js is stable, use it to cache getTotalExercisePages query
+- ppr when stable. should just be enabling it as all the code is already compatible due to custom suspense boundaries
+- typed routes when stable
+- turbopack build when stable
