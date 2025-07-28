@@ -25,8 +25,7 @@ export async function generateStaticParams() {
 
   if (error) {
     throw new Error(
-      error.message ??
-        "Failed to fetch exercises when building /exercises/[exercise]",
+      "Failed to fetch exercises when building /exercises/[exercise]",
     )
   }
 
