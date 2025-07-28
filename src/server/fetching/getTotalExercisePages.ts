@@ -1,22 +1,18 @@
-import createSupabaseServerClient from "@/lib/supabase/server"
+import { unstable_cache } from "next/cache"
 
-let cachedTotalPages: number | null = null
+import createSupabaseBrowserClient from "@/lib/supabase/client"
 
-export default async function getTotalExercisePages(per_page: number) {
-  if (cachedTotalPages !== null) {
-    return cachedTotalPages
-  } else {
-    const supabase = await createSupabaseServerClient()
+async function getTotalExercisePages() {
+  const supabase = createSupabaseBrowserClient()
 
-    // exercises are public so no need to check for user
+  // exercises are public so no need to check for user
 
-    const { count } = await supabase
-      .from("exercise")
-      .select("*", { count: "exact", head: true })
+  const { count } = await supabase
+    .from("exercise")
+    .select("*", { count: "exact", head: true })
 
-    const totalPages = Math.ceil((count ?? 0) / per_page)
-    cachedTotalPages = totalPages
-
-    return totalPages
-  }
+  return Math.ceil((count ?? 0) / 10)
 }
+
+const getCachedPages = unstable_cache(getTotalExercisePages)
+export default getCachedPages

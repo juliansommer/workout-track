@@ -1,12 +1,9 @@
 import createSupabaseServerClient from "@/lib/supabase/server"
 import type { ExerciseData } from "@/types"
 
-export default async function getExercisesPerPage(
-  page: number,
-  per_page: number,
-) {
-  const start = (page - 1) * per_page
-  const end = start + per_page - 1
+export default async function getExercisesPerPage(page: number) {
+  const start = (page - 1) * 10
+  const end = start + 9
 
   const supabase = await createSupabaseServerClient()
 

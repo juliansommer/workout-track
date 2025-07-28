@@ -1,13 +1,14 @@
 import type { MetadataRoute } from "next"
 
 import getAllExercisesNames from "@/server/fetching/getAllExercisesNames"
+import getTotalExercisePages from "@/server/fetching/getTotalExercisePages"
 
 // generate at build time not request time
 // exercises never change so its fine to prebuild
 export const dynamic = "force-static"
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const staticRoutes = ["", "/exercises", "/login"]
+  const staticRoutes = ["", "/login"]
 
   const routesMap = staticRoutes.map((route) => ({
     url: `${process.env.NEXT_PUBLIC_SITE_URL}${route}`,
@@ -21,9 +22,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
   )
 
-  const fetchedRoutes = (await Promise.all([exercisesPromise])).flat()
+  const exercisesPagesPromise = getTotalExercisePages().then((totalPages) =>
+    Array.from({ length: totalPages }, (_, index) => ({
+      url: `${process.env.NEXT_PUBLIC_SITE_URL}/exercises/p/${index + 1}`,
+      lastModified: new Date().toISOString(),
+    })),
+  )
 
-  return [...routesMap, ...fetchedRoutes].sort((a, b) =>
+  const [exerciseRoutes, paginationRoutes] = await Promise.all([
+    exercisesPromise,
+    exercisesPagesPromise,
+  ])
+
+  // Sort exercise routes alphabetically and pagination routes numerically
+  const sortedExerciseRoutes = exerciseRoutes.sort((a, b) =>
     a.url.localeCompare(b.url),
   )
+  const sortedPaginationRoutes = paginationRoutes.sort((a, b) => {
+    const pageA = parseInt(a.url.split("/").pop()!)
+    const pageB = parseInt(b.url.split("/").pop()!)
+    return pageA - pageB
+  })
+
+  return [...routesMap, ...sortedExerciseRoutes, ...sortedPaginationRoutes]
 }

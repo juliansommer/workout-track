@@ -24,7 +24,7 @@ export default function PaginationContainer({
         total={totalPages}
         initialPage={1}
         page={currentPage}
-        onChange={(page) => router.replace(`${route}?page=${page}`)}
+        onChange={(page) => router.replace(`${route}/p/${page}`)}
       />
     </div>
   )

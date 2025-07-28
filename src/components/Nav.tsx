@@ -27,7 +27,7 @@ export default async function Nav() {
       <div className="hidden gap-3 md:flex">
         <ThemeButton />
         <Link
-          href="/exercises"
+          href="/exercises/p/1"
           className={buttonVariants({ variant: "outline" })}
         >
           Exercises
@@ -74,7 +74,7 @@ export default async function Nav() {
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuItem>
-                <Link href="/exercises">Exercises</Link>
+                <Link href="/exercises/p/1">Exercises</Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <Link href="/plans">Plans</Link>
