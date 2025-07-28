@@ -1,4 +1,4 @@
-import { z } from "zod/v4"
+import { z } from "zod"
 
 // base object for sets, uses by itself for server-side validation
 export const setsSchema = z.record(
