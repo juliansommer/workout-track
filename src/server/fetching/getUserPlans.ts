@@ -17,7 +17,6 @@ export default async function getUserPlans() {
     .select("id, name, notes")
     .order("name", { ascending: true })
     .eq("user_id", user?.id)
-    .overrideTypes<{ id: string; name: string; notes: string }[]>()
 
   if (error) {
     throw new Error("Failed to fetch plans")

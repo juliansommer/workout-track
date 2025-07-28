@@ -17,7 +17,6 @@ export default async function getWorkoutTime(workoutId: string) {
     .select("created_at")
     .eq("id", workoutId)
     .single()
-    .overrideTypes<{ created_at: string }>()
 
   if (error) {
     throw new Error("Failed to fetch plan details")

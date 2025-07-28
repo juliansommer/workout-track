@@ -21,10 +21,7 @@ import getSpecificExercise from "@/server/fetching/getSpecificExercise"
 export async function generateStaticParams() {
   const supabase = createSupabaseBrowserClient()
 
-  const { data, error } = await supabase
-    .from("exercise")
-    .select("name")
-    .overrideTypes<{ name: string }[]>()
+  const { data, error } = await supabase.from("exercise").select("name")
 
   if (error) {
     throw new Error(

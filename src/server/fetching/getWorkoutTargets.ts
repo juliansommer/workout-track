@@ -1,17 +1,6 @@
 import createSupabaseServerClient from "@/lib/supabase/server"
 import type { WorkoutTargets } from "@/types/workoutForm"
 
-interface TempWorkoutData {
-  workout_exercise: {
-    exercise_id: string
-    set: {
-      weight: number
-      reps: number
-      order: number
-    }[]
-  }[]
-}
-
 export default async function getWorkoutTargets(planId: string) {
   const supabase = await createSupabaseServerClient()
 
@@ -42,7 +31,6 @@ export default async function getWorkoutTargets(planId: string) {
     .order("created_at", { ascending: false })
     .limit(1)
     .single()
-    .overrideTypes<TempWorkoutData>()
 
   if (error) {
     if (error.code === "PGRST116") {

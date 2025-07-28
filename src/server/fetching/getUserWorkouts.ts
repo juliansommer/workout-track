@@ -1,20 +1,5 @@
 import createSupabaseServerClient from "@/lib/supabase/server"
 
-interface ExtendedWorkout {
-  id: string
-  created_at: string
-  updated_at: string
-  plan: {
-    name: string
-  }
-  workout_exercise: {
-    exercise_id: string
-    exercise: {
-      name: string
-    }
-  }[]
-}
-
 export default async function getUserWorkouts() {
   const supabase = await createSupabaseServerClient()
 
@@ -47,7 +32,6 @@ export default async function getUserWorkouts() {
     )
     .order("updated_at", { ascending: false })
     .eq("user_id", user?.id)
-    .overrideTypes<ExtendedWorkout[]>()
 
   if (error) {
     throw new Error("Failed to fetch workouts")

@@ -61,7 +61,7 @@ export default async function createWorkout(workoutData: WorkoutData) {
     const { error } = await supabase.from("workout_exercise").insert({
       id: workoutExerciseId,
       workout_id: workoutId,
-      exercise_id: setKeys[i],
+      exercise_id: setKeys[i]!,
       order: i,
     })
 

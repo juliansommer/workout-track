@@ -1,19 +1,5 @@
 import createSupabaseServerClient from "@/lib/supabase/server"
 
-interface SpecificWorkoutData {
-  created_at: string
-  workout_exercise: {
-    exercise: {
-      name: string
-      image: string
-    }
-    set: {
-      weight: number
-      reps: number
-    }[]
-  }[]
-}
-
 export default async function getSpecificWorkout(workoutId: string) {
   const supabase = await createSupabaseServerClient()
 
@@ -45,7 +31,6 @@ export default async function getSpecificWorkout(workoutId: string) {
     )
     .eq("id", workoutId)
     .single()
-    .overrideTypes<SpecificWorkoutData>()
 
   if (error) {
     throw new Error("Failed to fetch workout details")

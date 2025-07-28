@@ -9,7 +9,6 @@ export default async function getAllExercisesNames() {
     .from("exercise")
     .select("id, name")
     .order("name", { ascending: true })
-    .overrideTypes<{ id: string; name: string }[]>()
 
   if (error) {
     throw new Error("Failed to fetch exercises")

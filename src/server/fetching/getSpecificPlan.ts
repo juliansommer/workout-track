@@ -1,21 +1,6 @@
 import createSupabaseServerClient from "@/lib/supabase/server"
 import type { PlanData } from "@/types"
 
-interface TempPlanData {
-  id: string
-  name: string
-  notes: string
-  plan_exercise: {
-    exercise_id: string
-    sets: number
-    exercise: {
-      id: string
-      name: string
-      image: string
-    }
-  }[]
-}
-
 export default async function getSpecificPlan(planId: string) {
   const supabase = await createSupabaseServerClient()
 
@@ -48,7 +33,6 @@ export default async function getSpecificPlan(planId: string) {
     )
     .eq("id", planId)
     .single()
-    .overrideTypes<TempPlanData>()
 
   if (error) {
     throw new Error("Failed to fetch plan details")

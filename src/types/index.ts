@@ -16,8 +16,3 @@ export type ExerciseData = Pick<
   Database["public"]["Tables"]["exercise"]["Row"],
   "name" | "image" | "primary_muscles"
 >
-
-export type SpecificExerciseData = Pick<
-  Database["public"]["Tables"]["exercise"]["Row"],
-  "name" | "image" | "primary_muscles" | "secondary_muscles" | "instructions"
->
