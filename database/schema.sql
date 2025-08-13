@@ -19,38 +19,6 @@ ALTER TABLE IF EXISTS public.exercise
 COMMENT ON TABLE public.exercise
     IS 'predefined exercises';
 
-CREATE TABLE IF NOT EXISTS public.fav_exercise
-(
-    user_id uuid NOT NULL,
-    created_at timestamp with time zone NOT NULL DEFAULT now(),
-    exercise_id uuid NOT NULL,
-    CONSTRAINT fav_exercise_pkey PRIMARY KEY (user_id, exercise_id)
-);
-
-ALTER TABLE IF EXISTS public.fav_exercise
-    ENABLE ROW LEVEL SECURITY;
-
-COMMENT ON TABLE public.fav_exercise
-    IS 'user defined favourite exercise';
-
-CREATE TABLE IF NOT EXISTS public.pb
-(
-    user_id uuid NOT NULL DEFAULT gen_random_uuid(),
-    exercise_id uuid NOT NULL DEFAULT gen_random_uuid(),
-    weight double precision NOT NULL,
-    reps smallint NOT NULL,
-    "order" smallint NOT NULL,
-    created_at timestamp with time zone NOT NULL DEFAULT now(),
-    workout_id uuid NOT NULL,
-    CONSTRAINT pb_pkey PRIMARY KEY (user_id, exercise_id)
-);
-
-ALTER TABLE IF EXISTS public.pb
-    ENABLE ROW LEVEL SECURITY;
-
-COMMENT ON TABLE public.pb
-    IS 'user defined pb for exercise. reason for order field is so can differentiate between what set the pb was in. eg a pb in set 1 is not a pb in set 2 and should not be applied to targets for that.';
-
 CREATE TABLE IF NOT EXISTS public.plan
 (
     id uuid NOT NULL DEFAULT gen_random_uuid(),
@@ -133,26 +101,6 @@ ALTER TABLE IF EXISTS public.workout_exercise
 
 COMMENT ON TABLE public.workout_exercise
     IS 'a specific exercise performed in a workout';
-
-ALTER TABLE IF EXISTS public.fav_exercise
-    ADD CONSTRAINT fav_exercise_exercise_id_fkey FOREIGN KEY (exercise_id)
-    REFERENCES public.exercise (id) MATCH SIMPLE
-    ON UPDATE CASCADE
-    ON DELETE CASCADE;
-
-
-ALTER TABLE IF EXISTS public.pb
-    ADD CONSTRAINT pb_exercise_id_fkey FOREIGN KEY (exercise_id)
-    REFERENCES public.exercise (id) MATCH SIMPLE
-    ON UPDATE CASCADE
-    ON DELETE CASCADE;
-
-
-ALTER TABLE IF EXISTS public.pb
-    ADD CONSTRAINT pb_workout_id_fkey FOREIGN KEY (workout_id)
-    REFERENCES public.workout (id) MATCH SIMPLE
-    ON UPDATE CASCADE
-    ON DELETE CASCADE;
 
 
 ALTER TABLE IF EXISTS public.plan_exercise
