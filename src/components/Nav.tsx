@@ -8,8 +8,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/DropdownMenu"
-import getUserSession from "@/server/actions/getUserSession"
 import logoutAction from "@/server/actions/logoutAction"
+import getUserSession from "@/server/fetching/getUserSession"
 
 import ThemeButton from "./ThemeButton"
 

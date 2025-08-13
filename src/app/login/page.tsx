@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { redirect } from "next/navigation"
 
 import { robotsMetadata } from "@/lib/robotsMetadata"
-import getUserSession from "@/server/actions/getUserSession"
+import getUserSession from "@/server/fetching/getUserSession"
 
 import LoginForm from "./_components/LoginForm"
 
