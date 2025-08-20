@@ -41,6 +41,6 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 # TODO
 
 - when "use cache" in next.js is stable, use it to cache getTotalExercisePages query (same logic as unstable_cache)
-- ppr when stable. should just be enabling it as all the code is already compatible due to custom suspense boundaries
-- typed routes when stable
+- ppr when stable.
 - turbopack build when stable
+- playwright e2e tests, need to figure out how to use google sso, or maybe add email password auth

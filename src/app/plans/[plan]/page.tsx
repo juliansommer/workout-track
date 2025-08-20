@@ -40,7 +40,7 @@ export default async function Plan(props: {
               <CardTitle className="text-2xl font-bold">{data.name}</CardTitle>
               <div className="flex space-x-2">
                 <Link
-                  href={`${params.plan}/edit`}
+                  href={`/plans/${params.plan}/edit`}
                   className={buttonVariants({
                     variant: "outline",
                     size: "icon",
