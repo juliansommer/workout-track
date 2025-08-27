@@ -41,6 +41,10 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 # TODO
 
 - when "use cache" in next.js is stable, use it to cache getTotalExercisePages query (same logic as unstable_cache)
-- ppr when stable.
+- ppr when stable. on some pages like plans, is literally just enabling it. some routes fetch page level then pass down, so need to split into component (keep in same file). need ppr for the header so that it can be static - put suspense in layout.
+  - ppr ready: /plans, /plans/create, /plans/[plan]/edit, /workouts, /workouts/create
+  - ppr non ready: exercises/p/[page]? need to pass search params to exercises content and then await instead of awaiting at page level? same as exercises/[exercise], they both should be static gen anyway
+  - ppr probably non applicable: /plans/[plan], /workouts/create/[id], /workouts/[workout]
+
 - turbopack build when stable
 - playwright e2e tests, need to figure out how to use google sso, or maybe add email password auth
