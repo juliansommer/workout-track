@@ -18,7 +18,8 @@ export const metadata: Metadata = {
     template: "%s | Workout Track",
     default: "Workout Track",
   },
-  description: "Workout Track is an open source app that helps you monitor your workouts, set goals, and achieve your fitness dreams.",
+  description:
+    "Workout Track is an open source app that helps you monitor your workouts, set goals, and achieve your fitness dreams.",
   robots: {
     index: false,
   },
