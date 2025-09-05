@@ -4,9 +4,8 @@ export default async function getUserWorkouts() {
   const supabase = await createSupabaseServerClient()
 
   // get the user and check auth
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
+  const claims = await supabase.auth.getClaims()
+  const user = claims.data?.claims.sub
 
   if (!user) {
     throw new Error("User not found")
@@ -31,7 +30,7 @@ export default async function getUserWorkouts() {
       `,
     )
     .order("updated_at", { ascending: false })
-    .eq("user_id", user?.id)
+    .eq("user_id", user)
 
   if (error) {
     throw new Error("Failed to fetch workouts")

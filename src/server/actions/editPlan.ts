@@ -7,9 +7,8 @@ export default async function editPlan(planId: string, formData: PlanForm) {
   const supabase = await createSupabaseServerClient()
 
   // get the user and check auth
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
+  const claims = await supabase.auth.getClaims()
+  const user = claims.data?.claims.sub
 
   if (!user) {
     throw new Error("User not found")

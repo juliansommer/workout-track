@@ -31,9 +31,9 @@ export default async function updateSession(request: NextRequest) {
     },
   )
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
+  // get the user and check auth
+  const claim = await supabase.auth.getClaims()
+  const user = claim.data?.claims.sub
 
   // middleware only running on authenticated routes so don't check route
   if (!user) {

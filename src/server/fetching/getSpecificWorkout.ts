@@ -4,9 +4,8 @@ export default async function getSpecificWorkout(workoutId: string) {
   const supabase = await createSupabaseServerClient()
 
   // get the user and check auth
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
+  const claims = await supabase.auth.getClaims()
+  const user = claims.data?.claims.sub
 
   if (!user) {
     throw new Error("User not found")

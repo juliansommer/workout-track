@@ -12,9 +12,8 @@ export default async function createWorkout(workoutData: WorkoutData) {
   const supabase = await createSupabaseServerClient()
 
   // get the user and check auth
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
+  const claim = await supabase.auth.getClaims()
+  const user = claim.data?.claims.sub
 
   if (!user) {
     throw new Error("User not found")
@@ -31,7 +30,7 @@ export default async function createWorkout(workoutData: WorkoutData) {
   const workoutId = crypto.randomUUID()
   const { error } = await supabase.from("workout").insert({
     id: workoutId,
-    user_id: user.id,
+    user_id: user,
     plan_id: workoutData.id,
   })
 

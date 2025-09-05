@@ -48,3 +48,5 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 - turbopack build when stable
 - playwright e2e tests, need to figure out how to use google sso, or maybe add email password auth
+- migrate to supabase asym jwt keys. will need to change google sso details and change env vars locally and on vercel
+- potentially make the Nav client component and handle login state client side, however with PPR might not be needed. upon user logging in, have global state that affects nav bar so its not checking for auth everytime. user wont be able to access authed routes anyway if not logged in so don't need auth check for nav, only auth state

@@ -4,9 +4,8 @@ export default async function getUserPlans() {
   const supabase = await createSupabaseServerClient()
 
   // get the user and check auth
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
+  const claims = await supabase.auth.getClaims()
+  const user = claims.data?.claims.sub
 
   if (!user) {
     throw new Error("User not found")
@@ -16,7 +15,7 @@ export default async function getUserPlans() {
     .from("plan")
     .select("id, name, notes")
     .order("name", { ascending: true })
-    .eq("user_id", user?.id)
+    .eq("user_id", user)
 
   if (error) {
     throw new Error("Failed to fetch plans")
