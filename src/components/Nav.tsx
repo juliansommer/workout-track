@@ -8,13 +8,15 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/DropdownMenu"
+import createSupabaseServerClient from "@/lib/supabase/server"
 import logoutAction from "@/server/actions/logoutAction"
-import getUserSession from "@/server/fetching/getUserSession"
 
 import ThemeButton from "./ThemeButton"
 
 export default async function Nav() {
-  const { data } = await getUserSession()
+  const supabase = await createSupabaseServerClient()
+  const claim = await supabase.auth.getClaims()
+  const user = claim.data?.claims.sub
 
   return (
     <nav className="flex-between mb-16 flex h-full w-full items-center justify-between pt-3">
@@ -32,7 +34,7 @@ export default async function Nav() {
         >
           Exercises
         </Link>
-        {data.session ? (
+        {user ? (
           <>
             <Link
               href="/plans"
@@ -65,7 +67,7 @@ export default async function Nav() {
       {/* Mobile Navigation */}
       <div className="relative flex gap-3 md:hidden">
         <ThemeButton />
-        {data.session ? (
+        {user ? (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <button className={buttonVariants({ variant: "default" })}>

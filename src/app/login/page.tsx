@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { redirect } from "next/navigation"
 
 import { robotsMetadata } from "@/lib/robotsMetadata"
-import getUserSession from "@/server/fetching/getUserSession"
+import createSupabaseServerClient from "@/lib/supabase/server"
 
 import LoginForm from "./_components/LoginForm"
 
@@ -15,13 +15,11 @@ export const metadata: Metadata = {
 }
 
 export default async function Login() {
-  // check if user is already logged in and redirect to root
-  // don't need to use getUser as its just checking if logged in aka session exists
-  // actual checks for whether user is authed to view a route is done through middleware
-  // + user is checked before each data call
-  const { data } = await getUserSession()
+  const supabase = await createSupabaseServerClient()
+  const claim = await supabase.auth.getClaims()
+  const user = claim.data?.claims.sub
 
-  if (data.session) {
+  if (user) {
     redirect("/")
   }
 
