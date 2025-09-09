@@ -41,7 +41,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={fontSans.variable} suppressHydrationWarning>
-      <body className="min-h-screen overflow-y-scroll bg-neutral-50 font-sans antialiased selection:bg-neutral-200 dark:bg-neutral-900 dark:selection:bg-neutral-700">
+      <body className="min-h-screen overflow-y-scroll bg-neutral-100 font-sans antialiased selection:bg-neutral-300 dark:bg-neutral-900 dark:selection:bg-neutral-700">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
