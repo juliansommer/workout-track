@@ -6,7 +6,7 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 - 🖥️ View 800+ exercises
 - 📝 Create, edit and delete plan and workout
-- 🔑 Full authentication using Supabase with Google SSO
+- 🔑 Full authentication using Supabase with Google & GitHub SSO
 - 🔐 Full Row Level Security to prevent unauthorised database changes
 - ✅ Forms using react-hook-form with validation using zod
 - 📈 Scalable relational database architecture
@@ -41,12 +41,10 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 # TODO
 
 - when "use cache" in next.js is stable, use it to cache getTotalExercisePages query (same logic as unstable_cache)
-- ppr when stable. on some pages like plans, is literally just enabling it. some routes fetch page level then pass down, so need to split into component (keep in same file). need ppr for the header so that it can be static - put suspense in layout.
-  - ppr ready: /plans, /plans/create, /plans/[plan]/edit, /workouts, /workouts/create
+- ppr when stable
+  - ppr ready: /plans, /plans/[plan]/edit, /plans/create, /workouts, /workouts/create
   - ppr non ready: exercises/p/[page]? need to pass search params to exercises content and then await instead of awaiting at page level? same as exercises/[exercise], they both should be static gen anyway
   - ppr probably non applicable: /plans/[plan], /workouts/create/[id], /workouts/[workout]
-
 - turbopack build when stable
 - playwright e2e tests, need to figure out how to use google sso, or maybe add email password auth
-- potentially make the Nav client component and handle login state client side, however with PPR might not be needed. upon user logging in, have global state that affects nav bar so its not checking for auth everytime. user wont be able to access authed routes anyway if not logged in so don't need auth check for nav, only auth state
-- add github login
+- potentially make the Nav client component and handle login state client side, however with PPR might not be needed, just wrap Nav in layout in suspense and enable PPR page level?.
