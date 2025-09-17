@@ -17,6 +17,7 @@ export default async function getWorkoutTargets(planId: string) {
     .select(
       `
         workout_exercise (
+          created_at,
           exercise_id,
           set (
             weight,

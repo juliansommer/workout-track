@@ -17,7 +17,6 @@ export default async function getUserWorkouts() {
       `
         id,
         created_at,
-        updated_at,
         plan (
           name
         ),
@@ -29,7 +28,7 @@ export default async function getUserWorkouts() {
         )
       `,
     )
-    .order("updated_at", { ascending: false })
+    .order("created_at", { ascending: false })
     .eq("user_id", user)
 
   if (error) {

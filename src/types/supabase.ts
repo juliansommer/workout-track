@@ -98,21 +98,18 @@ export type Database = {
         Row: {
           exercise_id: string
           id: string
-          notes: string | null
           plan_id: string
           sets: number | null
         }
         Insert: {
           exercise_id: string
           id?: string
-          notes?: string | null
           plan_id: string
           sets?: number | null
         }
         Update: {
           exercise_id?: string
           id?: string
-          notes?: string | null
           plan_id?: string
           sets?: number | null
         }
@@ -171,7 +168,6 @@ export type Database = {
           duration: number | null
           id: string
           plan_id: string
-          updated_at: string
           user_id: string
         }
         Insert: {
@@ -179,7 +175,6 @@ export type Database = {
           duration?: number | null
           id?: string
           plan_id: string
-          updated_at?: string
           user_id: string
         }
         Update: {
@@ -187,7 +182,6 @@ export type Database = {
           duration?: number | null
           id?: string
           plan_id?: string
-          updated_at?: string
           user_id?: string
         }
         Relationships: [

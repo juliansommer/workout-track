@@ -48,3 +48,5 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 - turbopack build when stable
 - playwright e2e tests, need to figure out how to use google sso, or maybe add email password auth
 - potentially make the Nav client component and handle login state client side, however with PPR might not be needed, just wrap Nav in layout in suspense and enable PPR page level?.
+- calc workout duration on submit and display it in /workouts
+- redo schema diagram

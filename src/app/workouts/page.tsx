@@ -50,7 +50,7 @@ async function WorkoutsGrid() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm">
-                  {cleanTimestamp(workout.updated_at)}
+                  {cleanTimestamp(workout.created_at)}
                 </p>
                 <ul className="text-muted-foreground list-disc pt-2 pl-5 text-sm">
                   {workout.workout_exercise.map((exercise) => (
