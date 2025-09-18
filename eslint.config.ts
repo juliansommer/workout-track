@@ -1,15 +1,16 @@
 import { FlatCompat } from "@eslint/eslintrc"
 import eslint from "@eslint/js"
 import perfectionist from "eslint-plugin-perfectionist"
+import { defineConfig } from "eslint/config"
 import tseslint from "typescript-eslint"
 
 const compat = new FlatCompat({
   baseDirectory: import.meta.dirname,
 })
 
-export default tseslint.config(
+export default defineConfig(
   {
-    ignores: [".next"],
+    ignores: [".next/**", "next-env.d.ts"],
   },
   ...compat.extends("next/core-web-vitals"),
   {
