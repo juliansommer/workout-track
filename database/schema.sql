@@ -9,8 +9,7 @@ CREATE TABLE IF NOT EXISTS public.exercise
     secondary_muscles muscle[],
     image text COLLATE pg_catalog."default" NOT NULL,
     instructions text[] COLLATE pg_catalog."default" NOT NULL,
-    CONSTRAINT exercise_pkey PRIMARY KEY (id),
-    CONSTRAINT exercise_id_key UNIQUE (id)
+    CONSTRAINT exercise_pkey PRIMARY KEY (id)
 );
 
 ALTER TABLE IF EXISTS public.exercise
@@ -40,11 +39,9 @@ CREATE TABLE IF NOT EXISTS public.plan_exercise
 (
     id uuid NOT NULL DEFAULT gen_random_uuid(),
     sets smallint,
-    notes text COLLATE pg_catalog."default",
     plan_id uuid NOT NULL,
     exercise_id uuid NOT NULL,
-    CONSTRAINT plan_exercise_pkey PRIMARY KEY (id),
-    CONSTRAINT plan_exercise_id_key UNIQUE (id)
+    CONSTRAINT plan_exercise_pkey PRIMARY KEY (id)
 );
 
 ALTER TABLE IF EXISTS public.plan_exercise
@@ -75,7 +72,6 @@ CREATE TABLE IF NOT EXISTS public.workout
     user_id uuid NOT NULL,
     plan_id uuid NOT NULL,
     created_at timestamp with time zone NOT NULL DEFAULT now(),
-    updated_at timestamp with time zone NOT NULL DEFAULT now(),
     duration smallint,
     CONSTRAINT workout_pkey PRIMARY KEY (id)
 );
@@ -101,7 +97,6 @@ ALTER TABLE IF EXISTS public.workout_exercise
 
 COMMENT ON TABLE public.workout_exercise
     IS 'a specific exercise performed in a workout';
-
 
 ALTER TABLE IF EXISTS public.plan_exercise
     ADD CONSTRAINT plan_exercise_exercise_id_fkey FOREIGN KEY (exercise_id)
