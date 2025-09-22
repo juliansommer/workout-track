@@ -16,7 +16,7 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 # Schema Diagram
 
-![schema](https://github.com/user-attachments/assets/9aab2ef5-7100-48bc-8af7-aac41c0f6298)
+![schema](https://github.com/user-attachments/assets/a463e272-bc35-4398-9197-7014cb58685b)
 
 # Pages
 
