@@ -4,7 +4,7 @@ import { redirect } from "next/navigation"
 
 import createSupabaseServerClient from "@/lib/supabase/server"
 
-export default async function deletePlan(planId: string) {
+export default async function deletePlan(planId: string): Promise<void> {
   const supabase = await createSupabaseServerClient()
 
   // get the user and check auth

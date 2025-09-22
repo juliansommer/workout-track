@@ -1,7 +1,9 @@
 import createSupabaseServerClient from "@/lib/supabase/server"
 import type { WorkoutTargets } from "@/types/workoutForm"
 
-export default async function getWorkoutTargets(planId: string) {
+export default async function getWorkoutTargets(
+  planId: string,
+): Promise<WorkoutTargets> {
   const supabase = await createSupabaseServerClient()
 
   // get the user and check auth

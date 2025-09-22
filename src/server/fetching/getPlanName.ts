@@ -1,6 +1,6 @@
 import createSupabaseServerClient from "@/lib/supabase/server"
 
-export default async function getPlanName(planId: string) {
+export default async function getPlanName(planId: string): Promise<string> {
   const supabase = await createSupabaseServerClient()
 
   // get the user and check auth

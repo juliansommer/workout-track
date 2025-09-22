@@ -2,7 +2,7 @@ import { unstable_cache } from "next/cache"
 
 import createSupabaseBrowserClient from "@/lib/supabase/client"
 
-async function getTotalExercisePages() {
+async function getTotalExercisePages(): Promise<number> {
   const supabase = createSupabaseBrowserClient()
 
   // exercises are public so no need to check for user

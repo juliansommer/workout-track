@@ -8,7 +8,9 @@ interface WorkoutData {
   sets: SetsSchema
 }
 
-export default async function createWorkout(workoutData: WorkoutData) {
+export default async function createWorkout(
+  workoutData: WorkoutData,
+): Promise<void> {
   const supabase = await createSupabaseServerClient()
 
   // get the user and check auth

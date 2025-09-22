@@ -1,6 +1,20 @@
 import createSupabaseServerClient from "@/lib/supabase/server"
 
-export default async function getUserWorkouts() {
+interface WorkoutData {
+  id: string
+  created_at: string
+  plan: {
+    name: string
+  }
+  workout_exercise: {
+    exercise_id: string
+    exercise: {
+      name: string
+    }
+  }[]
+}
+
+export default async function getUserWorkouts(): Promise<WorkoutData[]> {
   const supabase = await createSupabaseServerClient()
 
   // get the user and check auth

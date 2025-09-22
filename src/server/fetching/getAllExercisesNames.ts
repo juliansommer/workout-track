@@ -1,6 +1,12 @@
 import createSupabaseServerClient from "@/lib/supabase/server"
+import type { Database } from "@/types/supabase"
 
-export default async function getAllExercisesNames() {
+type ExerciseNames = Pick<
+  Database["public"]["Tables"]["exercise"]["Row"],
+  "id" | "name"
+>
+
+export default async function getAllExercisesNames(): Promise<ExerciseNames[]> {
   const supabase = await createSupabaseServerClient()
 
   // exercises are public so no need to check for user

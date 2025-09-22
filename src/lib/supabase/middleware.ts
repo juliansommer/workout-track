@@ -3,7 +3,9 @@ import { NextResponse, type NextRequest } from "next/server"
 
 import type { Database } from "@/types/supabase"
 
-export default async function updateSession(request: NextRequest) {
+export default async function updateSession(
+  request: NextRequest,
+): Promise<NextResponse> {
   let supabaseResponse = NextResponse.next({
     request,
   })

@@ -1,11 +1,11 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 
-export function cn(...inputs: ClassValue[]) {
+export function cn(...inputs: ClassValue[]): string {
   return twMerge(clsx(inputs))
 }
 
-export function titleCase(str: string) {
+export function titleCase(str: string): string {
   return str
     .toLowerCase()
     .split(" ")
@@ -15,6 +15,6 @@ export function titleCase(str: string) {
     .join(" ")
 }
 
-export function cleanTimestamp(timestamp: string) {
-  return new Date(timestamp).toISOString().split("T")[0]
+export function cleanTimestamp(timestamp: string): string {
+  return new Date(timestamp).toISOString().split("T")[0] ?? ""
 }

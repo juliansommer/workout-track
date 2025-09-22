@@ -1,6 +1,12 @@
 import createSupabaseServerClient from "@/lib/supabase/server"
+import type { Database } from "@/types/supabase"
 
-export default async function getUserPlans() {
+type Plan = Pick<
+  Database["public"]["Tables"]["plan"]["Row"],
+  "id" | "name" | "notes"
+>
+
+export default async function getUserPlans(): Promise<Plan[]> {
   const supabase = await createSupabaseServerClient()
 
   // get the user and check auth

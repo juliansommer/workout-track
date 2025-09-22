@@ -3,7 +3,7 @@
 import createSupabaseServerClient from "@/lib/supabase/server"
 import { planFormSchema, type PlanForm } from "@/types/planForm"
 
-export default async function createPlan(formData: PlanForm) {
+export default async function createPlan(formData: PlanForm): Promise<void> {
   const supabase = await createSupabaseServerClient()
 
   // get the user and check auth

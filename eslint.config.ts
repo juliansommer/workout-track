@@ -73,4 +73,10 @@ export default defineConfig(
       },
     },
   },
+  {
+    files: ["**/*.ts"],
+    rules: {
+      "@typescript-eslint/explicit-function-return-type": "error",
+    },
+  },
 )
