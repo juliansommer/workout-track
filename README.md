@@ -50,3 +50,4 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 - potentially make the Nav client component and handle login state client side, however with PPR might not be needed, just wrap Nav in layout in suspense and enable PPR page level?.
 - calc workout duration on submit and display it in /workouts
 - make sets input less annoying, cant remove then type in as default to 0. handle purely as string, look how workout does it
+- use postgres18 when supabase allows
