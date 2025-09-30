@@ -25,12 +25,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     siteName: "Workout Track",
-    locale: "en_US",
     type: "website",
     url: process.env.NEXT_PUBLIC_SITE_URL,
-  },
-  twitter: {
-    site: process.env.NEXT_PUBLIC_SITE_URL,
   },
 }
 
