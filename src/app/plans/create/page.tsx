@@ -8,6 +8,8 @@ import getAllExercisesNames from "@/server/fetching/getAllExercisesNames"
 import PlanForm from "../_components/PlanForm"
 import PlanFormSkeleton from "../_components/PlanFormSkeleton"
 
+export const experimental_ppr = true
+
 export const metadata: Metadata = {
   title: "Create Plan",
   alternates: {

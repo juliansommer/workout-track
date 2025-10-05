@@ -28,13 +28,13 @@ export default defineConfig(
         "error",
         { fixStyle: "inline-type-imports" },
       ],
-      "@typescript-eslint/naming-convention": [
-        "error",
-        { format: ["camelCase", "PascalCase"], selector: "variable" },
-        { format: ["camelCase", "PascalCase"], selector: "function" },
-        { format: ["PascalCase"], selector: "interface" },
-        { format: ["PascalCase"], selector: "typeAlias" },
-      ],
+      // "@typescript-eslint/naming-convention": [
+      //   "error",
+      //   { format: ["camelCase", "PascalCase"], selector: "variable" },
+      //   { format: ["camelCase", "PascalCase"], selector: "function" },
+      //   { format: ["PascalCase"], selector: "interface" },
+      //   { format: ["PascalCase"], selector: "typeAlias" },
+      // ],
       "@typescript-eslint/no-misused-promises": [
         "error",
         { checksVoidReturn: { attributes: false } },

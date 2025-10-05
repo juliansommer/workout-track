@@ -7,6 +7,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
 import { Skeleton } from "@/components/ui/Skeleton"
 import getUserPlans from "@/server/fetching/getUserPlans"
 
+export const experimental_ppr = true
+
 export const metadata: Metadata = {
   title: "Create Workout",
   alternates: {

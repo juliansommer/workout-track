@@ -41,13 +41,10 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 # TODO
 
 - when "use cache" in next.js is stable, use it to cache getTotalExercisePages query (same logic as unstable_cache)
-- ppr when stable
-  - ppr ready: /plans, /plans/[plan]/edit, /plans/create, /workouts, /workouts/create
-  - ppr non ready: exercises/p/[page]? need to pass search params to exercises content and then await instead of awaiting at page level? same as exercises/[exercise], they both should be static gen anyway
-  - ppr probably non applicable: /plans/[plan], /workouts/create/[id], /workouts/[workout]
 - turbopack build when stable
 - playwright e2e tests, need to figure out how to use google sso, or maybe add email password auth
 - potentially make the Nav client component and handle login state client side, however with PPR might not be needed, just wrap Nav in layout in suspense and enable PPR page level?.
 - calc workout duration on submit and display it in /workouts
 - make sets input less annoying, cant remove then type in as default to 0. handle purely as string, look how workout does it
 - use postgres18 when supabase allows
+- remove suspense from the static pages?

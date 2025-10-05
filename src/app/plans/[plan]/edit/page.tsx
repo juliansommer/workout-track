@@ -10,6 +10,8 @@ import getSpecificPlan from "@/server/fetching/getSpecificPlan"
 import PlanForm from "../../_components/PlanForm"
 import PlanFormSkeleton from "../../_components/PlanFormSkeleton"
 
+export const experimental_ppr = true
+
 export async function generateMetadata(props: {
   params: Promise<{ plan: string }>
 }): Promise<Metadata> {

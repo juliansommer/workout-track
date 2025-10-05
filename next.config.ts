@@ -19,9 +19,10 @@ const cspHeader = `
 
 const nextConfig: NextConfig = {
   experimental: {
-    reactCompiler: true,
+    ppr: true,
   },
   poweredByHeader: false,
+  reactCompiler: true,
   typedRoutes: true,
   // eslint-disable-next-line @typescript-eslint/require-await
   async headers() {
