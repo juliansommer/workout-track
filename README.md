@@ -40,7 +40,6 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 
 # TODO
 
-- turbopack build when stable
 - playwright e2e tests, need to figure out how to use google sso, or maybe add email password auth
 - calc workout duration on submit and display it in /workouts
 - make sets input less annoying, cant remove then type in as default to 0. handle purely as string, look how workout does it
