@@ -1,8 +1,8 @@
-import { unstable_cache } from "next/cache"
+"use cache"
 
 import createSupabaseBrowserClient from "@/lib/supabase/client"
 
-async function getTotalExercisePages(): Promise<number> {
+export default async function getTotalExercisePages(): Promise<number> {
   const supabase = createSupabaseBrowserClient()
 
   // exercises are public so no need to check for user
@@ -13,6 +13,3 @@ async function getTotalExercisePages(): Promise<number> {
 
   return Math.ceil((count ?? 0) / 10)
 }
-
-const getCachedPages = unstable_cache(getTotalExercisePages)
-export default getCachedPages
