@@ -1,5 +1,8 @@
+"use client"
+
 import { Dumbbell } from "lucide-react"
 import Link from "next/link"
+import { useEffect, useState } from "react"
 
 import { buttonVariants } from "@/components/ui/Button"
 import {
@@ -8,15 +11,24 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/DropdownMenu"
-import createSupabaseServerClient from "@/lib/supabase/server"
+import createSupabaseBrowserClient from "@/lib/supabase/client"
 import logoutAction from "@/server/actions/logoutAction"
 
 import ThemeButton from "./ThemeButton"
 
-export default async function Nav() {
-  const supabase = await createSupabaseServerClient()
-  const claim = await supabase.auth.getClaims()
-  const user = claim.data?.claims.sub
+export default function Nav() {
+  const [user, setUser] = useState<string | null>(null)
+
+  useEffect(() => {
+    async function fetchUser() {
+      const supabase = createSupabaseBrowserClient()
+      const {
+        data: { session },
+      } = await supabase.auth.getSession()
+      setUser(session?.user?.id ?? null)
+    }
+    void fetchUser()
+  }, [])
 
   return (
     <nav className="flex-between mb-16 flex h-full w-full items-center justify-between pt-3">
