@@ -1,11 +1,9 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
-import { Suspense } from "react"
 
 import { Heading } from "@/components/Heading"
 import PaginationContainer from "@/components/PaginationContainer"
-import { Skeleton } from "@/components/ui/Skeleton"
 import { robotsMetadata } from "@/lib/robotsMetadata"
 import { titleCase } from "@/lib/utils"
 import getExercisesPerPage from "@/server/fetching/getExercisesPerPage"
@@ -41,23 +39,12 @@ export default async function Exercise(props: {
   params: Promise<{ page: string }>
 }) {
   const { page } = await props.params
+  const totalPages = await getTotalExercisePages()
+  const data = await getExercisesPerPage(parseInt(page))
 
   return (
     <>
       <Heading title="Exercises" />
-      <Suspense fallback={<ExercisesContentSkeleton />}>
-        <ExercisesContent page={Number(page)} />
-      </Suspense>
-    </>
-  )
-}
-
-async function ExercisesContent({ page }: { page: number }) {
-  const totalPages = await getTotalExercisePages()
-  const data = await getExercisesPerPage(page)
-
-  return (
-    <>
       <div className="w-full">
         {data.map((item, index) => (
           <ExerciseCard key={index} exercise={item} />
@@ -65,21 +52,10 @@ async function ExercisesContent({ page }: { page: number }) {
       </div>
       <PaginationContainer
         totalPages={totalPages}
-        currentPage={page}
+        currentPage={parseInt(page)}
         route="/exercises"
       />
     </>
-  )
-}
-
-function ExercisesContentSkeleton() {
-  return (
-    <div className="w-full">
-      {/* Create an array of 10 skeleton cards to represent loading state */}
-      {Array.from({ length: 10 }).map((_, index) => (
-        <ExerciseCardSkeleton key={index} />
-      ))}
-    </div>
   )
 }
 
@@ -110,27 +86,5 @@ function ExerciseCard({ exercise }: { exercise: ExerciseData }) {
         </div>
       </div>
     </Link>
-  )
-}
-
-function ExerciseCardSkeleton() {
-  return (
-    <div className="flex items-center justify-between rounded-md p-4">
-      {/* Left side of the card with image and title */}
-      <div className="flex items-center space-x-4">
-        {/* Placeholder for the exercise image */}
-        <Skeleton className="h-[60px] w-[100px] rounded-lg" />
-        <div>
-          {/* Placeholder for the exercise name/title */}
-          <Skeleton className="h-6 w-32" />
-        </div>
-      </div>
-
-      {/* Right side of the card with muscle information */}
-      <div className="flex items-center space-x-4">
-        {/* Placeholder for the primary muscle text */}
-        <Skeleton className="h-4 w-16" />
-      </div>
-    </div>
   )
 }
