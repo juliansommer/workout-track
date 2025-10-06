@@ -9,6 +9,8 @@ import { cleanTimestamp } from "@/lib/utils"
 import getSpecificWorkout from "@/server/fetching/getSpecificWorkout"
 import getWorkoutTime from "@/server/fetching/getWorkoutTime"
 
+export const experimental_ppr = false
+
 export async function generateMetadata(props: {
   params: Promise<{ workout: string }>
 }): Promise<Metadata> {

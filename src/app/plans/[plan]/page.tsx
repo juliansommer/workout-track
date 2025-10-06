@@ -12,6 +12,8 @@ import getSpecificPlan from "@/server/fetching/getSpecificPlan"
 
 import DeletePlan from "../_components/DeletePlan"
 
+export const experimental_ppr = false
+
 export async function generateMetadata(props: {
   params: Promise<{ plan: string }>
 }): Promise<Metadata> {
