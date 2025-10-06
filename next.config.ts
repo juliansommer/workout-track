@@ -1,6 +1,6 @@
 import type { NextConfig } from "next"
 
-import "./src/env"
+import "./src/env.ts"
 
 const cspHeader = `
   default-src 'self';
