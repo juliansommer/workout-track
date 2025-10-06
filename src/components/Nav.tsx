@@ -30,18 +30,6 @@ export default function Nav() {
       setUser(session?.user?.id ?? null)
     }
     void fetchUser()
-
-    // Set up auth state listener
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((event, session) => {
-      setUser(session?.user?.id ?? null)
-    })
-
-    // Clean up subscription when component unmounts
-    return () => {
-      subscription.unsubscribe()
-    }
   }, [])
 
   async function handleLogout() {
