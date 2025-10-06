@@ -43,7 +43,7 @@ export default defineConfig(
         "warn",
         { argsIgnorePattern: "^_" },
       ],
-      "@typescript-eslint/require-await": "warn",
+      "@typescript-eslint/require-await": "off",
       "no-console": "warn",
       "perfectionist/sort-imports": [
         "error",

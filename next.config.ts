@@ -25,7 +25,6 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactCompiler: true,
   typedRoutes: true,
-  // eslint-disable-next-line @typescript-eslint/require-await
   async headers() {
     return [
       {
@@ -52,7 +51,6 @@ const nextConfig: NextConfig = {
       },
     ]
   },
-  // eslint-disable-next-line @typescript-eslint/require-await
   async redirects() {
     return [
       {
