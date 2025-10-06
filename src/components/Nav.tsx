@@ -2,6 +2,7 @@
 
 import { Dumbbell } from "lucide-react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 
 import { buttonVariants } from "@/components/ui/Button"
@@ -18,17 +19,36 @@ import ThemeButton from "./ThemeButton"
 
 export default function Nav() {
   const [user, setUser] = useState<string | null>(null)
+  const router = useRouter()
 
   useEffect(() => {
+    const supabase = createSupabaseBrowserClient()
     async function fetchUser() {
-      const supabase = createSupabaseBrowserClient()
       const {
         data: { session },
       } = await supabase.auth.getSession()
       setUser(session?.user?.id ?? null)
     }
     void fetchUser()
+
+    // Set up auth state listener
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((event, session) => {
+      setUser(session?.user?.id ?? null)
+    })
+
+    // Clean up subscription when component unmounts
+    return () => {
+      subscription.unsubscribe()
+    }
   }, [])
+
+  async function handleLogout() {
+    setUser(null)
+    await logoutAction()
+    router.push("/")
+  }
 
   return (
     <nav className="flex-between mb-16 flex h-full w-full items-center justify-between pt-3">
@@ -60,11 +80,12 @@ export default function Nav() {
             >
               Workouts
             </Link>
-            <form action={logoutAction}>
-              <button className={buttonVariants({ variant: "default" })}>
-                Logout
-              </button>
-            </form>
+            <button
+              className={buttonVariants({ variant: "default" })}
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
           </>
         ) : (
           <Link
@@ -97,9 +118,7 @@ export default function Nav() {
                 <Link href="/workouts">Workouts</Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <form action={logoutAction}>
-                  <button>Logout</button>
-                </form>
+                <button onClick={handleLogout}>Logout</button>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
