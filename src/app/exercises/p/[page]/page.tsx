@@ -14,17 +14,6 @@ import type { ExerciseData } from "@/types"
 
 export const experimental_ppr = true
 
-// when generating params, the server doesn't have access to cookies
-// so cant use SupabaseServerClient
-// using browser client works because it doesn't access cookies
-export async function generateStaticParams() {
-  const totalPages = await getTotalExercisePages()
-
-  return Array.from({ length: totalPages }, (_, index) => ({
-    page: String(index + 1),
-  }))
-}
-
 export async function generateMetadata(props: {
   params: Promise<{ page: string }>
 }): Promise<Metadata> {

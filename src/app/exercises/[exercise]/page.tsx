@@ -11,30 +11,10 @@ import {
 } from "@/components/ui/Collapsible"
 import { Skeleton } from "@/components/ui/Skeleton"
 import { robotsMetadata } from "@/lib/robotsMetadata"
-import createSupabaseBrowserClient from "@/lib/supabase/client"
 import { titleCase } from "@/lib/utils"
 import getSpecificExercise from "@/server/fetching/getSpecificExercise"
 
 export const experimental_ppr = true
-
-// when generating params, the server doesn't have access to cookies
-// so cant use SupabaseServerClient
-// using browser client works because it doesn't access cookies
-export async function generateStaticParams() {
-  const supabase = createSupabaseBrowserClient()
-
-  const { data, error } = await supabase.from("exercise").select("name")
-
-  if (error) {
-    throw new Error(
-      "Failed to fetch exercises when building /exercises/[exercise]",
-    )
-  }
-
-  return data.map((exercise) => ({
-    exercise: encodeURIComponent(exercise.name),
-  }))
-}
 
 export async function generateMetadata(props: {
   params: Promise<{ exercise: string }>

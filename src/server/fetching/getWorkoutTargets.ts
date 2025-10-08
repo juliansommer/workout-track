@@ -48,7 +48,6 @@ export default async function getWorkoutTargets(
   // this format is required as we need to be able to use exercise_id and set_number as keys
   const formattedData: WorkoutTargets = {}
 
-  // Check if there's any workout data
   if (data?.workout_exercise) {
     // Iterate through each exercise
     data.workout_exercise.forEach((exercise) => {
