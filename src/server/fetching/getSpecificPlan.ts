@@ -36,7 +36,7 @@ export default async function getSpecificPlan(
     .single()
 
   if (error) {
-    throw new Error("Failed to fetch plan details")
+    throw new Error("Failed to fetch plan details", { cause: error })
   }
 
   // reformat the data to match the PlanData type

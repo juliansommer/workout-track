@@ -32,7 +32,7 @@ export default async function createPlan(formData: PlanForm): Promise<void> {
   })
 
   if (error) {
-    throw new Error("Failed to create plan")
+    throw new Error("Failed to create plan", { cause: error })
   }
 
   // loop through exercises and insert them
@@ -44,7 +44,7 @@ export default async function createPlan(formData: PlanForm): Promise<void> {
     })
 
     if (error) {
-      throw new Error("Failed to create plan_exercise")
+      throw new Error("Failed to create plan_exercise", { cause: error })
     }
   }
 }

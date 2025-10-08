@@ -92,15 +92,15 @@ export default function PlanForm({ data, planData }: PlanFormProps) {
       try {
         await editPlan(planData.id, formData)
         router.push("/plans")
-      } catch {
-        throw new Error("Failed to edit plan")
+      } catch (error) {
+        throw new Error("Failed to edit plan", { cause: error })
       }
     } else {
       try {
         await createPlan(formData)
         router.push("/plans")
-      } catch {
-        throw new Error("Failed to create plan")
+      } catch (error) {
+        throw new Error("Failed to create plan", { cause: error })
       }
     }
   }

@@ -37,7 +37,7 @@ export default async function createWorkout(
   })
 
   if (error) {
-    throw new Error("Failed to create workout")
+    throw new Error("Failed to create workout", { cause: error })
   }
 
   // then create workout_exercise records
@@ -67,7 +67,7 @@ export default async function createWorkout(
     })
 
     if (error) {
-      throw new Error("Failed to create workout_exercise")
+      throw new Error("Failed to create workout_exercise", { cause: error })
     }
 
     // loop through sets and insert them
@@ -87,12 +87,12 @@ export default async function createWorkout(
       })
 
       if (error) {
-        throw new Error("Failed to create set")
+        throw new Error("Failed to create set", { cause: error })
       }
     }
 
     if (error) {
-      throw new Error("Failed to create workout_exercise")
+      throw new Error("Failed to create workout_exercise", { cause: error })
     }
   }
 }

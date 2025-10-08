@@ -12,7 +12,7 @@ export default async function getTotalExercisePages(): Promise<number> {
     .select("*", { count: "exact", head: true })
 
   if (error) {
-    throw new Error("Failed to fetch exercise count")
+    throw new Error("Failed to fetch exercise count", { cause: error })
   }
 
   return Math.ceil((count ?? 0) / 10)

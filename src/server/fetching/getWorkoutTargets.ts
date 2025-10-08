@@ -41,7 +41,7 @@ export default async function getWorkoutTargets(
       // so we can return an empty object
       return {}
     }
-    throw new Error("Failed to fetch workout details")
+    throw new Error("Failed to fetch workout details", { cause: error })
   }
 
   // Transform data into the required format

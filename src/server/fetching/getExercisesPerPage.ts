@@ -18,7 +18,7 @@ export default async function getExercisesPerPage(
     .range(start, end)
 
   if (error) {
-    throw new Error("Failed to fetch exercises")
+    throw new Error("Failed to fetch exercises", { cause: error })
   }
 
   return data

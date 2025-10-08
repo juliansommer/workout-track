@@ -34,7 +34,7 @@ export default async function editPlan(
     .eq("id", planId)
 
   if (error) {
-    throw new Error("Failed to create plan")
+    throw new Error("Failed to create plan", { cause: error })
   }
 
   // delete the old exercises
@@ -44,7 +44,7 @@ export default async function editPlan(
     .eq("plan_id", planId)
 
   if (exerciseError) {
-    throw new Error("Failed to delete exercises")
+    throw new Error("Failed to delete exercises", { cause: exerciseError })
   }
 
   // insert the new exercises
@@ -56,7 +56,7 @@ export default async function editPlan(
     })
 
     if (error) {
-      throw new Error("Failed to create plan_exercise")
+      throw new Error("Failed to create plan_exercise", { cause: error })
     }
   }
 }

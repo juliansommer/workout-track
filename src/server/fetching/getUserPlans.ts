@@ -24,7 +24,7 @@ export default async function getUserPlans(): Promise<Plan[]> {
     .eq("user_id", user)
 
   if (error) {
-    throw new Error("Failed to fetch plans")
+    throw new Error("Failed to fetch plans", { cause: error })
   }
 
   return data

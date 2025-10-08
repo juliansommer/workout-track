@@ -17,7 +17,7 @@ export default async function getAllExercisesNames(): Promise<ExerciseNames[]> {
     .order("name", { ascending: true })
 
   if (error) {
-    throw new Error("Failed to fetch exercises")
+    throw new Error("Failed to fetch exercises", { cause: error })
   }
 
   return data

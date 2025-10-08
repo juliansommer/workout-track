@@ -20,7 +20,7 @@ export default async function getWorkoutTime(
     .single()
 
   if (error) {
-    throw new Error("Failed to fetch plan details")
+    throw new Error("Failed to fetch plan details", { cause: error })
   }
 
   return data.created_at

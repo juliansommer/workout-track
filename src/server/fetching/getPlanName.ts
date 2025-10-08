@@ -18,7 +18,7 @@ export default async function getPlanName(planId: string): Promise<string> {
     .single()
 
   if (error) {
-    throw new Error("Failed to fetch plan details")
+    throw new Error("Failed to fetch plan details", { cause: error })
   }
 
   return data.name

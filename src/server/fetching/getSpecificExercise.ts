@@ -20,7 +20,7 @@ export default async function getSpecificExercise(
     .single()
 
   if (error) {
-    throw new Error("Failed to fetch exercises")
+    throw new Error("Failed to fetch exercises", { cause: error })
   }
 
   return data

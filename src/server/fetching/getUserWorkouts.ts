@@ -46,7 +46,7 @@ export default async function getUserWorkouts(): Promise<WorkoutData[]> {
     .eq("user_id", user)
 
   if (error) {
-    throw new Error("Failed to fetch workouts")
+    throw new Error("Failed to fetch workouts", { cause: error })
   }
 
   return data

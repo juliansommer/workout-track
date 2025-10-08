@@ -48,7 +48,7 @@ export default async function getSpecificWorkout(
     .single()
 
   if (error) {
-    throw new Error("Failed to fetch workout details")
+    throw new Error("Failed to fetch workout details", { cause: error })
   }
 
   return data

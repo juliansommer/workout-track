@@ -15,6 +15,11 @@ export default async function deletePlan(planId: string): Promise<void> {
     throw new Error("User not found")
   }
 
-  await supabase.from("plan").delete().eq("id", planId)
+  const { error } = await supabase.from("plan").delete().eq("id", planId)
+
+  if (error) {
+    throw new Error("Failed to delete plan", { cause: error })
+  }
+
   redirect("/plans")
 }

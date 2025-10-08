@@ -45,8 +45,8 @@ export default function WorkoutForm({
     try {
       await createWorkout({ id: workout.id, sets: data.exercises })
       router.push("/workouts")
-    } catch {
-      throw new Error("Failed to create workout")
+    } catch (error) {
+      throw new Error("Failed to create workout", { cause: error })
     }
   }
 
