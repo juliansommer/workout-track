@@ -106,10 +106,10 @@ function ExerciseContentSkeleton() {
     <div className="flex w-full flex-col items-center justify-center">
       <main className="w-full max-w-4xl">
         <div className="grid gap-6">
-          {/* Image skeleton */}
+          {/* Image */}
           <Skeleton className="aspect-video w-full rounded-lg" />
 
-          {/* Muscle tags skeleton */}
+          {/* Muscle tags */}
           <div className="grid gap-2">
             <div className="flex flex-wrap items-center gap-2">
               {/* Primary muscles */}
@@ -122,7 +122,7 @@ function ExerciseContentSkeleton() {
             </div>
           </div>
 
-          {/* Instructions collapsible skeleton */}
+          {/* Instructions */}
           <div className="space-y-4 pb-10">
             <Skeleton className="h-12 w-full rounded-md" />
           </div>

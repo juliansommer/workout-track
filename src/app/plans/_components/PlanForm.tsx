@@ -61,28 +61,25 @@ export default function PlanForm({ data, planData }: PlanFormProps) {
     }
   }, [planData, setValue])
 
-  // function to add a new exercise component
   function addComponent() {
     setComponents((prevComponents) => {
       if (prevComponents.length >= 10) {
-        return prevComponents // Prevent adding more than 10 exercises
+        return prevComponents
       }
       return [...prevComponents, prevComponents.length]
     })
   }
 
-  // function to delete a new exercise component
   function deleteComponent(index: number) {
     unregister(`exercises.${index}`)
     setComponents(components.filter((_, i) => i !== index))
 
-    // Get the current form data
     const currentFormData = watch()
     // Clean up the exercises array to remove any undefined values
     const cleanedExercises = currentFormData.exercises.filter(
       (exercise) => exercise !== undefined,
     )
-    // Update the form data using setValue
+
     setValue("exercises", cleanedExercises)
   }
 

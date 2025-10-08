@@ -63,7 +63,7 @@ async function EditPlanFormWithData({ planId }: { planId: string }) {
 function EditPlanFormSkeleton() {
   return (
     <PlanFormSkeleton>
-      {/* Exercise components skeleton */}
+      {/* Exercise components */}
       <div className="space-y-5 pt-5">
         {Array.from({ length: 3 }).map((_, index) => (
           <div key={index} className="flex items-center justify-between">

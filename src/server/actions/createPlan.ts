@@ -7,9 +7,8 @@ export default async function createPlan(formData: PlanForm): Promise<void> {
   const supabase = await createSupabaseServerClient()
 
   // get the user and check auth
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
+  const claims = await supabase.auth.getClaims()
+  const user = claims.data?.claims.sub
 
   if (!user) {
     throw new Error("User not found")
@@ -26,7 +25,7 @@ export default async function createPlan(formData: PlanForm): Promise<void> {
   const planId = crypto.randomUUID()
   const { error } = await supabase.from("plan").insert({
     id: planId,
-    user_id: user.id,
+    user_id: user,
     name: formData.name,
     notes: formData.notes,
   })
