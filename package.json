@@ -22,7 +22,7 @@
     "@supabase/ssr": "0.7.0",
     "@supabase/supabase-js": "2.58.0",
     "@t3-oss/env-nextjs": "^0.13.8",
-    "babel-plugin-react-compiler": "19.1.0-rc.3",
+    "babel-plugin-react-compiler": "1.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.544.0",
@@ -30,16 +30,16 @@
     "next-themes": "^0.4.6",
     "react": "19.2.0",
     "react-dom": "19.2.0",
-    "react-hook-form": "^7.64.0",
+    "react-hook-form": "^7.65.0",
     "react-select": "^5.10.2",
     "tailwind-merge": "^3.3.1",
-    "zod": "^4.1.11"
+    "zod": "^4.1.12"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.37.0",
     "@tailwindcss/postcss": "^4.1.14",
-    "@types/node": "^24.6.2",
+    "@types/node": "^24.7.2",
     "@types/react": "19.2.0",
     "@types/react-dom": "19.2.0",
     "eslint": "^9.37.0",
@@ -50,7 +50,7 @@
     "prettier-plugin-tailwindcss": "^0.6.14",
     "tailwindcss": "^4.1.14",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.45.0"
+    "typescript-eslint": "^8.46.0"
   },
   "packageManager": "pnpm@10.18.0+sha512.e804f889f1cecc40d572db084eec3e4881739f8dec69c0ff10d2d1beff9a4e309383ba27b5b750059d7f4c149535b6cd0d2cb1ed3aeb739239a4284a68f40cfa"
 }
