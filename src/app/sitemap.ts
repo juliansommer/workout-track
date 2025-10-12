@@ -39,8 +39,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     a.url.localeCompare(b.url),
   )
   const sortedPaginationRoutes = paginationRoutes.sort((a, b) => {
-    const pageA = Number.parseInt(a.url.split("/").pop()!, 10)
-    const pageB = Number.parseInt(b.url.split("/").pop()!, 10)
+    const pageA = Number.parseInt(a.url.split("/").pop() ?? "", 10)
+    const pageB = Number.parseInt(b.url.split("/").pop() ?? "", 10)
     return pageA - pageB
   })
 

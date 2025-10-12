@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/style/noMagicNumbers: incorrect */
 import { z } from "zod"
 
 export const planFormSchema = z.object({

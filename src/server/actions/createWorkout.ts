@@ -8,6 +8,7 @@ interface WorkoutData {
   sets: SetsSchema
 }
 
+// biome-ignore lint/complexity/noExcessiveCognitiveComplexity: shh
 export default async function createWorkout(
   workoutData: WorkoutData,
 ): Promise<void> {
@@ -62,7 +63,7 @@ export default async function createWorkout(
     const { error } = await supabase.from("workout_exercise").insert({
       id: workoutExerciseId,
       workout_id: workoutId,
-      exercise_id: setKeys[i]!,
+      exercise_id: setKeys[i] ?? "",
       order: i,
     })
 

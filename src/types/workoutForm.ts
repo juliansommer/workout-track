@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/style/noMagicNumbers: incorrect */
 import { z } from "zod"
 
 // base object for sets, uses by itself for server-side validation

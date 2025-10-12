@@ -103,7 +103,7 @@ function ExerciseCard({ exercise }: { exercise: ExerciseData }) {
         </div>
         <div className="flex items-center space-x-4">
           <p className="text-sm" key={exercise.primary_muscles[0]}>
-            {titleCase(exercise.primary_muscles[0]!)}
+            {titleCase(exercise.primary_muscles[0] ?? "")}
           </p>
         </div>
       </div>

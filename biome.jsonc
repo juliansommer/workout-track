@@ -20,7 +20,6 @@
         "noReactForwardRef": "off"
       },
       "style": {
-        "noNonNullAssertion": "off",
         "useFilenamingConvention": "off"
       },
       "suspicious": {
@@ -31,25 +30,11 @@
   },
   "overrides": [
     {
-      "includes": ["src/server/**/*.ts"],
+      "includes": ["src/lib/**/*.ts", "src/server/**/*.ts"],
       "linter": {
         "rules": {
           "nursery": {
             "useExplicitType": "error"
-          },
-          "complexity": {
-            "noExcessiveCognitiveComplexity": "off"
-          }
-        }
-      }
-    },
-    {
-      "includes": ["src/types/*.ts"],
-      "linter": {
-        "rules": {
-          "style": {
-            // false flags zod definitions
-            "noMagicNumbers": "off"
           }
         }
       }
