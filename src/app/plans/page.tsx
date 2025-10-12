@@ -24,9 +24,9 @@ export default function Plans() {
       <Heading title="Plans" />
       <div className="mx-auto flex max-w-4xl items-center justify-center rounded-md">
         <Link
-          type="button"
-          href="/plans/create"
           className={cn(buttonVariants({ variant: "default" }), "w-full")}
+          href="/plans/create"
+          type="button"
         >
           Create Plan
         </Link>
@@ -45,7 +45,7 @@ async function PlansGrid() {
     <div className="container mx-auto py-8">
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {data.map((plan) => (
-          <Link key={plan.id} href={`/plans/${plan.id}`}>
+          <Link href={`/plans/${plan.id}`} key={plan.id}>
             <Card className="transition-shadow duration-300 hover:shadow-lg">
               <CardHeader>
                 <CardTitle>{plan.name}</CardTitle>
@@ -67,8 +67,8 @@ function PlansGridSkeleton() {
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {Array.from({ length: 8 }).map((_, i) => (
           <Card
-            key={i}
             className="animate-pulse bg-neutral-100 dark:bg-neutral-800"
+            key={i}
           >
             <CardHeader>
               <Skeleton className="h-6 w-3/4 rounded" />

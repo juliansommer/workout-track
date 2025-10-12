@@ -16,11 +16,10 @@ export default function AddExercise({ options, field }: AddExerciseProps) {
     <div className="flex items-center space-x-4">
       <div className="w-60 md:w-96">
         <Select
-          options={options}
-          value={options.find((option) => option.value === field.value?.value)}
           onChange={(selectedOption) =>
             field.onChange({ ...field.value, ...selectedOption })
           }
+          options={options}
           styles={{
             control: (provided) => ({
               ...provided,
@@ -35,16 +34,17 @@ export default function AddExercise({ options, field }: AddExerciseProps) {
               backgroundColor: state.isSelected ? "gray" : "white",
             }),
           }}
+          value={options.find((option) => option.value === field.value?.value)}
         />
       </div>
       <div className="flex-2">
         <Input
-          type="number"
-          value={field.value?.sets ?? ""}
           onChange={(e) =>
             field.onChange({ ...field.value, sets: Number(e.target.value) })
           }
           placeholder="Sets"
+          type="number"
+          value={field.value?.sets ?? ""}
         />
       </div>
     </div>

@@ -50,13 +50,13 @@ export default async function getWorkoutTargets(
 
   if (data?.workout_exercise) {
     // Iterate through each exercise
-    data.workout_exercise.forEach((exercise) => {
+    for (const exercise of data.workout_exercise) {
       const exerciseId = exercise.exercise_id
       formattedData[exerciseId] ??= {}
 
       // Iterate through sets for this exercise
       if (exercise.set) {
-        exercise.set.forEach((set) => {
+        for (const set of exercise.set) {
           // Use set order as the set number (zero-indexed)
           const setNumber = set.order
 
@@ -65,9 +65,9 @@ export default async function getWorkoutTargets(
             weight: set.weight,
             reps: set.reps,
           }
-        })
+        }
       }
-    })
+    }
   }
 
   return formattedData

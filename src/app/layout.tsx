@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
-import { ThemeProvider } from "next-themes"
 import { Inter as FontSans } from "next/font/google"
+import { ThemeProvider } from "next-themes"
 
 import Nav from "@/components/Nav"
 import ProgressBar from "@/components/ProgressBar"
@@ -36,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={fontSans.variable} suppressHydrationWarning>
+    <html className={fontSans.variable} lang="en" suppressHydrationWarning>
       <body className="min-h-screen overflow-y-scroll bg-neutral-100 font-sans antialiased selection:bg-neutral-300 dark:bg-neutral-900 dark:selection:bg-neutral-700">
         <ThemeProvider
           attribute="class"

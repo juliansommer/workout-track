@@ -27,36 +27,36 @@ export default function LoginForm() {
   return (
     <div className="grid gap-3">
       <form>
-        <a
-          className="mb-3 flex w-full cursor-pointer items-center justify-center rounded-sm px-7 py-2 text-sm leading-snug font-medium text-white uppercase shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:ring-0 focus:outline-hidden active:shadow-lg"
-          style={{ backgroundColor: "#3b5998" }}
+        <button
+          className="mb-3 flex w-full cursor-pointer items-center justify-center rounded-sm px-7 py-2 font-medium text-sm text-white uppercase leading-snug shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-hidden focus:ring-0 active:shadow-lg"
           onClick={loginWithGoogle}
-          role="button"
+          style={{ backgroundColor: "#3b5998" }}
+          type="button"
         >
           <GoogleLogo
             className="pr-2"
             height={35}
-            width={35}
             style={{ height: "2rem" }}
+            width={35}
           />
           Continue with Google
-        </a>
+        </button>
       </form>
       <form>
-        <a
-          className="mb-3 flex w-full cursor-pointer items-center justify-center rounded-sm px-7 py-2 text-sm leading-snug font-medium text-white uppercase shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:ring-0 focus:outline-hidden active:shadow-lg"
-          style={{ backgroundColor: "#666666" }}
+        <button
+          className="mb-3 flex w-full cursor-pointer items-center justify-center rounded-sm px-7 py-2 font-medium text-sm text-white uppercase leading-snug shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-hidden focus:ring-0 active:shadow-lg"
           onClick={loginWithGitHub}
-          role="button"
+          style={{ backgroundColor: "#666666" }}
+          type="button"
         >
           <GithubLogo
             className="pr-2"
             height={35}
-            width={35}
             style={{ height: "2rem" }}
+            width={35}
           />
           Continue with GitHub
-        </a>
+        </button>
       </form>
     </div>
   )

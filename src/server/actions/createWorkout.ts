@@ -1,7 +1,7 @@
 "use server"
 
 import createSupabaseServerClient from "@/lib/supabase/server"
-import { setsSchema, type SetsSchema } from "@/types/workoutForm"
+import { type SetsSchema, setsSchema } from "@/types/workoutForm"
 
 interface WorkoutData {
   id: string

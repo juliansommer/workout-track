@@ -3,7 +3,7 @@
 import { useRouter } from "@bprogress/next"
 import { zodResolver } from "@hookform/resolvers/zod"
 import Image from "next/image"
-import { useForm, type SubmitHandler } from "react-hook-form"
+import { type SubmitHandler, useForm } from "react-hook-form"
 
 import { Button } from "@/components/ui/Button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
@@ -12,9 +12,9 @@ import { Label } from "@/components/ui/Label"
 import createWorkout from "@/server/actions/createWorkout"
 import type { PlanData } from "@/types"
 import {
-  workoutFormSchema,
   type WorkoutForm,
   type WorkoutTargets,
+  workoutFormSchema,
 } from "@/types/workoutForm"
 
 interface WorkoutFormProps {
@@ -22,6 +22,7 @@ interface WorkoutFormProps {
   workoutTargets: WorkoutTargets
 }
 
+// biome-ignore lint/suspicious/noRedeclare: type vs function
 export default function WorkoutForm({
   workoutData,
   workoutTargets,
@@ -56,15 +57,15 @@ export default function WorkoutForm({
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="grid gap-6">
             {workout.exercises.map((exercise) => (
-              <Card key={exercise.id} className="overflow-hidden">
+              <Card className="overflow-hidden" key={exercise.id}>
                 <div className="grid gap-4 md:grid-cols-[300px_1fr]">
                   <div className="relative h-[200px] md:h-full">
                     <Image
-                      src={`/exercises/${exercise.image}`}
                       alt={exercise.name!}
-                      fill
                       className="object-cover"
+                      fill
                       priority
+                      src={`/exercises/${exercise.image}`}
                     />
                   </div>
                   <div className="p-4">
@@ -76,26 +77,26 @@ export default function WorkoutForm({
                         {Array.from({ length: exercise.sets ?? 0 }).map(
                           (_, setIndex) => (
                             <div
-                              key={setIndex}
                               className="grid grid-cols-[auto_1fr_1fr] items-center gap-4"
+                              key={setIndex}
                             >
                               <div className="font-medium">
                                 Set {setIndex + 1}
                               </div>
                               <div className="space-y-1">
                                 <Label
-                                  htmlFor={`${exercise.id}-set-${setIndex}-weight`}
                                   className="pb-2"
+                                  htmlFor={`${exercise.id}-set-${setIndex}-weight`}
                                 >
                                   Weight
                                 </Label>
                                 <Input
                                   id={`${exercise.id}-set-${setIndex}-weight`}
-                                  type="number"
                                   placeholder={String(
                                     targets[exercise.id]?.[setIndex]?.weight ??
                                       "0",
                                   )}
+                                  type="number"
                                   {...register(
                                     `exercises.${exercise.id}.${setIndex}.weight`,
                                     { valueAsNumber: true },
@@ -117,18 +118,18 @@ export default function WorkoutForm({
                               </div>
                               <div className="space-y-1">
                                 <Label
-                                  htmlFor={`${exercise.id}-set-${setIndex}-reps`}
                                   className="pb-2"
+                                  htmlFor={`${exercise.id}-set-${setIndex}-reps`}
                                 >
                                   Reps
                                 </Label>
                                 <Input
                                   id={`${exercise.id}-set-${setIndex}-reps`}
-                                  type="number"
                                   placeholder={String(
                                     targets[exercise.id]?.[setIndex]?.reps ??
                                       "0",
                                   )}
+                                  type="number"
                                   {...register(
                                     `exercises.${exercise.id}.${setIndex}.reps`,
                                     { valueAsNumber: true },
@@ -158,7 +159,7 @@ export default function WorkoutForm({
               </Card>
             ))}
             <div className="pt-5">
-              <Button type="submit" className="hover:cursor-pointer">
+              <Button className="hover:cursor-pointer" type="submit">
                 Submit
               </Button>
             </div>

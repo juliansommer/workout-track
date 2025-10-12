@@ -29,11 +29,11 @@ export default function Nav() {
       } = await supabase.auth.getSession()
       setUser(session?.user?.id ?? null)
     }
-    void fetchUser()
+    fetchUser()
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((event, session) => {
+    } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user?.id ?? null)
     })
 
@@ -49,7 +49,7 @@ export default function Nav() {
   }
 
   return (
-    <nav className="flex-between mb-16 flex h-full w-full items-center justify-between pt-3">
+    <nav className="mb-16 flex h-full w-full flex-between items-center justify-between pt-3">
       <Link className="flex items-center justify-center" href="/">
         <Dumbbell className="mr-2 h-6 w-6" />
         <span className="font-bold">Workout Track</span>
@@ -59,36 +59,37 @@ export default function Nav() {
       <div className="hidden gap-3 md:flex">
         <ThemeButton />
         <Link
-          href="/exercises/p/1"
           className={buttonVariants({ variant: "outline" })}
+          href="/exercises/p/1"
         >
           Exercises
         </Link>
         {user ? (
           <>
             <Link
-              href="/plans"
               className={buttonVariants({ variant: "outline" })}
+              href="/plans"
             >
               Plans
             </Link>
             <Link
-              href="/workouts"
               className={buttonVariants({ variant: "outline" })}
+              href="/workouts"
             >
               Workouts
             </Link>
             <button
               className={buttonVariants({ variant: "default" })}
               onClick={handleLogout}
+              type="button"
             >
               Logout
             </button>
           </>
         ) : (
           <Link
-            href="/login"
             className={buttonVariants({ variant: "default" })}
+            href="/login"
           >
             Sign In
           </Link>
@@ -101,7 +102,10 @@ export default function Nav() {
         {user ? (
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <button className={buttonVariants({ variant: "default" })}>
+              <button
+                className={buttonVariants({ variant: "default" })}
+                type="button"
+              >
                 Menu
               </button>
             </DropdownMenuTrigger>
@@ -116,14 +120,16 @@ export default function Nav() {
                 <Link href="/workouts">Workouts</Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <button onClick={handleLogout}>Logout</button>
+                <button onClick={handleLogout} type="button">
+                  Logout
+                </button>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         ) : (
           <Link
-            href="/login"
             className={buttonVariants({ variant: "default" })}
+            href="/login"
           >
             Sign In
           </Link>

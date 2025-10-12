@@ -44,14 +44,12 @@ export default async function getSpecificPlan(
     id: data.id,
     name: data.name,
     notes: data.notes,
-    exercises: data.plan_exercise.map((plan_exercise) => {
-      return {
-        id: plan_exercise.exercise_id,
-        sets: plan_exercise.sets,
-        name: plan_exercise.exercise.name,
-        image: plan_exercise.exercise.image,
-      }
-    }),
+    exercises: data.plan_exercise.map((plan_exercise) => ({
+      id: plan_exercise.exercise_id,
+      sets: plan_exercise.sets,
+      name: plan_exercise.exercise.name,
+      image: plan_exercise.exercise.image,
+    })),
   }
 
   return combinedData

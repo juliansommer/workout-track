@@ -55,18 +55,18 @@ async function ExerciseContent({ exercise }: { exercise: string }) {
       <main className="w-full max-w-4xl">
         <div className="grid gap-6">
           <Image
-            src={`/exercises/${data.image}`}
-            width={800}
-            height={600}
             alt={`${exercise} Image`}
             className="aspect-video w-full rounded-lg object-cover"
+            height={600}
             priority
+            src={`/exercises/${data.image}`}
+            width={800}
           />
           <div className="grid gap-2">
             <div className="flex flex-wrap items-center gap-2">
               {data.primary_muscles.map((muscle) => (
                 <div
-                  className="text-accent-foreground rounded-md bg-neutral-200 px-3 py-1 text-xs font-medium dark:bg-neutral-500"
+                  className="rounded-md bg-neutral-200 px-3 py-1 font-medium text-accent-foreground text-xs dark:bg-neutral-500"
                   key={muscle}
                 >
                   {titleCase(muscle)}
@@ -74,7 +74,7 @@ async function ExerciseContent({ exercise }: { exercise: string }) {
               ))}
               {data.secondary_muscles?.map((muscle) => (
                 <div
-                  className="text-accent-foreground rounded-md bg-neutral-200 px-3 py-1 text-xs font-medium dark:bg-neutral-500"
+                  className="rounded-md bg-neutral-200 px-3 py-1 font-medium text-accent-foreground text-xs dark:bg-neutral-500"
                   key={muscle}
                 >
                   {titleCase(muscle)}
@@ -83,7 +83,7 @@ async function ExerciseContent({ exercise }: { exercise: string }) {
             </div>
           </div>
           <Collapsible className="space-y-4 pb-10">
-            <CollapsibleTrigger className="flex w-full items-center justify-between rounded-md bg-neutral-200 px-4 py-3 text-lg font-medium transition-colors hover:bg-neutral-300 dark:bg-neutral-500 dark:hover:bg-neutral-600 [&[data-state=open]>svg]:rotate-90">
+            <CollapsibleTrigger className="flex w-full items-center justify-between rounded-md bg-neutral-200 px-4 py-3 font-medium text-lg transition-colors hover:bg-neutral-300 dark:bg-neutral-500 dark:hover:bg-neutral-600 [&[data-state=open]>svg]:rotate-90">
               Instructions
               <ChevronRightIcon className="h-5 w-5 transition-all" />
             </CollapsibleTrigger>
@@ -115,8 +115,8 @@ function ExerciseContentSkeleton() {
               {/* Primary muscles */}
               {Array.from({ length: 3 }).map((_, index) => (
                 <Skeleton
-                  key={`primary-${index}`}
                   className="h-6 w-16 rounded-md"
+                  key={`primary-${index}`}
                 />
               ))}
             </div>

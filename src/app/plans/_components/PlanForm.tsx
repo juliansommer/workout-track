@@ -4,14 +4,14 @@ import { useRouter } from "@bprogress/next"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Trash2 } from "lucide-react"
 import { useEffect, useState } from "react"
-import { Controller, useForm, type SubmitHandler } from "react-hook-form"
+import { Controller, type SubmitHandler, useForm } from "react-hook-form"
 
 import { Button } from "@/components/ui/Button"
 import { Input } from "@/components/ui/Input"
 import { Textarea } from "@/components/ui/Textarea"
 import createPlan from "@/server/actions/createPlan"
 import editPlan from "@/server/actions/editPlan"
-import { planFormSchema, type PlanForm } from "@/types/planForm"
+import { type PlanForm, planFormSchema } from "@/types/planForm"
 
 import AddExercise from "./AddExercise"
 
@@ -32,6 +32,7 @@ interface PlanFormProps {
   planData?: PredefinedData
 }
 
+// biome-ignore lint/suspicious/noRedeclare: type vs function
 export default function PlanForm({ data, planData }: PlanFormProps) {
   const {
     register,
@@ -106,7 +107,7 @@ export default function PlanForm({ data, planData }: PlanFormProps) {
     <div className="w-full max-w-3xl">
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="w-full space-y-2 pt-5">
-          <Input type="text" placeholder="Name" {...register("name")} />
+          <Input placeholder="Name" type="text" {...register("name")} />
           {errors.name && <p>{errors.name.message}</p>}
         </div>
         <div className="pt-5">
@@ -114,30 +115,30 @@ export default function PlanForm({ data, planData }: PlanFormProps) {
           {errors.notes && <p>{errors.notes.message}</p>}
         </div>
         <div className="space-y-5 pt-5">
-          <Button type="button" onClick={addComponent}>
+          <Button onClick={addComponent} type="button">
             Add Exercise
           </Button>
           {components.map((_, index) => (
-            <div key={index} className="flex items-center justify-between">
+            <div className="flex items-center justify-between" key={index}>
               <Controller
+                control={control}
                 key={index}
                 name={`exercises.${index}`}
-                control={control}
                 render={({ field }) => (
                   <div>
                     <div className="flex items-center justify-between">
                       <AddExercise
+                        field={field}
                         options={data.map((exercise) => ({
                           label: exercise.name,
                           value: exercise.id,
                         }))}
-                        field={field}
                       />
                       <Button
-                        type="button"
-                        variant="outline"
                         className="ml-2"
                         onClick={() => deleteComponent(index)}
+                        type="button"
+                        variant="outline"
                       >
                         <Trash2 className="h-4 w-4" />
                         <span className="sr-only">Delete Exercise</span>

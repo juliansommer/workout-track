@@ -5,6 +5,7 @@ export default async function getExercisesPerPage(
   page: number,
 ): Promise<ExerciseData[]> {
   const start = (page - 1) * 10
+  // biome-ignore lint/style/noMagicNumbers: 10
   const end = start + 9
 
   const supabase = await createSupabaseServerClient()

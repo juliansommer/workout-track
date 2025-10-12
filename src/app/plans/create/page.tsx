@@ -35,13 +35,11 @@ async function PlanFormWithData() {
 
 function CreatePlanFormSkeleton() {
   return (
-    <>
-      <PlanFormSkeleton>
-        {/* Submit Button */}
-        <div className="pt-5">
-          <Skeleton className="h-10 w-20" />
-        </div>
-      </PlanFormSkeleton>
-    </>
+    <PlanFormSkeleton>
+      {/* Submit Button */}
+      <div className="pt-5">
+        <Skeleton className="h-10 w-20" />
+      </div>
+    </PlanFormSkeleton>
   )
 }

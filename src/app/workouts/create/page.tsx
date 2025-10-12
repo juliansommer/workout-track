@@ -20,7 +20,7 @@ export default function CreateWorkout() {
   return (
     <>
       <Heading title="Create Workout" />
-      <h2 className="mb-6 text-center text-xl font-semibold md:text-2xl">
+      <h2 className="mb-6 text-center font-semibold text-xl md:text-2xl">
         Select Plan
       </h2>
       <Suspense fallback={<PlansGridSkeleton />}>
@@ -37,7 +37,7 @@ async function PlansGrid() {
     <div className="container mx-auto py-8">
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {data.map((plan) => (
-          <Link key={plan.id} href={`/workouts/create/${plan.id}`}>
+          <Link href={`/workouts/create/${plan.id}`} key={plan.id}>
             <Card className="transition-shadow duration-300 hover:shadow-lg">
               <CardHeader>
                 <CardTitle>{plan.name}</CardTitle>

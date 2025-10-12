@@ -38,15 +38,15 @@ export default async function Workout(props: {
         <div className="flex flex-col space-y-6">
           <div className="grid gap-6">
             {data.workout_exercise.map((exercise) => (
-              <Card key={exercise.exercise.name} className="overflow-hidden">
+              <Card className="overflow-hidden" key={exercise.exercise.name}>
                 <div className="grid gap-4 md:grid-cols-[300px_1fr]">
                   <div className="relative h-[200px] md:h-full">
                     <Image
-                      src={`/exercises/${exercise.exercise.image}`}
                       alt={exercise.exercise.name}
-                      fill
                       className="object-cover"
+                      fill
                       priority
+                      src={`/exercises/${exercise.exercise.image}`}
                     />
                   </div>
                   <div className="p-4">
@@ -57,8 +57,8 @@ export default async function Workout(props: {
                       <div className="grid gap-4">
                         {exercise.set.map((set, setIndex) => (
                           <div
-                            key={setIndex}
                             className="grid grid-cols-[auto_1fr_1fr] items-center gap-4"
+                            key={setIndex}
                           >
                             <div className="font-medium">
                               Set {setIndex + 1}
@@ -71,9 +71,9 @@ export default async function Workout(props: {
                               </Label>
                               <Input
                                 id={`${exercise.exercise.name}-set-${setIndex}-weight`}
+                                readOnly
                                 type="number"
                                 value={set.weight}
-                                readOnly
                               />
                             </div>
                             <div className="space-y-1">
@@ -85,8 +85,8 @@ export default async function Workout(props: {
                               <Input
                                 id={`${exercise.exercise.name}-set-${setIndex}-reps`}
                                 placeholder="0"
-                                value={set.reps}
                                 readOnly
+                                value={set.reps}
                               />
                             </div>
                           </div>

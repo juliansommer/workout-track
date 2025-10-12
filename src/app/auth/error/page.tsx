@@ -7,6 +7,6 @@ export const metadata: Metadata = {
   },
 }
 
-export default function Error() {
+export default function ErrorPage() {
   return <p>Sorry, something went wrong when logging in, please try again</p>
 }

@@ -2,7 +2,7 @@ import { Skeleton } from "@/components/ui/Skeleton"
 
 export function Heading({ title }: { title: string }) {
   return (
-    <h1 className="mb-6 text-center text-2xl font-semibold md:text-3xl">
+    <h1 className="mb-6 text-center font-semibold text-2xl md:text-3xl">
       {title}
     </h1>
   )

@@ -51,13 +51,13 @@ async function ExercisesContent({ page }: { page: number }) {
     <>
       <div className="w-full">
         {data.map((item, index) => (
-          <ExerciseCard key={index} exercise={item} />
+          <ExerciseCard exercise={item} key={index} />
         ))}
       </div>
       <PaginationContainer
-        totalPages={totalPages}
         currentPage={page}
         route="/exercises"
+        totalPages={totalPages}
       />
     </>
   )
@@ -79,19 +79,19 @@ function ExerciseCard({ exercise }: { exercise: ExerciseData }) {
       <div className="flex items-center justify-between rounded-md p-4">
         <div className="flex items-center space-x-4">
           <Image
-            src={`/exercises/${exercise.image}`}
             alt={`${exercise.name} Image`}
-            width={100}
-            height={100}
             className="aspect-video overflow-hidden rounded-lg object-cover"
+            height={100}
             priority
+            src={`/exercises/${exercise.image}`}
+            width={100}
           />
           <div>
-            <h2 className="text-lg font-medium">{exercise.name}</h2>
+            <h2 className="font-medium text-lg">{exercise.name}</h2>
           </div>
         </div>
         <div className="flex items-center space-x-4">
-          <p key={exercise.primary_muscles[0]} className="text-sm">
+          <p className="text-sm" key={exercise.primary_muscles[0]}>
             {titleCase(exercise.primary_muscles[0]!)}
           </p>
         </div>

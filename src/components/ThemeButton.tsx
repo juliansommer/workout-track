@@ -20,12 +20,12 @@ export default function ThemeButton() {
   return (
     mounted && (
       <Button
-        variant="outline"
-        size="icon"
         aria-label={theme === "dark" ? "Toggle light mode" : "Toggle dark mode"}
         onClick={() => {
           setTheme(theme === "dark" ? "light" : "dark")
         }}
+        size="icon"
+        variant="outline"
       >
         {theme === "light" ? (
           <Moon className="h-[1.2rem] w-[1.2rem] scale-70" />

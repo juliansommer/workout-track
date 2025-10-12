@@ -8,15 +8,13 @@ export default function ProgressBar({
   children: React.ReactNode
 }) {
   return (
-    <>
-      <ProgressProvider
-        height="3px"
-        color="#0A2FFF"
-        options={{ showSpinner: false }}
-        shallowRouting
-      >
-        {children}
-      </ProgressProvider>
-    </>
+    <ProgressProvider
+      color="#0A2FFF"
+      height="3px"
+      options={{ showSpinner: false }}
+      shallowRouting
+    >
+      {children}
+    </ProgressProvider>
   )
 }
