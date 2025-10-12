@@ -70,7 +70,7 @@ export default async function Plan(props: {
                 <Card className="overflow-hidden" key={exercise.id}>
                   <div className="relative aspect-video">
                     <Image
-                      alt={exercise.name!}
+                      alt={exercise.name ?? "Exercise Image"}
                       className="h-full w-full"
                       height={300}
                       priority

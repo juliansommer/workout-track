@@ -61,7 +61,7 @@ export default function WorkoutForm({
                 <div className="grid gap-4 md:grid-cols-[300px_1fr]">
                   <div className="relative h-[200px] md:h-full">
                     <Image
-                      alt={exercise.name!}
+                      alt={exercise.name ?? "Exercise Image"}
                       className="object-cover"
                       fill
                       priority
