@@ -89,7 +89,7 @@ async function ExerciseContent({ exercise }: { exercise: string }) {
             </CollapsibleTrigger>
             <CollapsibleContent className="space-y-4 px-4 pb-4">
               {data.instructions.map((instruction, index) => (
-                <p className="text-sm leading-relaxed" key={index}>
+                <p className="text-sm leading-relaxed" key={instruction}>
                   {`${index + 1}. ${instruction}`}
                 </p>
               ))}
@@ -113,11 +113,8 @@ function ExerciseContentSkeleton() {
           <div className="grid gap-2">
             <div className="flex flex-wrap items-center gap-2">
               {/* Primary muscles */}
-              {Array.from({ length: 3 }).map((_, index) => (
-                <Skeleton
-                  className="h-6 w-16 rounded-md"
-                  key={`primary-${index}`}
-                />
+              {["primary-a", "primary-b", "primary-c"].map((key) => (
+                <Skeleton className="h-6 w-16 rounded-md" key={key} />
               ))}
             </div>
           </div>

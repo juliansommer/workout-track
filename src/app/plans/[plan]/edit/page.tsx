@@ -63,8 +63,8 @@ function EditPlanFormSkeleton() {
     <PlanFormSkeleton>
       {/* Exercise components */}
       <div className="space-y-5 pt-5">
-        {Array.from({ length: 3 }).map((_, index) => (
-          <div className="flex items-center justify-between" key={index}>
+        {["exercise-a", "exercise-b", "exercise-c"].map((key) => (
+          <div className="flex items-center justify-between" key={key}>
             <Skeleton className="h-10 w-full" />
           </div>
         ))}

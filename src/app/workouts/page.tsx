@@ -72,10 +72,19 @@ function WorkoutsGridSkeleton() {
   return (
     <div className="container mx-auto py-8">
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {Array.from({ length: 8 }).map((_, i) => (
+        {[
+          "card-a",
+          "card-b",
+          "card-c",
+          "card-d",
+          "card-e",
+          "card-f",
+          "card-g",
+          "card-h",
+        ].map((key) => (
           <Card
             className="animate-pulse bg-neutral-100 dark:bg-neutral-800"
-            key={i}
+            key={key}
           >
             <CardHeader>
               <Skeleton className="h-6 w-3/4" />
@@ -83,8 +92,8 @@ function WorkoutsGridSkeleton() {
             <CardContent>
               <Skeleton className="mb-2 h-4 w-1/2" />
               <div className="space-y-1 pt-2">
-                {Array.from({ length: 3 }).map((_, index) => (
-                  <Skeleton className="h-3 w-3/4" key={index} />
+                {["skeleton-a", "skeleton-b", "skeleton-c"].map((key) => (
+                  <Skeleton className="h-3 w-3/4" key={key} />
                 ))}
               </div>
             </CardContent>

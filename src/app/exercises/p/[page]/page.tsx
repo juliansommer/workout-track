@@ -50,8 +50,8 @@ async function ExercisesContent({ page }: { page: number }) {
   return (
     <>
       <div className="w-full">
-        {data.map((item, index) => (
-          <ExerciseCard exercise={item} key={index} />
+        {data.map((item) => (
+          <ExerciseCard exercise={item} key={item.name} />
         ))}
       </div>
       <PaginationContainer
@@ -66,8 +66,19 @@ async function ExercisesContent({ page }: { page: number }) {
 function ExercisesContentSkeleton() {
   return (
     <div className="w-full">
-      {Array.from({ length: 10 }).map((_, index) => (
-        <ExerciseCardSkeleton key={index} />
+      {[
+        "card-a",
+        "card-b",
+        "card-c",
+        "card-d",
+        "card-e",
+        "card-f",
+        "card-g",
+        "card-h",
+        "card-i",
+        "card-j",
+      ].map((key) => (
+        <ExerciseCardSkeleton key={key} />
       ))}
     </div>
   )

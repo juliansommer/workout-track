@@ -24,7 +24,6 @@
         "useFilenamingConvention": "off"
       },
       "suspicious": {
-        "noArrayIndexKey": "off",
         // tailwind css
         "noUnknownAtRules": "off"
       }

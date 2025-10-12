@@ -66,8 +66,8 @@ export default async function Plan(props: {
             )}
             <h2 className="mb-4 font-semibold text-xl">Exercises</h2>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-              {data.exercises.map((exercise, index) => (
-                <Card className="overflow-hidden" key={index}>
+              {data.exercises.map((exercise) => (
+                <Card className="overflow-hidden" key={exercise.id}>
                   <div className="relative aspect-video">
                     <Image
                       alt={exercise.name!}

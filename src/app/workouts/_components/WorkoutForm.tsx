@@ -78,6 +78,7 @@ export default function WorkoutForm({
                           (_, setIndex) => (
                             <div
                               className="grid grid-cols-[auto_1fr_1fr] items-center gap-4"
+                              // biome-ignore lint/suspicious/noArrayIndexKey: no other way to identify
                               key={setIndex}
                             >
                               <div className="font-medium">

@@ -118,12 +118,15 @@ export default function PlanForm({ data, planData }: PlanFormProps) {
           <Button onClick={addComponent} type="button">
             Add Exercise
           </Button>
-          {components.map((_, index) => (
-            <div className="flex items-center justify-between" key={index}>
+          {components.map((component, index) => (
+            <div
+              className="flex items-center justify-between"
+              key={`exercise-${component}`}
+            >
               <Controller
                 control={control}
-                key={index}
-                name={`exercises.${index}`}
+                key={`controller-${component}`}
+                name={`exercises.${component}`}
                 render={({ field }) => (
                   <div>
                     <div className="flex items-center justify-between">
