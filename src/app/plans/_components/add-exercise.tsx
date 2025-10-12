@@ -3,8 +3,8 @@
 import type { ControllerRenderProps } from "react-hook-form"
 import Select from "react-select"
 
-import { Input } from "@/components/ui/Input"
-import type { PlanForm } from "@/types/planForm"
+import { Input } from "@/components/ui/input"
+import type { PlanForm } from "@/types/plan-form"
 
 interface AddExerciseProps {
   options: { label: string; value: string }[]

@@ -1,5 +1,5 @@
 import createSupabaseServerClient from "@/lib/supabase/server"
-import type { WorkoutTargets } from "@/types/workoutForm"
+import type { WorkoutTargets } from "@/types/workout-form"
 
 export default async function getWorkoutTargets(
   planId: string,

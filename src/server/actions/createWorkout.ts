@@ -1,13 +1,14 @@
 "use server"
 
 import createSupabaseServerClient from "@/lib/supabase/server"
-import { type SetsSchema, setsSchema } from "@/types/workoutForm"
+import { type SetsSchema, setsSchema } from "@/types/workout-form"
 
 interface WorkoutData {
   id: string
   sets: SetsSchema
 }
 
+// biome-ignore lint/complexity/noExcessiveCognitiveComplexity: shhh
 export default async function createWorkout(
   workoutData: WorkoutData,
 ): Promise<void> {

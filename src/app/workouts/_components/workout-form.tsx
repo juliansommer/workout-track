@@ -5,17 +5,17 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import Image from "next/image"
 import { type SubmitHandler, useForm } from "react-hook-form"
 
-import { Button } from "@/components/ui/Button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
-import { Input } from "@/components/ui/Input"
-import { Label } from "@/components/ui/Label"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 import createWorkout from "@/server/actions/createWorkout"
 import type { PlanData } from "@/types"
 import {
   type WorkoutForm,
   type WorkoutTargets,
   workoutFormSchema,
-} from "@/types/workoutForm"
+} from "@/types/workout-form"
 
 interface WorkoutFormProps {
   workoutData: PlanData

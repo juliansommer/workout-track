@@ -2,9 +2,9 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { Suspense } from "react"
 
-import { Heading } from "@/components/Heading"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
-import { Skeleton } from "@/components/ui/Skeleton"
+import { Heading } from "@/components/heading"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Skeleton } from "@/components/ui/skeleton"
 import getUserPlans from "@/server/fetching/getUserPlans"
 
 export const experimental_ppr = true

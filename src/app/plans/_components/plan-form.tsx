@@ -6,14 +6,14 @@ import { Trash2 } from "lucide-react"
 import { useEffect, useState } from "react"
 import { Controller, type SubmitHandler, useForm } from "react-hook-form"
 
-import { Button } from "@/components/ui/Button"
-import { Input } from "@/components/ui/Input"
-import { Textarea } from "@/components/ui/Textarea"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Textarea } from "@/components/ui/textarea"
 import createPlan from "@/server/actions/createPlan"
 import editPlan from "@/server/actions/editPlan"
-import { type PlanForm, planFormSchema } from "@/types/planForm"
+import { type PlanForm, planFormSchema } from "@/types/plan-form"
 
-import AddExercise from "./AddExercise"
+import AddExercise from "./add-exercise"
 
 interface PredefinedData {
   id: string

@@ -2,15 +2,15 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import { Suspense } from "react"
 
-import ChevronRightIcon from "@/components/ChevronRightIcon"
-import { Heading } from "@/components/Heading"
+import ChevronRightIcon from "@/components/chevron-right-icon"
+import { Heading } from "@/components/heading"
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/Collapsible"
-import { Skeleton } from "@/components/ui/Skeleton"
-import { robotsMetadata } from "@/lib/robotsMetadata"
+} from "@/components/ui/collapsible"
+import { Skeleton } from "@/components/ui/skeleton"
+import { robotsMetadata } from "@/lib/robots-metadata"
 import { titleCase } from "@/lib/utils"
 import getSpecificExercise from "@/server/fetching/getSpecificExercise"
 

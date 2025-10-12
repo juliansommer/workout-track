@@ -19,9 +19,6 @@
         "noShadow": "off",
         "noReactForwardRef": "off"
       },
-      "style": {
-        "useFilenamingConvention": "off"
-      },
       "suspicious": {
         // tailwind css
         "noUnknownAtRules": "off"
@@ -33,22 +30,12 @@
       "includes": ["src/server/**/*.ts"],
       "linter": {
         "rules": {
+          "style": {
+            // disable file naming convention rule for all ts files as we want camelCase for server actions
+            "useFilenamingConvention": "off"
+          },
           "nursery": {
             "useExplicitType": "error"
-          },
-          "complexity": {
-            "noExcessiveCognitiveComplexity": "off"
-          }
-        }
-      }
-    },
-    {
-      "includes": ["src/types/*.ts"],
-      "linter": {
-        "rules": {
-          "style": {
-            // false flags zod definitions
-            "noMagicNumbers": "off"
           }
         }
       }
