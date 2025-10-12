@@ -34,7 +34,7 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 - Can optionally add triggers for plan_updated_at and workout_updated_at to update the updated_at field in the plan and workout tables, otherwise these fields won't work but they aren't required
 - Then create a google client id and connect it to supabase for authentication
 - Add the required env variables (as shown in env.example) to a .env file
-- The app then should be able to be run with `pnpm dev`
+- The app then should be able to be run with `bun dev`
 - To easily deploy, you can use Vercel and add the env variables to the project settings
 - You can deploy independently of Vercel but you will need to set up the env variables in the hosting service you use
 

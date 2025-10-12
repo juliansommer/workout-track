@@ -1,7 +1,0 @@
-ignoredBuiltDependencies:
-  - unrs-resolver
-onlyBuiltDependencies:
-  - "@heroui/shared-utils"
-  - "@tailwindcss/oxide"
-  - sharp
-# minimumReleaseAge: 1440
