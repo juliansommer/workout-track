@@ -5,17 +5,17 @@ import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 
-import { buttonVariants } from "@/components/ui/Button"
+import { buttonVariants } from "@/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/DropdownMenu"
+} from "@/components/ui/dropdown-menu"
 import createSupabaseBrowserClient from "@/lib/supabase/client"
 import logoutAction from "@/server/actions/logoutAction"
 
-import ThemeButton from "./ThemeButton"
+import ThemeButton from "./theme-button"
 
 export default function Nav() {
   const [user, setUser] = useState<string | null>(null)

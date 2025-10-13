@@ -3,8 +3,8 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 
-import { GithubLogo } from "@/components/Logos"
-import { buttonVariants } from "@/components/ui/Button"
+import { GithubLogo } from "@/components/logos"
+import { buttonVariants } from "@/components/ui/button"
 import { robotsMetadata } from "@/lib/robotsMetadata"
 
 export const metadata: Metadata = {

@@ -1,10 +1,10 @@
-import { Skeleton } from "@/components/ui/Skeleton"
+import { Skeleton } from "@/components/ui/skeleton"
 
-interface PlanFormSkeletonProps {
+export default function PlanFormSkeleton({
+  children,
+}: {
   children?: React.ReactNode
-}
-
-export default function PlanFormSkeleton({ children }: PlanFormSkeletonProps) {
+}) {
   return (
     <div className="w-full max-w-3xl">
       {/* Name input */}

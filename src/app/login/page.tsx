@@ -4,7 +4,7 @@ import { redirect } from "next/navigation"
 import { robotsMetadata } from "@/lib/robotsMetadata"
 import createSupabaseServerClient from "@/lib/supabase/server"
 
-import LoginForm from "./_components/LoginForm"
+import LoginForm from "./_components/login-form"
 
 export const metadata: Metadata = {
   title: "Login",

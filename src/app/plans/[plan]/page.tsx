@@ -4,13 +4,13 @@ import Image from "next/image"
 import Link from "next/link"
 import { Suspense } from "react"
 
-import { buttonVariants } from "@/components/ui/Button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
-import { Skeleton } from "@/components/ui/Skeleton"
+import { buttonVariants } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Skeleton } from "@/components/ui/skeleton"
 import getPlanName from "@/server/fetching/getPlanName"
 import getSpecificPlan from "@/server/fetching/getSpecificPlan"
 
-import DeletePlan from "../_components/DeletePlan"
+import DeletePlan from "../_components/delete-plan"
 
 export const experimental_ppr = false
 

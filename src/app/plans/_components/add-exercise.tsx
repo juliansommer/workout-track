@@ -3,7 +3,7 @@
 import type { ControllerRenderProps } from "react-hook-form"
 import Select from "react-select"
 
-import { Input } from "@/components/ui/Input"
+import { Input } from "@/components/ui/input"
 import type { PlanFormData } from "@/types/planForm"
 
 interface AddExerciseProps {

@@ -1,6 +1,6 @@
 "use client"
 
-import { GithubLogo, GoogleLogo } from "@/components/Logos"
+import { GithubLogo, GoogleLogo } from "@/components/logos"
 import createSupabaseBrowserClient from "@/lib/supabase/client"
 
 export default function LoginForm() {

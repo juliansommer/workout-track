@@ -1,11 +1,11 @@
 import type { Metadata } from "next"
 
-import { Heading } from "@/components/Heading"
+import { Heading } from "@/components/heading"
 import getPlanName from "@/server/fetching/getPlanName"
 import getSpecificPlan from "@/server/fetching/getSpecificPlan"
 import getWorkoutTargets from "@/server/fetching/getWorkoutTargets"
 
-import WorkoutForm from "../../_components/WorkoutForm"
+import WorkoutForm from "../../_components/workout-form"
 
 export const experimental_ppr = false
 

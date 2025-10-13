@@ -45,3 +45,4 @@ This project uses Next.js with React, TypeScript, Tailwind CSS and Supabase to c
 - make sets input less annoying, cant remove then type in as default to 0. handle purely as string, look how workout does it
 - use postgres18 when supabase allows
 - static gen exercises - export as json?
+- make file names kebab case except for stuff in /server. need to make vercel not have build cache or will break deployment (VERCEL_FORCE_NO_BUILD_CACHE = 1)

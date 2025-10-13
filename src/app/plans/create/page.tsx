@@ -1,12 +1,11 @@
 import type { Metadata } from "next"
 import { Suspense } from "react"
 
-import { Heading } from "@/components/Heading"
-import { Skeleton } from "@/components/ui/Skeleton"
+import { Heading } from "@/components/heading"
+import { Skeleton } from "@/components/ui/skeleton"
 import getAllExercisesNames from "@/server/fetching/getAllExercisesNames"
-
-import PlanForm from "../_components/PlanForm"
-import PlanFormSkeleton from "../_components/PlanFormSkeleton"
+import PlanForm from "../_components/plan-form"
+import PlanFormSkeleton from "../_components/plan-form-skeleton"
 
 export const experimental_ppr = true
 
