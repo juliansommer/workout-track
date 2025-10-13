@@ -8,6 +8,7 @@ interface WorkoutDetails {
       image: string
     }
     set: {
+      id: string
       weight: number
       reps: number
     }[]
@@ -38,6 +39,7 @@ export default async function getSpecificWorkout(
             image
           ),
           set (
+            id,
             weight,
             reps
           )

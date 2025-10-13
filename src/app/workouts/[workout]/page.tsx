@@ -58,8 +58,7 @@ export default async function Workout(props: {
                         {exercise.set.map((set, setIndex) => (
                           <div
                             className="grid grid-cols-[auto_1fr_1fr] items-center gap-4"
-                            // biome-ignore lint/suspicious/noArrayIndexKey: no other way to identify
-                            key={setIndex}
+                            key={set.id}
                           >
                             <div className="font-medium">
                               Set {setIndex + 1}
