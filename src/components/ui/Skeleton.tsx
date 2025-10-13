@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils"
 
-function Skeleton({ className, ...props }: React.ComponentProps<"div">) {
+export function Skeleton({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       className={cn(
@@ -12,5 +12,3 @@ function Skeleton({ className, ...props }: React.ComponentProps<"div">) {
     />
   )
 }
-
-export { Skeleton }

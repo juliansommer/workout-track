@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/nursery/noReactForwardRef: can't change or will break */
 // The pagination the app is using is from hero-ui, but I didn't install their css
 // and other dependencies, so this is being used as the styling, whilst using their pagination logic
 import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react"
@@ -7,7 +8,10 @@ import { type ComponentProps, forwardRef } from "react"
 import { type ButtonProps, buttonVariants } from "@/components/ui/Button"
 import { cn } from "@/lib/utils"
 
-function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
+export function Pagination({
+  className,
+  ...props
+}: React.ComponentProps<"nav">) {
   return (
     <nav
       aria-label="pagination"
@@ -18,7 +22,7 @@ function Pagination({ className, ...props }: React.ComponentProps<"nav">) {
 }
 Pagination.displayName = "Pagination"
 
-const PaginationContent = forwardRef<
+export const PaginationContent = forwardRef<
   HTMLUListElement,
   React.ComponentProps<"ul">
 >(({ className, ...props }, ref) => (
@@ -30,11 +34,12 @@ const PaginationContent = forwardRef<
 ))
 PaginationContent.displayName = "PaginationContent"
 
-const PaginationItem = forwardRef<HTMLLIElement, React.ComponentProps<"li">>(
-  ({ className, ...props }, ref) => (
-    <li className={cn("", className)} ref={ref} {...props} />
-  ),
-)
+export const PaginationItem = forwardRef<
+  HTMLLIElement,
+  React.ComponentProps<"li">
+>(({ className, ...props }, ref) => (
+  <li className={cn("", className)} ref={ref} {...props} />
+))
 PaginationItem.displayName = "PaginationItem"
 
 type PaginationLinkProps = {
@@ -42,7 +47,7 @@ type PaginationLinkProps = {
 } & Pick<ButtonProps, "size"> &
   ComponentProps<typeof Link>
 
-function PaginationLink({
+export function PaginationLink({
   className,
   isActive,
   size = "icon",
@@ -64,7 +69,7 @@ function PaginationLink({
 }
 PaginationLink.displayName = "PaginationLink"
 
-function PaginationPrevious({
+export function PaginationPrevious({
   className,
   ...props
 }: ComponentProps<typeof PaginationLink>) {
@@ -82,7 +87,7 @@ function PaginationPrevious({
 }
 PaginationPrevious.displayName = "PaginationPrevious"
 
-function PaginationNext({
+export function PaginationNext({
   className,
   ...props
 }: ComponentProps<typeof PaginationLink>) {
@@ -100,7 +105,10 @@ function PaginationNext({
 }
 PaginationNext.displayName = "PaginationNext"
 
-function PaginationEllipsis({ className, ...props }: ComponentProps<"span">) {
+export function PaginationEllipsis({
+  className,
+  ...props
+}: ComponentProps<"span">) {
   return (
     <span
       aria-hidden
@@ -113,13 +121,3 @@ function PaginationEllipsis({ className, ...props }: ComponentProps<"span">) {
   )
 }
 PaginationEllipsis.displayName = "PaginationEllipsis"
-
-export {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-}

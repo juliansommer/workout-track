@@ -1,10 +1,11 @@
+/** biome-ignore-all lint/nursery/noReactForwardRef: can't change or will break */
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 import { forwardRef } from "react"
 
 import { cn } from "@/lib/utils"
 
-const buttonVariants = cva(
+export const buttonVariants = cva(
   "inline-flex cursor-pointer items-center justify-center whitespace-nowrap rounded-md font-medium text-sm ring-offset-white transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-neutral-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:ring-offset-neutral-950 dark:focus-visible:ring-neutral-300",
   {
     variants: {
@@ -43,7 +44,7 @@ export interface ButtonProps
   asChild?: boolean
 }
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
     return (
@@ -56,5 +57,3 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   },
 )
 Button.displayName = "Button"
-
-export { Button, buttonVariants }

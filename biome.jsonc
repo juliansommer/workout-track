@@ -15,8 +15,7 @@
           "options": {
             "style": "interface"
           }
-        },
-        "noReactForwardRef": "off"
+        }
       },
       "style": {
         "useFilenamingConvention": "off"
