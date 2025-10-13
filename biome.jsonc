@@ -30,7 +30,7 @@
   },
   "overrides": [
     {
-      "includes": ["src/lib/**/*.ts", "src/server/**/*.ts"],
+      "includes": ["src/server/**/*.ts"],
       "linter": {
         "rules": {
           "nursery": {

@@ -1,4 +1,3 @@
-/** biome-ignore-all lint/suspicious/useAwait:ultracite should have disabled it anyway */
 import type { NextConfig } from "next"
 
 import "./src/env.ts"
