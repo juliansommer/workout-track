@@ -38,25 +38,25 @@ export default async function editPlan(
   }
 
   // delete the old exercises
-  const { error: exerciseError } = await supabase
+  const { error: error2 } = await supabase
     .from("plan_exercise")
     .delete()
     .eq("plan_id", planId)
 
-  if (exerciseError) {
-    throw new Error("Failed to delete exercises", { cause: exerciseError })
+  if (error2) {
+    throw new Error("Failed to delete exercises", { cause: error2 })
   }
 
   // insert the new exercises
   for (const exercise of formData.exercises) {
-    const { error } = await supabase.from("plan_exercise").insert({
+    const { error: error3 } = await supabase.from("plan_exercise").insert({
       plan_id: planId,
       exercise_id: exercise.value,
       sets: exercise.sets,
     })
 
-    if (error) {
-      throw new Error("Failed to create plan_exercise", { cause: error })
+    if (error3) {
+      throw new Error("Failed to create plan_exercise", { cause: error3 })
     }
   }
 }

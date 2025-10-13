@@ -60,15 +60,15 @@ export default async function createWorkout(
       throw new Error("Exercise set not found")
     }
 
-    const { error } = await supabase.from("workout_exercise").insert({
+    const { error: error2 } = await supabase.from("workout_exercise").insert({
       id: workoutExerciseId,
       workout_id: workoutId,
       exercise_id: setKeys[i] ?? "",
       order: i,
     })
 
-    if (error) {
-      throw new Error("Failed to create workout_exercise", { cause: error })
+    if (error2) {
+      throw new Error("Failed to create workout_exercise", { cause: error2 })
     }
 
     // loop through sets and insert them
@@ -79,7 +79,7 @@ export default async function createWorkout(
         throw new Error("Set not found")
       }
 
-      const { error } = await supabase.from("set").insert({
+      const { error: error3 } = await supabase.from("set").insert({
         id: setId,
         workout_exercise_id: workoutExerciseId,
         weight: set.weight,
@@ -87,13 +87,9 @@ export default async function createWorkout(
         order: j,
       })
 
-      if (error) {
-        throw new Error("Failed to create set", { cause: error })
+      if (error3) {
+        throw new Error("Failed to create set", { cause: error3 })
       }
-    }
-
-    if (error) {
-      throw new Error("Failed to create workout_exercise", { cause: error })
     }
   }
 }

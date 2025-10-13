@@ -16,7 +16,6 @@
             "style": "interface"
           }
         },
-        "noShadow": "off",
         "noReactForwardRef": "off"
       },
       "style": {

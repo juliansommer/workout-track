@@ -38,14 +38,14 @@ export default async function createPlan(
 
   // loop through exercises and insert them
   for (const exercise of formData.exercises) {
-    const { error } = await supabase.from("plan_exercise").insert({
+    const { error: error2 } = await supabase.from("plan_exercise").insert({
       plan_id: planId,
       exercise_id: exercise.value,
       sets: exercise.sets,
     })
 
-    if (error) {
-      throw new Error("Failed to create plan_exercise", { cause: error })
+    if (error2) {
+      throw new Error("Failed to create plan_exercise", { cause: error2 })
     }
   }
 }

@@ -92,8 +92,8 @@ function WorkoutsGridSkeleton() {
             <CardContent>
               <Skeleton className="mb-2 h-4 w-1/2" />
               <div className="space-y-1 pt-2">
-                {["skeleton-a", "skeleton-b", "skeleton-c"].map((key) => (
-                  <Skeleton className="h-3 w-3/4" key={key} />
+                {["skeleton-a", "skeleton-b", "skeleton-c"].map((key2) => (
+                  <Skeleton className="h-3 w-3/4" key={key2} />
                 ))}
               </div>
             </CardContent>
