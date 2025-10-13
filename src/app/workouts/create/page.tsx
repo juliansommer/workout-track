@@ -67,7 +67,7 @@ function PlansGridSkeleton() {
           "card-g",
           "card-h",
         ].map((key) => (
-          <Card key={key}>
+          <Skeleton className="rounded-lg" key={key}>
             <CardHeader>
               <Skeleton className="h-6 w-3/4" />
             </CardHeader>
@@ -75,7 +75,7 @@ function PlansGridSkeleton() {
               <Skeleton className="mb-2 h-4 w-full" />
               <Skeleton className="h-4 w-2/3" />
             </CardContent>
-          </Card>
+          </Skeleton>
         ))}
       </div>
     </div>
