@@ -311,8 +311,8 @@ Ultracite enforces strict type safety, accessibility standards, and consistent c
 
 ## Common Tasks
 - `bunx ultracite init` - Initialize Ultracite in your project
-- `bunx ultracite fix` - Format and fix code automatically
-- `bunx ultracite check` - Check for issues without fixing
+- `bun fix` - Format and fix code automatically
+- `bunx check` - Check for issues without fixing
 
 ## Example: Error Handling
 ```typescript
