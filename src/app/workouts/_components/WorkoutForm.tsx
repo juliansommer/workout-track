@@ -12,7 +12,7 @@ import { Label } from "@/components/ui/Label"
 import createWorkout from "@/server/actions/createWorkout"
 import type { PlanData } from "@/types"
 import {
-  type WorkoutForm,
+  type WorkoutFormData,
   type WorkoutTargets,
   workoutFormSchema,
 } from "@/types/workoutForm"
@@ -22,7 +22,6 @@ interface WorkoutFormProps {
   workoutTargets: WorkoutTargets
 }
 
-// biome-ignore lint/suspicious/noRedeclare: type vs function
 export default function WorkoutForm({
   workoutData,
   workoutTargets,
@@ -35,14 +34,16 @@ export default function WorkoutForm({
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<WorkoutForm>({
+  } = useForm<WorkoutFormData>({
     resolver: zodResolver(workoutFormSchema),
     defaultValues: {
       exercises: {},
     },
   })
 
-  const onSubmit: SubmitHandler<WorkoutForm> = async (data: WorkoutForm) => {
+  const onSubmit: SubmitHandler<WorkoutFormData> = async (
+    data: WorkoutFormData,
+  ) => {
     try {
       await createWorkout({ id: workout.id, sets: data.exercises })
       router.push("/workouts")

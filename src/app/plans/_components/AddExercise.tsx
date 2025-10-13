@@ -4,11 +4,11 @@ import type { ControllerRenderProps } from "react-hook-form"
 import Select from "react-select"
 
 import { Input } from "@/components/ui/Input"
-import type { PlanForm } from "@/types/planForm"
+import type { PlanFormData } from "@/types/planForm"
 
 interface AddExerciseProps {
   options: { label: string; value: string }[]
-  field: ControllerRenderProps<PlanForm, `exercises.${number}`>
+  field: ControllerRenderProps<PlanFormData, `exercises.${number}`>
 }
 
 export default function AddExercise({ options, field }: AddExerciseProps) {

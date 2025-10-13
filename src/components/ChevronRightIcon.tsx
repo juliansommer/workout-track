@@ -4,7 +4,6 @@ export default function ChevronRightIcon(
   props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>,
 ) {
   return (
-    // biome-ignore lint/a11y/noSvgWithoutTitle: shhh
     <svg
       {...props}
       fill="none"
@@ -18,6 +17,7 @@ export default function ChevronRightIcon(
       xmlns="http://www.w3.org/2000/svg"
     >
       <path d="m9 18 6-6-6-6" />
+      <title>Chevron Right Icon</title>
     </svg>
   )
 }

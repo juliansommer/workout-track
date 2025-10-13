@@ -11,7 +11,7 @@ import { Input } from "@/components/ui/Input"
 import { Textarea } from "@/components/ui/Textarea"
 import createPlan from "@/server/actions/createPlan"
 import editPlan from "@/server/actions/editPlan"
-import { type PlanForm, planFormSchema } from "@/types/planForm"
+import { type PlanFormData, planFormSchema } from "@/types/planForm"
 
 import AddExercise from "./AddExercise"
 
@@ -32,7 +32,6 @@ interface PlanFormProps {
   planData?: PredefinedData
 }
 
-// biome-ignore lint/suspicious/noRedeclare: type vs function
 export default function PlanForm({ data, planData }: PlanFormProps) {
   const {
     register,
@@ -42,7 +41,7 @@ export default function PlanForm({ data, planData }: PlanFormProps) {
     setValue,
     control,
     formState: { errors },
-  } = useForm<PlanForm>({
+  } = useForm<PlanFormData>({
     resolver: zodResolver(planFormSchema),
   })
   const [components, setComponents] = useState<number[]>([])
@@ -84,7 +83,9 @@ export default function PlanForm({ data, planData }: PlanFormProps) {
     setValue("exercises", cleanedExercises)
   }
 
-  const onSubmit: SubmitHandler<PlanForm> = async (formData: PlanForm) => {
+  const onSubmit: SubmitHandler<PlanFormData> = async (
+    formData: PlanFormData,
+  ) => {
     // if planData exists we are on edit page, otherwise we are on create page
     if (planData) {
       try {

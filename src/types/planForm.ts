@@ -40,4 +40,4 @@ export const planFormSchema = z.object({
     .min(1, "At least one exercise is required"),
 })
 
-export type PlanForm = z.infer<typeof planFormSchema>
+export type PlanFormData = z.infer<typeof planFormSchema>
