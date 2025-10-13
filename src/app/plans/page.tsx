@@ -9,8 +9,6 @@ import { Skeleton } from "@/components/ui/skeleton"
 import { cn } from "@/lib/utils"
 import getUserPlans from "@/server/fetching/getUserPlans"
 
-export const experimental_ppr = true
-
 export const metadata: Metadata = {
   title: "Plans",
   alternates: {

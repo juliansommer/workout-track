@@ -7,8 +7,6 @@ import getWorkoutTargets from "@/server/fetching/getWorkoutTargets"
 
 import WorkoutForm from "../../_components/workout-form"
 
-export const experimental_ppr = false
-
 export async function generateMetadata(props: {
   params: Promise<{ id: string }>
 }): Promise<Metadata> {

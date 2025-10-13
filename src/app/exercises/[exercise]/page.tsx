@@ -14,8 +14,6 @@ import { robotsMetadata } from "@/lib/robotsMetadata"
 import { titleCase } from "@/lib/utils"
 import getSpecificExercise from "@/server/fetching/getSpecificExercise"
 
-export const experimental_ppr = true
-
 export async function generateMetadata(props: {
   params: Promise<{ exercise: string }>
 }): Promise<Metadata> {
@@ -31,23 +29,35 @@ export async function generateMetadata(props: {
   }
 }
 
-export default async function Exercise(props: {
+export default function Exercise(props: {
   params: Promise<{ exercise: string }>
 }) {
-  const params = await props.params
-  const exercise = decodeURIComponent(params.exercise)
-
   return (
     <>
-      <Heading title={exercise} />
+      <Suspense>
+        <ExerciseHeading params={props.params} />
+      </Suspense>
       <Suspense fallback={<ExerciseContentSkeleton />}>
-        <ExerciseContent exercise={exercise} />
+        <ExerciseContent params={props.params} />
       </Suspense>
     </>
   )
 }
 
-async function ExerciseContent({ exercise }: { exercise: string }) {
+async function ExerciseHeading(props: {
+  params: Promise<{ exercise: string }>
+}) {
+  const params = await props.params
+  const exercise = decodeURIComponent(params.exercise)
+
+  return <Heading title={exercise} />
+}
+
+async function ExerciseContent(props: {
+  params: Promise<{ exercise: string }>
+}) {
+  const params = await props.params
+  const exercise = decodeURIComponent(params.exercise)
   const data = await getSpecificExercise(exercise)
 
   return (

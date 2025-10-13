@@ -9,8 +9,6 @@ import getSpecificPlan from "@/server/fetching/getSpecificPlan"
 import PlanForm from "../../_components/plan-form"
 import PlanFormSkeleton from "../../_components/plan-form-skeleton"
 
-export const experimental_ppr = true
-
 export async function generateMetadata(props: {
   params: Promise<{ plan: string }>
 }): Promise<Metadata> {
@@ -24,24 +22,21 @@ export async function generateMetadata(props: {
   }
 }
 
-export default async function EditPlan(props: {
-  params: Promise<{ plan: string }>
-}) {
-  const params = await props.params
-
+export default function EditPlan(props: { params: Promise<{ plan: string }> }) {
   return (
     <>
       <Heading title="Edit Plan" />
       <Suspense fallback={<EditPlanFormSkeleton />}>
-        <EditPlanFormWithData planId={params.plan} />
+        <EditPlanForm params={props.params} />
       </Suspense>
     </>
   )
 }
 
-async function EditPlanFormWithData({ planId }: { planId: string }) {
+async function EditPlanForm(props: { params: Promise<{ plan: string }> }) {
+  const { plan } = await props.params
   const exerciseData = await getAllExercisesNames()
-  const planData = await getSpecificPlan(planId)
+  const planData = await getSpecificPlan(plan)
 
   const newPlanData = {
     id: planData.id,

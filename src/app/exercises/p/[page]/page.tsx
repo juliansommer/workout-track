@@ -12,8 +12,6 @@ import getExercisesPerPage from "@/server/fetching/getExercisesPerPage"
 import getTotalExercisePages from "@/server/fetching/getTotalExercisePages"
 import type { ExerciseData } from "@/types"
 
-export const experimental_ppr = true
-
 export async function generateMetadata(props: {
   params: Promise<{ page: string }>
 }): Promise<Metadata> {
@@ -28,22 +26,20 @@ export async function generateMetadata(props: {
   }
 }
 
-export default async function Exercise(props: {
-  params: Promise<{ page: string }>
-}) {
-  const { page } = await props.params
-
+export default function Exercise(props: { params: Promise<{ page: string }> }) {
   return (
     <>
       <Heading title="Exercises" />
       <Suspense fallback={<ExercisesContentSkeleton />}>
-        <ExercisesContent page={Number(page)} />
+        <ExercisesContent params={props.params} />
       </Suspense>
     </>
   )
 }
 
-async function ExercisesContent({ page }: { page: number }) {
+async function ExercisesContent(props: { params: Promise<{ page: string }> }) {
+  const params = await props.params
+  const page = Number(params.page)
   const totalPages = await getTotalExercisePages()
   const data = await getExercisesPerPage(page)
 

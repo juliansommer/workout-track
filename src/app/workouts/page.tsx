@@ -9,8 +9,6 @@ import { Skeleton } from "@/components/ui/skeleton"
 import { cleanTimestamp, cn } from "@/lib/utils"
 import getUserWorkouts from "@/server/fetching/getUserWorkouts"
 
-export const experimental_ppr = true
-
 export const metadata: Metadata = {
   title: "Workouts",
   alternates: {
