@@ -4,7 +4,6 @@ import { Heading } from "@/components/heading"
 import getPlanName from "@/server/fetching/getPlanName"
 import getSpecificPlan from "@/server/fetching/getSpecificPlan"
 import getWorkoutTargets from "@/server/fetching/getWorkoutTargets"
-
 import WorkoutForm from "../../_components/workout-form"
 
 export async function generateMetadata(props: {

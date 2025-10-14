@@ -12,7 +12,6 @@ import { Textarea } from "@/components/ui/textarea"
 import createPlan from "@/server/actions/createPlan"
 import editPlan from "@/server/actions/editPlan"
 import { type PlanFormData, planFormSchema } from "@/types/planForm"
-
 import AddExercise from "./add-exercise"
 
 interface PredefinedData {

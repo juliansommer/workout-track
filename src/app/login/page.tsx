@@ -4,7 +4,6 @@ import { Suspense } from "react"
 
 import { robotsMetadata } from "@/lib/robotsMetadata"
 import createSupabaseServerClient from "@/lib/supabase/server"
-
 import LoginForm from "./_components/login-form"
 
 export const metadata: Metadata = {

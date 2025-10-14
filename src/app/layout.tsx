@@ -4,7 +4,6 @@ import { ThemeProvider } from "next-themes"
 
 import Nav from "@/components/nav"
 import ProgressBar from "@/components/progress-bar"
-
 import "./globals.css"
 
 const fontSans = FontSans({
