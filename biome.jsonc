@@ -1,12 +1,6 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "extends": ["ultracite"],
-  "javascript": {
-    "formatter": {
-      "semicolons": "asNeeded",
-      "trailingCommas": "all"
-    }
-  },
   "assist": {
     "actions": {
       "source": {
@@ -41,6 +35,12 @@
         // tailwind css
         "noUnknownAtRules": "off"
       }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "semicolons": "asNeeded",
+      "trailingCommas": "all"
     }
   },
   "overrides": [
