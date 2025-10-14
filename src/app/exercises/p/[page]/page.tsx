@@ -70,8 +70,10 @@ function ExerciseCard({ exercise }: { exercise: ExerciseData }) {
         <div className="flex items-center space-x-4">
           <Image
             alt={`${exercise.name} Image`}
+            blurDataURL="/blur.png"
             className="aspect-video overflow-hidden rounded-lg object-cover"
             height={100}
+            placeholder="blur"
             src={`/exercises/${exercise.image}`}
             width={100}
           />
