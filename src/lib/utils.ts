@@ -16,3 +16,17 @@ export function titleCase(str: string): string {
 export function cleanTimestamp(timestamp: string): string {
   return new Date(timestamp).toISOString().split("T")[0] ?? ""
 }
+
+const TRIM_HYPHENS_START_REGEX = /^-+/
+const TRIM_HYPHENS_END_REGEX = /-+$/
+
+export function createSlug(string: string): string {
+  return string
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/[^\w-]+/g, "")
+    .replace(/--+/g, "-")
+    .replace(TRIM_HYPHENS_START_REGEX, "")
+    .replace(TRIM_HYPHENS_END_REGEX, "")
+}

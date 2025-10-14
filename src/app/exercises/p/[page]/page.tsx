@@ -1,22 +1,25 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
-import { Suspense } from "react"
 
 import { Heading } from "@/components/heading"
 import PaginationContainer from "@/components/pagination-container"
-import { Skeleton } from "@/components/ui/skeleton"
+import exercises from "@/lib/exercises.json" with { type: "json" }
 import { robotsMetadata } from "@/lib/robotsMetadata"
-import { titleCase } from "@/lib/utils"
-import getExercisesPerPage from "@/server/fetching/getExercisesPerPage"
-import getTotalExercisePages from "@/server/fetching/getTotalExercisePages"
+import { createSlug, titleCase } from "@/lib/utils"
 import type { ExerciseData } from "@/types"
+
+export function generateStaticParams() {
+  const totalPages = Math.ceil(exercises.length / 10)
+  return Array.from({ length: totalPages }, (_, i) => ({
+    page: String(i + 1),
+  }))
+}
 
 export async function generateMetadata(props: {
   params: Promise<{ page: string }>
 }): Promise<Metadata> {
   const params = await props.params
-
   return {
     title: `Exercises Page ${params.page}`,
     alternates: {
@@ -26,28 +29,29 @@ export async function generateMetadata(props: {
   }
 }
 
-export default function Exercise(props: { params: Promise<{ page: string }> }) {
+export default async function Exercises(props: {
+  params: Promise<{ page: string }>
+}) {
+  const params = await props.params
+  const page = Number(params.page)
+  const totalPages = Math.ceil(exercises.length / 10)
+
+  // Calculate start and end indices for pagination
+  const startIndex = (page - 1) * 10
+  const endIndex = page * 10
+
+  // Slice the exercises array to get only the items for the current page
+  const data = exercises.slice(startIndex, endIndex)
+
   return (
     <>
       <Heading title="Exercises" />
-      <Suspense fallback={<ExercisesContentSkeleton />}>
-        <ExercisesContent params={props.params} />
-      </Suspense>
-    </>
-  )
-}
-
-async function ExercisesContent(props: { params: Promise<{ page: string }> }) {
-  const params = await props.params
-  const page = Number(params.page)
-  const totalPages = await getTotalExercisePages()
-  const data = await getExercisesPerPage(page)
-
-  return (
-    <>
       <div className="w-full">
-        {data.map((item) => (
-          <ExerciseCard exercise={item} key={item.name} />
+        {data.map((exercise) => (
+          <ExerciseCard
+            exercise={exercise as ExerciseData}
+            key={exercise.name}
+          />
         ))}
       </div>
       <PaginationContainer
@@ -59,37 +63,15 @@ async function ExercisesContent(props: { params: Promise<{ page: string }> }) {
   )
 }
 
-function ExercisesContentSkeleton() {
-  return (
-    <div className="w-full">
-      {[
-        "card-a",
-        "card-b",
-        "card-c",
-        "card-d",
-        "card-e",
-        "card-f",
-        "card-g",
-        "card-h",
-        "card-i",
-        "card-j",
-      ].map((key) => (
-        <ExerciseCardSkeleton key={key} />
-      ))}
-    </div>
-  )
-}
-
 function ExerciseCard({ exercise }: { exercise: ExerciseData }) {
   return (
-    <Link href={`/exercises/${encodeURIComponent(exercise.name)}`}>
+    <Link href={`/exercises/${createSlug(exercise.name)}`}>
       <div className="flex items-center justify-between rounded-md p-4">
         <div className="flex items-center space-x-4">
           <Image
             alt={`${exercise.name} Image`}
             className="aspect-video overflow-hidden rounded-lg object-cover"
             height={100}
-            priority
             src={`/exercises/${exercise.image}`}
             width={100}
           />
@@ -104,22 +86,5 @@ function ExerciseCard({ exercise }: { exercise: ExerciseData }) {
         </div>
       </div>
     </Link>
-  )
-}
-
-function ExerciseCardSkeleton() {
-  return (
-    <div className="flex items-center justify-between rounded-md p-4">
-      <div className="flex items-center space-x-4">
-        <Skeleton className="h-[60px] w-[100px] rounded-lg" />
-        <div>
-          <Skeleton className="h-6 w-32" />
-        </div>
-      </div>
-
-      <div className="flex items-center space-x-4">
-        <Skeleton className="h-4 w-16" />
-      </div>
-    </div>
   )
 }
