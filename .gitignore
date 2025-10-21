@@ -8,9 +8,6 @@ next-env.d.ts
 # misc
 .DS_Store
 
-# debug
-.pnpm-debug.log*
-
 # env
 .env
 

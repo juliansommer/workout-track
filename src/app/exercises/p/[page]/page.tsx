@@ -36,11 +36,9 @@ export default async function Exercises(props: {
   const page = Number(params.page)
   const totalPages = Math.ceil(exercises.length / 10)
 
-  // Calculate start and end indices for pagination
   const startIndex = (page - 1) * 10
   const endIndex = page * 10
 
-  // Slice the exercises array to get only the items for the current page
   const data = exercises.slice(startIndex, endIndex)
 
   return (
