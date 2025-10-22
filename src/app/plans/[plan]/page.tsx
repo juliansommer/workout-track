@@ -71,10 +71,10 @@ async function PlanDetails(props: { params: Promise<{ plan: string }> }) {
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {data.exercises.map((exercise) => (
               <Card className="overflow-hidden" key={exercise.id}>
-                <Link href={`/exercises/${createSlug(exercise.name ?? "")}`}>
+                <Link href={`/exercises/${createSlug(exercise.name)}`}>
                   <div className="relative aspect-video">
                     <Image
-                      alt={exercise.name ?? "Exercise Image"}
+                      alt={exercise.name}
                       blurDataURL="/blur.png"
                       className="h-full w-full"
                       height={300}

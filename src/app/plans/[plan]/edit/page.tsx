@@ -43,7 +43,7 @@ async function EditPlanForm(props: { params: Promise<{ plan: string }> }) {
     name: planData.name,
     notes: planData.notes,
     exercises: planData.exercises.map((exercise) => ({
-      label: exercise.name ?? "",
+      label: exercise.name,
       value: exercise.id,
       sets: exercise.sets ?? 0,
     })),

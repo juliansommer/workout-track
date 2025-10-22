@@ -62,7 +62,7 @@ export default function WorkoutForm({
                 <div className="grid gap-4 md:grid-cols-[300px_1fr]">
                   <div className="relative h-[200px] md:h-full">
                     <Image
-                      alt={exercise.name ?? "Exercise Image"}
+                      alt={exercise.name}
                       blurDataURL="/blur.png"
                       className="object-cover"
                       fill

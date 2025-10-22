@@ -44,7 +44,7 @@ export default function AddExercise({ options, field }: AddExerciseProps) {
           }
           placeholder="Sets"
           type="number"
-          value={field.value?.sets ?? ""}
+          value={field.value?.sets}
         />
       </div>
     </div>

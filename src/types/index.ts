@@ -7,8 +7,8 @@ export interface PlanData {
   exercises: {
     id: string
     sets: number | null
-    name: string | undefined
-    image: string | undefined
+    name: string
+    image: string
   }[]
 }
 

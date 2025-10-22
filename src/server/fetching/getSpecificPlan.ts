@@ -25,7 +25,6 @@ export default async function getSpecificPlan(
           exercise_id,
           sets,
           exercise (
-            id,
             name,
             image
           )
