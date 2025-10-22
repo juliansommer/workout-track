@@ -7,6 +7,7 @@ import { Suspense } from "react"
 import { buttonVariants } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
+import { createSlug } from "@/lib/utils"
 import getPlanName from "@/server/fetching/getPlanName"
 import getSpecificPlan from "@/server/fetching/getSpecificPlan"
 import DeletePlan from "../_components/delete-plan"
@@ -70,27 +71,29 @@ async function PlanDetails(props: { params: Promise<{ plan: string }> }) {
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {data.exercises.map((exercise) => (
               <Card className="overflow-hidden" key={exercise.id}>
-                <div className="relative aspect-video">
-                  <Image
-                    alt={exercise.name ?? "Exercise Image"}
-                    blurDataURL="/blur.png"
-                    className="h-full w-full"
-                    height={300}
-                    loading="eager"
-                    placeholder="blur"
-                    src={`/exercises/${exercise.image}`}
-                    width={500}
-                  />
-                </div>
-                <CardContent className="p-4">
-                  <h3 className="mb-2 font-semibold text-lg">
-                    {exercise.name}
-                  </h3>
-                  <div className="flex items-center text-neutral-600 text-sm dark:text-neutral-500">
-                    <Dumbbell className="mr-2 h-4 w-4" />
-                    <span>{exercise.sets} sets</span>
+                <Link href={`/exercises/${createSlug(exercise.name ?? "")}`}>
+                  <div className="relative aspect-video">
+                    <Image
+                      alt={exercise.name ?? "Exercise Image"}
+                      blurDataURL="/blur.png"
+                      className="h-full w-full"
+                      height={300}
+                      loading="eager"
+                      placeholder="blur"
+                      src={`/exercises/${exercise.image}`}
+                      width={500}
+                    />
                   </div>
-                </CardContent>
+                  <CardContent className="p-4">
+                    <h3 className="mb-2 font-semibold text-lg">
+                      {exercise.name}
+                    </h3>
+                    <div className="flex items-center text-neutral-600 text-sm dark:text-neutral-500">
+                      <Dumbbell className="mr-2 h-4 w-4" />
+                      <span>{exercise.sets} sets</span>
+                    </div>
+                  </CardContent>
+                </Link>
               </Card>
             ))}
           </div>
