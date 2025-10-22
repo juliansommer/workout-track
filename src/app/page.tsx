@@ -63,7 +63,7 @@ export default function Page() {
                     alt="App Screenshot"
                     className="object-cover"
                     fill
-                    priority
+                    preload
                     src="/display.png"
                   />
                 </div>

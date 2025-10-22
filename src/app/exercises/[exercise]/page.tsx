@@ -55,10 +55,8 @@ export default async function Exercise(props: {
           <div className="grid gap-6">
             <Image
               alt={`${data.name} exercise demonstration`}
-              blurDataURL="/blur.png"
               className="aspect-video w-full rounded-lg object-cover"
               height={600}
-              placeholder="blur"
               src={`/exercises/${data.image}`}
               width={800}
             />

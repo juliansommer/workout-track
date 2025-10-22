@@ -41,9 +41,11 @@ export default async function Workout(props: {
                   <div className="relative h-[200px] md:h-full">
                     <Image
                       alt={exercise.exercise.name}
+                      blurDataURL="/blur.png"
                       className="object-cover"
                       fill
-                      priority
+                      loading="eager"
+                      placeholder="blur"
                       src={`/exercises/${exercise.exercise.image}`}
                     />
                   </div>

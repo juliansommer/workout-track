@@ -63,9 +63,11 @@ export default function WorkoutForm({
                   <div className="relative h-[200px] md:h-full">
                     <Image
                       alt={exercise.name ?? "Exercise Image"}
+                      blurDataURL="/blur.png"
                       className="object-cover"
                       fill
-                      priority
+                      loading="eager"
+                      placeholder="blur"
                       src={`/exercises/${exercise.image}`}
                     />
                   </div>

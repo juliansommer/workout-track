@@ -73,9 +73,11 @@ async function PlanDetails(props: { params: Promise<{ plan: string }> }) {
                 <div className="relative aspect-video">
                   <Image
                     alt={exercise.name ?? "Exercise Image"}
+                    blurDataURL="/blur.png"
                     className="h-full w-full"
                     height={300}
-                    priority
+                    loading="eager"
+                    placeholder="blur"
                     src={`/exercises/${exercise.image}`}
                     width={500}
                   />
