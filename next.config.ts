@@ -6,7 +6,7 @@ const cspHeader = `
   default-src 'self';
   script-src 'self' 'unsafe-eval' 'unsafe-inline';
   style-src 'self' 'unsafe-inline';
-  img-src 'self';
+  img-src 'self' data:;
   font-src 'self';
   object-src 'none';
   base-uri 'self';
