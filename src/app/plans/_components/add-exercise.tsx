@@ -39,9 +39,12 @@ export default function AddExercise({ options, field }: AddExerciseProps) {
       </div>
       <div className="flex-2">
         <Input
-          onChange={(e) =>
-            field.onChange({ ...field.value, sets: Number(e.target.value) })
-          }
+          onChange={(e) => {
+            field.onChange({
+              ...field.value,
+              sets: e.target.value !== "" ? Number(e.target.value) : "",
+            })
+          }}
           placeholder="Sets"
           type="number"
           value={field.value?.sets}
