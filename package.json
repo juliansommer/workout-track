@@ -19,12 +19,12 @@
     "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-slot": "^1.2.3",
     "@supabase/ssr": "0.7.0",
-    "@supabase/supabase-js": "2.75.1",
+    "@supabase/supabase-js": "2.76.1",
     "@t3-oss/env-nextjs": "^0.13.8",
     "babel-plugin-react-compiler": "1.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lucide-react": "^0.546.0",
+    "lucide-react": "^0.548.0",
     "next": "16.0.0",
     "next-themes": "^0.4.6",
     "react": "19.2.0",
@@ -35,15 +35,15 @@
     "zod": "^4.1.12"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.2.6",
-    "@tailwindcss/postcss": "^4.1.14",
-    "@types/node": "^24.8.1",
+    "@biomejs/biome": "2.3.0",
+    "@tailwindcss/postcss": "^4.1.16",
+    "@types/node": "^24.9.1",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
     "husky": "^9.1.7",
     "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.14",
+    "tailwindcss": "^4.1.16",
     "typescript": "^5.9.3",
-    "ultracite": "5.6.4"
+    "ultracite": "6.0.1"
   }
 }

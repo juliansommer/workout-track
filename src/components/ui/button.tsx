@@ -43,7 +43,6 @@ export interface ButtonProps
   asChild?: boolean
 }
 
-// biome-ignore lint/nursery/noReactForwardRef: can't change or will break
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"

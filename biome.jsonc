@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-  "extends": ["ultracite"],
+  "extends": ["ultracite/core", "ultracite/next"],
   "assist": {
     "actions": {
       "source": {
@@ -23,7 +23,7 @@
   },
   "linter": {
     "rules": {
-      "nursery": {
+      "style": {
         "useConsistentTypeDefinitions": {
           "level": "error",
           "options": {

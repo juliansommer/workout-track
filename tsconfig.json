@@ -9,13 +9,11 @@
     "moduleDetection": "force",
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
-
     /* Strictness */
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "checkJs": true,
     "strictNullChecks": true,
-
     /* Bundled Projects */
     "lib": ["dom", "dom.iterable", "ES2022"],
     "noEmit": true,
@@ -23,8 +21,11 @@
     "moduleResolution": "bundler",
     "jsx": "react-jsx",
     "incremental": true,
-    "plugins": [{ "name": "next" }],
-
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     /* Path Aliases */
     "baseUrl": ".",
     "paths": {
@@ -38,7 +39,9 @@
     "**/*.cjs",
     "**/*.js",
     ".next/dev/types/**/*.ts",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    ".next\\dev/types/**/*.ts",
+    ".next\\dev/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }
