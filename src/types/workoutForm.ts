@@ -1,7 +1,9 @@
 /** biome-ignore-all lint/style/noMagicNumbers: incorrect */
 import { z } from "zod"
 
-// base object for sets, used by itself for server-side validation
+/**
+ * Base object for sets, used by itself for server-side validation
+ */
 export const setsSchema = z.record(
   z.string(), // exercise.id as key
   z.array(
@@ -29,7 +31,9 @@ export const setsSchema = z.record(
 )
 export type SetsSchema = z.infer<typeof setsSchema>
 
-// this is the schema used for client-side validation, it uses the base object
+/**
+ * Schema used for client-side validation, it uses the base object
+ */
 export const workoutFormSchema = z.object({
   exercises: setsSchema,
 })

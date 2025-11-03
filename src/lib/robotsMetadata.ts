@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
 
-// this is the common metadata for all pages that we want indexed by search engines
+/**
+ * Metadata for all pages we want indexed by search engines.
+ */
 export const robotsMetadata: Metadata["robots"] = {
   index: true,
   follow: true,
