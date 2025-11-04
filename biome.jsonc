@@ -34,14 +34,6 @@
       "suspicious": {
         // tailwind css
         "noUnknownAtRules": "off"
-      },
-      "nursery": {
-        "noIncrementDecrement": {
-          "level": "error",
-          "options": {
-            "allowForLoopAfterthoughts": true
-          }
-        }
       }
     }
   },
