@@ -1,4 +1,3 @@
-/** biome-ignore-all lint/style/noMagicNumbers: incorrect */
 import { z } from "zod"
 
 /**
