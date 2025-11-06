@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { cacheLife } from "next/cache"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -32,6 +33,8 @@ export async function generateMetadata(props: {
 export default async function Exercises(props: {
   params: Promise<{ page: string }>
 }) {
+  "use cache"
+  cacheLife("max")
   const params = await props.params
   const page = Number(params.page)
   const totalPages = Math.ceil(exercises.length / 10)

@@ -4,6 +4,7 @@ import {
   CollapsibleTrigger,
 } from "@radix-ui/react-collapsible"
 import type { Metadata } from "next"
+import { cacheLife } from "next/cache"
 import Image from "next/image"
 
 import ChevronRightIcon from "@/components/chevron-right-icon"
@@ -40,6 +41,8 @@ export async function generateMetadata(props: {
 export default async function Exercise(props: {
   params: Promise<{ exercise: string }>
 }) {
+  "use cache"
+  cacheLife("max")
   const params = await props.params
   const data = getExerciseBySlug(params.exercise)
 
