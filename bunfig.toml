@@ -1,2 +1,4 @@
 [install]
+linker = "isolated"
 minimumReleaseAge = 86400 # 1 day
+minimumReleaseAgeExcludes = ["next", "@next/env"]
