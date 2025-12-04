@@ -55,7 +55,7 @@ export function PaginationLink({
 }: PaginationLinkProps) {
   return (
     <Link
-      aria-current={isActive ? "page" : undefined}
+      {...(isActive ? { "aria-current": "page" } : {})}
       className={cn(
         buttonVariants({
           variant: isActive ? "outline" : "ghost",

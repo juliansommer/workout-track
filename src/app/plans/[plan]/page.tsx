@@ -59,7 +59,7 @@ async function PlanDetails(props: { params: Promise<{ plan: string }> }) {
           </div>
         </CardHeader>
         <CardContent>
-          {data.notes && (
+          {!!data.notes && (
             <div className="mb-6">
               <h2 className="mb-2 font-semibold text-xl">Notes</h2>
               <p className="text-neutral-700 dark:text-neutral-300">

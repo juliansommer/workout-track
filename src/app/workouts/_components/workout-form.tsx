@@ -108,7 +108,7 @@ export default function WorkoutForm({
                                 />
                                 <div className="h-5">
                                   {" "}
-                                  {errors.exercises?.[exercise.id]?.[setIndex]
+                                  {!!errors.exercises?.[exercise.id]?.[setIndex]
                                     ?.weight && (
                                     <p className="text-sm">
                                       {
@@ -141,7 +141,7 @@ export default function WorkoutForm({
                                 />
                                 <div className="h-5">
                                   {" "}
-                                  {errors.exercises?.[exercise.id]?.[setIndex]
+                                  {!!errors.exercises?.[exercise.id]?.[setIndex]
                                     ?.reps && (
                                     <p className="text-sm">
                                       {
