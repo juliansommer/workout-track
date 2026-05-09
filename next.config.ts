@@ -17,9 +17,6 @@ const cspHeader = `
 `
 
 const nextConfig: NextConfig = {
-  experimental: {
-    turbopackFileSystemCacheForDev: true,
-  },
   cacheComponents: true,
   poweredByHeader: false,
   reactCompiler: true,
